@@ -36,7 +36,7 @@ $username_err = $password_err = "";
             //exit( wp_redirect( "http://vacinarte-admin.com.br/teste/" ) );
 
             echo "<script language='javascript' type='text/javascript'>
-            window.location.href='http://vacinarte-admin.com.br/teste/';</script>";
+            window.location.href='http://vacinarte-admin.com.br/pagina-exemplo/';</script>";
         } else {
             $msg_err="Não achou!";
         }
