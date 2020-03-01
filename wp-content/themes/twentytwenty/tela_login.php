@@ -28,12 +28,12 @@ $username_err = $password_err = "";
         $user = $wpdb->get_row($sql);
         if($user->ativo == 1 && $user->existe == 1){
             $msg_err="Bem-vindo " . $user->nm_usu;
-            $location = home_url("/teste");
+            $location = home_url("/teste/");
             $pages = get_pages();
             foreach ( $pages as $page ) {
                 $msg_err .= get_page_link( $page->ID ) . ",\n";
             }
-            //exit( wp_redirect( $location ) );
+            exit( wp_redirect( $location ) );
         } else {
             $msg_err="Não achou!";
         }
