@@ -1,0 +1,152 @@
+-- tabela ATEND / de atendimento
+
+CREATE TABLE `ATEND` (
+  `cd_atend` bigint(20) NOT NULL,
+  `cd_local` int(11) NOT NULL,
+  `cd_cmp` int(11) NOT NULL,
+  `nm_vacinado` varchar(100) NOT NULL,
+  `cpf_vacinado` varchar(45) NOT NULL,
+  `cd_end` int(11) NOT NULL,
+  `cd_cli` int(11) NOT NULL,
+  `bl_crts` int(11) NOT NULL DEFAULT '0' COMMENT '1 = cortesia true\n0 = cortesia false',
+  PRIMARY KEY (`cd_atend`),
+  KEY `fk_ATEND_1_idx` (`cd_local`),
+  KEY `fk_ATEND_2_idx` (`cd_cmp`),
+  KEY `fk_ATEND_3_idx` (`cd_end`),
+  KEY `fk_ATEND_4_idx` (`cd_cli`),
+  CONSTRAINT `fk_ATEND_CAMPANHA_2` FOREIGN KEY (`cd_cmp`) REFERENCES `CAMPANHA` (`cd_cmp`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ATEND_CLIENTE_4` FOREIGN KEY (`cd_cli`) REFERENCES `CLIENTE` (`cd_cli`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ATEND_ENDERECO_3` FOREIGN KEY (`cd_end`) REFERENCES `ENDERECO` (`cd_end`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ATEND_LOCAL_1` FOREIGN KEY (`cd_local`) REFERENCES `LOCAL` (`cd_local`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela CAMPANHA
+
+CREATE TABLE `CAMPANHA` (
+  `cd_cmp` int(11) NOT NULL,
+  `nm_cmp` varchar(45) NOT NULL,
+  `cd_cli` int(11) NOT NULL,
+  `cd_tp_cmp` int(11) NOT NULL,
+  `cd_tp_srv` int(11) NOT NULL,
+  `dt_ini` date NOT NULL COMMENT 'Formato: ''YYYY-MM-DD''\nDe ''1000-01-01'' ate ''9999-12-31''',
+  `dt_fim` date NOT NULL COMMENT 'formato: ''YYYY-MM-DD''\nDe ''1000-01-01'' ate ''9999-12-31''',
+  PRIMARY KEY (`cd_cmp`),
+  KEY `fk_CAMPANHA_1_idx` (`cd_cli`),
+  KEY `fk_CAMPANHA_2_idx` (`cd_tp_cmp`),
+  KEY `fk_CAMPANHA_3_idx` (`cd_tp_srv`),
+  CONSTRAINT `fk_CAMPANHA_CLIENTE_1` FOREIGN KEY (`cd_cli`) REFERENCES `CLIENTE` (`cd_cli`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_CAMPANHA_TP_CMP_2` FOREIGN KEY (`cd_tp_cmp`) REFERENCES `TP_CMP` (`cd_tp_cmp`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_CAMPANHA_TP_SRV_3` FOREIGN KEY (`cd_tp_srv`) REFERENCES `TP_SRV` (`cd_tp_srv`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela CLIENTE 
+
+CREATE TABLE `CLIENTE` (
+  `cd_cli` int(11) NOT NULL,
+  `nm_rz_soc` varchar(150) DEFAULT NULL COMMENT '''Razao Social se for PJ''',
+  `nm_fant` varchar(150) NOT NULL COMMENT '''Nome cliente se for PF, Nome fantasia se for PJ''',
+  `cpf_cnpj` varchar(45) NOT NULL,
+  `cd_tp_cli` int(11) NOT NULL,
+  PRIMARY KEY (`cd_cli`),
+  KEY `fk_CLIENTE_1_idx` (`cd_tp_cli`),
+  CONSTRAINT `fk_CLIENTE_TP_CLI_1` FOREIGN KEY (`cd_tp_cli`) REFERENCES `TP_CLI` (`cd_tp_cli`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela CONTATO
+
+CREATE TABLE `CONTATO` (
+  `cd_ctt` int(11) NOT NULL,
+  `cd_tp_ctt` int(11) NOT NULL,
+  `vlr_ctt` varchar(100) NOT NULL,
+  PRIMARY KEY (`cd_ctt`),
+  KEY `fk_CONTATO_1_idx` (`cd_tp_ctt`),
+  CONSTRAINT `fk_CONTATO_TP_CTT_1` FOREIGN KEY (`cd_tp_ctt`) REFERENCES `TP_CTT` (`cd_tp_ctt`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela ENDERECO
+
+CREATE TABLE `ENDERECO` (
+  `cd_end` int(11) NOT NULL,
+  `logradouro` varchar(200) NOT NULL,
+  `num_end` varchar(45) DEFAULT 'S/N',
+  `bairro` varchar(100) NOT NULL,
+  `cep` varchar(8) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  PRIMARY KEY (`cd_end`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ 
+ -- tabela LOCAL
+ 
+ CREATE TABLE `LOCAL` (
+  `cd_local` int(11) NOT NULL,
+  `nm_local` varchar(45) NOT NULL,
+  PRIMARY KEY (`cd_local`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela TIPO de CLIENTE 
+
+CREATE TABLE `TP_CLI` (
+  `cd_tp_cli` int(11) NOT NULL,
+  `nm_tp_cli` varchar(45) NOT NULL,
+  PRIMARY KEY (`cd_tp_cli`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela TIPO de CAMPANHA 
+
+CREATE TABLE `TP_CMP` (
+  `cd_tp_cmp` int(11) NOT NULL,
+  `nm_tp_cmp` varchar(45) NOT NULL,
+  PRIMARY KEY (`cd_tp_cmp`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela TIPO de CONTATO 
+
+CREATE TABLE `TP_CTT` (
+  `cd_tp_ctt` int(11) NOT NULL,
+  `nm_tp_ctt` varchar(45) NOT NULL,
+  PRIMARY KEY (`cd_tp_ctt`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela de SERVICO
+
+CREATE TABLE `TP_SRV` (
+  `cd_tp_srv` int(11) NOT NULL,
+  `nm_tp_srv` varchar(45) NOT NULL,
+  PRIMARY KEY (`cd_tp_srv`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela de TIPO de USUARIO
+
+CREATE TABLE `TP_USU` (
+  `id_tp_usu` int(11) NOT NULL AUTO_INCREMENT,
+  `tx_tp_usu` varchar(15) NOT NULL COMMENT 'tipo de usuario\n1-proprietario\n2-enfermeiro\n3-auxiliar\n4-cliente\n5-master',
+  `bl_sit_tp` tinyint(1) NOT NULL COMMENT 'status do tipo de usuario\n0-desativado\n1-ativo',
+  PRIMARY KEY (`id_tp_usu`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='tab de tipos de usuarios';
+
+-- tabela de VINCULO de CONTATO
+
+CREATE TABLE `VCL_CONTATO` (
+  `cd_vcl_ctt` int(11) NOT NULL,
+  `cd_cli` int(11) NOT NULL,
+  `cd_ctt` int(11) NOT NULL,
+  PRIMARY KEY (`cd_vcl_ctt`),
+  KEY `fk_VCL_CONTATO_1_idx` (`cd_cli`),
+  KEY `fk_VCL_CONTATO_2_idx` (`cd_ctt`),
+  CONSTRAINT `fk_VCL_CONTATO_CLIENTE_1` FOREIGN KEY (`cd_cli`) REFERENCES `CLIENTE` (`cd_cli`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_VCL_CONTATO_CONTATO_2` FOREIGN KEY (`cd_ctt`) REFERENCES `CONTATO` (`cd_ctt`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- tabela de VINCULO de CONTATO
+
+CREATE TABLE `VCL_ENDERECO` (
+  `cd_vcl_end` int(11) NOT NULL,
+  `cd_cli` int(11) NOT NULL,
+  `cd_end` int(11) NOT NULL,
+  PRIMARY KEY (`cd_vcl_end`),
+  KEY `fk_VCL_ENDERECO_1_idx` (`cd_cli`),
+  KEY `fk_VCL_ENDERECO_2_idx` (`cd_end`),
+  CONSTRAINT `fk_VCL_ENDERECO_CLIENTE_1` FOREIGN KEY (`cd_cli`) REFERENCES `CLIENTE` (`cd_cli`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_VCL_ENDERECO_ENDERECO_2` FOREIGN KEY (`cd_end`) REFERENCES `ENDERECO` (`cd_end`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
