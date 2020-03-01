@@ -7,16 +7,29 @@ get_header(); ?>
 <?php
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$username = $password = $msg_err = "";
+$username_err = $password_err = "";
 
 // Processing form data when form is submitted
  if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-//     // Validate username
-     if(empty(trim($_POST["username"]))){
-         $username_err = "Please enter a username.";
-     }// else{
+    $username = str_replace("'", "", trim($_POST["username"]));
+    $password = str_replace("'", "", trim($_POST["password"]));
+
+    if(empty($username)){
+        $username_err = "Campo usuário vazio!";
+    } elseif(empty($password)) {
+        $password_err = "Campo senha vazio!";
+    } else {
+        $sql = "SELECT id FROM users WHERE username={$username} and password={$password}";
+        $user = $wpdb->get_row($sql);
+        if($user->ativo == 1 && $user->existe == 1){
+            $msg_err="Bem-vindo " . $user->nome;
+        } else {
+            $msg_err="Não achou!";
+        }
+    }
+}
 //         // Prepare a select statement
 //         $sql = "SELECT id FROM users WHERE username = ?";
         
@@ -94,7 +107,7 @@ $username_err = $password_err = $confirm_password_err = "";
     
 //     // Close connection
 //     mysqli_close($link);
-}
+//}
 ?>
  
 <!DOCTYPE html>
@@ -126,30 +139,26 @@ $username_err = $password_err = $confirm_password_err = "";
 
     ?>
 
+        <span class="help-block"><?php echo $msg_err; ?></span>
 
         <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+        <p>Digite usuário e senha para começar</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
+                <label>Usuário</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <label>Senha</label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
+            
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
+                <input type="submit" class="btn btn-primary" value="Entrar">
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <!-- <p>Already have an account? <a href="login.php">Login here</a>.</p> -->
         </form>
     </div></center>
     
