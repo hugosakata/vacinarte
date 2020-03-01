@@ -28,17 +28,17 @@ $username_err = $password_err = "";
         $user = $wpdb->get_row($sql);
         if($user->ativo == 1 && $user->existe == 1){
             $msg_err="Bem-vindo " . $user->nm_usu;
-            $location = home_url("/teste/");
-            $pages = get_pages();
-            foreach ( $pages as $page ) {
-                $msg_err .= get_page_link( $page->ID ) . ",\n";
-            }
-            //exit( wp_redirect( "http://vacinarte-admin.com.br/teste/" ) );
+            // $location = home_url("/teste/");
+            // $pages = get_pages();
+            // foreach ( $pages as $page ) {
+            //     $msg_err .= get_page_link( $page->ID ) . ",\n";
+            // }
+            // //exit( wp_redirect( "http://vacinarte-admin.com.br/teste/" ) );
 
             echo "<script language='javascript' type='text/javascript'>
             window.location.href='http://vacinarte-admin.com.br/pagina-exemplo/';</script>";
         } else {
-            $msg_err="Não achou!";
+            $msg_err="Algo deu errado!\n\nVerifique os dados informados e tente novamente!";
         }
     }
 }
@@ -144,7 +144,7 @@ $username_err = $password_err = "";
 
         <span class="help-block"><?php echo $msg_err; ?></span>
 
-        <h2>Olá</h2>
+        <h2>Olá!</h2>
         <p>Digite usuário e senha para começar</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
