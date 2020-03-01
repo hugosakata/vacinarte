@@ -136,6 +136,16 @@ $username_err = $password_err = "";
 </head>
 <body>
     
+    <header id="site-header" class="header-footer-group" role="banner">
+        <div class="header-inner section-inner">
+            <div class="header-titles-wrapper">					
+                <div class="header-titles">
+                    <div class="site-title faux-heading"><a href="http://vacinarte-admin.com.br/">Vacinarte</a></div>
+                </div><!-- .header-titles -->
+            </div><!-- .header-titles-wrapper -->
+        </div><!-- .header-inner -->			
+    </header><!-- #site-header -->
+
     <div class="wrap">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
