@@ -33,7 +33,7 @@ $username_err = $password_err = "";
             foreach ( $pages as $page ) {
                 $msg_err .= get_page_link( $page->ID ) . ",\n";
             }
-            exit( wp_redirect( $location ) );
+            exit( wp_redirect( "http://vacinarte-admin.com.br/teste/" ) );
         } else {
             $msg_err="Não achou!";
         }
