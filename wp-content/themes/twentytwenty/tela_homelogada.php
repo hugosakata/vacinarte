@@ -87,7 +87,7 @@ img.emoji {
                 <?php get_template_part( 'template-parts/page/content', 'page' );?>
         
 
-                <div class="row">
+                <center><div class="row">
     <div class="col-lg-2">
       <div class="panel panel-primary" id="dash_demandas">
           <div class="panel-heading">
@@ -168,7 +168,7 @@ img.emoji {
       </div><!-- fecha panel dags_totaldem -->
     </div><!-- fecha col -->
 
-  </div><!-- fecha row -->
+  </div></center><!-- fecha row -->
 
 
         
