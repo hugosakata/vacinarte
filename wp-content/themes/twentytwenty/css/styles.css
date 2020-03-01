@@ -1,0 +1,298 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 300px;
+}
+
+#cabeçalho {
+
+    background-image:linear-gradient(160deg, rgb(2, 93, 161) 30%, #012a59 100%);
+    border-color: #013A65 ;
+    /* border-style: outset;*/
+    border-width: 2px 2px 1px 2px;
+    border-bottom: 3px solid rgb(254, 230, 5);
+    margin-bottom: 0px;
+    /*padding-bottom:10px;*/
+}
+
+.navbar-header {
+    width: 300px;
+}
+.navbar-brand h1{
+
+    color: white;
+    text-shadow: .15em .15em  .15em grey;
+    font-size: 1.5em;
+    margin-left: 55px;
+    margin-right:100px;
+    margin-top: -12px;
+    width: 200px;
+
+}
+
+
+.navbar-inverse .navbar-nav > li > a{
+    color: white;
+}
+
+.navbar-right{
+    margin-top: 8px;
+}
+
+
+.navbar-brand  {
+    background: url('../img/logo_bb_3d_65X65.png');
+    background-repeat: no-repeat;
+    width: 65px;
+    height: 65px;
+    margin-right: 70px;
+}
+
+#cabeçalhoII {
+    background-color: #012a59;
+    min-height: 35px;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+} 
+
+
+#cabeçalhoII .navbar-nav>li>a {
+    padding-top: 8px;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+.containerfoto>li {
+
+    position: absolute;
+    width: 70%;
+    height: 50px;
+    text-align: right;
+}
+
+.containerfoto img {
+    width: 60px;
+    height: 60px;
+    border-radius: 25px;
+    border-width: medium;
+    border-style: outset;
+    border-color: rgb(2, 93, 161);
+}
+
+#cabeçalho dfn {
+    font-style: normal;
+    
+}
+
+#cabeçalho abbr{
+    border-bottom: 0px none transparent;
+    text-decoration: none;
+}
+
+.sticky {
+    position:fixed;
+    width: 100%;
+    top:0;
+    background-color: rgba(2, 93, 161, 0.9) !important;
+    margin: 2px;
+    z-index: 100;
+}
+
+a[href='#topo'] {
+    color:#012a59;
+    margin-bottom:0;
+    text-decoration: none;
+}
+
+.frase-do-dia {
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+
+.frase-do-dia p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    padding: 0px 15px;
+    margin-bottom: -5px;
+    text-align: justify;
+}
+
+.frase-do-dia p:before {
+    content: open-quote;
+    font-weight: bold;
+
+}
+.frase-do-dia p:after {
+    content: close-quote;
+    font-weight: bold;
+
+}
+
+.frase-do-dia cite {
+    font-size: 15px;
+}
+
+footer.rodapé {
+    background: #F8F8F8;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+/*
+EFEITO DE  FADE OUT NO CARROSSEL
+ */
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+/* caption do carrossel comportar artigo abaixo da imagem */
+.carouselButton {
+    position: absolute;
+    color: black;
+    bottom: 500px;
+}
+.destaques .carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;
+    color: black;
+    min-height: 200px;
+    text-shadow: none;
+    text-align: left;
+}
+
+.destaques .carousel-caption h3{
+    text-align: center;
+}
+
+#painelcesup .tab-content   {
+    min-height: 120px;
+    margin-top: 40px;
+}
+
+#missão, #visão {
+    font-size: 16px;
+    text-align: justify;
+}
+    
+
+
+
+
+#painelcesup {
+    margin-top: 50px;
+}
+
+#custom_carousel .controls li {
+    text-align: center;
+}
+#custom_carousel .controls li.active {
+
+
+    animation: shake 0.60s cubic-bezier(.36,.07,.19,.30) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(0, 1px, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(0, 2px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(0, -4px, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(0, 4px, 0);
+    }
+}
+/*******/
+
+#btn-baixar{
+    /*margin-left: 15px;*/
+ 
+   
+}
+.paragrafozinho{
+    padding-top: 25px;
+}
+.assunto{
+    padding: 10px;
+}
+.caixinha{
+    height: 30px;
+}
+.botao-prefixo{
+    padding: 8px;
+    margin-right: 20px;
+
+}
