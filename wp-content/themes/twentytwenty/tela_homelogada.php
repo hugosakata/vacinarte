@@ -97,7 +97,7 @@ img.emoji {
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="#">
+                                <a href="http://vacinarte-admin.com.br/cadastro-de-cliente/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Detalhar</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
