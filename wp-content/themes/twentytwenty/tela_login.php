@@ -28,7 +28,7 @@ $username_err = $password_err = "";
         $user = $wpdb->get_row($sql);
         if($user->ativo == 1 && $user->existe == 1){
             $msg_err="Bem-vindo " . $user->nm_usu;
-            $location = home_url("/pagina-exemplo");
+            $location = home_url("/teste");
             exit( wp_redirect( $location ) );
         } else {
             $msg_err="Não achou!";
