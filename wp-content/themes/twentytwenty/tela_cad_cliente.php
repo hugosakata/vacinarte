@@ -122,9 +122,9 @@ $username_err = $password_err = "";
 
     <title>Clientes - Cadastro</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cesup Styles -->
-    <link href="css/styles.css" rel="stylesheet" >
+    <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
   </head>
   <body>
@@ -247,8 +247,8 @@ $username_err = $password_err = "";
 </div><!-- fecha container principal -->  
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
   </body>
   </html>
