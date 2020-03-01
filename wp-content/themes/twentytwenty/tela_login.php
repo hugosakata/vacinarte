@@ -28,8 +28,8 @@ $username_err = $password_err = "";
         $user = $wpdb->get_row($sql);
         if($user->ativo == 1 && $user->existe == 1){
             $msg_err="Bem-vindo " . $user->nm_usu;
-            $location = "http://vacinarte-admin.com.br/pagina-exemplo/";//get_site_url() . "/pagina-exemplo";
-            wp_redirect( $location );
+            $location = home_url("/pagina-exemplo");
+            exit( wp_redirect( $location ) );
         } else {
             $msg_err="Não achou!";
         }
