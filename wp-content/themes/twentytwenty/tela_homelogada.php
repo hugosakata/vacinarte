@@ -4,7 +4,7 @@ global $wpdb;
 
 ?>
  
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -86,95 +86,163 @@ img.emoji {
             <main id="main" class="site-main" role="main">
                 <?php get_template_part( 'template-parts/page/content', 'page' );?>
         
+                <div class="container">
 
-                <div class="row col-lg-10 col-lg-offset-1">
-    <div class="col-lg-2">
-      <div class="panel panel-primary" id="dash_demandas">
-          <div class="panel-heading">
-              <div class="row">
-                <div class="col-xs-12 text-center">
-                    <div class="huge"><h2>176</h2></div>
-                    <div>Demandas Ativas</div>
-                </div><!-- fecha col xm 12 -->
-              </div><!-- fecha row -->
-          </div><!-- fecha panel heading -->
-          <a href="#">
-            <div class="panel-footer">
-              <span class="pull-left">Detalhar</span>
-              <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-              <div class="clearfix"></div>
-            </div><!-- fecha panel hfooter -->
-          </a>
-      </div><!-- fecha panel dags_totaldem -->
-    </div><!-- fecha col -->
+                    <div class="row" style="text-align:center;">
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
 
-    <div class="col-lg-2 col-md-4">
-      <div class="panel panel-primary" id="dash_areas">
-          <div class="panel-heading">
-              <div class="row">
-                <div class="col-xs-12 text-center">
-                    <div class="huge"><h2>05</h2></div>
-                    <div>Áreas Demandadas</div>
-                </div><!-- fecha col xm 12 -->
-              </div><!-- fecha row -->
-          </div><!-- fecha panel heading -->
-          <a href="#">
-            <div class="panel-footer">
-              <span class="pull-left">Detalhar</span>
-              <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-              <div class="clearfix"></div>
-            </div><!-- fecha panel hfooter -->
-          </a>
-      </div><!-- fecha panel dags_totaldem -->
-    </div><!-- fecha col -->
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
+                        
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
 
-    <div class="col-lg-2 col-md-4">
-      <div class="panel panel-primary" id="dash_equipes">
-          <div class="panel-heading">
-              <div class="row">
-                <div class="col-xs-12 text-center">
-                    <div class="huge"><h2>12</h2></div>
-                    <div>Equipes Demandadas</div>
-                </div><!-- fecha col xm 12 -->
-              </div><!-- fecha row -->
-          </div><!-- fecha panel heading -->
-          <a href="#">
-            <div class="panel-footer">
-              <span class="pull-left">Detalhar</span>
-              <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-              <div class="clearfix"></div>
-            </div><!-- fecha panel hfooter -->
-          </a>
-      </div><!-- fecha panel dags_totaldem -->
-    </div><!-- fecha col -->
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
 
-    <div class="col-lg-2 col-md-4">
-      <div class="panel panel-primary" id="dash_condutores">
-          <div class="panel-heading">
-              <div class="row">
-                <div class="col-xs-12 text-center">
-                    <div class="huge"><h2>172</h2></div>
-                    <div>Condutores</div>
-                </div><!-- fecha col xm 12 -->
-              </div><!-- fecha row -->
-          </div><!-- fecha panel heading -->
-          <a href="#">
-            <div class="panel-footer">
-              <span class="pull-left">Detalhar</span>
-              <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-              <div class="clearfix"></div>
-            </div><!-- fecha panel hfooter -->
-          </a>
-      </div><!-- fecha panel dags_totaldem -->
-    </div><!-- fecha col -->
+                    </div><!-- fecha row -->
 
-  </div><!-- fecha row -->
+                    <div class="row" style="text-align:center;">
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
+    
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
+    
+    
+                        <div class="col" style="display:inline-block; margin: 10px;">
+                            <div class="panel panel-primary" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h2>176</h2></div>
+                                            <div>Demandas Ativas</div>
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
+    
+                    </div><!-- fecha row -->
+
+                </div>
 
 
         
             </main><!-- #main -->
         </div><!-- #primary -->
-    </div></center><!-- .wrap -->
+    </div><!-- .wrap -->
     
 </body>
 </html>
+
