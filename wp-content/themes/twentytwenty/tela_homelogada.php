@@ -95,7 +95,7 @@ img.emoji {
                 <div class="container">
 
                     <div class="row" style="text-align:center;">
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col-lg-2" style="display:inline-block; margin: 10px;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
