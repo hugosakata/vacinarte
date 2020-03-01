@@ -133,7 +133,7 @@ $username_err = $password_err = "";
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente
+          <h3 class="page-header">Cadastro de Cliente PF
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
