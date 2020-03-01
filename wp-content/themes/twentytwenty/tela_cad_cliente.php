@@ -1,4 +1,4 @@
-<?php /* Template Name: Login */
+<?php /* Template Name: CadastroCliente */
 
 global $wpdb;
 
