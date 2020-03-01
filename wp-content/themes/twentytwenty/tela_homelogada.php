@@ -81,13 +81,13 @@ img.emoji {
         </div><!-- .header-inner -->			
     </header><!-- #site-header -->
 
-    <center><div class="wrap">
+    <div class="wrap">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
                 <?php get_template_part( 'template-parts/page/content', 'page' );?>
         
 
-                <div class="row">
+                <div class="row col-lg-10 col-lg-offset-1">
     <div class="col-lg-2">
       <div class="panel panel-primary" id="dash_demandas">
           <div class="panel-heading">
