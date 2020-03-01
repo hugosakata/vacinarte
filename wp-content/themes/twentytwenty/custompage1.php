@@ -9,16 +9,14 @@ get_header(); ?>
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
- 
-$username_err = $_SERVER["REQUEST_METHOD"];
 
 // Processing form data when form is submitted
-// if($_SERVER["REQUEST_METHOD"] == "POST"){
+ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 //     // Validate username
-//     if(empty(trim($_POST["username"]))){
-//         $username_err = "Please enter a username.";
-//     } else{
+     if(empty(trim($_POST["username"]))){
+         $username_err = "Please enter a username.";
+     }// else{
 //         // Prepare a select statement
 //         $sql = "SELECT id FROM users WHERE username = ?";
         
@@ -96,7 +94,7 @@ $username_err = $_SERVER["REQUEST_METHOD"];
     
 //     // Close connection
 //     mysqli_close($link);
-// }
+}
 ?>
  
 <!DOCTYPE html>
