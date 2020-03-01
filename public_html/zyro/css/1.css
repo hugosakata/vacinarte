@@ -1,0 +1,35 @@
+
+#wb_header { height: 100px; }
+#wb_header > .wb_cont_bg { background: transparent none repeat scroll left top; }
+#wb_main { height: 50px; }
+#wb_main > .wb_cont_bg { background: transparent none repeat scroll left top; }
+#wb_footer { height: 100px; }
+#wb_footer > .wb_cont_bg { background: transparent none repeat scroll left top; }
+body { background: transparent none repeat scroll left top; }
+.wb_sbg { background: transparent none repeat scroll left top; }
+body, .wb_sbg { min-width: 1200px; min-height: 250px; }
+.wb_cont_inner { width: 1200px; }
+.wb_cont_bg { width: 1200px; margin-left: -600px; }
+.root { height: 250px; overflow: visible; min-height: 250px; }
+#wb_element_instance0 form .form-area-field { height: 100px; }
+#wb_element_instance0 { top: 0px; left: 320px; min-width: 480px; width: 480px; min-height: 200px; height: 200px; display: block; z-index: 3; }
+#wb_element_instance1 { top: 0px; left: 483px; min-width: 200px; width: 200px; min-height: 32px; height: 32px; display: block; z-index: 3; }
+#wb_element_instance2 { top: 52px; left: 0px; display: block; z-index: 9000; }
+#wb_element_instance3 { top: 220px; left: 0px; display: block; z-index: 9999; }
+
+
+#wb_element_instance0 form td { text-align: right; }
+#wb_element_instance0 form tr.area-row > th { height: 1%; }
+#wb_element_instance0 form tr.area-row > td { height: 1%; }
+#wb_element_instance0 form tr.form-footer > td { height: 20px; }
+#wb_element_instance1 p:last-child { margin-bottom: 0; }
+
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (max-width: 767px) {
+}
