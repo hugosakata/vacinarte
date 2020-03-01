@@ -34,7 +34,9 @@ $username_err = $password_err = "";
                 $msg_err .= get_page_link( $page->ID ) . ",\n";
             }
             //exit( wp_redirect( "http://vacinarte-admin.com.br/teste/" ) );
-            window.location.href="http://vacinarte-admin.com.br/teste/";
+
+            echo "<script language='javascript' type='text/javascript'>
+            window.location.href='http://vacinarte-admin.com.br/teste/';</script>";
         } else {
             $msg_err="Não achou!";
         }
