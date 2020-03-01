@@ -1,12 +1,17 @@
 <?php /* Template Name: HomeLogada */
 
 global $wpdb;
-
-$sql = "select count(*) from cliente";
-$total_clientes = $wpdb->get_var($sql);
-
 ?>
  
+ <?php
+
+$sql = "select count(cd_cli) from cliente";
+$total_clientes = $wpdb->get_var($sql);
+
+$total_clientes = "11111";
+
+?>
+
  <!DOCTYPE html>
 <html lang="en">
 <head>
