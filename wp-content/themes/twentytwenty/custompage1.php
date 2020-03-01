@@ -21,10 +21,13 @@ $username_err = $password_err = "";
     } elseif(empty($password)) {
         $password_err = "Campo senha vazio!";
     } else {
-        $sql = "SELECT id FROM users WHERE username={$username} and password={$password}";
+        $sql = "select nm_usu, ";
+        $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
+        $sql .="count(tx_log_usu) as existe from LOG_USU ";
+        $sql .="where tx_log_usu = '{$username}' and pw_usu = '{$password}'";
         $user = $wpdb->get_row($sql);
         if($user->ativo == 1 && $user->existe == 1){
-            $msg_err="Bem-vindo " . $user->nome;
+            $msg_err="Bem-vindo " . $user->nm_usu;
         } else {
             $msg_err="Não achou!";
         }
