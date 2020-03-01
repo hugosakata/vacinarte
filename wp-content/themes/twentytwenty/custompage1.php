@@ -114,17 +114,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		    <?php get_template_part( 'template-parts/page/content', 'page' );?>
-		    
-		    <?php
+    
+    <center><div class="wrapper">
+    <?php
 global $wpdb;
 
 $user_count = $wpdb->get_row( "SELECT ifnull(teste1, 0) as ativo, count(teste1) as existe FROM TESTE where teste1=2 and teste3=2" );
 echo "<p>ativo: {$user_count->ativo} existe {$user_count->existe}</p>";
 
 ?>
-    
-    <center><div class="wrapper">
-        <h2>Sign Up</h2>
+        <h2>-----------------Sign Up-------------</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
