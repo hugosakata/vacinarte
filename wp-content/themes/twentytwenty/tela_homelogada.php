@@ -5,7 +5,7 @@ global $wpdb;
  
  <?php
 
-$sql = "select count(cd_cli) as total from cliente";
+$sql = "SELECT count(*) as total FROM CLIENTE";
 $user = $wpdb->get_row($sql);
 
 $total_clientes = $user->total;
