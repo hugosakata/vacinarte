@@ -1,0 +1,21 @@
+select
+	nm_usu,
+    ifnull(bl_sit_usu, 0) as bl_sit_usu,
+    count(tx_log_usu) as existe
+from
+	vacinarte.LOG_USU
+where
+	tx_log_usu = 'reidaltro'
+	and pw_usu = '9708';
+	
+	
+CREATE TABLE `LOG_USU` (
+  `id_log_usu` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id do usuario',
+  `nm_usu` varchar(80) NOT NULL COMMENT 'nome do usuario',
+  `tx_log_usu` varchar(16) NOT NULL COMMENT 'texto de login do usuario',
+  `pw_usu` varchar(8) NOT NULL COMMENT 'senha',
+  `tp_usu` smallint(3) NOT NULL COMMENT 'tipo de usuario\n1-proprietario\n2-enfermeiro\n3-auxiliar\n4-cliente\n5-master',
+  `bl_sit_usu` tinyint(1) DEFAULT NULL COMMENT 'status do usuario\n0-desativado\n1-ativo',
+  PRIMARY KEY (`id_log_usu`),
+  UNIQUE KEY `tx_log_usu_UNIQUE` (`tx_log_usu`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Tabela de logins de usuarios autorizados';
