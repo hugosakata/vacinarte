@@ -95,7 +95,7 @@ img.emoji {
                 <div class="container">
 
                     <div class="row" style="text-align:center;">
-                        <div class="col-lg-2" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -115,7 +115,7 @@ img.emoji {
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -135,7 +135,7 @@ img.emoji {
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
                         
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -155,7 +155,7 @@ img.emoji {
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -178,7 +178,7 @@ img.emoji {
                     </div><!-- fecha row -->
 
                     <div class="row" style="text-align:center;">
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -198,7 +198,7 @@ img.emoji {
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
     
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -219,7 +219,7 @@ img.emoji {
                         </div><!-- fecha col -->
     
     
-                        <div class="col" style="display:inline-block; margin: 10px;">
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
