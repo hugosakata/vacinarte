@@ -10,7 +10,7 @@ get_header(); ?>
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
-$username_err = "teste";
+$username_err = $_SERVER["REQUEST_METHOD"];
 
 // Processing form data when form is submitted
 // if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -128,7 +128,7 @@ $username_err = "teste";
 
     ?>
 
-    
+
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
