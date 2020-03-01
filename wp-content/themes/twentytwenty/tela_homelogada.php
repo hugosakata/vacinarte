@@ -2,6 +2,9 @@
 
 global $wpdb;
 
+$sql = "select count(*) from cliente";
+$total_clientes = $wpdb->get_var($sql);
+
 ?>
  
  <!DOCTYPE html>
@@ -94,8 +97,8 @@ img.emoji {
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>176</h2></div>
-                                            <div>Demandas Ativas</div>
+                                            <div class="huge"><h2><?php echo $total_clientes; ?></h2></div>
+                                            <div>Clientes</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
