@@ -2,7 +2,8 @@
 
 global $wpdb;
 
-get_header(); ?>
+//get_header(); 
+?>
 
 <?php
  
@@ -172,5 +173,5 @@ $username_err = $password_err = "";
 </body>
 </html>
 <?php
-get_footer();
+//get_footer();
 ?>
