@@ -29,7 +29,7 @@ $username_err = $password_err = "";
         if($user->ativo == 1 && $user->existe == 1){
             $msg_err="Bem-vindo " . $user->nm_usu;
             $location = home_url("/teste");
-            $msg_err = $location;
+            $msg_err = get_pages();
             //exit( wp_redirect( $location ) );
         } else {
             $msg_err="Não achou!";
