@@ -81,13 +81,13 @@ img.emoji {
         </div><!-- .header-inner -->			
     </header><!-- #site-header -->
 
-    <div class="wrap">
+    <center><div class="wrap">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
                 <?php get_template_part( 'template-parts/page/content', 'page' );?>
         
 
-                <center><div class="row">
+                <div class="row">
     <div class="col-lg-2">
       <div class="panel panel-primary" id="dash_demandas">
           <div class="panel-heading">
@@ -168,13 +168,13 @@ img.emoji {
       </div><!-- fecha panel dags_totaldem -->
     </div><!-- fecha col -->
 
-  </div></center><!-- fecha row -->
+  </div><!-- fecha row -->
 
 
         
             </main><!-- #main -->
         </div><!-- #primary -->
-    </div><!-- .wrap -->
+    </div></center><!-- .wrap -->
     
 </body>
 </html>
