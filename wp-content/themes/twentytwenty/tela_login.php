@@ -1,4 +1,4 @@
-<?php /* Template Name: CustomPageT1 */
+<?php /* Template Name: Login */
 
 global $wpdb;
 
@@ -21,10 +21,13 @@ $username_err = $password_err = "";
     } elseif(empty($password)) {
         $password_err = "Campo senha vazio!";
     } else {
-        $sql = "SELECT id FROM users WHERE username={$username} and password={$password}";
+        $sql = "select nm_usu, ";
+        $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
+        $sql .="count(tx_log_usu) as existe from LOG_USU ";
+        $sql .="where tx_log_usu = '{$username}' and pw_usu = '{$password}'";
         $user = $wpdb->get_row($sql);
         if($user->ativo == 1 && $user->existe == 1){
-            $msg_err="Bem-vindo " . $user->nome;
+            $msg_err="Bem-vindo " . $user->nm_usu;
         } else {
             $msg_err="Não achou!";
         }
@@ -130,18 +133,9 @@ $username_err = $password_err = "";
     
     <center><div class="wrapper">
 
-
-    <?php
-    global $wpdb;
-
-    $user_count = $wpdb->get_row( "SELECT ifnull(teste1, 0) as ativo, count(teste1) as existe FROM TESTE where teste1=2 and teste3=2" );
-    echo "<p>ativo: {$user_count->ativo} existe {$user_count->existe}</p>";
-
-    ?>
-
         <span class="help-block"><?php echo $msg_err; ?></span>
 
-        <h2>Sign Up</h2>
+        <h2>Olá</h2>
         <p>Digite usuário e senha para começar</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
