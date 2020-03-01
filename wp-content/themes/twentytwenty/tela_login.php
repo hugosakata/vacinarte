@@ -30,7 +30,6 @@ $username_err = $password_err = "";
             $msg_err="Bem-vindo " . $user->nm_usu;
             $location = "http://vacinarte-admin.com.br/pagina-exemplo/";//get_site_url() . "/pagina-exemplo";
             wp_redirect( $location );
-            exit; 
         } else {
             $msg_err="Não achou!";
         }
