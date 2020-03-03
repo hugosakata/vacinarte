@@ -152,13 +152,13 @@ img.emoji {
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2>176</h2></div>
-                                            <div>Demandas Ativas</div>
+                                            <div>Atendimento</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="#">
+                                <a href="http://vacinarte-admin.com.br/iniciar-atendimento/">
                                     <div class="panel-footer">
-                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-left">Iniciar</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
