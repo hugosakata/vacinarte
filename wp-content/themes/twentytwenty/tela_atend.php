@@ -1,4 +1,4 @@
-<?php /* Template Name: TelaIniAtend */
+<?php /* Template Name: TelaAtend */
 
 global $wpdb;
 
