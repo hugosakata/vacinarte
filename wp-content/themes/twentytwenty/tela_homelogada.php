@@ -5,8 +5,11 @@ global $wpdb;
  
  <?php
 
-$sql = "SELECT count(*) as total FROM CLIENTE";
-$total_clientes = $wpdb->get_var($sql);
+$sql = "SELECT count(*) as total FROM CLIENTE where cd_tp_cli=1";
+$total_clientes_pf = $wpdb->get_var($sql);
+
+$sql = "SELECT count(*) as total FROM CLIENTE where cd_tp_cli=2";
+$total_clientes_pj = $wpdb->get_var($sql);
 
 ?>
 
@@ -92,14 +95,22 @@ img.emoji {
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2><?php echo $total_clientes; ?></h2></div>
-                                            <div>Clientes</div>
+                                            <div class="huge"><h2><?php echo $total_clientes_pf; ?></h2></div>
+                                            <div>Clientes PF</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/cadastro-de-cliente/">
+                                <a href="http://vacinarte-admin.com.br/cadastrar-pf/">
                                     <div class="panel-footer">
-                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-left">Listar clientes</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+
+                                <a href="http://vacinarte-admin.com.br/cadastrar-pf/">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Cadastrar cliente</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
@@ -112,14 +123,22 @@ img.emoji {
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>176</h2></div>
-                                            <div>Demandas Ativas</div>
+                                            <div class="huge"><h2><?php echo $total_clientes_pj; ?></h2></div>
+                                            <div>Clientes PJ</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="#">
+                                <a href="http://vacinarte-admin.com.br/ccadastrar-pj/">
                                     <div class="panel-footer">
-                                        <span class="pull-left">Detalhar</span>
+                                        <span class="pull-left">Listar clientes</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                                </a>
+
+                                <a href="http://vacinarte-admin.com.br/cadastrar-pj/">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Cadastrar cliente</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
