@@ -82,7 +82,7 @@ img.emoji {
     
     <?php include 'tela_header.php';?>
 
-    <input type="text" class="datepicker" />
+    <input type="text" class=".date-field" />
 
     <div class="wrap">
         <div id="primary" class="content-area">
