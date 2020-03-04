@@ -92,8 +92,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
     
     <?php include 'tela_header.php';?>
 
-    <input type="text" id="datepicker" autocomplete="off" class="hasDatepicker" readonly="readonly"/>
+    <p><input type="text" id="datepicker"></p>
 
+    
     <div class="wrap">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
