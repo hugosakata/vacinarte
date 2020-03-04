@@ -273,5 +273,219 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
     </div><!-- .wrap -->
     
 </body>
+
+<script type="text/javascript" language="javascript">
+	
+
+	jQuery(document).ready(function($){
+		
+		if($('.wpcf7-form-control.wpcf7-repeater-add').length>0){
+			$('.wpcf7-form-control.wpcf7-repeater-add').on('click', function(){
+				wpdp_refresh(jQuery, true);
+			});
+		}
+		
+	
+});
+var wpdp_refresh_first = 'yes';
+var wpdp_counter = 0;
+var wpdp_month_array = [];
+var wpdp_dateFormat = "dd/mm/yy";
+var wpdp_defaultDate = "dd/mm/yy";
+function wpdp_refresh($, force){
+				if(typeof $.datepicker!='undefined' && typeof $.datepicker.regional["en-GB"]!='undefined'){
+					
+				wpdp_month_array = $.datepicker.regional["en-GB"].monthNames;
+									
+				}
+		
+		
+				
+
+				
+
+				if($("#datepicker").length>0){
+					
+				$("#datepicker").attr("autocomplete", "off");
+					
+				//document.title = wpdp_refresh_first=='yes';
+				force = true;
+				if(wpdp_refresh_first=='yes' || force){
+					
+					if(typeof $.datepicker!='undefined')
+					$("#datepicker").datepicker( "destroy" );
+					
+					$("#datepicker").removeClass("hasDatepicker");
+					wpdp_refresh_first = 'done';
+					
+				}
+				$('body').on('mouseover, mousemove', function(){//#datepicker									
+				if ($(this).val()!= "") {
+					$(this).attr('data-default-val', $(this).val());
+				}		
+							
+				if(wpdp_counter>2)
+				clearInterval(wpdp_intv);		
+				
+				if(!$("#datepicker").hasClass('hasDatepicker')){
+
+				
+					
+				$("#datepicker").datepicker($.extend(  
+					{},  // empty object  
+					$.datepicker.regional[ "en-GB" ],       // Dynamically  
+					{  
+ 					dateFormat: wpdp_dateFormat
+  } // your custom options 
+				)); 
+				
+				$("#datepicker").attr('readonly', 'readonly');
+				
+				
+				
+				
+				$("#datepicker").datepicker( "option", "dateFormat", "dd/mm/yy" );
+setTimeout(function(){ $("#datepicker").datepicker().datepicker('setDate', "dd/mm/yy"); }, 100);
+									
+					$.each($("#datepicker"), function(){
+						if($(this).data('default-val')!= ""){
+							$(this).val($(this).data('default-val'));
+						}
+						
+					});
+						
+				
+				}
+				});
+				}
+
+				
+
+				if($(".hasDatepicker").length>0){
+					
+				$(".hasDatepicker").attr("autocomplete", "off");
+					
+				//document.title = wpdp_refresh_first=='yes';
+				force = true;
+				if(wpdp_refresh_first=='yes' || force){
+					
+					if(typeof $.datepicker!='undefined')
+					$(".hasDatepicker").datepicker( "destroy" );
+					
+					$(".hasDatepicker").removeClass("hasDatepicker");
+					wpdp_refresh_first = 'done';
+					
+				}
+				$('body').on('mouseover, mousemove', function(){//.hasDatepicker									
+				if ($(this).val()!= "") {
+					$(this).attr('data-default-val', $(this).val());
+				}		
+							
+				if(wpdp_counter>2)
+				clearInterval(wpdp_intv);		
+				
+				if(!$(".hasDatepicker").hasClass('hasDatepicker')){
+
+				
+					
+				$(".hasDatepicker").datepicker($.extend(  
+					{},  // empty object  
+					$.datepicker.regional[ "en-GB" ],       // Dynamically  
+					{  
+ 					dateFormat: wpdp_dateFormat
+  } // your custom options 
+				)); 
+				
+				$(".hasDatepicker").attr('readonly', 'readonly');
+				
+				
+				
+				
+				$(".hasDatepicker").datepicker( "option", "dateFormat", "dd/mm/yy" );
+setTimeout(function(){ $(".hasDatepicker").datepicker().datepicker('setDate', "dd/mm/yy"); }, 100);
+									
+					$.each($(".hasDatepicker"), function(){
+						if($(this).data('default-val')!= ""){
+							$(this).val($(this).data('default-val'));
+						}
+						
+					});
+						
+				
+				}
+				});
+				}
+
+				
+
+				if($(".date-field").length>0){
+					
+				$(".date-field").attr("autocomplete", "off");
+					
+				//document.title = wpdp_refresh_first=='yes';
+				force = true;
+				if(wpdp_refresh_first=='yes' || force){
+					
+					if(typeof $.datepicker!='undefined')
+					$(".date-field").datepicker( "destroy" );
+					
+					$(".date-field").removeClass("hasDatepicker");
+					wpdp_refresh_first = 'done';
+					
+				}
+				$('body').on('mouseover, mousemove', function(){//.date-field									
+				if ($(this).val()!= "") {
+					$(this).attr('data-default-val', $(this).val());
+				}		
+							
+				if(wpdp_counter>2)
+				clearInterval(wpdp_intv);		
+				
+				if(!$(".date-field").hasClass('hasDatepicker')){
+
+				
+					
+				$(".date-field").datepicker($.extend(  
+					{},  // empty object  
+					$.datepicker.regional[ "en-GB" ],       // Dynamically  
+					{  
+ 					dateFormat: wpdp_dateFormat
+  } // your custom options 
+				)); 
+				
+				$(".date-field").attr('readonly', 'readonly');
+				
+				
+				
+				
+				$(".date-field").datepicker( "option", "dateFormat", "dd/mm/yy" );
+setTimeout(function(){ $(".date-field").datepicker().datepicker('setDate', "dd/mm/yy"); }, 100);
+									
+					$.each($(".date-field"), function(){
+						if($(this).data('default-val')!= ""){
+							$(this).val($(this).data('default-val'));
+						}
+						
+					});
+						
+				
+				}
+				});
+				}
+		
+		
+			
+		
+		$('.ui-datepicker').addClass('notranslate');
+}
+	var wpdp_intv = setInterval(function(){
+		wpdp_counter++;
+		wpdp_refresh(jQuery, false);
+	}, 500);
+
+	
+	
+	</script>
+
 </html>
 
