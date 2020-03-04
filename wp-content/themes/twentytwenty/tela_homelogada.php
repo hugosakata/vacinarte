@@ -271,8 +271,6 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
             </main><!-- #main -->
         </div><!-- #primary -->
     </div><!-- .wrap -->
-    
-</body>
 
 <script type="text/javascript" language="javascript">
 	
@@ -486,6 +484,6 @@ setTimeout(function(){ $(".date-field").datepicker().datepicker('setDate', "dd/m
 	
 	
 	</script>
-
+</body>
 </html>
 
