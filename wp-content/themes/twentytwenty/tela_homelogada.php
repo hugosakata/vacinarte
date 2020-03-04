@@ -16,21 +16,28 @@ $total_clientes_pj = $wpdb->get_var($sql);
  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
 
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 
-		<title>Página de exemplo &#8211; Vacinarte</title>
+		<title>Vacinarte</title>
 <meta name='robots' content='noindex,nofollow' />
-<link rel='dns-prefetch' href='//s.w.org' />
+	<script>
+	( function() {
+		var query = document.location.search;
+
+		if ( query && query.indexOf( 'preview=true' ) !== -1 ) {
+			window.name = 'wp-preview-5';
+		}
+
+		if ( window.addEventListener ) {
+			window.addEventListener( 'unload', function() { window.name = ''; }, false );
+		}
+	}());
+	</script>
+	<link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="Feed para Vacinarte &raquo;" href="http://vacinarte-admin.com.br/feed/" />
 <link rel="alternate" type="application/rss+xml" title="Feed de comentários para Vacinarte &raquo;" href="http://vacinarte-admin.com.br/comments/feed/" />
 		<script>
@@ -54,26 +61,29 @@ img.emoji {
 	<link rel='stylesheet' id='dashicons-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dashicons.min.css?ver=5.3.2' media='all' />
 <link rel='stylesheet' id='admin-bar-css'  href='http://vacinarte-admin.com.br/wp-includes/css/admin-bar.min.css?ver=5.3.2' media='all' />
 <link rel='stylesheet' id='wp-block-library-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' media='all' />
+<link rel='stylesheet' id='wpdp-style2-css'  href='http://vacinarte-admin.com.br/wp-content/plugins/wp-datepicker/css/front-styles.css?ver=5.3.2' media='all' />
+<link rel='stylesheet' id='wpdp-style3-css'  href='http://vacinarte-admin.com.br/wp-content/plugins/wp-datepicker/css/jquery-ui.css?ver=5.3.2' media='all' />
 <link rel='stylesheet' id='twentytwenty-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/style.css?ver=1.1' media='all' />
 <style id='twentytwenty-style-inline-css'>
 .color-accent,.color-accent-hover:hover,.color-accent-hover:focus,:root .has-accent-color,.has-drop-cap:not(:focus):first-letter,.wp-block-button.is-style-outline,a { color: #cd2653; }blockquote,.border-color-accent,.border-color-accent-hover:hover,.border-color-accent-hover:focus { border-color: #cd2653; }button:not(.toggle),.button,.faux-button,.wp-block-button__link,.wp-block-file .wp-block-file__button,input[type="button"],input[type="reset"],input[type="submit"],.bg-accent,.bg-accent-hover:hover,.bg-accent-hover:focus,:root .has-accent-background-color,.comment-reply-link { background-color: #cd2653; }.fill-children-accent,.fill-children-accent * { fill: #cd2653; }body,.entry-title a,:root .has-primary-color { color: #000000; }:root .has-primary-background-color { background-color: #000000; }cite,figcaption,.wp-caption-text,.post-meta,.entry-content .wp-block-archives li,.entry-content .wp-block-categories li,.entry-content .wp-block-latest-posts li,.wp-block-latest-comments__comment-date,.wp-block-latest-posts__post-date,.wp-block-embed figcaption,.wp-block-image figcaption,.wp-block-pullquote cite,.comment-metadata,.comment-respond .comment-notes,.comment-respond .logged-in-as,.pagination .dots,.entry-content hr:not(.has-background),hr.styled-separator,:root .has-secondary-color { color: #6d6d6d; }:root .has-secondary-background-color { background-color: #6d6d6d; }pre,fieldset,input,textarea,table,table *,hr { border-color: #dcd7ca; }caption,code,code,kbd,samp,.wp-block-table.is-style-stripes tbody tr:nth-child(odd),:root .has-subtle-background-background-color { background-color: #dcd7ca; }.wp-block-table.is-style-stripes { border-bottom-color: #dcd7ca; }.wp-block-latest-posts.is-grid li { border-top-color: #dcd7ca; }:root .has-subtle-background-color { color: #dcd7ca; }body:not(.overlay-header) .primary-menu > li > a,body:not(.overlay-header) .primary-menu > li > .icon,.modal-menu a,.footer-menu a, .footer-widgets a,#site-footer .wp-block-button.is-style-outline,.wp-block-pullquote:before,.singular:not(.overlay-header) .entry-header a,.archive-header a,.header-footer-group .color-accent,.header-footer-group .color-accent-hover:hover { color: #cd2653; }.social-icons a,#site-footer button:not(.toggle),#site-footer .button,#site-footer .faux-button,#site-footer .wp-block-button__link,#site-footer .wp-block-file__button,#site-footer input[type="button"],#site-footer input[type="reset"],#site-footer input[type="submit"] { background-color: #cd2653; }.header-footer-group,body:not(.overlay-header) #site-header .toggle,.menu-modal .toggle { color: #000000; }body:not(.overlay-header) .primary-menu ul { background-color: #000000; }body:not(.overlay-header) .primary-menu > li > ul:after { border-bottom-color: #000000; }body:not(.overlay-header) .primary-menu ul ul:after { border-left-color: #000000; }.site-description,body:not(.overlay-header) .toggle-inner .toggle-text,.widget .post-date,.widget .rss-date,.widget_archive li,.widget_categories li,.widget cite,.widget_pages li,.widget_meta li,.widget_nav_menu li,.powered-by-wordpress,.to-the-top,.singular .entry-header .post-meta,.singular:not(.overlay-header) .entry-header .post-meta a { color: #6d6d6d; }.header-footer-group pre,.header-footer-group fieldset,.header-footer-group input,.header-footer-group textarea,.header-footer-group table,.header-footer-group table *,.footer-nav-widgets-wrapper,#site-footer,.menu-modal nav *,.footer-widgets-outer-wrapper,.footer-top { border-color: #dcd7ca; }.header-footer-group table caption,body:not(.overlay-header) .header-inner .toggle-wrapper::before { background-color: #dcd7ca; }
 </style>
-
+<link rel='stylesheet' id='twentytwenty-print-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/print.css?ver=1.1' media='print' />
+<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
 <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
 <script>
 jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Fechar","currentText":"Hoje","monthNames":["janeiro","fevereiro","mar\u00e7o","abril","Maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"],"monthNamesShort":["jan","fev","mar","abr","Maio","jun","jul","ago","set","out","nov","dez"],"nextText":"Seguinte","prevText":"Anterior","dayNames":["domingo","segunda-feira","ter\u00e7a-feira","quarta-feira","quinta-feira","sexta-feira","s\u00e1bado"],"dayNamesShort":["dom","seg","ter","qua","qui","sex","s\u00e1b"],"dayNamesMin":["D","S","T","Q","Q","S","S"],"dateFormat":"d \\dd\\e MM \\dd\\e yy","firstDay":0,"isRTL":false});});
 </script>
 <script src='http://vacinarte-admin.com.br/wp-content/plugins/wp-datepicker/js/scripts-front.js?ver=5.3.2'></script>
-
-<link rel='stylesheet' id='twentytwenty-print-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/print.css?ver=1.1' media='print' />
 <script src='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/assets/js/index.js?ver=1.1' async></script>
 <link rel='https://api.w.org/' href='http://vacinarte-admin.com.br/wp-json/' />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://vacinarte-admin.com.br/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://vacinarte-admin.com.br/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.3.2" />
-<link rel='shortlink' href='http://vacinarte-admin.com.br/?p=2' />
-<link rel="alternate" type="application/json+oembed" href="http://vacinarte-admin.com.br/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fvacinarte-admin.com.br%2Fpagina-exemplo%2F" />
-<link rel="alternate" type="text/xml+oembed" href="http://vacinarte-admin.com.br/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fvacinarte-admin.com.br%2Fpagina-exemplo%2F&#038;format=xml" />
+<link rel='shortlink' href='http://vacinarte-admin.com.br/?p=5' />
+<link rel="alternate" type="application/json+oembed" href="http://vacinarte-admin.com.br/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fvacinarte-admin.com.br%2F%3Fpage_id%3D5" />
+<link rel="alternate" type="text/xml+oembed" href="http://vacinarte-admin.com.br/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fvacinarte-admin.com.br%2F%3Fpage_id%3D5&#038;format=xml" />
 	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
 	<style media="print">#wpadminbar { display:none; }</style>
 	<style media="screen">
@@ -84,7 +94,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		* html body { margin-top: 46px !important; }
 	}
 </style>
-</head>
+	
+	</head>
 <body>
     
     <?php include 'tela_header.php';?>
