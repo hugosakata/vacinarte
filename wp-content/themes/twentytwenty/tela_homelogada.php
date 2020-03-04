@@ -151,7 +151,7 @@ img.emoji {
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>Atendimento</h2></div>
+                                            <div class="huge"><h5>Atendimento</h5></div>
                                             
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
