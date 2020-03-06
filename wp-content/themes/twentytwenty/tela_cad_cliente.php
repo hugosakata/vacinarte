@@ -43,8 +43,8 @@ get_header(); ?>
  }
 
 // Define variables and initialize with empty values
-$username = $password = $msg_err = "";
-$username_err = $password_err = "";
+//$username = $password = $msg_err = "";
+//$username_err = $password_err = "";
 
 // Processing form data when form is submitted
 //  if($_SERVER["REQUEST_METHOD"] == "POST"){
