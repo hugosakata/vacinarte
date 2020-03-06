@@ -359,7 +359,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="form-group col-xs-2 col-xs-offset-1">
               <input type="submit" class="button btn btn-danger " value="Cadastrar">
             </div>  
           </div>
