@@ -249,7 +249,7 @@ $username_err = $password_err = "";
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
-        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
           <div class="row">  
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Nome</label>
@@ -339,16 +339,17 @@ $username_err = $password_err = "";
               </select>
             </div>
           </div>
+          <div class="row btns">
+            <div class="col-xs-2 col-xs-offset-1">
+              <input type="submit" class="button btn btn-danger " value="Cadastrar">
+            </div>  
+          </div>
 
         </form><!-- fecha form -->
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
 
-    <div class="row btns">
-      <div class="col-xs-2 col-xs-offset-1">
-        <input type="submit" class="button btn btn-danger " value="Cadastrar">
-      </div>  
-    </div>
+    
 
 
     
