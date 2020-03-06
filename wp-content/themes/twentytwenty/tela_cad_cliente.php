@@ -249,7 +249,7 @@ $username_err = $password_err = "";
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
-        <form action="http://vacinarte-admin.com.br/cadastrar-pf/"; ?>" method="post">
+        <form action="/cadastrar-pf/"; ?>" method="post">
           <div class="row">  
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Nome</label>
