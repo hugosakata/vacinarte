@@ -162,134 +162,7 @@ $username_err = $password_err = "";
     <!-- Cesup Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
-  </head>
-  <body>
-  
-<div class="container"><!-- container principal-->
-    
-    <div class="row">
-        <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PF
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
-          </h3>
-        </div>
-    </div><!-- fecha div row -->
-
-    <span class="help-block"><?php echo $msg_err; ?></span>
-
-    <div class="row txtbox"><!-- row formulario -->
-      <div class="col-lg-12 col-xs-8">
-        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-          <div class="row">  
-            <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Nome</label>
-              <input type="text" id="nomePF" name="nomePF" class="form-control" placeholder="Nome do cliente">
-            </div>
-            <div class="form-group col-xs-3">
-              <label>CPF</label>
-              <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite CPF sem pontos/hífen">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Tel. celular</label>
-              <input type="text" id="cel" name="cel" class="form-control" placeholder="Telefone celular">
-            </div>
-            <div class="form-group col-xs-2">
-              <label>Tel. fixo</label>
-              <input type="text" id="tel" name="tel" class="form-control" placeholder="Telefone fixo">
-            </div>
-            <div class="form-group col-xs-5">
-              <label>Email</label>
-              <input type="text" id="email" name="email" class="form-control" placeholder="xyz@xyz.com - letras minúsculas">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Logradouro</label>
-              <input type="text" id="logra" name="logra" class="form-control" placeholder="Rua / Avenida...">
-            </div>
-            <div class="form-group col-xs-1">
-              <label>Número</label>
-              <input type="text" id="num_logra" name="num_logra" class="form-control" placeholder="Nº">
-            </div>
-            <div class="form-group col-xs-2">
-              <label>Complemento</label>
-              <input type="text" id="compl_logra" name="compl_logra" class="form-control" placeholder="apto / lote / bloco">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-xs-3 col-xs-offset-1">
-              <label>Bairro</label>
-              <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
-            </div>
-            <div class="form-group col-xs-2">
-              <label>CEP</label>
-              <input type="text" id="cep" name="cep" class="form-control" placeholder="Sem hífen">
-            </div>
-            <div class="form-group col-xs-3">
-              <label>Cidade</label>
-              <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
-            </div>
-            <div class="form-group col-xs-1">
-              <label>UF</label>
-              <select class="selectpicker form-control" id="uf_br" name="uf_br">
-                <option value=""></option>
-                <option value="AC">AC</option>
-                <option value="AL">AL</option>
-                <option value="AM">AM</option>
-                <option value="AP">AP</option>
-                <option value="BA">BA</option>
-                <option value="CE">CE</option>
-                <option value="DF">DF</option>
-                <option value="ES">ES</option>
-                <option value="GO">GO</option>
-                <option value="MA">MA</option>
-                <option value="MG">MG</option>
-                <option value="MS">MS</option>
-                <option value="MT">MT</option>
-                <option value="PA">PA</option>
-                <option value="PB">PB</option>
-                <option value="PE">PE</option>
-                <option value="PI">PI</option>
-                <option value="PR">PR</option>
-                <option value="RJ">RJ</option>
-                <option value="RN">RN</option>
-                <option value="RO">RO</option>
-                <option value="RR">RR</option>
-                <option value="RS">RS</option>
-                <option value="SC">SC</option>
-                <option value="SE">SE</option>
-                <option value="SP">SP</option>
-                <option value="TO">TO</option>
-              </select>
-            </div>
-          </div>
-
-        </form><!-- fecha form -->
-      </div><!-- fecha col 12 -->
-    </div><!-- fecha row txtbox -->
-
-    <div class="row btns">
-      <div class="col-xs-2 col-xs-offset-1">
-        <input type="submit" class="button btn btn-danger " value="Cadastrar">
-      </div>  
-    </div>
-
-
-    
-</div><!-- fecha container principal -->  
-
-
-    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
-    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
-<!-- Adicionando Javascript -->
-<script type="text/javascript" >
+    <script type="text/javascript" >
     
     function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
@@ -357,6 +230,133 @@ $username_err = $password_err = "";
     };
 
     </script>
+
+  </head>
+  <body>
+  
+<div class="container"><!-- container principal-->
+    
+    <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header">Cadastro de Cliente PF
+          <br>
+            <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
+          </h3>
+        </div>
+    </div><!-- fecha div row -->
+
+    <span class="help-block"><?php echo $msg_err; ?></span>
+
+    <div class="row txtbox"><!-- row formulario -->
+      <div class="col-lg-12 col-xs-8">
+        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+          <div class="row">  
+            <div class="form-group col-xs-6 col-xs-offset-1">
+              <label>Nome</label>
+              <input type="text" id="nomePF" name="nomePF" class="form-control" placeholder="Nome do cliente">
+            </div>
+            <div class="form-group col-xs-3">
+              <label>CPF</label>
+              <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite CPF sem pontos/hífen">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-xs-2 col-xs-offset-1">
+              <label>Tel. celular</label>
+              <input type="text" id="cel" name="cel" class="form-control" placeholder="Telefone celular">
+            </div>
+            <div class="form-group col-xs-2">
+              <label>Tel. fixo</label>
+              <input type="text" id="tel" name="tel" class="form-control" placeholder="Telefone fixo">
+            </div>
+            <div class="form-group col-xs-5">
+              <label>Email</label>
+              <input type="text" id="email" name="email" class="form-control" placeholder="xyz@xyz.com - letras minúsculas">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-xs-6 col-xs-offset-1">
+              <label>Logradouro</label>
+              <input type="text" id="logra" name="logra" class="form-control" placeholder="Rua / Avenida...">
+            </div>
+            <div class="form-group col-xs-1">
+              <label>Número</label>
+              <input type="text" id="num_logra" name="num_logra" class="form-control" placeholder="Nº">
+            </div>
+            <div class="form-group col-xs-2">
+              <label>Complemento</label>
+              <input type="text" id="compl_logra" name="compl_logra" class="form-control" placeholder="apto / lote / bloco">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-xs-3 col-xs-offset-1">
+              <label>Bairro</label>
+              <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+            </div>
+            <div class="form-group col-xs-2">
+              <label>CEP</label>
+              <input type="text" id="cep" name="cep" class="form-control" placeholder="Sem hífen"
+              onblur="pesquisacep(this.value);">
+            </div>
+            <div class="form-group col-xs-3">
+              <label>Cidade</label>
+              <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
+            </div>
+            <div class="form-group col-xs-1">
+              <label>UF</label>
+              <select class="selectpicker form-control" id="uf_br" name="uf_br">
+                <option value=""></option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AM">AM</option>
+                <option value="AP">AP</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MG">MG</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="PR">PR</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="RS">RS</option>
+                <option value="SC">SC</option>
+                <option value="SE">SE</option>
+                <option value="SP">SP</option>
+                <option value="TO">TO</option>
+              </select>
+            </div>
+          </div>
+
+        </form><!-- fecha form -->
+      </div><!-- fecha col 12 -->
+    </div><!-- fecha row txtbox -->
+
+    <div class="row btns">
+      <div class="col-xs-2 col-xs-offset-1">
+        <input type="submit" class="button btn btn-danger " value="Cadastrar">
+      </div>  
+    </div>
+
+
+    
+</div><!-- fecha container principal -->  
+
+
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
   </body>
   </html>
