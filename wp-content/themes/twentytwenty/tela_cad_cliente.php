@@ -37,7 +37,6 @@ get_header(); ?>
 
  if (form_valido()){
     $msg_err = "valido";
-    return;
  } else {
     $msg_err = "preencher os campos obrigatórios";
  }
@@ -253,61 +252,74 @@ get_header(); ?>
           <div class="row">  
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Nome</label>
-              <input type="text" id="nomePF" name="nomePF" class="form-control" placeholder="Nome do cliente">
+              <input type="text" id="nomePF" name="nomePF" 
+                class="form-control" placeholder="Nome do cliente" value="<?php echo $nomePF; ?>">
             </div>
             <div class="form-group col-xs-3">
               <label>CPF</label>
-              <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite CPF sem pontos/hífen">
+              <input type="text" id="cpf" name="cpf" 
+                class="form-control" placeholder="Digite CPF sem pontos/hífen" value="<?php echo $cpf; ?>">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label>Tel. celular</label>
-              <input type="text" id="cel" name="cel" class="form-control" placeholder="Telefone celular">
+              <input type="text" id="cel" name="cel" class="form-control" 
+                placeholder="Telefone celular" value="<?php echo $cel; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label>Tel. fixo</label>
-              <input type="text" id="tel" name="tel" class="form-control" placeholder="Telefone fixo">
+              <input type="text" id="tel" name="tel" class="form-control" 
+                placeholder="Telefone fixo" value="<?php echo $tel; ?>">
             </div>
             <div class="form-group col-xs-5">
               <label>Email</label>
-              <input type="text" id="email" name="email" class="form-control" placeholder="xyz@xyz.com - letras minúsculas">
+              <input type="text" id="email" name="email" class="form-control" 
+                placeholder="xyz@xyz.com - letras minúsculas" value="<?php echo $email; ?>">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Logradouro</label>
-              <input type="text" id="logra" name="logra" class="form-control" placeholder="Rua / Avenida...">
+              <input type="text" id="logra" name="logra" class="form-control" 
+                placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
             </div>
             <div class="form-group col-xs-1">
               <label>Número</label>
-              <input type="text" id="num_logra" name="num_logra" class="form-control" placeholder="Nº">
+              <input type="text" id="num_logra" name="num_logra" class="form-control" 
+                placeholder="Nº" value="<?php echo $num_logra; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label>Complemento</label>
-              <input type="text" id="compl_logra" name="compl_logra" class="form-control" placeholder="apto / lote / bloco">
+              <input type="text" id="compl_logra" name="compl_logra" 
+                class="form-control" placeholder="apto / lote / bloco"
+                value="<?php echo $compl_logra; ?>">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
               <label>Bairro</label>
-              <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+              <input type="text" id="bairro" name="bairro" class="form-control" 
+                placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label>CEP</label>
-              <input type="text" id="cep" name="cep" class="form-control" placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);">
+              <input type="text" id="cep" name="cep" class="form-control" 
+                placeholder="Sem hífen"
+              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
             </div>
             <div class="form-group col-xs-3">
               <label>Cidade</label>
-              <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
+              <input type="text" id="cidade" name="cidade" class="form-control" 
+                placeholder="Cidade" value="<?php echo $cidade; ?>">
             </div>
             <div class="form-group col-xs-1">
               <label>UF</label>
-              <select class="selectpicker form-control" id="uf_br" name="uf_br">
+              <select class="selectpicker form-control" id="uf_br" name="uf_br"
+              value="<?php echo $uf_br; ?>">
                 <option value=""></option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
