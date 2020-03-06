@@ -6,19 +6,23 @@ get_header(); ?>
 
 <?php
 
+ function load(){
+  $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
+  $cpf = str_replace("'", "", trim($_POST["cpf"]));
+  $tel = str_replace("'", "", trim($_POST["tel"]));
+  $email = str_replace("'", "", trim($_POST["email"]));
+  $logra = str_replace("'", "", trim($_POST["logra"]));
+  $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
+  $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
+  $bairro = str_replace("'", "", trim($_POST["bairro"]));
+  $cep = str_replace("'", "", trim($_POST["cep"]));
+  $cidade = str_replace("'", "", trim($_POST["cidade"]));
+ }
+
  function form_valido() {
     $valido = false;
 
-    $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
-    $cpf = str_replace("'", "", trim($_POST["cpf"]));
-    $tel = str_replace("'", "", trim($_POST["tel"]));
-    $email = str_replace("'", "", trim($_POST["email"]));
-    $logra = str_replace("'", "", trim($_POST["logra"]));
-    $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
-    $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
-    $bairro = str_replace("'", "", trim($_POST["bairro"]));
-    $cep = str_replace("'", "", trim($_POST["cep"]));
-    $cidade = str_replace("'", "", trim($_POST["cidade"]));
+    
 
     if (!empty($nomePF) && 
         !empty($cpf) &&
@@ -34,12 +38,15 @@ get_header(); ?>
     return $valido;
  }
 
+ load();
 
- if (form_valido()){
-    $msg_err = "valido";
- } else {
-    $msg_err = "preencher os campos obrigatórios";
- }
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if (form_valido()){
+      $msg_err = "valido";
+  } else {
+      $msg_err = "preencher os campos obrigatórios";
+  }
+}
 
 // Define variables and initialize with empty values
 //$username = $password = $msg_err = "";
@@ -251,49 +258,49 @@ get_header(); ?>
         <form action="#" method="post">
           <div class="row">  
             <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Nome</label>
-              <input type="text" id="nomePF" name="nomePF" 
+              <label>Nome*</label>
+              <input type="text" name="nomePF" 
                 class="form-control" placeholder="Nome do cliente" value="<?php echo $nomePF; ?>">
             </div>
             <div class="form-group col-xs-3">
-              <label>CPF</label>
-              <input type="text" id="cpf" name="cpf" 
+              <label>CPF*</label>
+              <input type="text" name="cpf" 
                 class="form-control" placeholder="Digite CPF sem pontos/hífen" value="<?php echo $cpf; ?>">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Tel. celular</label>
-              <input type="text" id="cel" name="cel" class="form-control" 
+              <label>Tel. celular*</label>
+              <input type="text" name="cel" class="form-control" 
                 placeholder="Telefone celular" value="<?php echo $cel; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label>Tel. fixo</label>
-              <input type="text" id="tel" name="tel" class="form-control" 
+              <input type="text" name="tel" class="form-control" 
                 placeholder="Telefone fixo" value="<?php echo $tel; ?>">
             </div>
             <div class="form-group col-xs-5">
               <label>Email</label>
-              <input type="text" id="email" name="email" class="form-control" 
+              <input type="text" name="email" class="form-control" 
                 placeholder="xyz@xyz.com - letras minúsculas" value="<?php echo $email; ?>">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Logradouro</label>
-              <input type="text" id="logra" name="logra" class="form-control" 
+              <label>Logradouro*</label>
+              <input type="text" name="logra" class="form-control" 
                 placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
             </div>
             <div class="form-group col-xs-1">
-              <label>Número</label>
-              <input type="text" id="num_logra" name="num_logra" class="form-control" 
+              <label>Número*</label>
+              <input type="text" name="num_logra" class="form-control" 
                 placeholder="Nº" value="<?php echo $num_logra; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label>Complemento</label>
-              <input type="text" id="compl_logra" name="compl_logra" 
+              <input type="text" name="compl_logra" 
                 class="form-control" placeholder="apto / lote / bloco"
                 value="<?php echo $compl_logra; ?>">
             </div>
@@ -301,24 +308,24 @@ get_header(); ?>
 
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
-              <label>Bairro</label>
-              <input type="text" id="bairro" name="bairro" class="form-control" 
+              <label>Bairro*</label>
+              <input type="text" name="bairro" class="form-control" 
                 placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             <div class="form-group col-xs-2">
-              <label>CEP</label>
-              <input type="text" id="cep" name="cep" class="form-control" 
+              <label>CEP*</label>
+              <input type="text" name="cep" class="form-control" 
                 placeholder="Sem hífen"
               onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
             </div>
             <div class="form-group col-xs-3">
-              <label>Cidade</label>
-              <input type="text" id="cidade" name="cidade" class="form-control" 
+              <label>Cidade*</label>
+              <input type="text" name="cidade" class="form-control" 
                 placeholder="Cidade" value="<?php echo $cidade; ?>">
             </div>
             <div class="form-group col-xs-1">
-              <label>UF</label>
-              <select class="selectpicker form-control" id="uf_br" name="uf_br"
+              <label>UF*</label>
+              <select class="selectpicker form-control" name="uf_br"
               value="<?php echo $uf_br; ?>">
                 <option value=""></option>
                 <option value="AC">AC</option>
@@ -352,7 +359,7 @@ get_header(); ?>
             </div>
           </div>
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="form-group col-xs-2 col-xs-offset-1">
               <input type="submit" class="button btn btn-danger " value="Cadastrar">
             </div>  
           </div>
