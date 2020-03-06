@@ -249,7 +249,7 @@ $username_err = $password_err = "";
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "/cadastrar-pf/"; ?>" method="post">
           <div class="row">  
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Nome</label>
