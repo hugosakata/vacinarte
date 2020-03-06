@@ -5,34 +5,70 @@ global $wpdb;
 get_header(); ?>
 
 <?php
- 
+
+ function form_valido() {
+    $valido = false;
+
+    $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
+    $cpf = str_replace("'", "", trim($_POST["cpf"]));
+    $tel = str_replace("'", "", trim($_POST["tel"]));
+    $email = str_replace("'", "", trim($_POST["email"]));
+    $logra = str_replace("'", "", trim($_POST["logra"]));
+    $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
+    $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
+    $bairro = str_replace("'", "", trim($_POST["bairro"]));
+    $cep = str_replace("'", "", trim($_POST["cep"]));
+    $cidade = str_replace("'", "", trim($_POST["cidade"]));
+
+    if (!empty($nomePF) && 
+        !empty($cpf) &&
+        !empty($tel) &&
+        !empty($logra) &&
+        !empty($num_logra) &&
+        !empty($bairro) &&
+        !empty($cep) &&
+        !empty($cidade)){
+          $valido = true;
+    }
+
+    return $valido;
+ }
+
+
+ if (form_valido()){
+    $msg_err = "valido";
+    return;
+ } else {
+    $msg_err = "preencher os campos obrigatórios";
+ }
+
 // Define variables and initialize with empty values
 $username = $password = $msg_err = "";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
- if($_SERVER["REQUEST_METHOD"] == "POST"){
+//  if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    $username = str_replace("'", "", trim($_POST["username"]));
-    $password = str_replace("'", "", trim($_POST["password"]));
+//     $username = str_replace("'", "", trim($_POST["username"]));
+//     $password = str_replace("'", "", trim($_POST["password"]));
 
-    if(empty($username)){
-        $username_err = "Campo usuário vazio!";
-    } elseif(empty($password)) {
-        $password_err = "Campo senha vazio!";
-    } else {
-        $sql = "select nm_usu, ";
-        $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
-        $sql .="count(tx_log_usu) as existe from LOG_USU ";
-        $sql .="where tx_log_usu = '{$username}' and pw_usu = '{$password}'";
-        $user = $wpdb->get_row($sql);
-        if($user->ativo == 1 && $user->existe == 1){
-            $msg_err="Bem-vindo " . $user->nm_usu;
-        } else {
-            $msg_err="Não achou!";
-        }
-    }
-}
+//     if(empty($username)){
+//         $username_err = "Campo usuário vazio!";
+//     } elseif(empty($password)) {
+//         $password_err = "Campo senha vazio!";
+//     } else {
+//         $sql = "select nm_usu, ";
+//         $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
+//         $sql .="count(tx_log_usu) as existe from LOG_USU ";
+//         $sql .="where tx_log_usu = '{$username}' and pw_usu = '{$password}'";
+//         $user = $wpdb->get_row($sql);
+//         if($user->ativo == 1 && $user->existe == 1){
+//             $msg_err="Bem-vindo " . $user->nm_usu;
+//         } else {
+//             $msg_err="Não achou!";
+//         }
+//     }
+// }
 //         // Prepare a select statement
 //         $sql = "SELECT id FROM users WHERE username = ?";
         
@@ -140,9 +176,11 @@ $username_err = $password_err = "";
         </div>
     </div><!-- fecha div row -->
 
+    <span class="help-block"><?php echo $msg_err; ?></span>
+
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
-        <form class="form">
+        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
           <div class="row">  
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Nome</label>
@@ -238,7 +276,7 @@ $username_err = $password_err = "";
 
     <div class="row btns">
       <div class="col-xs-2 col-xs-offset-1">
-        <input type="subnit" class="button btn btn-danger " value="Cadastrar">
+        <input type="submit" class="button btn btn-danger " value="Cadastrar">
       </div>  
     </div>
 
@@ -249,6 +287,76 @@ $username_err = $password_err = "";
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
+
+<!-- Adicionando Javascript -->
+<script type="text/javascript" >
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('logra').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf_br').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('logra').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf_br').value=(conteudo.uf);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('logra').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf_br').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
 
   </body>
   </html>
