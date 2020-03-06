@@ -85,8 +85,6 @@ img.emoji {
                     <div class="header-titles">
                         <div class="site-title faux-heading"><a style="cursor: pointer;" href="http://vacinarte-admin.com.br/">Vacinarte</a></div>
                     </div><!-- .header-titles -->
-                   
-                    
                 </div><!-- .header-titles-wrapper -->
             </div><!-- .header-inner -->
               
