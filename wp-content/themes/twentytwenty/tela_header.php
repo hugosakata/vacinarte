@@ -13,7 +13,13 @@
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 
-		<title>Página de exemplo &#8211; Vacinarte</title>
+    <title> &#8211; Vacinarte</title>
+    
+     <!-- Bootstrap -->
+     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Cesup Styles -->
+     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
+
 <meta name='robots' content='noindex,nofollow' />
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="Feed para Vacinarte &raquo;" href="http://vacinarte-admin.com.br/feed/" />
@@ -63,27 +69,66 @@ img.emoji {
 	}
 </style>
 </head>
-<body>
+<body style="background-color: transparent;">
     
-    <header id="site-header" class="header-footer-group" role="banner">
-        <div class="header-inner section-inner">
-            <div class="header-titles-wrapper">					
-                <div class="header-titles">
-                    <div class="site-title faux-heading"><a href="http://vacinarte-admin.com.br/">Vacinarte</a></div>
-                </div><!-- .header-titles -->
-            </div><!-- .header-titles-wrapper -->
-        </div><!-- .header-inner -->
+    <header id="site-header" class="header-footer-group" role="banner" style="margin-top: -2vw;">
+    
+      <div >
+        <nav class="navbar navbar-default" style="border: none;">
+          <div class="container-fluid" style="background-color: transparent;">
+            <!-- Brand and toggle get grouped for better mobile display -->
         
-        <div class="header-navigation-wrapper">
-            <nav class="primary-menu-wrapper" aria-label="Horizontal" role="navigation">
-                <ul class="primary-menu reset-list-style">
-                    <li class="page_item page-item-13"><a href="http://vacinarte-admin.com.br/">Sair</a></li>
-                </ul>
-            </nav><!-- .primary-menu-wrapper -->
-        </div><!-- .header-navigation-wrapper -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+              <div class="header-inner section-inner" style="height: 3vw; width: 18vw; position: absolute;">
+                <div class="header-titles-wrapper">					
+                    <div class="header-titles">
+                        <div class="site-title faux-heading"><a style="cursor: pointer;" href="http://vacinarte-admin.com.br/">Vacinarte</a></div>
+                    </div><!-- .header-titles -->
+                   
+                    
+                </div><!-- .header-titles-wrapper -->
+            </div><!-- .header-inner -->
+              
 
+              <ul class="nav navbar-nav" style="margin-left: 36vw;">
+                <li class="dropdown">
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Pessoa física</a></li>
+                    <li><a href="#">Pessoa jurídica</a></li>
+                    <li><a href="#">Campanha</a></li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav ">
+                <li class="dropdown">
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Clientes PF</a></li>
+                    <li><a href="#">Clientes PJ</a></li>
+                    <li><a href="#">Campanhas</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav ">
+                <li><a style="text-decoration: none;" href="#">Iniciar atendimento</a></li>
+                <li><a style="text-decoration: none;" href="#">Site Vacinarte</a></li>
+                <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/">Sair</a></li>
+              </ul>            
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
     </header><!-- #site-header -->
+    
 
-</body>
-</html>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
+
+  </body>
+  </html>
+  
