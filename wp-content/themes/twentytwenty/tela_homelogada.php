@@ -113,7 +113,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/cadastrar-pf/">
+                                <a href="http://vacinarte-admin.com.br/listar-pf/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Listar clientes</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
@@ -141,7 +141,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/cadastrar-pj/">
+                                <a href="http://vacinarte-admin.com.br/listar-pj/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Listar clientes</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
