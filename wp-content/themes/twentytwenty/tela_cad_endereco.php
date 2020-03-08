@@ -166,7 +166,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group col-xs-6">
               <label>Logradouro*</label>
-              <input type="text" name="logra" class="form-control" 
+              <input type="text" id="logra" name="logra" class="form-control" 
                 placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
             </div>
             <div class="form-group col-xs-1">
@@ -186,18 +186,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
               <label>Bairro*</label>
-              <input type="text" name="bairro" class="form-control" 
+              <input type="text" id="bairro" name="bairro" class="form-control" 
                 placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             
             <div class="form-group col-xs-3">
               <label>Cidade*</label>
-              <input type="text" name="cidade" class="form-control" 
+              <input type="text" id="cidade" name="cidade" class="form-control" 
                 placeholder="Cidade" value="<?php echo $cidade; ?>">
             </div>
             <div class="form-group col-xs-1">
               <label>UF*</label>
-              <select class="selectpicker form-control" name="uf_br"
+              <select class="selectpicker form-control" id="uf_br" name="uf_br"
               value="<?php echo $uf_br; ?>">
                 <option value=""></option>
                 <option value="AC">AC</option>
