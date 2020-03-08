@@ -42,9 +42,9 @@ get_header(); ?>
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $msg_err = "valido";
+      $msg_err = $_POST["nomePF"];
   } else {
-      $msg_err = "preencher os campos obrigatórios";
+      $msg_err = $_POST["nomePF"];
   }
 }
 
