@@ -5,33 +5,56 @@ global $wpdb;
 get_header(); ?>
 
 <?php
- 
-// Define variables and initialize with empty values
-$username = $password = $msg_err = "";
-$username_err = $password_err = "";
 
-// Processing form data when form is submitted
- if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    $username = str_replace("'", "", trim($_POST["username"]));
-    $password = str_replace("'", "", trim($_POST["password"]));
+$razao = $nm_fant = $cnpj = $tel = $cel = $email = $logra = $num_logra = "";
+$compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
-    if(empty($username)){
-        $username_err = "Campo usuário vazio!";
-    } elseif(empty($password)) {
-        $password_err = "Campo senha vazio!";
-    } else {
-        $sql = "select nm_usu, ";
-        $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
-        $sql .="count(tx_log_usu) as existe from LOG_USU ";
-        $sql .="where tx_log_usu = '{$username}' and pw_usu = '{$password}'";
-        $user = $wpdb->get_row($sql);
-        if($user->ativo == 1 && $user->existe == 1){
-            $msg_err="Bem-vindo " . $user->nm_usu;
-        } else {
-            $msg_err="Não achou!";
-        }
+ function load(){
+    global $razao, $nm_fant, $cnpj, $tel, $cel, $email, $logra, $num_logra,
+    $compl_logra, $bairro, $cep, $cidade, $msg_err;
+
+    $razao = str_replace("'", "", trim($_POST["razao"]));
+    $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
+    $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
+    $tel = str_replace("'", "", trim($_POST["tel"]));
+    $cel = str_replace("'", "", trim($_POST["cel"]));
+    $email = str_replace("'", "", trim($_POST["email"]));
+    $logra = str_replace("'", "", trim($_POST["logra"]));
+    $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
+    $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
+    $bairro = str_replace("'", "", trim($_POST["bairro"]));
+    $cep = str_replace("'", "", trim($_POST["cep"]));
+    $cidade = str_replace("'", "", trim($_POST["cidade"]));
+ }
+
+ function form_valido() {
+    global $razao, $nm_fant, $cnpj, $cel, $tel, $email, $logra, $num_logra,
+    $compl_logra, $bairro, $cep, $cidade, $msg_err;
+
+    $valido = false;
+    if (!empty($razao) && 
+        !empty($nm_fant) && 
+        !empty($cnpj) &&
+        !empty($cel) &&
+        !empty($logra) &&
+        !empty($num_logra) &&
+        !empty($bairro) &&
+        !empty($cep) &&
+        !empty($cidade)){
+          $valido = true;
     }
+
+    return $valido;
+ }
+
+ load();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if (form_valido()){
+      $msg_err = "valido";
+  } else {
+      $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+  }
 }
 //         // Prepare a select statement
 //         $sql = "SELECT id FROM users WHERE username = ?";
@@ -126,6 +149,12 @@ $username_err = $password_err = "";
     <!-- Cesup Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
+    <style type="text/css">
+        .help-block{ display: block;
+                     margin-top: 5px;
+                     margin-bottom: 10px;
+                     color: #a94442; }
+    </style>
   </head>
   <body>
   
@@ -140,63 +169,65 @@ $username_err = $password_err = "";
         </div>
     </div><!-- fecha div row -->
 
+    <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
-        <form class="form">
+        <form action="#" method="post">
           <div class="row">  
             <div class="form-group col-xs-5 col-xs-offset-1">
-              <label>Razão Social</label>
-              <input type="text" id="razao" name="razao" class="form-control" placeholder="Razão Social da empresa">
+              <label>Razão Social*</label>
+              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa">
             </div>
             <div class="form-group col-xs-3">
-              <label>Nome fantasia</label>
-              <input type="text" id="nm_fant" name="nm_fant" class="form-control" placeholder="Nome fantasia">
+              <label>Nome fantasia*</label>
+              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia">
             </div>
             <div class="form-group col-xs-2">
-              <label>CNPJ</label>
-              <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Sem pontos/hífen">
+              <label>CNPJ*</label>
+              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen">
             </div>
           </div>
           
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label>Falar com</label>
-              <input type="text" id="nm_contato" name="nm_contato" class="form-control" placeholder="Nome do contato">
+              <input type="text" name="nm_contato" class="form-control" placeholder="Nome do contato">
             </div>
 
             <div class="form-group col-xs-2">
               <label>Tel. celular</label>
-              <input type="text" id="cel" name="cel" class="form-control" placeholder="Telefone celular">
+              <input type="text" name="cel" class="form-control" placeholder="Telefone celular">
             </div>
             <div class="form-group col-xs-2">
               <label>Tel. fixo</label>
-              <input type="text" id="tel" name="tel" class="form-control" placeholder="Telefone fixo">
+              <input type="text" name="tel" class="form-control" placeholder="Telefone fixo">
             </div>
             <div class="form-group col-xs-4">
               <label>Email</label>
-              <input type="text" id="email" name="email" class="form-control" placeholder="xyz@xyz.com - letras minúsculas">
+              <input type="text" name="email" class="form-control" placeholder="xyz@xyz.com - letras minúsculas">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Logradouro</label>
-              <input type="text" id="logra" name="logra" class="form-control" placeholder="Rua / Avenida...">
+              <input type="text" name="logra" class="form-control" placeholder="Rua / Avenida...">
             </div>
             <div class="form-group col-xs-1">
               <label>Número</label>
-              <input type="text" id="num_logra" name="num_logra" class="form-control" placeholder="Nº">
+              <input type="text" name="num_logra" class="form-control" placeholder="Nº">
             </div>
             <div class="form-group col-xs-4 ">
               <label>Complemento</label>
-              <input type="text" id="compl_logra" name="compl_logra" class="form-control" placeholder="Edifício / Andar / Sala">
+              <input type="text" name="compl_logra" class="form-control" placeholder="Edifício / Andar / Sala">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
               <label>Bairro</label>
-              <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+              <input type="text" name="bairro" class="form-control" placeholder="Bairro">
             </div>
             <div class="form-group col-xs-2">
               <label>CEP</label>
@@ -204,11 +235,11 @@ $username_err = $password_err = "";
             </div>
             <div class="form-group col-xs-3">
               <label>Cidade</label>
-              <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
+              <input type="text" name="cidade" class="form-control" placeholder="Cidade">
             </div>
             <div class="form-group col-xs-1">
               <label>UF</label>
-              <select class="selectpicker form-control" id="uf_br" name="uf_br">
+              <select class="selectpicker form-control" name="uf_br">
                 <option value=""></option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
@@ -240,16 +271,22 @@ $username_err = $password_err = "";
               </select>
             </div>
           </div>
-
+          <div class="row btns">
+            <div class="col-xs-2 col-xs-offset-1">
+              <input type="submit" class="button btn btn-danger " value="Cadastrar">
+            </div>
+            <div class="col-xs-2 col-xs-offset-1">
+              <input class="button btn btn-danger " value="Endereços">
+            </div> 
+            <div class="col-xs-2 col-xs-offset-1">
+              <input class="button btn btn-danger " value="Contatos">
+            </div> 
+          </div>
         </form><!-- fecha form -->
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
 
-    <div class="row btns">
-      <div class="col-xs-2 col-xs-offset-1">
-        <input type="subnit" class="button btn btn-danger " value="Cadastrar">
-      </div>  
-    </div>
+    
 
 
     

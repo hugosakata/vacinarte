@@ -1,4 +1,4 @@
-<?php /* Template Name: CadastroCliente */
+<?php /* Template Name: CadastroEndereco */
 
 global $wpdb;
 
@@ -6,15 +6,16 @@ get_header(); ?>
 
 <?php
 
-$nomePF = $cpf = $tel = $cel = $email = $logra = $num_logra = "";
+$razao = $nm_fant = $cnpj = $tel = $cel = $email = $logra = $num_logra = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
  function load(){
-    global $nomePF, $cpf, $tel, $cel, $email, $logra, $num_logra,
+    global $razao, $nm_fant, $cnpj, $tel, $cel, $email, $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
-    $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
-    $cpf = str_replace("'", "", trim($_POST["cpf"]));
+    $razao = str_replace("'", "", trim($_POST["razao"]));
+    $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
+    $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
     $tel = str_replace("'", "", trim($_POST["tel"]));
     $cel = str_replace("'", "", trim($_POST["cel"]));
     $email = str_replace("'", "", trim($_POST["email"]));
@@ -27,12 +28,13 @@ $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
  }
 
  function form_valido() {
-    global $nomePF, $cpf, $cel, $tel, $email, $logra, $num_logra,
+    global $razao, $nm_fant, $cnpj, $cel, $tel, $email, $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
     $valido = false;
-    if (!empty($nomePF) && 
-        !empty($cpf) &&
+    if (!empty($razao) && 
+        !empty($nm_fant) && 
+        !empty($cnpj) &&
         !empty($cel) &&
         !empty($logra) &&
         !empty($num_logra) &&
@@ -54,34 +56,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
 }
-
-// Define variables and initialize with empty values
-//$username = $password = $msg_err = "";
-//$username_err = $password_err = "";
-
-// Processing form data when form is submitted
-//  if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-//     $username = str_replace("'", "", trim($_POST["username"]));
-//     $password = str_replace("'", "", trim($_POST["password"]));
-
-//     if(empty($username)){
-//         $username_err = "Campo usuário vazio!";
-//     } elseif(empty($password)) {
-//         $password_err = "Campo senha vazio!";
-//     } else {
-//         $sql = "select nm_usu, ";
-//         $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
-//         $sql .="count(tx_log_usu) as existe from LOG_USU ";
-//         $sql .="where tx_log_usu = '{$username}' and pw_usu = '{$password}'";
-//         $user = $wpdb->get_row($sql);
-//         if($user->ativo == 1 && $user->existe == 1){
-//             $msg_err="Bem-vindo " . $user->nm_usu;
-//         } else {
-//             $msg_err="Não achou!";
-//         }
-//     }
-// }
 //         // Prepare a select statement
 //         $sql = "SELECT id FROM users WHERE username = ?";
         
@@ -169,80 +143,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Clientes - Cadastro</title>
+    <title>Cadastro de Endereço</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cesup Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
-
-    <script type="text/javascript" >
-    
-    function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('logra').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf_br').value=("");
-    }
-
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('logra').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf_br').value=(conteudo.uf);
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
-    }
-        
-    function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('logra').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf_br').value="...";
-
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-            }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
-
-    </script>
 
     <style type="text/css">
         .help-block{ display: block;
@@ -250,7 +155,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      margin-bottom: 10px;
                      color: #a94442; }
     </style>
-
   </head>
   <body>
   
@@ -258,7 +162,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PF
+          <h3 class="page-header">Cadastro de Cliente PJ
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
@@ -271,77 +175,71 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="col-lg-12 col-xs-8">
         <form action="#" method="post">
           <div class="row">  
-            <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Nome*</label>
-              <input type="text" name="nomePF" 
-                class="form-control" placeholder="Nome do cliente" value="<?php echo $nomePF; ?>">
+            <div class="form-group col-xs-5 col-xs-offset-1">
+              <label>Razão Social*</label>
+              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa">
             </div>
             <div class="form-group col-xs-3">
-              <label>CPF*</label>
-              <input type="text" name="cpf" 
-                class="form-control" placeholder="Digite CPF sem pontos/hífen" value="<?php echo $cpf; ?>">
+              <label>Nome fantasia*</label>
+              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia">
+            </div>
+            <div class="form-group col-xs-2">
+              <label>CNPJ*</label>
+              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen">
             </div>
           </div>
-
+          
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Tel. celular*</label>
-              <input type="text" name="cel" class="form-control" 
-                placeholder="Telefone celular" value="<?php echo $cel; ?>">
+              <label>Falar com</label>
+              <input type="text" name="nm_contato" class="form-control" placeholder="Nome do contato">
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label>Tel. celular</label>
+              <input type="text" name="cel" class="form-control" placeholder="Telefone celular">
             </div>
             <div class="form-group col-xs-2">
               <label>Tel. fixo</label>
-              <input type="text" name="tel" class="form-control" 
-                placeholder="Telefone fixo" value="<?php echo $tel; ?>">
+              <input type="text" name="tel" class="form-control" placeholder="Telefone fixo">
             </div>
-            <div class="form-group col-xs-5">
+            <div class="form-group col-xs-4">
               <label>Email</label>
-              <input type="text" name="email" class="form-control" 
-                placeholder="xyz@xyz.com - letras minúsculas" value="<?php echo $email; ?>">
+              <input type="text" name="email" class="form-control" placeholder="xyz@xyz.com - letras minúsculas">
             </div>
           </div>
 
           <div class="row">
-            <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>CEP*</label>
-              <input type="text" name="cep" class="form-control" 
-                placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
-            </div>
-            <div class="form-group col-xs-6">
-              <label>Logradouro*</label>
-              <input type="text" name="logra" class="form-control" 
-                placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
+            <div class="form-group col-xs-5 col-xs-offset-1">
+              <label>Logradouro</label>
+              <input type="text" name="logra" class="form-control" placeholder="Rua / Avenida...">
             </div>
             <div class="form-group col-xs-1">
-              <label>Número*</label>
-              <input type="text" name="num_logra" class="form-control" 
-                placeholder="Nº" value="<?php echo $num_logra; ?>">
+              <label>Número</label>
+              <input type="text" name="num_logra" class="form-control" placeholder="Nº">
             </div>
-            <div class="form-group col-xs-2">
+            <div class="form-group col-xs-4 ">
               <label>Complemento</label>
-              <input type="text" name="compl_logra" 
-                class="form-control" placeholder="apto / lote / bloco"
-                value="<?php echo $compl_logra; ?>">
+              <input type="text" name="compl_logra" class="form-control" placeholder="Edifício / Andar / Sala">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
-              <label>Bairro*</label>
-              <input type="text" name="bairro" class="form-control" 
-                placeholder="Bairro" value="<?php echo $bairro; ?>">
+              <label>Bairro</label>
+              <input type="text" name="bairro" class="form-control" placeholder="Bairro">
             </div>
-            
+            <div class="form-group col-xs-2">
+              <label>CEP</label>
+              <input type="text" id="cep" name="cep" class="form-control" placeholder="Sem hífen">
+            </div>
             <div class="form-group col-xs-3">
-              <label>Cidade*</label>
-              <input type="text" name="cidade" class="form-control" 
-                placeholder="Cidade" value="<?php echo $cidade; ?>">
+              <label>Cidade</label>
+              <input type="text" name="cidade" class="form-control" placeholder="Cidade">
             </div>
             <div class="form-group col-xs-1">
-              <label>UF*</label>
-              <select class="selectpicker form-control" name="uf_br"
-              value="<?php echo $uf_br; ?>">
+              <label>UF</label>
+              <select class="selectpicker form-control" name="uf_br">
                 <option value=""></option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
@@ -374,11 +272,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
           <div class="row btns">
-            <div class="form-group col-xs-2 col-xs-offset-1">
+            <div class="col-xs-2 col-xs-offset-1">
               <input type="submit" class="button btn btn-danger " value="Cadastrar">
-            </div>  
+            </div>
+            <div class="col-xs-2 col-xs-offset-1">
+              <input class="button btn btn-danger " value="Endereços">
+            </div> 
+            <div class="col-xs-2 col-xs-offset-1">
+              <input class="button btn btn-danger " value="Contatos">
+            </div> 
           </div>
-
         </form><!-- fecha form -->
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
