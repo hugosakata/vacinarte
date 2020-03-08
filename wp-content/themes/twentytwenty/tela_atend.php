@@ -26,7 +26,7 @@ global $wpdb;
   <body>
   
 <div class="container"><!-- container principal-->
-    
+<?php include 'tela_header.php';?>
     <div class="row">
         <div class="col-lg-12 col-xs-12">
           <h3 class="page-header">Atendimento

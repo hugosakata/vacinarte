@@ -91,29 +91,34 @@ img.emoji {
 
               <ul class="nav navbar-nav" style="margin-left: 36vw;">
                 <li class="dropdown">
-                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                  <a href="#" style="text-decoration: none;" 
+                    class="dropdown-toggle" data-toggle="dropdown" 
+                    role="button" aria-haspopup="true" 
+                    aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Pessoa física</a></li>
-                    <li><a href="#">Pessoa jurídica</a></li>
-                    <li><a href="#">Campanha</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
                   </ul>
                 </li>
               </ul>
               
               <ul class="nav navbar-nav ">
                 <li class="dropdown">
-                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultar <span class="caret"></span></a>
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" 
+                    data-toggle="dropdown" role="button" aria-haspopup="true" 
+                    aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Clientes PF</a></li>
-                    <li><a href="#">Clientes PJ</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Clientes PJ</a></li>
                     <li><a href="#">Campanhas</a></li>
                   </ul>
                 </li>
               </ul>
 
               <ul class="nav navbar-nav ">
-                <li><a style="text-decoration: none;" href="#">Iniciar atendimento</a></li>
-                <li><a style="text-decoration: none;" href="#">Site Vacinarte</a></li>
+                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/iniciar-atendimento/">Iniciar atendimento</a></li>
+                <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
                 <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/">Sair</a></li>
               </ul>            
             </div><!-- /.navbar-collapse -->

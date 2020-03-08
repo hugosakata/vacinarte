@@ -20,7 +20,7 @@ global $wpdb;
 
   </head>
   <body>
-  
+  <?php include 'tela_header.php';?>
 <div class="container"><!-- container principal-->
     
     <div class="row">

@@ -2,7 +2,8 @@
 
 global $wpdb;
 
-get_header(); ?>
+//get_header(); 
+?>
 
 <?php
 
@@ -253,7 +254,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   </head>
   <body>
-  
+  <?php include 'tela_header.php';?>
 <div class="container"><!-- container principal-->
     
     <div class="row">
