@@ -288,6 +288,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
 
           <div class="row">
+            <div class="form-group col-xs-2">
+              <label>CEP*</label>
+              <input type="text" name="cep" class="form-control" 
+                placeholder="Sem hífen"
+              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
+            </div>
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Logradouro*</label>
               <input type="text" name="logra" class="form-control" 
@@ -312,12 +318,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="text" name="bairro" class="form-control" 
                 placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
-            <div class="form-group col-xs-2">
-              <label>CEP*</label>
-              <input type="text" name="cep" class="form-control" 
-                placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
-            </div>
+            
             <div class="form-group col-xs-3">
               <label>Cidade*</label>
               <input type="text" name="cidade" class="form-control" 
