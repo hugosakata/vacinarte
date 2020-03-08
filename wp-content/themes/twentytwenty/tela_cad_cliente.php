@@ -243,6 +243,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     </script>
 
+    <style type="text/css">
+        .help-block{ display: block;
+                     margin-top: 5px;
+                     margin-bottom: 10px;
+                     color: #a94442; }
+    </style>
+
   </head>
   <body>
   
