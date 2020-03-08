@@ -1,7 +1,7 @@
 <?php /* Template Name: TelaListaContato */
 
 global $wpdb;
-
+echo $_GET["razao"];
 ?>
 
 <!DOCTYPE html>

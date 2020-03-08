@@ -201,7 +201,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="Endereços" />
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/';" 
+              <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/" . $razao; ?>" 
               value="Contatos" />
             </div> 
           </div>
