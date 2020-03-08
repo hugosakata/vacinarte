@@ -6,6 +6,9 @@ get_header(); ?>
 
 <?php
 
+  $nomePF = $cpf = $tel = $email = $logra = $num_logra = "";
+  $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
+
  function load(){
 
   echo "<p>load</p><br>";
