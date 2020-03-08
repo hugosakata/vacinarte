@@ -89,7 +89,10 @@ global $wpdb;
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    
+    <div class="col-xs-2 col-xs-offset-1">
+      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/';" 
+      value="Novo" />
+    </div>
 </div><!-- fecha container principal -->  
 
 

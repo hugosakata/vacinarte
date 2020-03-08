@@ -276,10 +276,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="submit" class="button btn btn-danger " value="Cadastrar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
-              <input class="button btn btn-danger " value="Endereços">
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/';" 
+              value="Endereços" />
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
-              <input class="button btn btn-danger " value="Contatos">
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/';" 
+              value="Contatos" />
             </div> 
           </div>
         </form><!-- fecha form -->
