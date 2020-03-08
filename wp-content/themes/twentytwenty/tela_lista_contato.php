@@ -1,7 +1,6 @@
 <?php /* Template Name: TelaListaContato */
 
 global $wpdb;
-echo $_GET["razao"];
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +32,7 @@ echo $_GET["razao"];
   </head>
   <body>
   
-  <?php include 'tela_header.php';?>
+  <?php include 'tela_header.php'; echo $_GET["parametro"];?>
   
 <div class="container"><!-- container principal-->
     
