@@ -6,35 +6,28 @@ get_header(); ?>
 
 <?php
 
-  $nomePF = $cpf = $tel = $email = $logra = $num_logra = "";
-  $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
+$nomePF = $cpf = $tel = $email = $logra = $num_logra = "";
+$compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
  function load(){
-  global $nomePF, $cpf, $tel, $email, $logra, $num_logra,
-  $compl_logra, $bairro, $cep, $cidade, $msg_err;
+    global $nomePF, $cpf, $tel, $email, $logra, $num_logra,
+    $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
-  echo "<p>load</p><br>";
-
-  $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
-  $cpf = str_replace("'", "", trim($_POST["cpf"]));
-  $tel = str_replace("'", "", trim($_POST["tel"]));
-  $email = str_replace("'", "", trim($_POST["email"]));
-  $logra = str_replace("'", "", trim($_POST["logra"]));
-  $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
-  $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
-  $bairro = str_replace("'", "", trim($_POST["bairro"]));
-  $cep = str_replace("'", "", trim($_POST["cep"]));
-  $cidade = str_replace("'", "", trim($_POST["cidade"]));
-
-  echo "<p>nomePF {$nomePF}</p><br>";
-
+    $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
+    $cpf = str_replace("'", "", trim($_POST["cpf"]));
+    $tel = str_replace("'", "", trim($_POST["tel"]));
+    $email = str_replace("'", "", trim($_POST["email"]));
+    $logra = str_replace("'", "", trim($_POST["logra"]));
+    $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
+    $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
+    $bairro = str_replace("'", "", trim($_POST["bairro"]));
+    $cep = str_replace("'", "", trim($_POST["cep"]));
+    $cidade = str_replace("'", "", trim($_POST["cidade"]));
  }
 
  function form_valido() {
-  global $nomePF, $cpf, $tel, $email, $logra, $num_logra,
-  $compl_logra, $bairro, $cep, $cidade, $msg_err;
-
-  echo "<p>form_valido {$nomePF}</p><br>";
+    global $nomePF, $cpf, $tel, $email, $logra, $num_logra,
+    $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
     $valido = false;
     if (!empty($nomePF) && 
@@ -55,9 +48,9 @@ get_header(); ?>
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $msg_err .= $_POST["nomePF"];
+      $msg_err = "valido";
   } else {
-      $msg_err .= $_POST["nomePF"];
+      $msg_err = "preencher os campos obrigatórios";
   }
 }
 
