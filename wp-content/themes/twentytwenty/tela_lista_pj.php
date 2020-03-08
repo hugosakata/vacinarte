@@ -1,4 +1,4 @@
-<?php /* Template Name: TelaListaPf */
+<?php /* Template Name: TelaListaPj */
 
 global $wpdb;
 
@@ -11,7 +11,7 @@ global $wpdb;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title>Clientes PF</title>
+    <title>Clientes PJ</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cesup Styles -->
@@ -39,7 +39,7 @@ global $wpdb;
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Clientes PF
+          <h3 class="page-header">Clientes PJ
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
@@ -90,7 +90,7 @@ global $wpdb;
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
     <div class="col-xs-2 col-xs-offset-1">
-      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pf/';" 
+      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
       value="Novo" />
     </div>
 </div><!-- fecha container principal -->  
