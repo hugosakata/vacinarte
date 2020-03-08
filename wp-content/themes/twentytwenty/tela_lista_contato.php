@@ -39,7 +39,7 @@ global $wpdb;
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Clientes PF
+          <h3 class="page-header">Contatos do cliente
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
