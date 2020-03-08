@@ -7,6 +7,9 @@ get_header(); ?>
 <?php
 
  function load(){
+
+  echo "<p>load</p><br>";
+
   $nomePF = str_replace("'", "", trim($_POST["nomePF"]));
   $cpf = str_replace("'", "", trim($_POST["cpf"]));
   $tel = str_replace("'", "", trim($_POST["tel"]));
@@ -17,13 +20,15 @@ get_header(); ?>
   $bairro = str_replace("'", "", trim($_POST["bairro"]));
   $cep = str_replace("'", "", trim($_POST["cep"]));
   $cidade = str_replace("'", "", trim($_POST["cidade"]));
+
+  echo "<p>nomePF {$nomePF}</p><br>";
+
  }
 
  function form_valido() {
-    $valido = false;
-    $msg_err = $nomePF . " valor";
-    
+  echo "<p>form_valido {$nomePF}</p><br>";
 
+    $valido = false;
     if (!empty($nomePF) && 
         !empty($cpf) &&
         !empty($tel) &&
