@@ -294,7 +294,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
 
           <div class="row">
-            <div class="form-group col-xs-2">
+            <div class="form-group col-xs-2 col-xs-offset-1">
               <label>CEP*</label>
               <input type="text" name="cep" class="form-control" 
                 placeholder="Sem hífen"
