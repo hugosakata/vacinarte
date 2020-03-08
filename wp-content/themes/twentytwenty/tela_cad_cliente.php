@@ -264,7 +264,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div><!-- fecha div row -->
 
-    <span class="help-block"><?php echo $msg_err; ?></span>
+    <center><span class="help-block"><h3><?php echo $msg_err; ?></h3></span></center>
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
