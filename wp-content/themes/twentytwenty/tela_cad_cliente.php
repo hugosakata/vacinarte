@@ -10,6 +10,8 @@ get_header(); ?>
   $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
  function load(){
+  global $nomePF, $cpf, $tel, $email, $logra, $num_logra,
+  $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
   echo "<p>load</p><br>";
 
@@ -29,6 +31,9 @@ get_header(); ?>
  }
 
  function form_valido() {
+  global $nomePF, $cpf, $tel, $email, $logra, $num_logra,
+  $compl_logra, $bairro, $cep, $cidade, $msg_err;
+
   echo "<p>form_valido {$nomePF}</p><br>";
 
     $valido = false;
