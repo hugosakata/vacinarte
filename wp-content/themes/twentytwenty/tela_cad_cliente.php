@@ -21,7 +21,7 @@ get_header(); ?>
 
  function form_valido() {
     $valido = false;
-
+    $msg_err = $nomePF . " valor";
     
 
     if (!empty($nomePF) && 
@@ -42,9 +42,9 @@ get_header(); ?>
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $msg_err = $_POST["nomePF"];
+      $msg_err .= $_POST["nomePF"];
   } else {
-      $msg_err = $_POST["nomePF"];
+      $msg_err .= $_POST["nomePF"];
   }
 }
 
