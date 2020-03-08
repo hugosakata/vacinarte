@@ -300,7 +300,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 placeholder="Sem hífen"
               onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
             </div>
-            <div class="form-group col-xs-6 col-xs-offset-1">
+            <div class="form-group col-xs-6">
               <label>Logradouro*</label>
               <input type="text" name="logra" class="form-control" 
                 placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
