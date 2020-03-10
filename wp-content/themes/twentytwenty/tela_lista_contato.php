@@ -32,7 +32,7 @@ global $wpdb;
   </head>
   <body>
   
-  <?php include 'tela_header.php'; echo $_GET["parametro"];?>
+  <?php include 'tela_header.php';?>
   
 <div class="container"><!-- container principal-->
     
