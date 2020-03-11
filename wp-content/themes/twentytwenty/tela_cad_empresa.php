@@ -34,13 +34,13 @@ $msg_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    alert($razao+' - '+$nm_fant+' - '+$cnpj);
+    
       $wpdb->insert(
         'CLIENTE',
         array(
-          'nm_rz_soc' => $razao,
-          'nm_fant'   => $nm_fant,
-          'cpf_cnpj'  => $cnpj,
+          'nm_rz_soc' => 'Hugo Sakata S/A',
+          'nm_fant'   => 'Hugo PHPMaker',
+          'cpf_cnpj'  => '12345678000190',
           'cd_tp_cli' => 2
         ),
         array(
