@@ -6,7 +6,6 @@ global $wpdb;
 <?php
 
 $razao = $nm_fant = $cnpj = $msg_err = "";
-$id = 0;
 
  function load(){
     global $razao, $nm_fant, $cnpj;
@@ -51,7 +50,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         )
       );
       $wpdb->insert_id;
-      $id = $wpdb;
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -92,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $wpdb; ?></h4></span></center>
+    
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
