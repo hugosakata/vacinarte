@@ -202,7 +202,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="Endereços" <?php if ($_GET["id"] <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/" . $razao; ?>" 
+              <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/"; ?>" 
               value="Contatos" <?php if ($_GET["id"] <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
