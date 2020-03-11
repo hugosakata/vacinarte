@@ -37,9 +37,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $wpdb->insert(
         'CLIENTE',
         array(
-          'nm_rz_soc' => {$razao},
-          'nm_fant'   => {$nm_fant},
-          'cpf_cnpj'  => {$cnpj},
+          'nm_rz_soc' => get_var($razao),
+          'nm_fant'   => get_var($nm_fant),
+          'cpf_cnpj'  => get_var($cnpj),
           'cd_tp_cli' => 2
         ),
         array(
