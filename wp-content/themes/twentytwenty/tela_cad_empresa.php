@@ -33,7 +33,7 @@ $razao = $nm_fant = $cnpj = $msg_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    
+      $id = 0;
       $wpdb->insert(
         'CLIENTE',
         array(
@@ -49,7 +49,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           '%d'
         )
       );
-      $wpdb->insert_id;
+      $id = $wpdb->insert_id;
+      return $id;
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -82,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PJ
+          <h3 class="page-header">Cadastro de Cliente PJ <?php echo $id; ?>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
