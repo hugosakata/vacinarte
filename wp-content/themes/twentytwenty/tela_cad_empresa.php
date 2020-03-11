@@ -5,41 +5,25 @@ global $wpdb;
 
 <?php
 
-$razao = $nm_fant = $cnpj = $tel = $cel = $email = $logra = $num_logra = "";
-$compl_logra = $bairro = $cep = $cidade = $msg_err = "";
+$razao = $nm_fant = $cnpj = "";
+$msg_err = "";
 
  function load(){
-    global $razao, $nm_fant, $cnpj, $tel, $cel, $email, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $msg_err;
+    global $razao, $nm_fant, $cnpj;
 
     $razao = str_replace("'", "", trim($_POST["razao"]));
     $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
     $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
-    $tel = str_replace("'", "", trim($_POST["tel"]));
-    $cel = str_replace("'", "", trim($_POST["cel"]));
-    $email = str_replace("'", "", trim($_POST["email"]));
-    $logra = str_replace("'", "", trim($_POST["logra"]));
-    $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
-    $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
-    $bairro = str_replace("'", "", trim($_POST["bairro"]));
-    $cep = str_replace("'", "", trim($_POST["cep"]));
-    $cidade = str_replace("'", "", trim($_POST["cidade"]));
+    
  }
 
  function form_valido() {
-    global $razao, $nm_fant, $cnpj, $cel, $tel, $email, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $msg_err;
+    global $razao, $nm_fant, $cnpj, $msg_err;
 
     $valido = false;
     if (!empty($razao) && 
         !empty($nm_fant) && 
-        !empty($cnpj) &&
-        !empty($cel) &&
-        !empty($logra) &&
-        !empty($num_logra) &&
-        !empty($bairro) &&
-        !empty($cep) &&
-        !empty($cidade)){
+        !empty($cnpj)){
           $valido = true;
     }
 
@@ -50,7 +34,22 @@ $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $msg_err = "valido";
+      $wpdb->insert(
+        'CLIENTE',
+        array(
+          'nm_rz_soc' => '$razao',
+          'nm_fant'   => '$nm_fant',
+          'cpf_cnpj'  => '$cnpj',
+          'cd_tp_cli' => 2
+        ),
+        array(
+          '%s',
+          '%s',
+          '%s',
+          '%d'
+        )
+      );
+      $wpdb->insert_id;
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -194,7 +193,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="submit" class="button btn btn-danger " value="Cadastrar">
+              <input type="submit" class="button btn btn-danger " value="Salvar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
