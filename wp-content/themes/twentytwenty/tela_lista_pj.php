@@ -72,7 +72,7 @@ global $wpdb;
                             <td>11-98163-6316</td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href="http://vacinarte-admin.com.br/cadastrar-pj/?id=1"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                             </td>
                           </tr>
