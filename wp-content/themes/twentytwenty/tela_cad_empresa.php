@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           '%d'
         )
       );
-      $id_retorno = $wpdb->insert_id;
+      $msg_err = $wpdb->insert_id;
       echo "<script>alert('id = "+$id_retorno+");</script>";
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
