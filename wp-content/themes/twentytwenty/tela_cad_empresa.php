@@ -33,7 +33,7 @@ $razao = $nm_fant = $cnpj = $msg_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $ret = 0;
+      $id_retorno = 0;
       $wpdb->insert(
         'CLIENTES',
         array(
@@ -49,8 +49,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           '%d'
         )
       );
-      $iret = $wpdb->insert_id;
-      echo "<script>alert('id = "+$ret+");</script>";
+      $id_retorno = $wpdb->insert_id;
+      echo "<script>alert('id = "+$id_retorno+");</script>";
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
