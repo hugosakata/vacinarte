@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
       
       $wpdb->insert(
-        'CLIENTE',
+        'CLIENTES',
         array(
           'nm_rz_soc' => $razao,
           'nm_fant'   => $nm_fant,
