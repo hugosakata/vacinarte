@@ -199,11 +199,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-xs-2 col-xs-offset-1">
 
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/';" 
-              value="Endereços" <?php if ($_GET["id"] <= 0) { echo "disabled='true'";} ?>/>
+              value="Endereços" <?php if ($_GET["id"] <= 0) { echo "disabled='true' style='background-color:slateGray'"} ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/" . $razao; ?>" 
-              value="Contatos" <?php if ($_GET["id"] <= 0) { echo "disabled='true'";} ?>/>
+              value="Contatos" <?php if ($_GET["id"] <= 0) { echo "disabled='true' style='background-color:slateGray'"; ?>/>
             </div> 
           </div>
         </form><!-- fecha form -->
