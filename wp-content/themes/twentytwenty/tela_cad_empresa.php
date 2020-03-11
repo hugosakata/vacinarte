@@ -49,8 +49,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           '%d'
         )
       );
-      $id = $wpdb->insert_id;
-      return $id;
+      $wpdb->insert_id;
+      return $wpdb;
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PJ <?php echo $id; ?>
+          <h3 class="page-header">Cadastro de Cliente PJ 
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
@@ -91,6 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $wpdb; ?></h4></span></center>
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
