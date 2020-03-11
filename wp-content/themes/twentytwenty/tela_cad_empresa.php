@@ -5,8 +5,7 @@ global $wpdb;
 
 <?php
 
-$razao = $nm_fant = $cnpj = "";
-$msg_err = "";
+$razao = $nm_fant = $cnpj = $msg_err = "";
 
  function load(){
     global $razao, $nm_fant, $cnpj;
@@ -38,9 +37,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $wpdb->insert(
         'CLIENTE',
         array(
-          'nm_rz_soc' => 'Hugo Sakata S/A',
-          'nm_fant'   => 'Hugo PHPMaker',
-          'cpf_cnpj'  => '12345678000190',
+          'nm_rz_soc' => $razao,
+          'nm_fant'   => $nm_fant,
+          'cpf_cnpj'  => $cnpj,
           'cd_tp_cli' => 2
         ),
         array(
