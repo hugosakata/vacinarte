@@ -199,7 +199,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-xs-2 col-xs-offset-1">
 
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/';" 
-              value="Endereços" <?php if ($_GET["id"] > 0) echo "style='color:gray;'" ?>/>
+              value="Endereços" <?php if ($_GET["id"] <= 0) echo "style='color:gray;'" ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/" . $razao; ?>" 
