@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         )
       );
       $id_retorno = $wpdb->insert_id;
-      $sql = "SELECT * FROM CLIENTES WHERE cd_cli = 1";
+      $sql = "SELECT * FROM CLIENTES WHERE cd_cli = "+$id_retorno;
       $cliente = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PJ <span>$id_retorno</span>
+          <h3 class="page-header">Cadastro de Cliente PJ <span><?php echo $id_retorno; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
@@ -101,15 +101,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="row">  
             <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Razão Social*</label>
-              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" <?php if ($id_retorno != 0) { echo "value='$cliente->nm_rz_soc'"; } ?>>
+              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" <?php if ($id_retorno != 0) { echo "value='$cliente->nm_rz_soc'"; } ?>/>
             </div>
             <div class="form-group col-xs-3">
               <label>Nome fantasia*</label>
-              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia">
+              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" <?php if ($id_retorno != 0) { echo "value='$cliente->nm_fant'"; } ?>/>
             </div>
             <div class="form-group col-xs-2">
               <label>CNPJ*</label>
-              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen">
+              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php if ($id_retorno != 0) { echo "value='$cliente->cpf_cnpj'"; } ?>/>
             </div>
           </div>
          
@@ -120,11 +120,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-xs-2 col-xs-offset-1">
 
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/';" 
-              value="Endereços" <?php if ($_GET["id"] <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/"; ?>" 
-              value="Contatos" <?php if ($_GET["id"] <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Contatos" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
         </form><!-- fecha form -->
