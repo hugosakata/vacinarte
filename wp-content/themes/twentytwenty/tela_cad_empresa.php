@@ -19,7 +19,7 @@ $msg_err = "";
 
  function form_valido() {
     global $razao, $nm_fant, $cnpj, $msg_err;
-    alert($razao+' - '+$nm_fant+' - '+$cnpj);
+    
     $valido = false;
     if (!empty($razao) && 
         !empty($nm_fant) && 
@@ -34,6 +34,7 @@ $msg_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
+    alert($razao+' - '+$nm_fant+' - '+$cnpj);
       $wpdb->insert(
         'CLIENTE',
         array(
