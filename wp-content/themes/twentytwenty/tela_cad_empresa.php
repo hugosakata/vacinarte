@@ -14,12 +14,12 @@ $msg_err = "";
     $razao = str_replace("'", "", trim($_POST["razao"]));
     $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
     $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
-    alert($razao+' - '+$nm_fant+' - '+$cnpj);
+    
  }
 
  function form_valido() {
     global $razao, $nm_fant, $cnpj, $msg_err;
-
+    alert($razao+' - '+$nm_fant+' - '+$cnpj);
     $valido = false;
     if (!empty($razao) && 
         !empty($nm_fant) && 
