@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
           
-          <div class="row">
+          <div class="row hide">
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label>Falar com</label>
               <input type="text" name="nm_contato" class="form-control" placeholder="Nome do contato">
@@ -130,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
 
-          <div class="row">
+          <div class="row hide">
             <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Logradouro</label>
               <input type="text" name="logra" class="form-control" placeholder="Rua / Avenida...">
@@ -145,7 +145,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
 
-          <div class="row">
+          <div class="row hide">
             <div class="form-group col-xs-3 col-xs-offset-1">
               <label>Bairro</label>
               <input type="text" name="bairro" class="form-control" placeholder="Bairro">
