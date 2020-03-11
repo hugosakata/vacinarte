@@ -14,7 +14,7 @@ $msg_err = "";
     $razao = str_replace("'", "", trim($_POST["razao"]));
     $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
     $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
-    
+    alert($razao+' - '+$nm_fant+' - '+$cnpj);
  }
 
  function form_valido() {
@@ -37,9 +37,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $wpdb->insert(
         'CLIENTE',
         array(
-          'nm_rz_soc' => get_var($razao),
-          'nm_fant'   => get_var($nm_fant),
-          'cpf_cnpj'  => get_var($cnpj),
+          'nm_rz_soc' => $razao,
+          'nm_fant'   => $nm_fant,
+          'cpf_cnpj'  => $cnpj,
           'cd_tp_cli' => 2
         ),
         array(
