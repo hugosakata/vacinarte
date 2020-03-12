@@ -42,7 +42,7 @@ CREATE TABLE `CAMPANHA` (
 -- tabela CLIENTE 
 
 CREATE TABLE `CLIENTE` (
-  `cd_cli` int(11) NOT NULL,
+  `cd_cli` int(11) NOT NULL AUTO_INCREMENT,
   `nm_rz_soc` varchar(150) DEFAULT NULL COMMENT '''Razao Social se for PJ''',
   `nm_fant` varchar(150) NOT NULL COMMENT '''Nome cliente se for PF, Nome fantasia se for PJ''',
   `cpf_cnpj` varchar(45) NOT NULL,

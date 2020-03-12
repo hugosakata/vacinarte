@@ -123,7 +123,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-contatos/?id='{$id_retorno}'"; ?>" 
+              <input type="button" onclick="<?php echo "location.href='http://vacinarte-admin.com.br/listar-enderecos/?id='{$id_retorno}'"; ?>" 
               value="Contatos" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
