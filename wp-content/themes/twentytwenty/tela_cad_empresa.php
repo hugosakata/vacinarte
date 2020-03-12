@@ -129,7 +129,7 @@ function chamaURL(btn, param){
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
-              <input type="button" onclick="chamaURL('endereco', {$id_retorno});" 
+              <input type="button" onclick="chamaURL('endereco', '{$id_retorno}');" 
               value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
