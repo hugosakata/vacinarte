@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_retorno; ?>';" 
               value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
