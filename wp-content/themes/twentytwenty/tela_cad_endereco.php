@@ -5,11 +5,11 @@ global $wpdb;
 
 <?php
 
-$logra = $num_logra = "";
+$logra = $num_logra = $id_cli = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
 if(isset($_GET['id'])){
-  echo $_GET['id'];
+  $id_cli = $_GET['id'];
 }
 
  function load(){
@@ -147,7 +147,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço
+          <h3 class="page-header">Cadastro de Endereço <span><?php echo $id_cli; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo endereço</small>
           </h3>
