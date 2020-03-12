@@ -57,6 +57,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
 }
+
+function chamaURL(btn, param){
+  if(btn == 'endereco'){
+    location.href='http://vacinarte-admin.com.br/listar-enderecos/?id='param;
+  }
+}
 ?>
  
 <!DOCTYPE html>
@@ -119,7 +125,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id='.{$id_retorno}"; 
+              <input type="button" onclick="chamaURL(endereco, {$id_retorno});" 
               value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
