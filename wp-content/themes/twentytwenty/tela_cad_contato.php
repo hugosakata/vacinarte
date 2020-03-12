@@ -5,7 +5,11 @@ global $wpdb;
 
 <?php
 
-$nm_contato = $tp_ctt = $contato = "";
+$nm_contato = $tp_ctt = $contato = $id_cli = "";
+
+if(isset($_GET['id'])){
+  $id_cli = $_GET['id'];
+}
 
  function load(){
     global $nm_contato, $tp_ctt, $contato;
@@ -65,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Contato
+          <h3 class="page-header">Cadastro de Contato <span><?php echo $id_cli; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo contato</small>
           </h3>
