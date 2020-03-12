@@ -8,6 +8,10 @@ global $wpdb;
 $logra = $num_logra = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
+if(isset($_GET['id'])){
+  echo $_GET['id'];
+}
+
  function load(){
     global $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $msg_err;
