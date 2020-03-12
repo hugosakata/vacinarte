@@ -5,31 +5,36 @@ global $wpdb;
 
 <?php
 
-$logra = $num_logra = $id_cli = "";
+$nm_end = $logra = $num_logra = $id_cli = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
+$uf_br = "nada";
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
+  $uf_br = $_POST['uf_br'];
 }
 
  function load(){
-    global $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $msg_err;
+    global $nm_end, $logra, $num_logra,
+    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err;
 
+    $nm_end = str_replace("'", "", trim($_POST["nm_end"]));
     $logra = str_replace("'", "", trim($_POST["logra"]));
     $num_logra = str_replace("'", "", trim($_POST["num_logra"]));
     $compl_logra = str_replace("'", "", trim($_POST["compl_logra"]));
     $bairro = str_replace("'", "", trim($_POST["bairro"]));
     $cep = str_replace("'", "", trim($_POST["cep"]));
     $cidade = str_replace("'", "", trim($_POST["cidade"]));
+    $uf_br = str_replace("'", "", trim($_POST["uf_br"]));
  }
 
  function form_valido() {
-    global $logra, $num_logra,
+    global $nm_end, $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
     $valido = false;
-    if (!empty($logra) &&
+    if (!empty($nm_end) &&
+        !empty($logra) &&
         !empty($num_logra) &&
         !empty($bairro) &&
         !empty($cep) &&
@@ -44,7 +49,30 @@ if(isset($_GET['id'])){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $msg_err = "valido";
+    $wpdb->insert(
+      'ENDERECO',
+      array(
+        'nm_end'      => $nm_end,
+        'logradouro'  => $logra,
+        'num_end'     => $num_logra,
+        'bairro'      => $bairro,
+        'cep'         => $cep,
+        'cidade'      => $cidade,
+        'estado'      => $uf_br
+      ),
+      array(
+        '%s',
+        '%s',
+        '%s',
+        '%s',
+        '%s',
+        '%s',
+        '%s'
+      )
+    );
+    $id_retorno = $wpdb->insert_id;
+    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+    $cliente = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -147,7 +175,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço <span><?php echo $id_cli; ?></span>
+          <h3 class="page-header">Cadastro de Endereço <span><?php echo $id_cli; ?> <?php echo $uf_br; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo endereço</small>
           </h3>
@@ -163,10 +191,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
         <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>CEP*</label>
-              <input type="text" name="cep" class="form-control" 
-                placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
+              <label>Nome*</label>
+              <input type="text" name="nm_end" class="form-control" 
+                placeholder="Nome do endereço"
+              onblur="pesquisacep(this.value);" value="<?php echo $nm_end; ?>">
             </div>
             <div class="form-group col-xs-6">
               <label>Logradouro*</label>
@@ -194,6 +222,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             
+            <div class="form-group col-xs-2">
+              <label>CEP*</label>
+              <input type="text" name="cep" class="form-control" 
+                placeholder="Sem hífen"
+              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
+            </div>
+
             <div class="form-group col-xs-3">
               <label>Cidade*</label>
               <input type="text" id="cidade" name="cidade" class="form-control" 
