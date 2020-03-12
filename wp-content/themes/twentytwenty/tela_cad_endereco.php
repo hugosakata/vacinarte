@@ -273,7 +273,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="submit" class="button btn btn-danger " value="Salvar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_cli; ?>';" 
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
               value="Contatos" <?php if ($id_cli <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
           </div>
