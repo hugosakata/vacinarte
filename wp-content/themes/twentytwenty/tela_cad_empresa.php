@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 function chamaURL(btn, param){
   if(btn == 'endereco'){
-    location.href='http://vacinarte-admin.com.br/listar-enderecos/?id='param;
+    location.href='http://vacinarte-admin.com.br/listar-enderecos/?id='+param;
   }
 }
 ?>
