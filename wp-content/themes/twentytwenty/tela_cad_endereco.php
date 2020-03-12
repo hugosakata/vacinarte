@@ -5,13 +5,12 @@ global $wpdb;
 
 <?php
 
-$nm_end = $logra = $num_logra = $id_cli = "";
+$endereco = $nm_end = $logra = $num_logra = $id_cli = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
-$uf_br = "nada";
+$id_retorno = 0;
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
-  $uf_br = $_POST['uf_br'];
 }
 
  function load(){
@@ -71,8 +70,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       )
     );
     $id_retorno = $wpdb->insert_id;
-    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
-    $cliente = $wpdb->get_row($sql);
+    $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
+    $endereco = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -175,7 +174,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço <span><?php echo $id_cli; ?> <?php echo $uf_br; ?></span>
+          <h3 class="page-header">Cadastro de Endereço 
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo endereço</small>
           </h3>
@@ -196,7 +195,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 placeholder="Nome do endereço"
               onblur="pesquisacep(this.value);" value="<?php echo $nm_end; ?>">
             </div>
-            <div class="form-group col-xs-6">
+            <div class="form-group col-xs-2">
+              <label>CEP*</label>
+              <input type="text" name="cep" class="form-control" 
+                placeholder="Sem hífen"
+              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Logradouro*</label>
               <input type="text" id="logra" name="logra" class="form-control" 
                 placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
@@ -213,7 +220,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 value="<?php echo $compl_logra; ?>">
             </div>
           </div>
-
           
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
@@ -222,13 +228,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             
-            <div class="form-group col-xs-2">
-              <label>CEP*</label>
-              <input type="text" name="cep" class="form-control" 
-                placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
-            </div>
-
             <div class="form-group col-xs-3">
               <label>Cidade*</label>
               <input type="text" id="cidade" name="cidade" class="form-control" 
