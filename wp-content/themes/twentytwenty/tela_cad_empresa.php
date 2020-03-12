@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$razao = $nm_fant = $cnpj = $msg_err = $location = $param = "";
+$razao = $nm_fant = $cnpj = $msg_err = "";
 $id_retorno = 0;
 
  function load(){
@@ -58,15 +58,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   }
 }
 
-function chamaURL(btn, param){
-  $param = param;
-  if(btn == 'endereco'){
-    $location = 'http://vacinarte-admin.com.br/listar-enderecos/?id=' . $param;
-    echo $location;
-  }else{
-
-  }
-}
 ?>
  
 <!DOCTYPE html>
@@ -129,7 +120,7 @@ function chamaURL(btn, param){
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
-              <input type="button" onclick="chamaURL('endereco', '{$id_retorno}');" 
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
               value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
