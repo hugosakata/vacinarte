@@ -5,7 +5,8 @@ global $wpdb;
 
 <?php
 
-$nm_contato = $tp_ctt = $contato = $id_cli = "";
+$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = $contato = "";
+$id_retorno = 0;
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
@@ -15,17 +16,17 @@ if(isset($_GET['id'])){
     global $nm_contato, $tp_ctt, $contato;
 
     $nm_contato = str_replace("'", "", trim($_POST["nm_contato"]));
-    $tp_ctt = str_replace("'", "", trim($_POST["tp_ctt"]));
-    $contato = str_replace("'", "", trim($_POST["contato"]));
+    $tel_pri = str_replace("'", "", trim($_POST["tel_pri"]));
+    $email = str_replace("'", "", trim($_POST["email"]));
+    $obs_ctt = str_replace("'", "", trim($_POST["obs_ctt"]));
  }
 
  function form_valido() {
-    global $nm_contato, $tp_ctt, $contato;
+    global $nm_contato, $tel_pri;
 
     $valido = false;
     if (!empty($nm_contato) && 
-        !empty($tp_ctt) && 
-        !empty($contato)){
+        !empty($tel_pri)){
           $valido = true;
     }
 
@@ -36,7 +37,24 @@ if(isset($_GET['id'])){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      $msg_err = "valido";
+    $wpdb->insert(
+      'CONTATO',
+      array(
+        'cd_cli'  => $id_cli,
+        'nm_ctt'  => $nm_contato,
+        'tel_pri' => $tel_pri,
+        'obs_ctt' => $obs_ctt
+      ),
+      array(
+        '%d',
+        '%s',
+        '%s',
+        '%s'
+      )
+    );
+    $id_retorno = $wpdb->insert_id;
+    $sql = "SELECT * FROM CONTATO WHERE cd_ctt = '{$id_retorno}'";
+    $contato = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -89,21 +107,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="<?php echo $nm_contato; ?>">
             </div>
             <div class="form-group col-xs-2">
-              <label>Tipo de contato*</label>
-              <select class="selectpicker form-control" name="tp_ctt" value="<?php echo $tp_ctt; ?>">
-                <option value=""></option>
-                <option value="email">Email</option>
-                <option value="telefone">Telefone</option>
-                <option value="celular">Celular</option>
-                <option value="whatsapp">WhatsApp</option>
-              </select>
+              <label>Telefone*</label>
+              <input type="text" name="tel_pri" class="form-control" placeholder="telefone principal"
+              value="<?php echo $tel_pri; ?>">
             </div>
-            <div class="form-group col-xs-5">
-              <label>Contato*</label>
-              <input type="text" name="contato" class="form-control" placeholder="Contato"
-              value="<?php echo $contato; ?>">
+            <div class="form-group col-xs-2">
+              <label>Email</label>
+              <input type="text" name="email" class="form-control" placeholder="Email"
+              value="<?php echo $email; ?>">
             </div>
-            
+            <div class="form-group col-xs-2">
+              <label>Observação</label>
+              <input type="text" name="obs_ctt" class="form-control" placeholder="Observações gerais"
+              value="<?php echo $obs_ctt; ?>">
+            </div>
+          </div>
+          <div class="row hide">
+            <div class="form-group col-xs-10 col-xs-offset-1">
+              <label>Contato diversos*</label>
+              <input type="button" name="email" class="form-control btn btn-primary btn_ctt" placeholder="Email" value="Email"/>
+              <input type="button" name="lkdin" class="form-control btn btn-primary btn_ctt" placeholder="Link do LinkedIn" value="LinkedIn"/>
+              <input type="button" name="siteblog" class="form-control btn btn-primary btn_ctt" placeholder="Site ou Blog" value="Site/Blog"/>
+              <input type="button" name="obs_ctt" class="form-control btn btn-primary btn_ctt" placeholder="Observações" value="Obs"/>
+            </div>
+          </div>
+          <div class="row hide">
+            <div class="form-group col-xs-10 col-xs-offset-1">
+              <input type="text" name="tx_ctt" class="form-control ctt_diverso" placeholder="" value=""/>
+            </div>
           </div>
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
