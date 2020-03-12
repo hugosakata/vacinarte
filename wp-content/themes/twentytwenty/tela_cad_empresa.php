@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$razao = $nm_fant = $cnpj = $msg_err = "";
+$razao = $nm_fant = $cnpj = $msg_err = $location = "";
 $id_retorno = 0;
 
  function load(){
@@ -60,9 +60,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 function chamaURL(btn, param){
   if(btn == 'endereco'){
-    //location.href='http://vacinarte-admin.com.br/listar-enderecos/?id='+param;
-    header("Location: "."http://vacinarte-admin.com.br/listar-enderecos/?id="+param);
-
+    $location = 'http://vacinarte-admin.com.br/listar-enderecos/?id=' . $id_retorno;
+    echo $location;
   }else{
 
   }
