@@ -4,6 +4,11 @@ global $wpdb;
 
 ?>
 
+
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -63,24 +68,42 @@ global $wpdb;
                       <table class="table table-striped" id="tab_cli_pf">
                         <thead>
                           <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Contato</th>
+                            <th>Razão Social</th>
+                            <th>Nome Fantasia</th>
+                            <th>CNPJ</th>
                             <th>Ações</th>
                           </tr>
                         </thead>
                         <tbody>
+
+                        <?php
+                          $clientes = $wpdb->get_results( 
+                            "
+                            SELECT cd_cli, nm_rz_soc, nm_fant, cpf_cnpj 
+                            FROM CLIENTES
+                            WHERE cd_tp_cli=2 order by nm_rz_soc, nm_fant
+                            "
+                          );
+                          
+                          foreach ( $clientes as $cliente ) 
+                          {
+                        ?>
+
                           <tr>
-                            <td>Reinaldo Daltro</td>
-                            <td>147.058.728-94</td>
-                            <td>11-98163-6316</td>
+                            <td><?php echo $cliente->nm_rz_soc ?></td>
+                            <td><?php echo $cliente->nm_fant ?></td>
+                            <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a href="http://vacinarte-admin.com.br/cadastrar-pj/?id=1"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href='http://vacinarte-admin.com.br/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                             </td>
                           </tr>
-        
+                          
+                          <?php
+                            }
+                          ?>
+                          
                         </tbody>
                       </table>
                     </div><!-- fecha panel corpo -->
