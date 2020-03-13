@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $id_retorno = 0;
-$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp"";
+$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
