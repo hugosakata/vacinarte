@@ -89,9 +89,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha
+          <h3 class="page-header">Cadastro de Campanha <span><?php echo $campanha; ?> / <?php echo $empresa; ?> / <?php echo $tp_srv; ?></span>
           <br>
-            <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
+            <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small><span><?php echo $dt_ini; ?> / <?php echo $dt_fim; ?></span>
           </h3>
         </div>
     </div><!-- fecha div row -->
