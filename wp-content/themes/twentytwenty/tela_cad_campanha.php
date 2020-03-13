@@ -38,7 +38,7 @@ function form_valido() {
 }
 
 load();
-
+echo $empresa
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
     $wpdb->insert(
@@ -156,7 +156,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="Vacinas" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>
-          
+
         </form><!-- fecha form -->
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
