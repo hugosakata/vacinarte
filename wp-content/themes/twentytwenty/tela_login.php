@@ -7,6 +7,9 @@ global $wpdb;
 
 <?php
  
+if (isset($_GET['sair']))
+    setcookie("logado");
+
 // Define variables and initialize with empty values
 $username = $password = $msg_err = "";
 $username_err = $password_err = "";
