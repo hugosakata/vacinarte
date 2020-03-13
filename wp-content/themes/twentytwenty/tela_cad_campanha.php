@@ -41,12 +41,7 @@ function form_valido() {
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  print "<script language='javascript' type='text/javascript'>
-            var x;
-            x = '<?php print($campanha); ?>'
-            console.log(x);
-          </script>";
-
+ 
   if (form_valido()){
     $wpdb->insert(
       'CAMPANHA',
@@ -175,8 +170,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript">
-      JQuery(document).
-    </script> -->
+    <script type="text/javascript">
+      JQuery('.btn_salvar').on('click', function(){
+        console.log($campanha);
+        alert($campanha);
+      });
+    </script>
   </body>
   </html>
