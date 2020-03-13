@@ -33,7 +33,7 @@ function form_valido() {
       !empty($dt_fim)){
         $valido = true;
   }
-  echo "<script language='javascript' type='text/javascript'>alert('$empresa');</script>"
+  echo "<script language='javascript' type='text/javascript'>alert('$empresa');</script>";
   return $valido;
 }
 
