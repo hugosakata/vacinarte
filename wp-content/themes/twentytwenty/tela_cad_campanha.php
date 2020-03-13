@@ -33,12 +33,12 @@ function form_valido() {
       !empty($dt_fim)){
         $valido = true;
   }
-
+  echo "<script language='javascript' type='text/javascript'>alert('$empresa');</script>"
   return $valido;
 }
 
 load();
-echo $empresa
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
     $wpdb->insert(
@@ -149,7 +149,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-3">
-              <input type="submit" class="button btn btn-danger " value="Salvar">
+              <input type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina/?id=<?php echo $id_cmp; ?>';" 
@@ -166,8 +166,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
 </div><!-- fecha container principal -->  
 
-	<script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
+    <!-- <script type="text/javascript">
+      JQuery(document).
+    </script> -->
   </body>
   </html>
