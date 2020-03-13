@@ -147,19 +147,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
 
+          <div class="row btns">
+            <div class="col-xs-2 col-xs-offset-3">
+              <input type="submit" class="button btn btn-danger " value="Salvar">
+            </div>
+            <div class="col-xs-2 col-xs-offset-1">
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina/?id=<?php echo $id_cmp; ?>';" 
+              value="Vacinas" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+            </div>  
+          </div>
+          
         </form><!-- fecha form -->
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
 
-    <div class="row btns">
-      <div class="col-xs-2 col-xs-offset-3">
-        <input type="submit" class="button btn btn-danger " value="Salvar">
-      </div>
-      <div class="col-xs-2 col-xs-offset-1">
-        <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina/?id=<?php echo $id_cmp; ?>';" 
-        value="Vacinas" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
-      </div>  
-    </div>
 
 
     
