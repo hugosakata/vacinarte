@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12">
           <h3 class="page-header">Cadastro de Contato <span><?php echo $id_cli; ?></span>
           <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo contato</small>
+            <small>Preencha o formulário abaixo para cadastrar um novo contato</small> <span><?php echo $nm_contato; ?>//<?php echo $tel_pri; ?></span>
           </h3>
         </div>
     </div><!-- fecha div row -->
