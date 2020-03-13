@@ -16,7 +16,7 @@ function load(){
   global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim, $cmp;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
-  $empresa = str_replace("'", "", trim($_POST["emrpesa"]));
+  $empresa = str_replace("'", "", trim($_POST["empresa"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $dt_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $dt_fim = str_replace("'", "", trim($_POST["dt_fim"]));
@@ -42,13 +42,13 @@ load();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
     $wpdb->insert(
-      'CAMPANHA ',
+      'CAMPANHA',
       array(
-        'nm_cmp'  => $campanha,
-        'cd_cli'  => $empresa,
+        'nm_cmp'    => $campanha,
+        'cd_cli'    => $empresa,
         'cd_tp_srv' => $tp_srv,
-        'dt_ini' => $dt_ini,
-        'dt_fim' => $dt_fim
+        'dt_ini'    => $dt_ini,
+        'dt_fim'    => $dt_fim
       ),
       array(
         '%s',
