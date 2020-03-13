@@ -171,7 +171,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-      JQuery('.btn_salvar').on('click', function(){
+      $('.btn_salvar').on('click', function(){
         console.log($campanha);
         alert($campanha);
       });
