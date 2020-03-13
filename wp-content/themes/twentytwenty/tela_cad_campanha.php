@@ -26,12 +26,6 @@ function load(){
 function form_valido() {
   global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim;
 
-  print "<script language='javascript' type='text/javascript'>
-            var x;
-            x = '<?php print($empresa); ?>'
-            console.log(x);
-          </script>";
-          
   $valido = false;
   if (!empty($campanha) &&
       !empty($empresa) &&
@@ -40,13 +34,19 @@ function form_valido() {
       !empty($dt_fim)){
         $valido = true;
   }
-  echo "<script language='javascript' type='text/javascript'>alert('$empresa');</script>";
+  
   return $valido;
 }
 
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+  print "<script language='javascript' type='text/javascript'>
+            var x;
+            x = '<?php print($campanha); ?>'
+            console.log(x);
+          </script>";
+
   if (form_valido()){
     $wpdb->insert(
       'CAMPANHA',
