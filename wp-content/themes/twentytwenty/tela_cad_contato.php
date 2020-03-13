@@ -122,20 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="<?php echo $obs_ctt; ?>">
             </div>
           </div>
-          <div class="row hide">
-            <div class="form-group col-xs-10 col-xs-offset-1">
-              <label>Contato diversos*</label>
-              <input type="button" name="email" class="form-control btn btn-primary btn_ctt" placeholder="Email" value="Email"/>
-              <input type="button" name="lkdin" class="form-control btn btn-primary btn_ctt" placeholder="Link do LinkedIn" value="LinkedIn"/>
-              <input type="button" name="siteblog" class="form-control btn btn-primary btn_ctt" placeholder="Site ou Blog" value="Site/Blog"/>
-              <input type="button" name="obs_ctt" class="form-control btn btn-primary btn_ctt" placeholder="Observações" value="Obs"/>
-            </div>
-          </div>
-          <div class="row hide">
-            <div class="form-group col-xs-10 col-xs-offset-1">
-              <input type="text" name="tx_ctt" class="form-control ctt_diverso" placeholder="" value=""/>
-            </div>
-          </div>
+          
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
               <input type="submit" class="button btn btn-danger " value="Salvar">
