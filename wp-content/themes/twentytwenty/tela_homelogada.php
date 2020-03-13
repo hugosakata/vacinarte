@@ -87,13 +87,22 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		* html body { margin-top: 46px !important; }
 	}
 </style>
+
+<style type="text/css">
+    .help-block{ display: block;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    color: #a94442; }
+</style>
 </head>
 <body>
     
     <?php include 'tela_header.php';?>
 
-    <p><input type="text" id="datepicker"></p>
-
+    <?php if ($_COOKIE["logado"] <= 0){
+        echo "<center><span class='help-block'><h4>Usuário não logado</h4></span></center>";
+        return;
+    }?>
     
     <div class="wrap">
         <div id="primary" class="content-area">
