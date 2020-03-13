@@ -25,7 +25,7 @@ function load(){
             var x;
             x = '<?php print($empresa); ?>'
             console.log(x);
-          </script>"
+          </script>";
 }
 
 function form_valido() {
