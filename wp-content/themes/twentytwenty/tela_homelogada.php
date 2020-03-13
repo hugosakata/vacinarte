@@ -101,6 +101,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
     <?php if ($_COOKIE["logado"] <= 0){
         echo "<center><span class='help-block'><h4>Usuário não logado</h4></span></center>";
+        return;
     }?>
     
     <div class="wrap">
