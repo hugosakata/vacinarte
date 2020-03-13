@@ -1,6 +1,9 @@
 <?php /* Template Name: TelaCadCampanha */
 
 global $wpdb;
+?>
+
+<?php
 
 $id_retorno = 0;
 $campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp"";
