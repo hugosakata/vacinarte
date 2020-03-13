@@ -100,8 +100,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
     <?php include 'tela_header.php';?>
 
     <?php if ($_COOKIE["logado"] <= 0){
-        echo "<center><span class='help-block'><h4>Usuário não logado</h4></span></center>";
-        return;
+        echo "<script language='javascript' type='text/javascript'>
+        window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
     
     <div class="wrap">

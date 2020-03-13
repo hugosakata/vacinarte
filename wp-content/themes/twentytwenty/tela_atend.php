@@ -27,6 +27,12 @@ global $wpdb;
   
 <div class="container"><!-- container principal-->
 <?php include 'tela_header.php';?>
+
+<?php if ($_COOKIE["logado"] <= 0){
+        echo "<script language='javascript' type='text/javascript'>
+        window.location.href='http://vacinarte-admin.com.br/';</script>";
+    }?>
+
     <div class="row">
         <div class="col-lg-12 col-xs-12">
           <h3 class="page-header">Atendimento
