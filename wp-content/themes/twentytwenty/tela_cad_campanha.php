@@ -96,6 +96,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div><!-- fecha div row -->
 
+    <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+    
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
         <form class="form">
