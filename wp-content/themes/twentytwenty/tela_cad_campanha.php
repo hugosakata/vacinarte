@@ -2,6 +2,67 @@
 
 global $wpdb;
 
+$id_retorno = 0;
+$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp"";
+
+if(isset($_GET['id'])){
+  $id_cmp = $_GET['id'];
+}
+
+function load(){
+  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim, $cmp;
+
+  $campanha = str_replace("'", "", trim($_POST["campanha"]));
+  $empresa = str_replace("'", "", trim($_POST["emrpesa"]));
+  $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
+  $dt_ini = str_replace("'", "", trim($_POST["dt_ini"]));
+  $dt_fim = str_replace("'", "", trim($_POST["dt_fim"]));
+}
+
+function form_valido() {
+  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim;
+
+  $valido = false;
+  if (!empty($campanha) &&
+      !empty($empresa) &&
+      !empty($tp_srv) &&
+      !empty($dt_ini) && 
+      !empty($dt_fim)){
+        $valido = true;
+  }
+
+  return $valido;
+}
+
+load();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if (form_valido()){
+    $wpdb->insert(
+      'CAMPANHA ',
+      array(
+        'nm_cmp'  => $campanha,
+        'cd_cli'  => $empresa,
+        'cd_tp_srv' => $tp_srv,
+        'dt_ini' => $dt_ini,
+        'dt_fim' => $dt_fim
+      ),
+      array(
+        '%s',
+        '%d',
+        '%d',
+        '%s',
+        '%s'
+      )
+    );
+    $id_retorno = $wpdb->insert_id;
+    $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_retorno}'";
+    $cmp = $wpdb->get_row($sql);
+  } else {
+      $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+  }
+}
+
 ?>
 
  
@@ -37,14 +98,16 @@ global $wpdb;
         <form class="form">
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
-              <label style="font-size: 12px;">Campanha</label>
-              <input type="text" id="campanha" name="campanha" class="form-control">
+              <label style="font-size: 14px;">Campanha</label>
+              <input type="text" id="campanha" name="campanha" class="form-control"
+              value="<?php echo $campanha; ?>"/>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-xs-4 col-xs-offset-3">
-              <label style="font-size: 12px;">Empresa</label>
-              <select class="selectpicker form-control" id="empresa" name="empresa">
+              <label style="font-size: 14px;">Empresa</label>
+              <select class="selectpicker form-control" id="empresa" name="empresa"
+              value="<?php echo $empresa; ?>">
                 <option value=""></option>
                 <option value="1">Vacinarte Clinica De Vacinacao Ltda - Me</option>
                 <option value="5">BANCO DO BRASIL SA</option>
@@ -55,8 +118,9 @@ global $wpdb;
           
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
-              <label style="font-size: 12px;">Tipo</label>
-              <select class="selectpicker form-control" id="tp_srv" name="tp_srv">
+              <label style="font-size: 14px;">Tipo</label>
+              <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
+              value="<?php echo $tp_srv; ?>">
                 <option value=""></option>
                 <option value="1">Gesto</option>
                 <option value="2">Completo</option>
@@ -66,45 +130,15 @@ global $wpdb;
 
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
-              <label style="font-size: 12px;">Data de início</label>
-              <input type="text" id="dt_ini" name="dt_ini" class="form-control">
+              <label style="font-size: 14px;">Data de início</label>
+              <input type="text" id="dt_ini" name="dt_ini" class="form-control"
+              value="<?php echo $dt_ini; ?>"/>
             </div>
 
             <div class="form-group col-xs-2">
-              <label style="font-size: 12px;">Data de término</label>
-              <input type="text" id="dt_fim" name="dt_fim" class="form-control">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-xs-3 col-xs-offset-3">
-              <label style="font-size: 12px;">Vacina</label>
-              <select class="selectpicker form-control" id="cd_vcnA" name="cd_vcnA">
-                <option value=""></option>
-                <option value="1">H1N1</option>
-                <option value="2">Sarampo</option>
-                <option value="3">COVID-19</option>
-              </select>
-            </div>
-            <div class="form-group col-xs-1">
-              <label style="font-size: 12px;">Qtde</label>
-              <input type="text" id="qt_vcnA" name="qt_vcnA" class="form-control">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-xs-3 col-xs-offset-3">
-              <label style="font-size: 12px;">Vacina</label>
-              <select class="selectpicker form-control" id="cd_vcnB" name="cd_vcnB">
-                <option value=""></option>
-                <option value="1">H1N1</option>
-                <option value="2">Sarampo</option>
-                <option value="3">COVID-19</option>
-              </select>
-            </div>
-            <div class="form-group col-xs-1">
-              <label style="font-size: 12px;" >Qtde</label>
-              <input type="text" id="qt_vcnB" name="qt_vcnB" class="form-control">
+              <label style="font-size: 14px;">Data de término</label>
+              <input type="text" id="dt_fim" name="dt_fim" class="form-control"
+              value="<?php echo $dt_fim; ?>"/>
             </div>
           </div>
 
@@ -114,7 +148,11 @@ global $wpdb;
 
     <div class="row btns">
       <div class="col-xs-2 col-xs-offset-3">
-        <input type="submit" class="button btn btn-danger " value="Cadastrar">
+        <input type="submit" class="button btn btn-danger " value="Salvar">
+      </div>
+      <div class="col-xs-2 col-xs-offset-1">
+        <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina/?id=<?php echo $id_cmp; ?>';" 
+        value="Vacinas" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
       </div>  
     </div>
 
