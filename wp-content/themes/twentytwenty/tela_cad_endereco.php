@@ -176,7 +176,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12">
           <h3 class="page-header">Cadastro de Endereço 
           <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> <span><?php echo $nm_contato; ?>/<?php echo $tel_pri; ?></span>
+            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> 
           </h3>
         </div>
     </div><!-- fecha div row -->
