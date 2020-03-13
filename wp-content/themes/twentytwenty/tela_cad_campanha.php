@@ -21,16 +21,17 @@ function load(){
   $dt_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $dt_fim = str_replace("'", "", trim($_POST["dt_fim"]));
 
-  print "<script language='javascript' type='text/javascript'>
-            var x;
-            x = '<?php print($empresa); ?>'
-            console.log(x);
-          </script>";
 }
 
 function form_valido() {
   global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim;
 
+  print "<script language='javascript' type='text/javascript'>
+            var x;
+            x = '<?php print($empresa); ?>'
+            console.log(x);
+          </script>";
+          
   $valido = false;
   if (!empty($campanha) &&
       !empty($empresa) &&
