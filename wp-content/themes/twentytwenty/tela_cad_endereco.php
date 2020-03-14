@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // $endereco = $wpdb->get_row($sql);
 
     $sql = "INSERT INTO VCL_ENDERECO(cd_cli, cd_end) VALUES({$id_cli}, {$id_retorno});";
-    $wpdb->query( $sql )
+    $wpdb->query( $sql );
 
     $sql = "SELECT * FROM VCL_ENDERECO WHERE cd_end = '{$id_retorno}'";
     $vl_endereco = $wpdb->get_row($sql);
