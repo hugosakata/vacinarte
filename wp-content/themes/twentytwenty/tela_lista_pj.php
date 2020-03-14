@@ -129,8 +129,9 @@ global $wpdb;
 
     <script>
       //datatable
-	$(document).ready(function() {
+	$(document).ready(function(){
     $('#tab_cli_pj').DataTable();
+  });
 
     </script>
 
