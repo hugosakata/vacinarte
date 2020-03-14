@@ -215,7 +215,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-
+    <?php $wpdb->show_errors(); ?> 
+    <?php $wpdb->print_error(); ?> 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
         <form action="#" method="post">
