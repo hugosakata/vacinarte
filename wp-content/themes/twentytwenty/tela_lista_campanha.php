@@ -75,11 +75,15 @@ global $wpdb;
                         <?php
                           $campanhas = $wpdb->get_results( 
                             "
-                            SELECT `cd_cmp`, `nm_cmp`, `cd_cli`, `cd_tp_srv`, `dt_ini`, `dt_fim` 
-                            FROM `CAMPANHA` 
-                            WHERE 
-                            dt_ini <= now() + INTERVAL 1 DAY AND
-                             dt_fim >= now();
+                            SELECT `CAMPANHA`.`cd_cmp`, `CAMPANHA`.`nm_cmp`, 
+                            `CLIENTES`.`nm_fant`, 
+                            `TP_SRV`.`nm_tp_srv`, 
+                            `CAMPANHA`.`dt_ini`, 
+                            `CAMPANHA`.`dt_fim` FROM `CAMPANHA`, `CLIENTES`, `TP_SRV`
+                            WHERE `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` AND
+                            `CAMPANHA`.`cd_tp_srv`=`TP_SRV`.`cd_tp_srv` AND
+                            `CAMPANHA`.`dt_ini` <= now() + INTERVAL 1 DAY AND
+                            `CAMPANHA`.`dt_fim` >= now();
                             "
                           );
                           
@@ -88,8 +92,8 @@ global $wpdb;
                         ?>
                           <tr>
                             <td><?php echo $campanha->nm_cmp ?></td>
-                            <td><?php echo $campanha->cd_cli ?></td>
-                            <td><?php echo $campanha->cd_tp_srv ?></td>
+                            <td><?php echo $campanha->nm_fant ?></td>
+                            <td><?php echo $campanha->nm_tp_srv ?></td>
                             <td><?php echo $campanha->dt_ini ?></td>
                             <td><?php echo $campanha->dt_fim ?></td>
                             <td>
