@@ -4,7 +4,6 @@ global $wpdb;
 ?>
 
 <?php
-$cliente=new stdClass();
 $razao = $nm_fant = $cnpj = $msg_err = "";
 $id_retorno = 0;
 
@@ -42,7 +41,9 @@ $id_retorno = 0;
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_retorno = $_GET["id"];
 
-  set_cliente($id_retorno);
+  $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+  $cliente = $wpdb->get_row($sql);
+  $id_retorno = $cliente->cd_cli;
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -64,7 +65,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         )
       );
       $id_retorno = $wpdb->insert_id;
-      set_cliente($id_retorno);
+      $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+      $cliente = $wpdb->get_row($sql);
+      $id_retorno = $cliente->cd_cli;
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
