@@ -9,5 +9,5 @@
 
 setcookie("logado");
 echo "<script language='javascript' type='text/javascript'>
-            window.location.href='http://vacinarte-admin.com.br/home/';</script>";
+            window.location.href='http://vacinarte-admin.com.br/';</script>";
 ?>
