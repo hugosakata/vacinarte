@@ -11,6 +11,9 @@ $total_clientes_pf = $wpdb->get_var($sql);
 $sql = "SELECT count(*) as total FROM CLIENTE where cd_tp_cli=2";
 $total_clientes_pj = $wpdb->get_var($sql);
 
+$sql = "SELECT count(*) as total FROM CAMPANHA where dt_ini <= now() + INTERVAL 1 DAY AND dt_fim >= now()";
+$total_campanha_ativa = $wpdb->get_var($sql);
+
 ?>
 
  <!DOCTYPE html>
@@ -193,7 +196,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>176</h2></div>
+                                            <div class="huge"><h2><?php echo $total_campanha_ativa; ?></h2></div>
                                             <div>Campanhas Ativas</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
