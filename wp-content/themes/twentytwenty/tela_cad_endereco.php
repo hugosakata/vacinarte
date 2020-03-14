@@ -7,7 +7,7 @@ global $wpdb;
 
 $endereco = $nm_end = $logra = $num_logra = $id_cli = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
-$id_retorno = 0;
+$id_retorno = $id_retorno2 = 0;
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
@@ -70,8 +70,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       )
     );
     $id_retorno = $wpdb->insert_id;
-    $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
-    $endereco = $wpdb->get_row($sql);
+    // $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
+    // $endereco = $wpdb->get_row($sql);
+
+    $sql = "INSERT INTO VCL_ENDERECO(cd_cli, cd_end) VALUES({$id_cli}, {$id_retorno});";
+    $wpdb->query( $sql );
+
+    $sql = "SELECT * FROM VCL_ENDERECO WHERE cd_end = '{$id_retorno}'";
+    $vl_endereco = $wpdb->get_row($sql);
+    $id_retorno2 = $vl_endereco->cd_vcl_end;
+
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -179,7 +187,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço 
+          <h3 class="page-header">Cadastro de Endereço <?php echo $id_retorno . "." . $id_retorno2; ?>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> 
           </h3>
