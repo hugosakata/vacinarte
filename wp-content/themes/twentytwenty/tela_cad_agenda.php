@@ -109,13 +109,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               margin-top: 5px;
               margin-bottom: 10px;
               color: #a94442; }
-        .icon_agenda {
-              color: CornflowerBlue;
-              cursor: pointer;
-              margin-left: -2vw;
-              font-size: 2.5vw;
-              margin-top: 2vw;
-          }
     </style>
   </head>
   <body>
@@ -153,10 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="<?php echo $dt_agenda; ?>"/>
             </div>
             
-            <div class="form-group col-xs-1">
-            <a><i class="material-icons icon_agenda">today</i></a>
-            </div>
-
+           
             <div class="form-group col-xs-2">
               <label>Início</label>
               <input type="text" name="hr_ini" class="form-control"
