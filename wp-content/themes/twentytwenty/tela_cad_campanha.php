@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = "";
+$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
@@ -23,17 +23,18 @@ function load(){
 
 }
 
-function form_valido() {
-  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim;
+function date_converter($_date = null) {
+  $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
+  if ($_date != null && preg_match($format, $_date, $partes)) {
+    return $partes[3].'-'.$partes[2].'-'.$partes[1];
+  }
+  return false;
+  }
 
-  $ano_ini = substr($data_ini, -4);
-  $ano_fim = substr($data_fim, -4);
-  $mes_ini = substr($data_ini, 0, 2);
-  $mes_fim = substr($data_fim, 0, 2);
-  $dia_ini = substr($data_ini, 3, 2);
-  $dia_fim = substr($data_fim, 3, 2);
-  $dt_ini = $ano_ini . "-" . $mes_ini . "-" . $dia_ini;
-  $dt_fim = $ano_fim . "-" . $mes_fim . "-" . $dia_fim;
+function form_valido() {
+  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
+  $dt_ini = date_converter($data_ini);
+  $dt_fim = date_converter($data_ini);
 
   $valido = false;
   if (!empty($campanha) &&
@@ -48,6 +49,9 @@ function form_valido() {
   return $valido;
 }
 
+function formataData(dataini, datafim){
+  $ini = date("d/m/Y", strtotime)
+}
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -106,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha <span><?php echo $ano_ini; ?></span> / <span><?php echo $ano_fim; ?></span>
+          <h3 class="page-header">Cadastro de Campanha <span><?php echo $dt_ini; ?></span> / <span><?php echo $dt_fim; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
