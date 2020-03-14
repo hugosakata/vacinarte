@@ -4,7 +4,7 @@ global $wpdb;
 ?>
 
 <?php
-
+$cliente="";
 $razao = $nm_fant = $cnpj = $msg_err = "";
 $id_retorno = 0;
 
