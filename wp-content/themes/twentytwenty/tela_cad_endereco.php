@@ -72,6 +72,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_retorno = $wpdb->insert_id;
     $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
     $endereco = $wpdb->get_row($sql);
+
+    $wpdb->insert(
+      'VCL_ENDERECO',
+      array(
+        'cd_cli'      => $id_cli,
+        'cd_end'      => $id_retorno        
+      ),
+      array(
+        '%s',
+        '%s'
+      )
+    );
+    $wpdb->insert_id;
+
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
