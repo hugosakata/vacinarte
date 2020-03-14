@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
   if (form_valido()){
     $wpdb->insert(
-      'VACINA',
+      'VCL_VCNA_CMP',
       array(
         'cd_vcna'   => $cd_vcna,
         'qtd_vcna'  => $qtd_vcna,
@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       )
     );
     $id_vcna_cmp = $wpdb->insert_id;
-    $sql = "SELECT * FROM VACINA WHERE cd_vcna = '{$id_vcna_cmp}'";
+    $sql = "SELECT * FROM VCL_VCNA_CMP WHERE cd_vcna = '{$id_vcna_cmp}'";
     $vcna = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
