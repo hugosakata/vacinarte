@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = "";
+$campanha = $empresa = $tp_srv = $data_ini = $data_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
@@ -18,21 +18,26 @@ function load(){
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $empresa = str_replace("'", "", trim($_POST["empresa"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
-  $dt_ini = str_replace("'", "", trim($_POST["dt_ini"]));
-  $dt_fim = str_replace("'", "", trim($_POST["dt_fim"]));
+  $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
+  $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
 
 }
 
 function form_valido() {
-  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim;
+  global $campanha, $empresa, $tp_srv, $data_ini, $data_fim;
 
   $valido = false;
   if (!empty($campanha) &&
       !empty($empresa) &&
       !empty($tp_srv) &&
-      !empty($dt_ini) && 
-      !empty($dt_fim)){
+      !empty($data_ini) && 
+      !empty($data_fim)){
         $valido = true;
+      
+      $ini = date_create($data_ini);
+      $dt_ini = date_format($ini, 'Y-m-d');
+      $fim = date_create($data_fim);
+      $dt_fim = date_format($fim, 'Y-m-d');
   }
   
   return $valido;
