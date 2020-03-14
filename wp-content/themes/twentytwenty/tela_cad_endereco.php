@@ -96,9 +96,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     
 
-    $sql = "SELECT * FROM VCL_ENDERECO WHERE cd_end = '{$id_retorno}'";
-    $vl_endereco = $wpdb->get_row($sql);
-    $id_retorno2 = $vl_endereco->cd_vcl_end;
+    // $sql = "SELECT * FROM VCL_ENDERECO WHERE cd_end = '{$id_retorno}'";
+    // $vl_endereco = $wpdb->get_row($sql);
+    // $id_retorno2 = $vl_endereco->cd_vcl_end;
 
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
