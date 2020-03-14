@@ -48,36 +48,50 @@ if(isset($_GET['id'])){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    $wpdb->insert(
-      'ENDERECO',
-      array(
-        'nm_end'      => $nm_end,
-        'logradouro'  => $logra,
-        'num_end'     => $num_logra,
-        'bairro'      => $bairro,
-        'cep'         => $cep,
-        'cidade'      => $cidade,
-        'estado'      => $uf_br
-      ),
-      array(
-        '%s',
-        '%s',
-        '%s',
-        '%s',
-        '%s',
-        '%s',
-        '%s'
-      )
-    );
-    $id_retorno = $wpdb->insert_id;
+    // $wpdb->insert(
+    //   'ENDERECO',
+    //   array(
+    //     'nm_end'      => $nm_end,
+    //     'logradouro'  => $logra,
+    //     'num_end'     => $num_logra,
+    //     'bairro'      => $bairro,
+    //     'cep'         => $cep,
+    //     'cidade'      => $cidade,
+    //     'estado'      => $uf_br
+    //   ),
+    //   array(
+    //     '%s',
+    //     '%s',
+    //     '%s',
+    //     '%s',
+    //     '%s',
+    //     '%s',
+    //     '%s'
+    //   )
+    // );
+    // $id_retorno = $wpdb->insert_id;
     // $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
     // $endereco = $wpdb->get_row($sql);
 
     $wpdb->query( $wpdb->prepare( 
       "
-      INSERT INTO VCL_ENDERECO(cd_cli, cd_end) VALUES (%d, %d)
+      START TRANSACTION;
+       
+      INSERT INTO ENDERECO
+      ('nm_end', 'logradouro', 'num_end', 'bairro', 'cep', 'cidade', 'estado')
+      VALUES
+      (%d, %s, %s, %s, %s, %s, %s);
+    
+      SELECT @new_id:=MAX(cd_end) FROM ENDERECO;
+
+      INSERT INTO VCL_ENDERECO
+      (cd_cli, cd_end) 
+      VALUES 
+      (%d, @new_id);
+              
+      COMMIT;
       ",
-      $id_cli, $id_retorno
+      $nm_end,$logra,$num_logra,$bairro,$cep,$cidade,$uf_br,$id_cli
     ) );
 
     
