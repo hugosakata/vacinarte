@@ -34,7 +34,8 @@ function form_valido() {
   $dia_fim = substr($data_fim, 3, 2);
   $dt_ini = $ano_ini . "-" . $mes_ini . "-" . $dia_ini;
   $dt_fim = $ano_fim . "-" . $mes_fim . "-" . $dia_fim;
-
+  alert("<?php echo $dt_fim; ?>");
+  
   $valido = false;
   if (!empty($campanha) &&
       !empty($empresa) &&
