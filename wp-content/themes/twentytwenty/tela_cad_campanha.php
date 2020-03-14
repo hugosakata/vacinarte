@@ -5,8 +5,8 @@ global $wpdb;
 
 <?php
 
-$id_retorno = 0;
-$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp = $id_cmp = "";
+$id_cmp = 0;
+$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         '%s'
       )
     );
-    $id_retorno = $wpdb->insert_id;
+    $id_cmp = $wpdb->insert_id;
     $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_retorno}'";
     $cmp = $wpdb->get_row($sql);
   } else {
@@ -175,11 +175,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $('.btn_salvar').on('click', function(){
-        console.log($campanha);
-        alert($campanha);
-      });
-    </script>
+    
   </body>
   </html>
