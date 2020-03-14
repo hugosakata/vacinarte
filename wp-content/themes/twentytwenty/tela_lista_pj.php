@@ -53,6 +53,10 @@ global $wpdb;
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
         </div>
+        <div class="col-xs-2 col-xs-offset-1 pull-right">
+          <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+          value="Novo" />
+        </div>
     </div><!-- fecha div row -->
 
     <div class="row txtbox"><!-- row formulario -->
@@ -116,10 +120,7 @@ global $wpdb;
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    <div class="col-xs-2 col-xs-offset-1">
-      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
-      value="Novo" />
-    </div>
+    
 </div><!-- fecha container principal -->  
 
 

@@ -104,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PJ <span><?php echo $id_retorno; ?></span>
+          <h3 class="page-header">Cadastro de Cliente PJ
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
