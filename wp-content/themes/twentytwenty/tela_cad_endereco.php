@@ -73,18 +73,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
     // $endereco = $wpdb->get_row($sql);
 
-    $wpdb->insert(
-      'VCL_ENDERECO',
-      array(
-        'cd_cli'      => $id_cli,
-        'cd_end'      => $id_retorno        
-      ),
-      array(
-        '%s',
-        '%s'
-      )
-    );
-    $id_retorno2 = $wpdb->insert_id;
+    $sql = "INSERT INTO VCL_ENDERECO(cd_cli, cd_end) VALUES({$id_cli}, {$id_retorno});";
+    $wpdb->query( $sql )
+
+    $sql = "SELECT * FROM VCL_ENDERECO WHERE cd_end = '{$id_retorno}'";
+    $vl_endereco = $wpdb->get_row($sql);
+    $id_retorno2 = $vl_endereco->cd_vcl_end;
 
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
