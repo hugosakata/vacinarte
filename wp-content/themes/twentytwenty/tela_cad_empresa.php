@@ -39,9 +39,9 @@ $id_retorno = 0;
  load();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
-  $id = $_GET["id"];
+  $id_retorno = $_GET["id"];
 
-  set_cliente($id);
+  //set_cliente($id);
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
