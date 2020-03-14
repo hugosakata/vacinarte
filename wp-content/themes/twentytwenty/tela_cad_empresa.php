@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
   $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
     $cliente = $wpdb->get_row($sql);
-    $id_retorno = $cliente->cd_cli
+    $id_retorno = $cliente->cd_cli;
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
