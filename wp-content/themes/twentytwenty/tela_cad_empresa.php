@@ -30,7 +30,19 @@ $id_retorno = 0;
     return $valido;
  }
 
+ function set_cliente($id){
+    global $cliente;
+    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id}'";
+    $cliente = $wpdb->get_row($sql);
+ }
+
  load();
+
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+  $id = $_GET["id"];
+
+  set_cliente($id);
+}
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
@@ -51,8 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         )
       );
       $id_retorno = $wpdb->insert_id;
-      $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
-      $cliente = $wpdb->get_row($sql);
+      set_cliente($id_retorno);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -107,30 +118,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="row">  
             <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Razão Social*</label>
-              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" <?php if ($id_retorno != 0) { echo "value='$cliente->nm_rz_soc'"; } ?>/>
+              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
             </div>
             <div class="form-group col-xs-3">
               <label>Nome fantasia*</label>
-              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" <?php if ($id_retorno != 0) { echo "value='$cliente->nm_fant'"; } ?>/>
+              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" <?php echo "value='$cliente->nm_fant'"; ?>/>
             </div>
             <div class="form-group col-xs-2">
               <label>CNPJ*</label>
-              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php if ($id_retorno != 0) { echo "value='$cliente->cpf_cnpj'"; } ?>/>
+              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
             </div>
           </div>
          
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="submit" class="button btn btn-danger " value="Salvar" <?php if ($id_retorno != 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              <input type="submit" class="button btn btn-danger " value="Salvar" <?php if (isset($cliente)) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_retorno; ?>';" 
-              value="Endereços" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Endereços" <?php if (isset($cliente)) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contatos/?id=<?php echo $id_retorno; ?>';" 
-              value="Contatos" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Contatos" <?php if (isset($cliente)) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
         </form><!-- fecha form -->
