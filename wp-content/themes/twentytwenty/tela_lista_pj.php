@@ -24,16 +24,16 @@ global $wpdb;
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- DataTable -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.jqueryui.min.css">
     <link href="../css/datatables.min.css" rel="stylesheet" >
     <script type="text/javascript" src="../DataTables/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript" src="../DataTables/js/dataTables.jqueryui.min.js"></script>
     <script type="text/javascript" src="../DataTables/js/jquery.dataTables.min.js"></script> -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
 
   </head>
   <body>
@@ -69,7 +69,7 @@ global $wpdb;
                 <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
                   <div class="panel panel-default">
                     <div class="panel-body">
-                      <table class="table table-striped" id="tab_cli_pf">
+                      <table class="table table-striped" id="tab_cli_pj">
                         <thead>
                           <tr>
                             <th>Razão Social</th>
@@ -127,53 +127,12 @@ global $wpdb;
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
-    <!-- <script>
+    <script>
       //datatable
 	$(document).ready(function() {
-    $('#tab_cli_pf').DataTable({
-	       
-	        "lengthMenu": [
-	            [20, 30, 50, -1],
-	            [20, 30, 50, "Todos"]
-	        ],
-	        "ordering": true,
-	        "paginate": true,
-	        "pagingType": "full_numbers",
-	        "searching": true,
-	        "paging": true,
-	        "info": false,
-	        "autoWidth": false,
-	        "bStateSave": false,
-          "bLengthChange": true,
-          "aoColumns": [
-	            null,
-	            null,
-	            null,
-	            null
-	        ],
-	        
-	        "oLanguage": {
-	            "sProcessing": "Processando...",
-	            "sLengthMenu": "Exibir _MENU_ registros",
-	            "sZeroRecords": "N&atilde;o foram encontrados resultados.",
-	            "sInfo": "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
-	            "sInfoEmpty": "Mostrando de 0 at&eacute; 0 de um total de 0 registros",
-	            "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
-	            "sInfoPostFix": "",
-	            "sSearch": "Procurar:",
-	            "sUrl": "",
-	            "oPaginate": {
-	                "sFirst": "Primeiro",
-	                "sPrevious": "Anterior",
-	                "sNext": "Pr&oacute;ximo",
-	                "sLast": "&Uacute;ltimo"
-	            }
-	        }
-	    });
-      
-	});
+    $('#tab_cli_pj').DataTable();
 
-    </script> -->
+    </script>
 
   </body>
   </html>
