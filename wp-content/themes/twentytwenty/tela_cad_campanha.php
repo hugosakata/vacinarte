@@ -107,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
-        <form class="form">
+        <form class="form" action="#" method="post">
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
