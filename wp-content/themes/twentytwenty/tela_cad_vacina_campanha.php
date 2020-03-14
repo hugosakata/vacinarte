@@ -6,7 +6,8 @@ global $wpdb;
 <?php
 
 $id_vcna_cmp = 0;
-$cd_cmp = $cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = "";
+$cd_cmp = 0;
+$cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = "";
 
 if(isset($_GET['id'])){
   $cd_cmp = $_GET['id'];
@@ -43,11 +44,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $wpdb->insert(
       'VCL_VCNA_CMP',
       array(
+        'cd_cmp'    => $cd_cmp,
         'cd_vcna'   => $cd_vcna,
         'qtd_vcna'  => $qtd_vcna,
         'vlr_vcna'  => $vlr_vcna
       ),
       array(
+        '%d',
         '%d',
         '%d',
         '%d'
