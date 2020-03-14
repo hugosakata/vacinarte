@@ -34,7 +34,7 @@ function date_converter($_date = null) {
 function form_valido() {
   global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
   $dt_ini = date_converter($data_ini);
-  $dt_fim = date_converter($data_ini);
+  $dt_fim = date_converter($data_fim);
 
   $valido = false;
   if (!empty($campanha) &&
