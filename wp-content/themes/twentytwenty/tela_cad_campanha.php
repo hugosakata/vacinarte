@@ -96,9 +96,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha <span><?php echo $campanha; ?> / <?php echo $empresa; ?> / <?php echo $tp_srv; ?></span>
+          <h3 class="page-header">Cadastro de Campanha 
           <br>
-            <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small><span><?php echo $dt_ini; ?> / <?php echo $dt_fim; ?></span>
+            <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
         </div>
     </div><!-- fecha div row -->
@@ -159,7 +159,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina/?id=<?php echo $id_cmp; ?>';" 
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
               value="Vacinas" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>
