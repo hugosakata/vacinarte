@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $empresa = $tp_srv = $data_ini = $data_fim = "";
+$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
@@ -24,7 +24,7 @@ function load(){
 }
 
 function form_valido() {
-  global $campanha, $empresa, $tp_srv, $data_ini, $data_fim;
+  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim;
 
   $ano_ini = substr($data_ini, -4);
   $ano_fim = substr($data_fim, -4);
