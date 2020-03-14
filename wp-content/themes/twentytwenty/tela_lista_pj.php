@@ -24,11 +24,11 @@ global $wpdb;
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- DataTable -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"></script>
     <!-- <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.jqueryui.min.css">
     <link href="../css/datatables.min.css" rel="stylesheet" >
@@ -131,7 +131,10 @@ global $wpdb;
     <script>
       //datatable
 	$(document).ready(function(){
-    $('#tab_cli_pj').DataTable();
+    $('#tab_cli_pj').DataTable({
+      "bProcessing": true;
+      "sAjaxSource": 'process.php'
+    });
   });
 
     </script>
