@@ -73,7 +73,7 @@ if(isset($_GET['id'])){
                             <th>Cidade</th>
                             <th>Estado</th>
                             <th>Ativo</th>
-                            <th>Ações</th>
+                            <!-- <th>Ações</th> -->
                           </tr>
                         </thead>
                         <tbody>
@@ -103,11 +103,11 @@ if(isset($_GET['id'])){
                             <td><?php echo $endereco->cidade ?></td>
                             <td><?php echo $endereco->estado ?></td>
                             <td><?php echo $endereco->ativo ?></td>
-                            <td>
+                            <!-- <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php //echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
-                            </td>
+                            </td> -->
                           </tr>
                           <?php
                             }
