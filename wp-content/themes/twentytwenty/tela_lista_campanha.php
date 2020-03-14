@@ -59,7 +59,7 @@ global $wpdb;
                 <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
                   <div class="panel panel-default">
                     <div class="panel-body">
-                      <table class="table table-striped" id="tab_cli_pf">
+                      <table class="table table-striped" id="tab_lista_campanha">
                         <thead>
                           <tr>
                             <th>Nome Campanha</th>
@@ -175,6 +175,16 @@ global $wpdb;
 	});
 
     </script> -->
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+      //datatable
+	$(document).ready(function(){
+    $('#tab_lista_campanha').DataTable();
+  });
 
+    </script>
   </body>
   </html>

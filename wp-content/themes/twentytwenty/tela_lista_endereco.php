@@ -62,7 +62,7 @@ if(isset($_GET['id'])){
                 <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
                   <div class="panel panel-default">
                     <div class="panel-body">
-                      <table class="table table-striped" id="tab_cli_pf">
+                      <table class="table table-striped" id="tab_lista_end">
                         <thead>
                           <tr>
                             <th>Nome</th>
@@ -182,6 +182,16 @@ if(isset($_GET['id'])){
 	});
 
     </script> -->
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+      //datatable
+	$(document).ready(function(){
+    $('#tab_lista_end').DataTable();
+  });
 
+    </script>
   </body>
   </html>
