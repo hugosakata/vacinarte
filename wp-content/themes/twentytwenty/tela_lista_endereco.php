@@ -1,7 +1,9 @@
 <?php /* Template Name: TelaListaEndereco */
 
 global $wpdb;
-
+if(isset($_GET['id'])){
+  $id_cli = $_GET['id'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,23 +66,53 @@ global $wpdb;
                         <thead>
                           <tr>
                             <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Contato</th>
+                            <th>Logradouro</th>
+                            <th>Número</th>
+                            <th>Bairro</th>
+                            <th>CEP</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Ativo</th>
                             <th>Ações</th>
                           </tr>
                         </thead>
                         <tbody>
+
+                        <?php
+                          $enderecos = $wpdb->get_results( 
+                            "
+                            SELECT 
+                            `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+                            FROM `ENDERECO` as ENDERECO, 
+                            `VCL_ENDERECO` as VCL_ENDERECO 
+                            WHERE 
+                            ENDERECO.cd_end=VCL_ENDERECO.cd_end and 
+                            VCL_ENDERECO.cd_cli={$id_cli} order by `nm_end`, `logradouro`
+                            "
+                          );
+                          
+                          foreach ( $enderecos as $endereco ) 
+                          {
+                        ?>
                           <tr>
-                            <td>Reinaldo Daltro</td>
-                            <td>147.058.728-94</td>
-                            <td>11-98163-6316</td>
+                            <td><?php echo $endereco->nm_end ?></td>
+                            <td><?php echo $endereco->logradouro ?></td>
+                            <td><?php echo $endereco->num_end ?></td>
+                            <td><?php echo $endereco->bairro ?></td>
+                            <td><?php echo $endereco->cep ?></td>
+                            <td><?php echo $endereco->cidade ?></td>
+                            <td><?php echo $endereco->estado ?></td>
+                            <td><?php echo $endereco->ativo ?></td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                             </td>
                           </tr>
-        
+                          <?php
+                            }
+                          ?>
+
                         </tbody>
                       </table>
                     </div><!-- fecha panel corpo -->
