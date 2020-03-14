@@ -49,9 +49,6 @@ function form_valido() {
   return $valido;
 }
 
-function formataData(dataini, datafim){
-  $ini = date("d/m/Y", strtotime)
-}
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
