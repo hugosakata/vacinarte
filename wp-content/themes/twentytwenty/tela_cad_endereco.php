@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       INSERT INTO ENDERECO
       ('nm_end', 'logradouro', 'num_end', 'bairro', 'cep', 'cidade', 'estado')
       VALUES
-      (%d, %s, %s, %s, %s, %s, %s);
+      (%s, %s, %s, %s, %s, %s, %s);
     
       SELECT @new_id:=MAX(cd_end) FROM ENDERECO;
 
