@@ -76,20 +76,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $wpdb->query( $wpdb->prepare( 
       "
       START TRANSACTION;
-       
-      INSERT INTO ENDERECO
-      ('nm_end', 'logradouro', 'num_end', 'bairro', 'cep', 'cidade', 'estado')
+      INSERT INTO `ENDERECO`
+      (`nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`)
       VALUES
       (%s, %s, %s, %s, %s, %s, %s);
-    
-      SELECT @new_id:=MAX(cd_end) FROM ENDERECO;
-
-      INSERT INTO VCL_ENDERECO
-      (cd_cli, cd_end) 
-      VALUES 
+      
+      SELECT @new_id:=MAX(`cd_end`) FROM `ENDERECO`;
+      
+      INSERT INTO `VCL_ENDERECO`
+      (`cd_cli`, `cd_end`)
+      VALUES
       (%d, @new_id);
-              
-      COMMIT;
+      COMMIT; 
       ",
       $nm_end,$logra,$num_logra,$bairro,$cep,$cidade,$uf_br,$id_cli
     ) );
