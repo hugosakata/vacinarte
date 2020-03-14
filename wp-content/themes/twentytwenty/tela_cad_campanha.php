@@ -35,9 +35,9 @@ function form_valido() {
         $valido = true;
       
       $ini = date_create($data_ini);
-      $dt_ini = date_format($ini, 'Y-m-d');
+      $dt_ini = date_format($ini, 'Y-m-d H:i:s');
       $fim = date_create($data_fim);
-      $dt_fim = date_format($fim, 'Y-m-d');
+      $dt_fim = date_format($fim, 'Y-m-d H:i:s');
   }
   
   return $valido;
