@@ -5,8 +5,8 @@ global $wpdb;
 
 <?php
 
-$id_retorno = 0;
-$cd_cmp = $cd_vcna = $qtd_vcna = $vlr_vcna = $vcna"";
+$id_vcna_cmp = 0;
+$cd_cmp = $cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = "";
 
 if(isset($_GET['id'])){
   $cd_cmp = $_GET['id'];
@@ -53,8 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         '%d'
       )
     );
-    $id_retorno = $wpdb->insert_id;
-    $sql = "SELECT * FROM VACINA WHERE cd_vcna = '{$id_retorno}'";
+    $id_vcna_cmp = $wpdb->insert_id;
+    $sql = "SELECT * FROM VACINA WHERE cd_vcna = '{$id_vcna_cmp}'";
     $vcna = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Vacina <span><?php echo $cd_vcna; ?> / <?php echo $id_retorno; ?></span>
+          <h3 class="page-header">Vacina <span><?php echo $cd_vcna; ?> / <?php echo $id_vcna_cmp; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar vacina para a campanha</small>
           </h3>
@@ -139,11 +139,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $('.btn_salvar').on('click', function(){
-        console.log($campanha);
-        alert($campanha);
-      });
-    </script>
+   
   </body>
   </html>
