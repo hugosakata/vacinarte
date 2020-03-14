@@ -34,8 +34,7 @@ function form_valido() {
   $dia_fim = substr($data_fim, 3, 2);
   $dt_ini = $ano_ini . "-" . $mes_ini . "-" . $dia_ini;
   $dt_fim = $ano_fim . "-" . $mes_fim . "-" . $dia_fim;
-  alert("<?php echo $dt_fim; ?>");
-  
+
   $valido = false;
   if (!empty($campanha) &&
       !empty($empresa) &&
@@ -107,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha 
+          <h3 class="page-header">Cadastro de Campanha <span><?php echo $dt_ini; ?></span> / <span><?php echo $dt_fim; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
