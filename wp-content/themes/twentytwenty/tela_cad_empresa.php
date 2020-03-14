@@ -32,7 +32,7 @@ $id_retorno = 0;
 
  function set_cliente($id){
     global $cliente, $id_retorno;
-    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id}'";
+    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
     $cliente = $wpdb->get_row($sql);
     $id_retorno = $cliente->cd_cli;
  }
@@ -133,16 +133,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="submit" class="button btn btn-danger " value="Salvar" <?php if (isset($cliente)) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              <input type="submit" class="button btn btn-danger " value="Salvar"/>
             </div>
             <div class="col-xs-2 col-xs-offset-1">
 
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_retorno; ?>';" 
-              value="Endereços" <?php if (isset($cliente)) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contatos/?id=<?php echo $id_retorno; ?>';" 
-              value="Contatos" <?php if (isset($cliente)) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
         </form><!-- fecha form -->
