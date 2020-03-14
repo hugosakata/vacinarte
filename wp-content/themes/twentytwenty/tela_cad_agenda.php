@@ -104,10 +104,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style type="text/css">
-        .help-block{ display: block;
-                     margin-top: 5px;
-                     margin-bottom: 10px;
-                     color: #a94442; }
+        .help-block{
+              display: block;
+              margin-top: 5px;
+              margin-bottom: 10px;
+              color: #a94442; }
+        .icon_agenda {
+              color: CornflowerBlue;
+              cursor: pointer;
+              margin-left: -2vw;
+              font-size: 2.5vw;
+              margin-top: 2vw;
+          }
     </style>
   </head>
   <body>
@@ -144,8 +152,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="text" id="dt_agenda" name="dt_agenda" class="form-control"
               value="<?php echo $dt_agenda; ?>"/>
             </div>
+            
             <div class="form-group col-xs-1">
-            <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">today</i></a>
+            <a><i class="material-icons icon_agenda">today</i></a>
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label>Início</label>
+              <input type="text" name="hr_ini" class="form-control"
+              value="<?php echo $hr_ini; ?>">
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label>Fim</label>
+              <input type="text" name="hr_fim" class="form-control"
+              value="<?php echo $hr_fim; ?>">
             </div>
           </div>
 
@@ -189,21 +210,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <label style="font-size: 12px;">Atendimento</label>
               <select class="selectpicker form-control" id="cd_tp_atend" name="cd_tp_atend">
                 <option value=""></option>
-                <option value="1">Balcão</option>
-                <option value="2">In loco</option>
+                <option value="1">In loco</option>
+                <option value="2">Balcão</option>
               </select>
-            </div>
-
-            <div class="form-group col-xs-2">
-              <label>Início</label>
-              <input type="text" name="hr_ini" class="form-control"
-              value="<?php echo $hr_ini; ?>">
-            </div>
-
-            <div class="form-group col-xs-2">
-              <label>Fim</label>
-              <input type="text" name="hr_fim" class="form-control"
-              value="<?php echo $hr_fim; ?>">
             </div>
 
           </div>
