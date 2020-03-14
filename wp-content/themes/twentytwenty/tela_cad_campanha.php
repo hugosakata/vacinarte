@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
 }
 
 function load(){
-  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim, $cmp;
+  global $campanha, $empresa, $tp_srv, $data_ini, $data_fim, $cmp;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $empresa = str_replace("'", "", trim($_POST["empresa"]));
