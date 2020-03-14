@@ -48,55 +48,47 @@ if(isset($_GET['id'])){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    // $wpdb->insert(
-    //   'ENDERECO',
-    //   array(
-    //     'nm_end'      => $nm_end,
-    //     'logradouro'  => $logra,
-    //     'num_end'     => $num_logra,
-    //     'bairro'      => $bairro,
-    //     'cep'         => $cep,
-    //     'cidade'      => $cidade,
-    //     'estado'      => $uf_br
-    //   ),
-    //   array(
-    //     '%s',
-    //     '%s',
-    //     '%s',
-    //     '%s',
-    //     '%s',
-    //     '%s',
-    //     '%s'
-    //   )
-    // );
-    // $id_retorno = $wpdb->insert_id;
-    // $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$id_retorno}'";
-    // $endereco = $wpdb->get_row($sql);
+    $wpdb->query ("START TRANSACTION");
+    $wpdb->insert(
+      'ENDERECO',
+      array(
+        'nm_end'      => $nm_end,
+        'logradouro'  => $logra,
+        'num_end'     => $num_logra,
+        'bairro'      => $bairro,
+        'cep'         => $cep,
+        'cidade'      => $cidade,
+        'estado'      => $uf_br
+      ),
+      array(
+        '%s',
+        '%s',
+        '%s',
+        '%s',
+        '%s',
+        '%s',
+        '%s'
+      )
+    );
+    $id_retorno = $wpdb->insert_id;
 
-    $wpdb->query( $wpdb->prepare( 
-      "
-      START TRANSACTION;
-      INSERT INTO `ENDERECO`
-      (`nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`)
-      VALUES
-      (%s, %s, %s, %s, %s, %s, %s);
-      
-      SELECT @new_id:=MAX(`cd_end`) FROM `ENDERECO`;
-      
-      INSERT INTO `VCL_ENDERECO`
-      (`cd_cli`, `cd_end`)
-      VALUES
-      (%d, @new_id);
-      COMMIT; 
-      ",
-      $nm_end,$logra,$num_logra,$bairro,$cep,$cidade,$uf_br,$id_cli
-    ) );
+    $wpdb->insert(
+      'VCL_ENDERECO',
+      array(
+        'cd_cli'      => $id_cli,
+        'cd_end'      => $id_retorno        
+      ),
+      array(
+        '%s',
+        '%s'
+      )
+    );
+    $id_retorno2 = $wpdb->insert_id;
 
-    
-
-    // $sql = "SELECT * FROM VCL_ENDERECO WHERE cd_end = '{$id_retorno}'";
-    // $vl_endereco = $wpdb->get_row($sql);
-    // $id_retorno2 = $vl_endereco->cd_vcl_end;
+    if ($id_retorno > 0 && $id_retorno2 > 0)
+      $wpdb->query("COMMIT");
+    else
+      $wpdb->query("ROLLBACK");
 
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
@@ -213,8 +205,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-    <?php $wpdb->show_errors(); ?> 
-    <?php $wpdb->print_error(); ?> 
+
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8">
         <form action="#" method="post">
