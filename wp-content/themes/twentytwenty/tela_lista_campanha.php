@@ -10,7 +10,7 @@ global $wpdb;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title>Contatos do Cliente</title>
+    <title>Campanhas Ativas</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cesup Styles -->
@@ -42,7 +42,7 @@ global $wpdb;
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Contatos do cliente
+          <h3 class="page-header">Campanhas Ativas
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
@@ -62,23 +62,45 @@ global $wpdb;
                       <table class="table table-striped" id="tab_cli_pf">
                         <thead>
                           <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Contato</th>
+                            <th>Nome Campanha</th>
+                            <th>Cliente</th>
+                            <th>Tipo Serviço</th>
+                            <th>Data Início</th>
+                            <th>Data Fim</th>
                             <th>Ações</th>
                           </tr>
                         </thead>
                         <tbody>
+                        
+                        <?php
+                          $campanhas = $wpdb->get_results( 
+                            "
+                            SELECT `cd_cmp`, `nm_cmp`, `cd_cli`, `cd_tp_srv`, `dt_ini`, `dt_fim` 
+                            FROM `CAMPANHA` 
+                            WHERE 
+                            dt_ini <= now() + INTERVAL 1 DAY AND
+                             dt_fim >= now();
+                            "
+                          );
+                          
+                          foreach ( $campanhas as $campanha ) 
+                          {
+                        ?>
                           <tr>
-                            <td>Reinaldo Daltro</td>
-                            <td>147.058.728-94</td>
-                            <td>11-98163-6316</td>
+                            <td><?php echo $campanha->nm_cmp ?></td>
+                            <td><?php echo $campanha->cd_cli ?></td>
+                            <td><?php echo $campanha->cd_tp_srv ?></td>
+                            <td><?php echo $campanha->dt_ini ?></td>
+                            <td><?php echo $campanha->dt_fim ?></td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->cd_cmp; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                             </td>
                           </tr>
+                          <?php
+                            }
+                          ?>
         
                         </tbody>
                       </table>
