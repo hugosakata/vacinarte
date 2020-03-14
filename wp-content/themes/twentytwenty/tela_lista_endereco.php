@@ -82,7 +82,7 @@ if(isset($_GET['id'])){
                           $enderecos = $wpdb->get_results( 
                             "
                             SELECT 
-                            `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+                            ENDERECO.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
                             FROM `ENDERECO` as ENDERECO, 
                             `VCL_ENDERECO` as VCL_ENDERECO 
                             WHERE 
@@ -105,7 +105,7 @@ if(isset($_GET['id'])){
                             <td><?php echo $endereco->ativo ?></td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                             </td>
                           </tr>
