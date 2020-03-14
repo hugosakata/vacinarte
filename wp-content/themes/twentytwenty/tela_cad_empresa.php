@@ -32,9 +32,7 @@ $id_retorno = 0;
 
  function set_cliente($id){
     global $cliente, $id_retorno;
-    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id}'";
-    $cliente = $wpdb->get_row($sql);
-    $id_retorno = $cliente->cd_cli;
+    ;
  }
 
  load();
@@ -42,7 +40,9 @@ $id_retorno = 0;
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_retorno = $_GET["id"];
 
-  set_cliente($id_retorno);
+  $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+    $cliente = $wpdb->get_row($sql);
+    $id_retorno = $cliente->cd_cli
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
