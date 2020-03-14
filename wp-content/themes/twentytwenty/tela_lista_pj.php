@@ -47,11 +47,15 @@ global $wpdb;
 <div class="container"><!-- container principal-->
     
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-xs-10">
           <h3 class="page-header">Clientes PJ
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
+        </div>
+        <div class="col-xs-2" style="align:center">
+          <input class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+          value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
 
@@ -116,10 +120,7 @@ global $wpdb;
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    <div class="col-xs-2 col-xs-offset-1">
-      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
-      value="Novo" />
-    </div>
+    
 </div><!-- fecha container principal -->  
 
 

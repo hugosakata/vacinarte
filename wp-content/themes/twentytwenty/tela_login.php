@@ -144,7 +144,7 @@ $username_err = $password_err = "";
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 
-		<title>Página de exemplo &#8211; Vacinarte</title>
+		<title>Vacinarte</title>
 <meta name='robots' content='noindex,nofollow' />
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="Feed para Vacinarte &raquo;" href="http://vacinarte-admin.com.br/feed/" />

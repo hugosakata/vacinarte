@@ -4,7 +4,6 @@ global $wpdb;
 ?>
 
 <?php
-
 $razao = $nm_fant = $cnpj = $msg_err = "";
 $id_retorno = 0;
 
@@ -30,19 +29,20 @@ $id_retorno = 0;
     return $valido;
  }
 
- function set_cliente($id){
-    global $cliente, $id_retorno;
-    $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
-    $cliente = $wpdb->get_row($sql);
-    $id_retorno = $cliente->cd_cli;
- }
+//  function set_cliente($id){
+//     global $cliente, $id_retorno;
+//     $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+//     $cliente = $wpdb->get_row($sql);
+//     $id_retorno = $cliente->cd_cli;
+//  }
 
  load();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_retorno = $_GET["id"];
 
-  set_cliente($id_retorno);
+  $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+  $cliente = $wpdb->get_row($sql);
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -64,7 +64,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         )
       );
       $id_retorno = $wpdb->insert_id;
-      set_cliente($id_retorno);
+      $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
+      $cliente = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -103,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PJ <span><?php echo $id_retorno; ?></span>
+          <h3 class="page-header">Cadastro de Cliente PJ
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
           </h3>
@@ -141,7 +142,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contatos/?id=<?php echo $id_retorno; ?>';" 
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_retorno; ?>';" 
               value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
