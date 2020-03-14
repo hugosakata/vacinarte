@@ -1,4 +1,4 @@
-<?php /* Template Name: TelaCadVacina */
+<?php /* Template Name: TelaCadVacinaCampanha */
 
 global $wpdb;
 ?>
