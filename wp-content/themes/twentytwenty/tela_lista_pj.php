@@ -106,8 +106,9 @@ global $wpdb;
                             <td><?php echo $cliente->nm_fant ?></td>
                             <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
-                              <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a href='http://vacinarte-admin.com.br/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">home</i></a>
+                              <a href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">phone</i></a>
                               <!-- <a href='#/?delete=<?php //echo $cliente->cd_cli; ?>'><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a> -->
                             </td>
                           </tr>
