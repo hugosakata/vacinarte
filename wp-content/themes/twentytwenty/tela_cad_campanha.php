@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $cmp = "";
+$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
@@ -160,7 +160,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
-              value="Vacinas" <?php if ($id_retorno <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>
 
