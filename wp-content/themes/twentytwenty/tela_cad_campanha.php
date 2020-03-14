@@ -26,18 +26,23 @@ function load(){
 function form_valido() {
   global $campanha, $empresa, $tp_srv, $data_ini, $data_fim;
 
+  $ano_ini = substr($data_ini, -4);
+  $ano_fim = substr($data_fim, -4);
+  $mes_ini = substr($data_ini, 0, 2);
+  $mes_fim = substr($data_fim, 0, 2);
+  $dia_ini = substr($data_ini, 3, 2);
+  $dia_fim = substr($data_fim, 3, 2);
+  $dt_ini = $ano_ini . "-" . $mes_ini . "-" . $dia_ini;
+  $dt_fim = $ano_fim . "-" . $mes_fim . "-" . $dia_fim;
+
   $valido = false;
   if (!empty($campanha) &&
       !empty($empresa) &&
       !empty($tp_srv) &&
-      !empty($data_ini) && 
-      !empty($data_fim)){
+      !empty($dt_ini) && 
+      !empty($dt_fim)){
         $valido = true;
       
-      $ini = date_create($data_ini);
-      $dt_ini = date_format($ini, 'Y-m-d H:i:s');
-      $fim = date_create($data_fim);
-      $dt_fim = date_format($fim, 'Y-m-d H:i:s');
   }
   
   return $valido;
