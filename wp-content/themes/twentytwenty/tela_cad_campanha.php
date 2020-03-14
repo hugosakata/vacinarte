@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha <span><?php echo $dt_ini; ?></span> / <span><?php echo $dt_fim; ?></span>
+          <h3 class="page-header">Cadastro de Campanha <span><?php echo $ano_ini; ?></span> / <span><?php echo $ano_fim; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
