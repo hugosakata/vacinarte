@@ -24,10 +24,10 @@ global $wpdb;
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- DataTable -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"></script>
     <!-- <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.jqueryui.min.css">
     <link href="../css/datatables.min.css" rel="stylesheet" >
