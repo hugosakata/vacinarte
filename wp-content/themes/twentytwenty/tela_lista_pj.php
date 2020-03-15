@@ -56,7 +56,7 @@ global $wpdb;
     width: 30%;
     margin-left: 5vw;
   }
-  #tab_cli_pj_flter label{
+  #tab_cli_pj_flter > label{
     display: flex;
     margin-right: 9px;
     text-align: left;
