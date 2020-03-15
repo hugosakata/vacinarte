@@ -23,12 +23,6 @@ if(isset($_GET['id'])){
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel='stylesheet' id='twentytwenty-print-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/print.css?ver=1.1' media='print' />
-    <script src='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/assets/js/index.js?ver=1.1' async></script>
-    <link rel='https://api.w.org/' href='http://vacinarte-admin.com.br/wp-json/' />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://vacinarte-admin.com.br/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://vacinarte-admin.com.br/wp-includes/wlwmanifest.xml" /> 
-
     <script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
     <style media="print">#wpadminbar { display:none; }</style>
   </head>
