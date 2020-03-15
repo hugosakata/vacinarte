@@ -6,17 +6,17 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $empresa = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
+$campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
 }
 
 function load(){
-  global $campanha, $empresa, $tp_srv, $data_ini, $data_fim, $cmp;
+  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
-  $empresa = str_replace("'", "", trim($_POST["empresa"]));
+  $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
@@ -32,13 +32,13 @@ function date_converter($_date = null) {
   }
 
 function form_valido() {
-  global $campanha, $empresa, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
+  global $campanha, $cd_cli, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
   $dt_ini = date_converter($data_ini);
   $dt_fim = date_converter($data_fim);
 
   $valido = false;
   if (!empty($campanha) &&
-      !empty($empresa) &&
+      !empty($cd_cli) &&
       !empty($tp_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       'CAMPANHA',
       array(
         'nm_cmp'    => $campanha,
-        'cd_cli'    => $empresa,
+        'cd_cli'    => $cd_cli,
         'cd_tp_srv' => $tp_srv,
         'dt_ini'    => $dt_ini,
         'dt_fim'    => $dt_fim
@@ -129,13 +129,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="row">
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Empresa</label>
-              <select class="selectpicker form-control" id="empresa" name="empresa"
-              value="<?php echo $empresa; ?>">
+              <?php
+                $clientes = $wpdb->get_results( 
+                  "
+                  SELECT cd_cli, nm_rz_soc, nm_fant 
+                  FROM CLIENTES
+                  WHERE cd_tp_cli=2 order by nm_fant
+                  "
+                );
+                
+                foreach ( $clientes as $cliente ) 
+                {
+              ?>
+              <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
+              value="<?php echo $cd_cli; ?>">
                 <option value=""></option>
-                <option value="1">Vacinarte Clinica De Vacinacao Ltda - Me</option>
-                <option value="5">BANCO DO BRASIL SA</option>
-                <option value="6">PADARIA MARESIAS LTDA</option>
+                <option value=<?php echo $cliente->cd_cli ?>;><?php echo $cliente->nm_fant ?></option>
               </select>
+            <?php
+              }
+            ?>
             </div>
           </div>
           
