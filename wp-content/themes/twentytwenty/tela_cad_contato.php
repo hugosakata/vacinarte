@@ -5,15 +5,15 @@ global $wpdb;
 
 <?php
 
-$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = $contato = "";
-$id_retorno = 0;
+$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = "";
+$id_ctt = $id_vcl 0;
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
 }
 
  function load(){
-    global $nm_contato, $tel_pri, $email, $obs_ctt, $contato;
+    global $nm_contato, $tel_pri, $email, $obs_ctt;
 
     $nm_contato = str_replace("'", "", trim($_POST["nm_contato"]));
     $tel_pri = str_replace("'", "", trim($_POST["tel_pri"]));
@@ -37,6 +37,7 @@ if(isset($_GET['id'])){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
+    $wpdb->query ("START TRANSACTION");
     $wpdb->insert(
       'CONTATO',
       array(
@@ -52,9 +53,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         '%s'
       )
     );
-    $id_retorno = $wpdb->insert_id;
-    $sql = "SELECT * FROM CONTATO WHERE cd_ctt = '{$id_retorno}'";
-    $contato = $wpdb->get_row($sql);
+    $id_ctt = $wpdb->insert_id;
+
+    $wpdb->insert(
+      'VCL_CONTATO  ',
+      array(
+        'cd_cli'      => $id_cli,
+        'cd_ctt'      => $id_ctt        
+      ),
+      array(
+        '%s',
+        '%s'
+      )
+    );
+    $id_vcl = $wpdb->insert_id;
+
+    if ($id_ctt > 0 && $id_vcl > 0)
+      $wpdb->query("COMMIT");
+    else
+      $wpdb->query("ROLLBACK");
+   
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -91,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Contato <span><?php echo $id_cli; ?></span>
+          <h3 class="page-header">Cadastro de Contato <span><?php echo $id_cli . " / " . $id_ctt . " / " . $id_vcl; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo contato</small> 
           </h3>

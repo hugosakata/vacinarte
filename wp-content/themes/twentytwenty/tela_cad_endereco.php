@@ -197,7 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço <?php echo $id_end . "." . $id_vcl; ?>
+          <h3 class="page-header">Cadastro de Endereço 
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> 
           </h3>
