@@ -182,6 +182,7 @@ if(isset($_GET['id'])){
 	        }
     });
     $('#tab_lista_end_filter').addClass('pull-right');
+    $('#tab_lista_end_paginate').addClass('pull-right');
   });
 
     </script>
