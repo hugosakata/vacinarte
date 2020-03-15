@@ -8,8 +8,6 @@ global $wpdb;
 $endereco = $nm_end = $logra = $num_logra = $id_cli = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 $id_retorno = $id_retorno2 = 0;
-// $id_end = $id_vcl = 0;
-
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
@@ -17,8 +15,7 @@ if(isset($_GET['id'])){
 
  function load(){
     global $nm_end, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err,
-    $id_cli;
+    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err;
 
     $nm_end = str_replace("'", "", trim($_POST["nm_end"]));
     $logra = str_replace("'", "", trim($_POST["logra"]));
@@ -79,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       'VCL_ENDERECO',
       array(
         'cd_cli'      => $id_cli,
-        'cd_end'      => $id_retorno       
+        'cd_end'      => $id_retorno        
       ),
       array(
         '%s',
@@ -202,8 +199,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12">
           <h3 class="page-header">Cadastro de Endereço <?php echo $id_retorno . "." . $id_retorno2; ?>
           <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small>
-
+            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> 
           </h3>
         </div>
     </div><!-- fecha div row -->
