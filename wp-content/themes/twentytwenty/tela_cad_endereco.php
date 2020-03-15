@@ -82,8 +82,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'cd_end'      => $id_end       
       ),
       array(
-        '%s',
-        '%s'
+        '%d',
+        '%d'
       )
     );
     $id_retorno2 = $wpdb->insert_id;
