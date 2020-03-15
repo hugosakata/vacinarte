@@ -53,12 +53,25 @@ if(isset($_GET['id'])){
   
 <div class="container"><!-- container principal-->
     
-    <div class="row">
+    <div class="row hide">
         <div class="col-lg-12">
           <h3 class="page-header">Endereços do Cliente
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
+        </div>
+    </div><!-- fecha div row -->
+
+    <div class="row">
+        <div class="col-xs-10">
+          <h3 class="page-header">Endereços do Cliente
+          <!-- <br>
+            <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
+          </h3>
+        </div>
+        <div class="col-xs-2" style="align:center">
+          <input id="btn_salvar_end" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
+          value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
 
@@ -135,8 +148,8 @@ if(isset($_GET['id'])){
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    <div class="col-xs-2 col-xs-offset-1">
-      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
+    <div class="col-xs-2 col-xs-offset-1 hide">
+      <input type="button" id="btn_salvar_end" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
       value="Novo" />
     </div>
 </div><!-- fecha container principal -->  
