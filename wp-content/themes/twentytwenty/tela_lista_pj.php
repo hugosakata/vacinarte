@@ -54,13 +54,14 @@ global $wpdb;
   }
   #tab_cli_pj_length{
     width: 30%;
-    margin-left: 5vw;
+    margin-left: 1vw;
   }
-  #tab_cli_pj_flter > label{
-    display: flex;
-    margin-right: 9px;
+  #tab_cli_pj_filter{
+    width: 30%;
+    margin-right: 0.5vw;
+  }
+  #tab_cli_pj_filter > label#text{
     text-align: left;
-    width: 97%;
   }
   .btn_salvar{
     margin-top: 2.6vw;
