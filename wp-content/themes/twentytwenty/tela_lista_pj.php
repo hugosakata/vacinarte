@@ -56,6 +56,12 @@ global $wpdb;
     width: 30%;
     margin-left: 5vw;
   }
+  #tab_cli_pj_flter label{
+    display: flex;
+    margin-right: 9px;
+    text-align: left;
+    width: 97%;
+  }
   .btn_salvar{
     margin-top: 2.6vw;
     height: 4.5vw;
