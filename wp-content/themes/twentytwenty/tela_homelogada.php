@@ -144,7 +144,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
+                            <div class="panel panel-info" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -167,32 +167,12 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                <<!-- /a> -->
-                            </div><!-- fecha panel dags_totaldem -->
-                        </div><!-- fecha col -->
-                        
-                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-12 text-center">
-                                            <div class="huge"><h5>Atendimento</h5></div>
-                                            
-                                        </div><!-- fecha col xm 12 -->
-                                    </div><!-- fecha row -->
-                                </div><!-- fecha panel heading -->
-                                <!-- <a href="http://vacinarte-admin.com.br/iniciar-atendimento/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Iniciar</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                               <!-- </a> -->
+                                <!-- /a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
+                            <div class="panel panel-info" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -204,6 +184,26 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                 <!-- <a href="http://vacinarte-admin.com.br/listar-campanhas/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Listar</span>
+                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div><!-- fecha panel hfooter -->
+                               <!-- </a> -->
+                            </div><!-- fecha panel dags_totaldem -->
+                        </div><!-- fecha col -->
+                        
+                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
+                            <div class="panel panel-info" id="dash_demandas">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <div class="huge"><h5>Atendimento</h5></div>
+                                            
+                                        </div><!-- fecha col xm 12 -->
+                                    </div><!-- fecha row -->
+                                </div><!-- fecha panel heading -->
+                                <!-- <a href="http://vacinarte-admin.com.br/iniciar-atendimento/">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Iniciar</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
