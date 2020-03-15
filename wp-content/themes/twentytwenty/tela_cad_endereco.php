@@ -15,7 +15,8 @@ if(isset($_GET['id'])){
 
  function load(){
     global $nm_end, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err;
+    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err,
+    $id_cli;
 
     $nm_end = str_replace("'", "", trim($_POST["nm_end"]));
     $logra = str_replace("'", "", trim($_POST["logra"]));
@@ -37,7 +38,8 @@ if(isset($_GET['id'])){
         !empty($num_logra) &&
         !empty($bairro) &&
         !empty($cep) &&
-        !empty($cidade)){
+        !empty($cidade) &&
+        ($id_cli > 0)){
           $valido = true;
     }
 
