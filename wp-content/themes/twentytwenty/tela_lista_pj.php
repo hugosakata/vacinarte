@@ -44,6 +44,14 @@ global $wpdb;
     <script type="text/javascript" src="../DataTables/js/jquery.dataTables.min.js"></script> -->
 
   </head>
+
+  <style>
+  .btn_salvar{
+    margin-top: 2.6vw;
+    height: 4.5vw;
+  }
+  </style>
+  
   <body>
   
   <?php include 'tela_header.php';?>
@@ -62,7 +70,7 @@ global $wpdb;
           </h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
           value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->

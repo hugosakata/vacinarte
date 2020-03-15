@@ -42,6 +42,10 @@ if(isset($_GET['id'])){
   input{
     height: 1vw;
   }
+  .btn_salvar{
+    margin-top: 2.6vw;
+    height: 4.5vw;
+  }
   </style>
   <body>
   
@@ -70,7 +74,7 @@ if(isset($_GET['id'])){
           </h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input id="btn_salvar_end" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
+          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
           value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
