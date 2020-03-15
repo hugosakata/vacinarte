@@ -39,6 +39,9 @@ if(isset($_GET['id'])){
   #tab_lista_end_length{
     width: 30%;
   }
+  input{
+    height: 1vw;
+  }
   </style>
   <body>
   
