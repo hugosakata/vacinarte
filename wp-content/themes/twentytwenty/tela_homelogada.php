@@ -122,8 +122,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                     <div class="row" style="text-align:center;">
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel painelHome" id="dash_demandas">
-                                <div class="panel-heading">
+                            <div class="panel " id="dash_demandas">
+                                <div class="panel-heading painelHome">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2><?php echo $total_clientes_pj; ?></h2></div>
@@ -135,8 +135,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel painelHome" id="dash_demandas">
-                                <div class="panel-heading">
+                            <div class="panel " id="dash_demandas">
+                                <div class="panel-heading painelHome">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2><?php echo $total_campanha_ativa; ?></h2></div>
@@ -148,8 +148,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
                         
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel painelHome" id="dash_demandas">
-                                <div class="panel-heading">
+                            <div class="panel " id="dash_demandas">
+                                <div class="panel-heading painelHome">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h5>Atendimento</h5></div>
