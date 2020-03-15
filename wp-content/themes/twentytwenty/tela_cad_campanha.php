@@ -131,6 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <label style="font-size: 14px;">Empresa</label>
               <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
               value="<?php echo $cd_cli; ?>">
+              <option value=""></option>
               <?php
                 $clientes = $wpdb->get_results( 
                   "
@@ -143,7 +144,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 foreach ( $clientes as $cliente ) 
                 {
               ?>
-                <option value=""></option>
                 <option value=<?php echo $cliente->cd_cli ?>;><?php echo $cliente->nm_fant ?></option>
             <?php
               }
