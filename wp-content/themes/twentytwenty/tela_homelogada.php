@@ -92,10 +92,15 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 </style>
 
 <style type="text/css">
-    .help-block{ display: block;
-                    margin-top: 5px;
-                    margin-bottom: 10px;
-                    color: #a94442; }
+    .help-block{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #a94442;
+    }
+    .painelHome{
+        background-color: #7efff5;
+    }
 </style>
 </head>
 <body>
@@ -115,36 +120,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                 <div class="container">
 
                     <div class="row" style="text-align:center;">
-                        <div class="col hide" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2><?php echo $total_clientes_pf; ?></h2></div>
-                                            <div>Clientes PF</div>
-                                        </div><!-- fecha col xm 12 -->
-                                    </div><!-- fecha row -->
-                                </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/listar-pf/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Listar clientes</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                </a>
-
-                                <a href="http://vacinarte-admin.com.br/cadastrar-pf/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Cadastrar cliente</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                </a>
-                            </div><!-- fecha panel dags_totaldem -->
-                        </div><!-- fecha col -->
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-info" id="dash_demandas">
+                            <div class="panel painelHome" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -153,26 +131,11 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <!-- <a href="http://vacinarte-admin.com.br/listar-pj/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Listar clientes</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                <!-- </a>
-
-                                <a href="http://vacinarte-admin.com.br/cadastrar-pj/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Cadastrar cliente</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                <!-- /a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-info" id="dash_demandas">
+                            <div class="panel painelHome" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -181,18 +144,11 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <!-- <a href="http://vacinarte-admin.com.br/listar-campanhas/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Listar</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                               <!-- </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
                         
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-info" id="dash_demandas">
+                            <div class="panel painelHome" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -201,80 +157,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <!-- <a href="http://vacinarte-admin.com.br/iniciar-atendimento/">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Iniciar</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                               <!-- </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
-                    </div><!-- fecha row -->
-
-                    <div class="row hide" style="text-align:center;">
-                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>176</h2></div>
-                                            <div>Demandas Ativas</div>
-                                        </div><!-- fecha col xm 12 -->
-                                    </div><!-- fecha row -->
-                                </div><!-- fecha panel heading -->
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Detalhar</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                </a>
-                            </div><!-- fecha panel dags_totaldem -->
-                        </div><!-- fecha col -->
-    
-                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>176</h2></div>
-                                            <div>Demandas Ativas</div>
-                                        </div><!-- fecha col xm 12 -->
-                                    </div><!-- fecha row -->
-                                </div><!-- fecha panel heading -->
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Detalhar</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                </a>
-                            </div><!-- fecha panel dags_totaldem -->
-                        </div><!-- fecha col -->
-    
-    
-                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
-                            <div class="panel panel-primary" id="dash_demandas">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-12 text-center">
-                                            <div class="huge"><h2>176</h2></div>
-                                            <div>Demandas Ativas</div>
-                                        </div><!-- fecha col xm 12 -->
-                                    </div><!-- fecha row -->
-                                </div><!-- fecha panel heading -->
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Detalhar</span>
-                                        <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div><!-- fecha panel hfooter -->
-                                </a>
-                            </div><!-- fecha panel dags_totaldem -->
-                        </div><!-- fecha col -->
-    
                     </div><!-- fecha row -->
 
                 </div>
