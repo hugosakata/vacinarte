@@ -19,7 +19,7 @@ $total_campanha_ativa = $wpdb->get_var($sql);
 ?>
 
  <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -33,7 +33,7 @@ $total_campanha_ativa = $wpdb->get_var($sql);
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 
-		<title>Página de exemplo &#8211; Vacinarte</title>
+		<title>Home &#8211; Vacinarte</title>
 <meta name='robots' content='noindex,nofollow' />
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="Feed para Vacinarte &raquo;" href="http://vacinarte-admin.com.br/feed/" />
@@ -56,7 +56,8 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='dashicons-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dashicons.min.css?ver=5.3.2' media='all' />
+
+<link rel='stylesheet' id='dashicons-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dashicons.min.css?ver=5.3.2' media='all' />
 <link rel='stylesheet' id='admin-bar-css'  href='http://vacinarte-admin.com.br/wp-includes/css/admin-bar.min.css?ver=5.3.2' media='all' />
 <link rel='stylesheet' id='wp-block-library-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' media='all' />
 <link rel='stylesheet' id='twentytwenty-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/style.css?ver=1.1' media='all' />
