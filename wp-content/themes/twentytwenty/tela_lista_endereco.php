@@ -28,6 +28,13 @@ if(isset($_GET['id'])){
     font-size: 15px;
     text-align: center;
   }
+  .dataTables_empty{
+    text-align: center;
+    font-weight: bold;
+  }
+  th {
+    text-align: center;
+  }
   </style>
   <body>
   
