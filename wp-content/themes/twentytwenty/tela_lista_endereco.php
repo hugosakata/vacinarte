@@ -189,7 +189,27 @@ if(isset($_GET['id'])){
     <script>
       //datatable
 	$(document).ready(function(){
-    $('#tab_lista_end').DataTable();
+    $('#tab_lista_end').DataTable({
+      "ordering": true,
+	    "paginate": true,
+      "oLanguage": {
+	            "sProcessing": "Processando...",
+	            "sLengthMenu": "Exibir _MENU_ registros",
+	            "sZeroRecords": "N&atilde;o foram encontrados resultados.",
+	            "sInfo": "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
+	            "sInfoEmpty": "Mostrando de 0 at&eacute; 0 de um total de 0 registros",
+	            "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
+	            "sInfoPostFix": "",
+	            "sSearch": "Procurar:",
+	            "sUrl": "",
+	            "oPaginate": {
+	                "sFirst": "Primeiro",
+	                "sPrevious": "Anterior",
+	                "sNext": "Pr&oacute;ximo",
+	                "sLast": "&Uacute;ltimo"
+	            }
+	        }
+    });
   });
 
     </script>
