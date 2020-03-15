@@ -32,8 +32,12 @@ if(isset($_GET['id'])){
     text-align: center;
     font-weight: bold;
   }
-  th {
-    text-align: center;
+  #tab_lista_end_filter{
+    width: 30%;
+  }
+  #tab_lista_end_length{
+    width: 30%;
+    margin-top: -3vw;
   }
   </style>
   <body>
@@ -213,6 +217,7 @@ if(isset($_GET['id'])){
 	            }
 	        }
     });
+    $('#tab_lista_end_length').addClass('pull-right');
   });
 
     </script>
