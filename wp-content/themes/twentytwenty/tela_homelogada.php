@@ -115,7 +115,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                 <div class="container">
 
                     <div class="row" style="text-align:center;">
-                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
+                        <div class="col hide" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -153,7 +153,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/listar-pj/">
+                                <!-- <a href="http://vacinarte-admin.com.br/listar-pj/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Listar clientes</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
@@ -167,7 +167,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a>
+                                </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
                         
@@ -181,13 +181,13 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/iniciar-atendimento/">
+                                <!-- <a href="http://vacinarte-admin.com.br/iniciar-atendimento/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Iniciar</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a>
+                                </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
@@ -201,19 +201,19 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
-                                <a href="http://vacinarte-admin.com.br/listar-campanhas/">
+                                <!-- <a href="http://vacinarte-admin.com.br/listar-campanhas/">
                                     <div class="panel-footer">
                                         <span class="pull-left">Listar</span>
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a>
+                                </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
                     </div><!-- fecha row -->
 
-                    <div class="row" style="text-align:center;">
+                    <div class="row hide" style="text-align:center;">
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel panel-primary" id="dash_demandas">
                                 <div class="panel-heading">
