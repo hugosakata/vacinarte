@@ -23,8 +23,6 @@ if(isset($_GET['id'])){
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
-    <style media="print">#wpadminbar { display:none; }</style>
   </head>
   <style>
   #tab_lista_end_paginate{
