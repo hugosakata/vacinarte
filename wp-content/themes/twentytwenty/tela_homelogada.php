@@ -103,6 +103,10 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
     .painelHome{
         background-color: #7efff5;
     }
+    .painel{
+        text-align: center;
+        margin-top: 6vw;
+    }
 </style>
 </head>
 <body>
@@ -121,7 +125,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
         
                 <div class="container">
 
-                    <div class="row" style="text-align:center;">
+                    <div class="row painel" style="text-align:center;">
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel " id="dash_demandas">
