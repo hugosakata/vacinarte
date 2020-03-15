@@ -30,7 +30,8 @@ if(isset($_GET['id'])){
 
  function form_valido() {
     global $nm_end, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $msg_err;
+    $compl_logra, $bairro, $cep, $cidade, $msg_err,
+    $id_cli;
 
     $valido = false;
     if (!empty($nm_end) &&
