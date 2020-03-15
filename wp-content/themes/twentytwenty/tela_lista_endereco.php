@@ -24,7 +24,7 @@ if(isset($_GET['id'])){
 
   </head>
   <style>
-  #tab_lista_end_info, #tab_lista_end_paginate{
+  /* #tab_lista_end_info, #tab_lista_end_paginate{
     font-size: 15px;
     text-align: center;
   }
@@ -41,7 +41,7 @@ if(isset($_GET['id'])){
   }
   input{
     height: 1vw;
-  }
+  } */
   .btn_salvar{
     margin-top: 2.6vw;
     height: 4.5vw;
