@@ -100,8 +100,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
         margin-bottom: 10px;
         color: #a94442;
     }
-    .painelHome{
+    .painelPJ{
         background-color: #7efff5;
+    }
+    .painelCMP{
+        background-color: #67e6dc;
+    }
+    .painelAGE{
+        background-color: #32ff7e;
     }
     .painel{
         text-align: center;
@@ -129,7 +135,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel " id="dash_demandas">
-                                <div class="panel-heading painelHome">
+                                <div class="panel-heading painelPJ">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2><?php echo $total_clientes_pj; ?></h2></div>
@@ -142,7 +148,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel " id="dash_demandas">
-                                <div class="panel-heading painelHome">
+                                <div class="panel-heading painelCMP">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2><?php echo $total_campanha_ativa; ?></h2></div>
@@ -155,7 +161,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw;">
                             <div class="panel " id="dash_demandas">
-                                <div class="panel-heading painelHome">
+                                <div class="panel-heading painelAGE">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2>5</h2></div>
