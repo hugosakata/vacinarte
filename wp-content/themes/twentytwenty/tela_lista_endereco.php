@@ -217,7 +217,7 @@ if(isset($_GET['id'])){
 	            }
 	        }
     });
-    $('#tab_lista_end_length').addClass('pull-right');
+    $('#tab_lista_end_filter').addClass('pull-right');
   });
 
     </script>
