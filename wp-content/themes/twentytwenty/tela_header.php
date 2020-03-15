@@ -17,7 +17,7 @@
     
      <!-- Bootstrap -->
      <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-     <!-- Cesup Styles -->
+     <!-- Styles -->
      <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
 <meta name='robots' content='noindex,nofollow' />
@@ -96,7 +96,7 @@ img.emoji {
                     role="button" aria-haspopup="true" 
                     aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li>
+                    <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
                     <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
                     <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
                   </ul>
@@ -109,7 +109,7 @@ img.emoji {
                     data-toggle="dropdown" role="button" aria-haspopup="true" 
                     aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li>
+                    <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
                     <li><a href="http://vacinarte-admin.com.br/listar-pj/">Clientes PJ</a></li>
                     <li><a href="#">Campanhas</a></li>
                   </ul>
@@ -117,7 +117,7 @@ img.emoji {
               </ul>
 
               <ul class="nav navbar-nav ">
-                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/iniciar-atendimento/">Iniciar atendimento</a></li>
+                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/iniciar-atendimento/">Agenda</a></li>
                 <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
                 <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
               </ul>            
