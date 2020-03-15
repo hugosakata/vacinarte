@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = "";
-$id_ctt = $id_vcl 0;
+$id_ctt = $id_vcl = 0;
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_ctt = $wpdb->insert_id;
 
     $wpdb->insert(
-      'VCL_CONTATO  ',
+      'VCL_CONTATO',
       array(
         'cd_cli'      => $id_cli,
         'cd_ctt'      => $id_ctt        
