@@ -69,7 +69,7 @@ if(isset($_GET['id'])){
           </h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
+          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_cli; ?>';" 
           value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
