@@ -60,7 +60,7 @@ global $wpdb;
     width: 30%;
     margin-right: 0.5vw;
   }
-  #tab_cli_pj_filter>label#text{
+  #tab_cli_pj_filter.label#text{
     text-align: left;
   }
   .btn_salvar{
