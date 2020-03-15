@@ -46,7 +46,16 @@ global $wpdb;
   </head>
 
   <style>
-   
+  #tab_cli_pj_info, #tab_cli_pj_paginate{
+    font-size: 15px;
+  }
+  input{
+    height: 1vw;
+  }
+  #tab_cli_pj_length{
+    width: 30%;
+    margin-left: 5vw;
+  }
   .btn_salvar{
     margin-top: 2.6vw;
     height: 4.5vw;
