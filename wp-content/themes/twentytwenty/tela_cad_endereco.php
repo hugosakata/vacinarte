@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       'VCL_ENDERECO',
       array(
         'cd_cli'      => $id_cli,
-        'cd_end'      => $id_retorno        
+        'cd_end'      => $id_endereco        
       ),
       array(
         '%s',
