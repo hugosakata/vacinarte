@@ -34,10 +34,10 @@ if(isset($_GET['id'])){
   }
   #tab_lista_end_filter{
     width: 30%;
+    margin-top: -3vw;
   }
   #tab_lista_end_length{
     width: 30%;
-    margin-top: -3vw;
   }
   </style>
   <body>
