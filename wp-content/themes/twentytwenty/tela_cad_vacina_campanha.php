@@ -110,9 +110,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label style="font-size: 12px;">Vacina</label>
                   <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
                     <option value=""></option>
-                    <option value="1">H1N1</option>
-                    <option value="2">Sarampo</option>
-                    <option value="3">COVID-19</option>
+                    <?php
+                      $vacinas = $wpdb->get_results( 
+                        "
+                        SELECT
+                          a.cd_vcna,
+                          a.nm_reg,
+                          a.cd_fbcnte_vcna,
+                          b.nm_fbcnte_vcna
+                        FROM
+                          VACINA a
+                          LEFT JOIN
+                          FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna
+                        
+                        "
+                      );
+                      
+                      foreach ( $vacinas as $vacinas ) 
+                      {
+                    ?>
+                    <option value=<?php echo $vacinas->cd_vcna ?>;><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
+                    <?php
+                      }
+                    ?>
                   </select>
             </div>
             <div class="form-group col-xs-1">
