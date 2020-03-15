@@ -143,12 +143,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 foreach ( $clientes as $cliente ) 
                 {
               ?>
-                <!-- <option value=""></option> -->
+                <option value=""></option>
                 <option value=<?php echo $cliente->cd_cli ?>;><?php echo $cliente->nm_fant ?></option>
-              </select>
             <?php
               }
-            ?>
+              ?>
+              </select>
             </div>
           </div>
           
