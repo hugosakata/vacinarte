@@ -159,7 +159,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a>
+                                <!-- </a>
 
                                 <a href="http://vacinarte-admin.com.br/cadastrar-pj/">
                                     <div class="panel-footer">
@@ -167,7 +167,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a> -->
+                                <<!-- /a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
                         
@@ -187,7 +187,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a> -->
+                               <!-- </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
@@ -207,7 +207,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div><!-- fecha panel hfooter -->
-                                </a> -->
+                               <!-- </a> -->
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 
