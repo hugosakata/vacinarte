@@ -7,7 +7,9 @@ global $wpdb;
 
 $endereco = $nm_end = $logra = $num_logra = $id_cli = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
-$id_end = $id_retorno2 = 0;
+$id_retorno = $id_retorno2 = 0;
+// $id_end = $id_vcl = 0;
+
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
@@ -30,8 +32,7 @@ if(isset($_GET['id'])){
 
  function form_valido() {
     global $nm_end, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $msg_err,
-    $id_cli;
+    $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
     $valido = false;
     if (!empty($nm_end) &&
@@ -39,8 +40,7 @@ if(isset($_GET['id'])){
         !empty($num_logra) &&
         !empty($bairro) &&
         !empty($cep) &&
-        !empty($cidade) &&
-        ($id_cli > 0)){
+        !empty($cidade)){
           $valido = true;
     }
 
@@ -73,22 +73,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         '%s'
       )
     );
-    $id_end = $wpdb->insert_id;
+    $id_retorno = $wpdb->insert_id;
 
     $wpdb->insert(
       'VCL_ENDERECO',
       array(
         'cd_cli'      => $id_cli,
-        'cd_end'      => $id_end       
+        'cd_end'      => $id_retorno       
       ),
       array(
-        '%d',
-        '%d'
+        '%s',
+        '%s'
       )
     );
     $id_retorno2 = $wpdb->insert_id;
 
-    if ($id_end > 0 && $id_retorno2 > 0)
+    if ($id_retorno > 0 && $id_retorno2 > 0)
       $wpdb->query("COMMIT");
     else
       $wpdb->query("ROLLBACK");
@@ -200,9 +200,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço <?php echo $id_end . "." . $id_retorno2; ?>
+          <h3 class="page-header">Cadastro de Endereço <?php echo $id_retorno . "." . $id_retorno2; ?>
           <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small><span><?php echo $id_cli; ?></span> 
+            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small>
+
           </h3>
         </div>
     </div><!-- fecha div row -->
