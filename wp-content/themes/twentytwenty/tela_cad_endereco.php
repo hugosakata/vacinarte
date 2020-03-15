@@ -202,7 +202,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12">
           <h3 class="page-header">Cadastro de Endereço <?php echo $id_end . "." . $id_retorno2; ?>
           <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> 
+            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small><span><?php echo $id_cli; ?></span> 
           </h3>
         </div>
     </div><!-- fecha div row -->
