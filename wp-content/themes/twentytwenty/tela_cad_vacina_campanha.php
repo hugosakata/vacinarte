@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Vacina <span><?php echo $cd_vcna; ?> / <?php echo $id_vcna_cmp; ?></span>
+          <h3 class="page-header">Vacina 
           <br>
             <small>Preencha o formulário abaixo para cadastrar vacina para a campanha</small>
           </h3>
