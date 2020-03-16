@@ -28,8 +28,35 @@ global $wpdb;
 
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
-
+    
   </head>
+  <style>
+  #tab_lista_paginate{
+    font-size: 15px;
+    margin-top: -2vw;
+  }
+  #tab_lista_info{
+    font-size: 15px;
+  }
+  .dataTables_empty{
+    text-align: center;
+    font-weight: bold;
+  }
+  #tab_lista_filter{
+    width: 30%;
+    margin-top: -3vw;
+  }
+  #tab_lista_length{
+    width: 30%;
+  }
+  input{
+    height: 1vw;
+  } 
+  .btn_salvar{
+    margin-top: 2.6vw;
+    height: 4.5vw;
+  }
+  </style>
   <body>
   
   <?php include 'tela_header.php';?>
@@ -46,6 +73,10 @@ global $wpdb;
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
+        </div>
+        <div class="col-xs-2" style="align:center">
+          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
+          value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
 
@@ -118,10 +149,6 @@ global $wpdb;
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    <div class="col-xs-2 col-xs-offset-1">
-      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
-      value="Novo" />
-    </div>
 </div><!-- fecha container principal -->  
 
 
@@ -182,7 +209,29 @@ global $wpdb;
     <script>
       //datatable
 	$(document).ready(function(){
-    $('#tab_lista_campanha').DataTable();
+    $('#tab_lista_campanha').DataTable({
+      "ordering": true,
+	    "paginate": true,
+      "oLanguage": {
+	            "sProcessing": "Processando...",
+	            "sLengthMenu": "Exibir _MENU_ registros",
+	            "sZeroRecords": "N&atilde;o foram encontrados resultados.",
+	            "sInfo": "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
+	            "sInfoEmpty": "Mostrando de 0 at&eacute; 0 de um total de 0 registros",
+	            "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
+	            "sInfoPostFix": "",
+	            "sSearch": "Procurar:",
+	            "sUrl": "",
+	            "oPaginate": {
+	                "sFirst": "Primeiro",
+	                "sPrevious": "Anterior",
+	                "sNext": "Pr&oacute;ximo",
+	                "sLast": "&Uacute;ltimo"
+	            }
+	        }
+    });
+    $('#tab_lista_filter').addClass('pull-right');
+    $('#tab_lista_paginate').addClass('pull-right');
   });
 
     </script>
