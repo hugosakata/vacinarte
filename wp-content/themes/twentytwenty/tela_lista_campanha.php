@@ -31,22 +31,22 @@ global $wpdb;
     
   </head>
   <style>
-  #tab_lista_paginate{
+  #tab_lista_campanha_paginate{
     font-size: 15px;
     margin-top: -2vw;
   }
-  #tab_lista_info{
+  #tab_lista_campanha_info{
     font-size: 15px;
   }
   .dataTables_empty{
     text-align: center;
     font-weight: bold;
   }
-  #tab_lista_filter{
+  #tab_lista_campanha_filter{
     width: 30%;
     margin-top: -3vw;
   }
-  #tab_lista_length{
+  #tab_lista_campanha_length{
     width: 30%;
   }
   input{
@@ -152,56 +152,6 @@ global $wpdb;
 </div><!-- fecha container principal -->  
 
 
-    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
-    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
-    <!-- <script>
-      //datatable
-	$(document).ready(function() {
-    $('#tab_cli_pf').DataTable({
-	       
-	        "lengthMenu": [
-	            [20, 30, 50, -1],
-	            [20, 30, 50, "Todos"]
-	        ],
-	        "ordering": true,
-	        "paginate": true,
-	        "pagingType": "full_numbers",
-	        "searching": true,
-	        "paging": true,
-	        "info": false,
-	        "autoWidth": false,
-	        "bStateSave": false,
-          "bLengthChange": true,
-          "aoColumns": [
-	            null,
-	            null,
-	            null,
-	            null
-	        ],
-	        
-	        "oLanguage": {
-	            "sProcessing": "Processando...",
-	            "sLengthMenu": "Exibir _MENU_ registros",
-	            "sZeroRecords": "N&atilde;o foram encontrados resultados.",
-	            "sInfo": "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
-	            "sInfoEmpty": "Mostrando de 0 at&eacute; 0 de um total de 0 registros",
-	            "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
-	            "sInfoPostFix": "",
-	            "sSearch": "Procurar:",
-	            "sUrl": "",
-	            "oPaginate": {
-	                "sFirst": "Primeiro",
-	                "sPrevious": "Anterior",
-	                "sNext": "Pr&oacute;ximo",
-	                "sLast": "&Uacute;ltimo"
-	            }
-	        }
-	    });
-      
-	});
-
-    </script> -->
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
