@@ -68,7 +68,7 @@ global $wpdb;
 <div class="container"><!-- container principal-->
     
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-xs-10">
           <h3 class="page-header">Campanhas Ativas
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
