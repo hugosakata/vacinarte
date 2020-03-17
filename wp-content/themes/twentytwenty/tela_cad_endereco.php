@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
     $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err;
 
     echo "<script language='javascript' type='text/javascript'>
-    alert('{$uf_br}');</script>";
+    alert('{$nm_end}, {$logra}, {$num_logra}, {$bairro}, {$cep}, {$cidade}, {$uf_br}');</script>";
 
     $valido = false;
     if (!empty($nm_end) &&
