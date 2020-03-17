@@ -215,8 +215,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label>Nome*</label>
               <input type="text" name="nm_end" class="form-control" 
-                placeholder="Nome do endereço"
-              onblur="pesquisacep(this.value);" value="<?php echo $nm_end; ?>">
+                placeholder="Nome do endereço" value="<?php echo $nm_end; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label>CEP*</label>
