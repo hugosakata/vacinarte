@@ -126,7 +126,7 @@ global $wpdb;
                           {
                         ?>
 
-                          <tr>
+                          <tr id="<?php echo $cliente->cd_cli; ?>">
                             <td><?php echo $cliente->nm_rz_soc ?></td>
                             <td><?php echo $cliente->nm_fant ?></td>
                             <td><?php echo $cliente->cpf_cnpj ?></td>
@@ -189,6 +189,12 @@ global $wpdb;
   });
 
     </script>
-
+    <script>
+    $('tr').dblclick(function(){
+      var id = $(this).attr('id');
+      window.location = "http://vacinarte-admin.com.br/cadastrar-pj/?id=" + id;
+      return false;
+    })
+    </script>
   </body>
   </html>
