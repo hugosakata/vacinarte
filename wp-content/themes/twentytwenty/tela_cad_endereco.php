@@ -85,10 +85,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     );
     $id_vcl = $wpdb->insert_id;
 
-    if ($id_end > 0 && $id_vcl > 0)
+    if ($id_end > 0 && $id_vcl > 0){
       $wpdb->query("COMMIT");
-    else
+
+      echo "<script language='javascript' type='text/javascript'>
+        window.location.href='http://vacinarte-admin.com.br/listar-enderecos/?id={$id_cli}';</script>";
+
+    } else {
       $wpdb->query("ROLLBACK");
+      $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+    }
 
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
