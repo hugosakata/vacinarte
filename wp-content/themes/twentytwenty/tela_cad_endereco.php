@@ -95,10 +95,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         window.location.href='http://vacinarte-admin.com.br/listar-enderecos/?id={$id_cli}';</script>";
 
     } else {
-      $wpdb->query("ROLLBACK");
-
       $msg_err = $wpdb->show_errors();
       $msg_err .=$wpdb->print_error();
+
+      $wpdb->query("ROLLBACK");
+
+      
       //$msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
     }
 
