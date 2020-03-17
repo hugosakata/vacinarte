@@ -29,10 +29,7 @@ if(isset($_GET['id'])){
 
  function form_valido() {
     global $nm_end, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $msg_err;
-
-    echo "<script language='javascript' type='text/javascript'>
-    alert({$uf_br});</script>";
+    $compl_logra, $bairro, $cep, $cidade, $msg_err, $uf_br;
 
     $valido = false;
     if (!empty($nm_end) &&
