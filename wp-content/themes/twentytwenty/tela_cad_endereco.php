@@ -31,6 +31,8 @@ if(isset($_GET['id'])){
     global $nm_end, $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $msg_err;
 
+    alert($uf_br);
+
     $valido = false;
     if (!empty($nm_end) &&
         !empty($logra) &&
