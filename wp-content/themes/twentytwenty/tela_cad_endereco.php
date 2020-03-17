@@ -31,9 +31,6 @@ if(isset($_GET['id'])){
     global $nm_end, $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err;
 
-    echo "<script language='javascript' type='text/javascript'>
-    alert('{$nm_end}, {$logra}, {$num_logra}, {$bairro}, {$cep}, {$cidade}, {$uf_br}');</script>";
-
     $valido = false;
     if (!empty($nm_end) &&
         !empty($logra) &&
@@ -99,7 +96,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     } else {
       $wpdb->query("ROLLBACK");
-      $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+
+      $msg_err = $wpdb->show_errors();
+      $msg_err .=$wpdb->print_error();
+      //$msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
     }
 
   } else {
