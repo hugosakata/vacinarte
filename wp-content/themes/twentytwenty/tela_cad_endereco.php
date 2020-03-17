@@ -31,6 +31,9 @@ if(isset($_GET['id'])){
     global $nm_end, $logra, $num_logra,
     $compl_logra, $bairro, $cep, $cidade, $msg_err, $uf_br;
 
+    echo "<script language='javascript' type='text/javascript'>
+    alert({$uf_br});</script>";
+
     $valido = false;
     if (!empty($nm_end) &&
         !empty($logra) &&
