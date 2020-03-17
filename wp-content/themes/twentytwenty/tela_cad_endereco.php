@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'bairro'      => $bairro,
         'cep'         => $cep,
         'cidade'      => $cidade,
-        'estado'      => $uf_br
+        'estado'      => $uf_br,
         'complemento' => $compl_logra
       ),
       array(
