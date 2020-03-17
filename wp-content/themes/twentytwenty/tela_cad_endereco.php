@@ -37,7 +37,8 @@ if(isset($_GET['id'])){
         !empty($num_logra) &&
         !empty($bairro) &&
         !empty($cep) &&
-        !empty($cidade)){
+        !empty($cidade) &&
+        !empty($uf_br)){
           $valido = true;
     }
 
@@ -59,8 +60,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'cep'         => $cep,
         'cidade'      => $cidade,
         'estado'      => $uf_br
+        'complemento' => $compl_logra
       ),
       array(
+        '%s',
         '%s',
         '%s',
         '%s',
@@ -87,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if ($id_end > 0 && $id_vcl > 0){
       $wpdb->query("COMMIT");
-
+      alert("Endereço salvo com sucesso!");
       echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/listar-enderecos/?id={$id_cli}';</script>";
 
