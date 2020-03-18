@@ -111,7 +111,7 @@ if(isset($_GET['id'])){
                           
                           if (count($contatos)<=0){
                             echo "<script language='javascript' type='text/javascript'>
-                            window.location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';</script>";
+                            window.location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id={$id_cli}';</script>";
                           }
 
                           foreach ( $contatos as $contato ) 
