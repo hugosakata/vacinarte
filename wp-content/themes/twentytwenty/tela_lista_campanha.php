@@ -60,10 +60,10 @@ global $wpdb;
     margin-top: 2.6vw;
     height: 4.5vw;
   }
-  th{
+  .fontTH{
     font-size: 14px;
   }
-  td{
+  .fontTD{
     font-size: 12px;
   }
   </style>
@@ -224,6 +224,8 @@ global $wpdb;
     });
     $('#tab_lista_campanha_filter').addClass('pull-right');
     $('#tab_lista_campanha_paginate').addClass('pull-right');
+    $(th).addClass('fontTH');
+    $(td).addClass('fontTD');
   });
 
     </script>
