@@ -162,7 +162,7 @@ global $wpdb;
                             <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
                             <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
                             <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
-                            <td class="fontTD" data-sort="YYYYMMDD"><?php echo $campanha->DT_INI ?></td>
+                            <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
                             <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
                             <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
                             <td class="fontTD"><?php echo $campanha->CTTO ?></td>
@@ -204,6 +204,9 @@ global $wpdb;
     $('#tab_lista_campanha').DataTable({
       "ordering": true,
 	    "paginate": true,
+      columnDefs: [
+          { type: 'date-uk', targets: 3}
+      ],
       "oLanguage": {
 	            "sProcessing": "Processando...",
 	            "sLengthMenu": "Exibir _MENU_ registros",
