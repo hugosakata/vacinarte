@@ -83,7 +83,7 @@ global $wpdb;
     
     <div class="row">
         <div class="col-xs-10">
-          <h3 class="page-header">Campanhas Ativas
+          <h3 class="page-header">Campanhas
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
@@ -94,14 +94,14 @@ global $wpdb;
         </div>
     </div><!-- fecha div row -->
 
-    <div class="row txtbox"><!-- row formulario -->
+    <div class="row txtbox"><!-- row  -->
       <div class="col-lg-12 col-xs-12">
-        <div class="row"><!--div row painel de consulta -->
+        <div class="row"><!--div row de consulta -->
           <div class="tab-content">
           <div role="tabpanel" class="tab-pane fade in active">
             <div class="col-lg-12 col-xs-12">
               <div class="row paineldeconsulta">
-                <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
+                <div class="col-lg-12 col-xs-12"><!-- posiciona  -->
                   <div class="panel panel-default">
                     <div class="panel-body">
                       <table class="table table-striped" id="tab_lista_campanha">
@@ -166,11 +166,11 @@ global $wpdb;
                           {
                         ?>
                           <tr>
-                            <td><?php echo $campanha->nm_cmp ?></td>
-                            <td><?php echo $campanha->nm_fant ?></td>
-                            <td><?php echo $campanha->nm_tp_srv ?></td>
-                            <td><?php echo $campanha->dt_ini ?></td>
-                            <td><?php echo $campanha->dt_fim ?></td>
+                            <td><?php echo $campanha->NM_CMP ?></td>
+                            <td><?php echo $campanha->NM_FANT ?></td>
+                            <td><?php echo $campanha->NM_TP_SRV ?></td>
+                            <td><?php echo $campanha->DT_INI ?></td>
+                            <td><?php echo $campanha->DT_FIM ?></td>
                             <td><?php echo $campanha->LOCAL ?></td>
                             <td><?php echo $campanha->CTTO ?></td>
                             <td><?php echo $campanha->VAC ?></td>
@@ -178,7 +178,7 @@ global $wpdb;
                             <td><?php echo $campanha->VLR_VCNA ?></td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->cd_cmp; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                              <a href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                             </td>
                           </tr>
@@ -193,7 +193,7 @@ global $wpdb;
                 </div><!-- fecha col lg 12 -->
               </div><!-- fecha row paineldemequipe -->
           </div><!-- fecha col lg 12 -->
-          </div><!-- fecha div painel pdequipe -->
+          </div><!-- fecha div painel  -->
         </div>
         </div>
       </div><!-- fecha col 12 -->
