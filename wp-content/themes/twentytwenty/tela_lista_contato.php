@@ -67,7 +67,7 @@ if(isset($_GET['id'])){
 <div class="container"><!-- container principal-->
     
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-10">
           <h3 class="page-header">Contatos do cliente
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
