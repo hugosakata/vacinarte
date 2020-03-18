@@ -216,8 +216,8 @@ global $wpdb;
 	            }
 	        }
     });
-    $('#tab_lista_filter').addClass('pull-right');
-    $('#tab_lista_paginate').addClass('pull-right');
+    $('#tab_lista_campanha_filter').addClass('pull-right');
+    $('#tab_lista_campanha_paginate').addClass('pull-right');
   });
 
     </script>
