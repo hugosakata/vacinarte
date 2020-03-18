@@ -17,17 +17,7 @@ global $wpdb;
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- DataTable -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.jqueryui.min.css">
-    <link href="../css/datatables.min.css" rel="stylesheet" >
-    <script type="text/javascript" src="../DataTables/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="../DataTables/js/dataTables.jqueryui.min.js"></script>
-    <script type="text/javascript" src="../DataTables/js/jquery.dataTables.min.js"></script> -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
+    
     
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
@@ -83,15 +73,8 @@ global $wpdb;
     
     <div class="row">
         <div class="col-xs-10">
-          <h3 class="page-header">Campanhas
-          <!-- <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
-          </h3>
+          <h3 class="page-header">Campanhas</h3>
         </div>
-        <!-- <div class="col-xs-2" style="align:center">
-          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
-          value="Novo" style="margin-top:35px"/>
-        </div> -->
     </div><!-- fecha div row -->
 
     <div class="row txtbox"><!-- row  -->
@@ -135,12 +118,12 @@ global $wpdb;
                               CMP.DT_INI,
                               CMP.DT_FIM,
                               END.CD_END,
-                              CONCAT(END.LOGRADOURO, ", ", END.NUM_END, ", ", END.COMPLEMENTO, ", ", END.BAIRRO, " - ", END.CIDADE) LOCAL,
+                              CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL,
                               VC.CD_CTT,
-                              CONCAT(CON.NM_CTT, ": ", CON.TEL_PRI, " / ", CON.EMAIL) CTTO,
+                              CONCAT(CON.NM_CTT, ': ', CON.TEL_PRI, ' / ', CON.EMAIL) CTTO,
                               VVC.CD_VCL_VCNA_CMP,
                               VVC.CD_VCNA,
-                              CONCAT(VCNA.NM_REG, " - ", FAB.NM_FBCNTE_VCNA) VAC,
+                              CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) VAC,
                               VVC.QTD_VCNA,
                               VVC.VLR_VCNA
                             FROM
@@ -157,7 +140,7 @@ global $wpdb;
                             WHERE
                               CMP.DT_FIM >= now()
                             ORDER BY
-                              CMP.DT_INI ASC;
+                              CMP.DT_INI ASC
 
                             "
                           );
