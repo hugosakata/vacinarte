@@ -60,7 +60,7 @@ global $wpdb;
     margin-top: 2.6vw;
     height: 4.5vw;
   }
-  tr{
+  th{
     font-size: 14px;
   }
   td{
