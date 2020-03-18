@@ -112,6 +112,11 @@ global $wpdb;
                             <th>Tipo Serviço</th>
                             <th>Data Início</th>
                             <th>Data Fim</th>
+                            <th>Endereço</th>
+                            <th>Contato</th>
+                            <th>Vacina</th>
+                            <th>Qtde</th>
+                            <th>Valor Unit</th>
                             <th>Ações</th>
                           </tr>
                         </thead>
@@ -120,15 +125,40 @@ global $wpdb;
                         <?php
                           $campanhas = $wpdb->get_results( 
                             "
-                            SELECT `CAMPANHA`.`cd_cmp`, `CAMPANHA`.`nm_cmp`, 
-                            `CLIENTES`.`nm_fant`, 
-                            `TP_SRV`.`nm_tp_srv`, 
-                            `CAMPANHA`.`dt_ini`, 
-                            `CAMPANHA`.`dt_fim` FROM `CAMPANHA`, `CLIENTES`, `TP_SRV`
-                            WHERE `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` AND
-                            `CAMPANHA`.`cd_tp_srv`=`TP_SRV`.`cd_tp_srv` AND
-                            `CAMPANHA`.`dt_ini` <= now() + INTERVAL 1 DAY AND
-                            `CAMPANHA`.`dt_fim` >= now();
+                            SELECT
+                              CMP.CD_CMP,
+                              CMP.NM_CMP,
+                              CMP.CD_CLI,
+                              CLI.NM_FANT,
+                              CMP.CD_TP_SRV,
+                              SRV.NM_TP_SRV,
+                              CMP.DT_INI,
+                              CMP.DT_FIM,
+                              END.CD_END,
+                              CONCAT(END.LOGRADOURO, ", ", END.NUM_END, ", ", END.COMPLEMENTO, ", ", END.BAIRRO, " - ", END.CIDADE) LOCAL,
+                              VC.CD_CTT,
+                              CONCAT(CON.NM_CTT, ": ", CON.TEL_PRI, " / ", CON.EMAIL) CTTO,
+                              VVC.CD_VCL_VCNA_CMP,
+                              VVC.CD_VCNA,
+                              CONCAT(VCNA.NM_REG, " - ", FAB.NM_FBCNTE_VCNA) VAC,
+                              VVC.QTD_VCNA,
+                              VVC.VLR_VCNA
+                            FROM
+                              CAMPANHA CMP
+                              LEFT JOIN TP_SRV SRV ON CMP.CD_TP_SRV = SRV.CD_TP_SRV
+                              LEFT JOIN CLIENTES CLI ON CMP.CD_CLI = CLI.CD_CLI
+                              LEFT JOIN VCL_ENDERECO VE ON CMP.CD_VCL_END = VE.CD_VCL_END
+                              LEFT JOIN ENDERECO END ON VE.CD_END = END.CD_END AND CMP.CD_CLI = VE.CD_CLI
+                              LEFT JOIN VCL_CONTATO VC ON CMP.CD_CLI = VC.CD_CLI
+                              LEFT JOIN CONTATO CON ON VC.CD_CTT = CON.CD_CTT
+                              LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
+                              LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
+                              LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
+                            WHERE
+                              CMP.DT_FIM >= now()
+                            ORDER BY
+                              CMP.DT_INI ASC;
+
                             "
                           );
                           
@@ -141,6 +171,11 @@ global $wpdb;
                             <td><?php echo $campanha->nm_tp_srv ?></td>
                             <td><?php echo $campanha->dt_ini ?></td>
                             <td><?php echo $campanha->dt_fim ?></td>
+                            <td><?php echo $campanha->LOCAL ?></td>
+                            <td><?php echo $campanha->CTTO ?></td>
+                            <td><?php echo $campanha->VAC ?></td>
+                            <td><?php echo $campanha->QTD_VCNA ?></td>
+                            <td><?php echo $campanha->VLR_VCNA ?></td>
                             <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->cd_cmp; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
