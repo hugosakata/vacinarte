@@ -69,7 +69,8 @@ if(isset($_GET['id'])){
           </h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_cli; ?>';" 
+          <input class="btn_salvar pull-right" type="button" 
+          onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_cli; ?>';" 
           value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
@@ -115,7 +116,7 @@ if(isset($_GET['id'])){
                           
                           if (count($enderecos)<=0){
                             echo "<script language='javascript' type='text/javascript'>
-                            window.location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';</script>";
+                            window.location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_cli; ?>';</script>";
                           }
 
 
@@ -153,10 +154,6 @@ if(isset($_GET['id'])){
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    <div class="col-xs-2 col-xs-offset-1 hide">
-      <input type="button" id="btn_salvar_end" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/';" 
-      value="Novo" />
-    </div>
 </div><!-- fecha container principal -->  
 
 

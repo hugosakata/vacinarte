@@ -1,6 +1,9 @@
 <?php /* Template Name: TelaListaContato */
 
 global $wpdb;
+if(isset($_GET['id'])){
+  $id_cli = $_GET['id'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +33,29 @@ global $wpdb;
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
 
   </head>
+  <style>
+  #tab_lista_contatos_info, #tab_lista_contatos_paginate{
+    font-size: 15px;
+  }
+  input{
+    height: 1vw;
+  }
+  #tab_lista_contatos_length{
+    width: 30%;
+    margin-left: 1vw;
+  }
+  #tab_lista_contatos_filter{
+    width: 30%;
+    margin-right: 0.5vw;
+  }
+  #tab_lista_contatos_filter.label#text{
+    text-align: left;
+  }
+  .btn_salvar{
+    margin-top: 2.6vw;
+    height: 4.5vw;
+  }
+  </style>
   <body>
   
   <?php include 'tela_header.php';?>
@@ -41,11 +67,15 @@ global $wpdb;
 <div class="container"><!-- container principal-->
     
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-xs-12">
           <h3 class="page-header">Contatos do cliente
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
+        </div>
+        <div class="col-xs-2" style="align:center">
+          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
+          value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
 
@@ -59,26 +89,48 @@ global $wpdb;
                 <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
                   <div class="panel panel-default">
                     <div class="panel-body">
-                      <table class="table table-striped" id="tab_cli_pf">
+                      <table class="table table-striped" id="tab_lista_contatos">
                         <thead>
                           <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Contato</th>
-                            <th>Ações</th>
+                            <th>Nome do contato </th>
+                            <th>Telefone</th>
+                            <th>Email</th>
+                            <th>Observação</th>
                           </tr>
                         </thead>
                         <tbody>
+                        <?php
+                          $contatos = $wpdb->get_results( 
+                            "
+                            SELECT `cd_ctt`, `cd_cli`, `nm_ctt`, `tel_pri`, 
+                            `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
+                            FROM `CONTATO`
+                            WHERE cd_cli={$id_cli} order by `nm_ctt`
+                            "
+                          );
+                          
+                          if (count($contatos)<=0){
+                            echo "<script language='javascript' type='text/javascript'>
+                            window.location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';</script>";
+                          }
+
+                          foreach ( $contatos as $contato ) 
+                          {
+                        ?>
                           <tr>
-                            <td>Reinaldo Daltro</td>
-                            <td>147.058.728-94</td>
-                            <td>11-98163-6316</td>
-                            <td>
+                            <td>$contato->nm_ctt</td>
+                            <td>$contato->tel_pri</td>
+                            <td>$contato->email</td>
+                            <td>$contato->obs_ctt</td>
+                            <!-- <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
-                            </td>
+                            </td> -->
                           </tr>
+                          <?php
+                            }
+                          ?>
         
                         </tbody>
                       </table>
@@ -92,42 +144,19 @@ global $wpdb;
         </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
-    <div class="col-xs-2 col-xs-offset-1">
-      <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/';" 
-      value="Novo" />
-    </div>
 </div><!-- fecha container principal -->  
 
-
-    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+<script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
-    <!-- <script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
+    
+    <script>
       //datatable
-	$(document).ready(function() {
-    $('#tab_cli_pf').DataTable({
-	       
-	        "lengthMenu": [
-	            [20, 30, 50, -1],
-	            [20, 30, 50, "Todos"]
-	        ],
-	        "ordering": true,
-	        "paginate": true,
-	        "pagingType": "full_numbers",
-	        "searching": true,
-	        "paging": true,
-	        "info": false,
-	        "autoWidth": false,
-	        "bStateSave": false,
-          "bLengthChange": true,
-          "aoColumns": [
-	            null,
-	            null,
-	            null,
-	            null
-	        ],
-	        
-	        "oLanguage": {
+	$(document).ready(function(){
+    $('#tab_lista_contatos').DataTable({
+      "ordering": true,
+	    "paginate": true,
+      "oLanguage": {
 	            "sProcessing": "Processando...",
 	            "sLengthMenu": "Exibir _MENU_ registros",
 	            "sZeroRecords": "N&atilde;o foram encontrados resultados.",
@@ -144,11 +173,12 @@ global $wpdb;
 	                "sLast": "&Uacute;ltimo"
 	            }
 	        }
-	    });
-      
-	});
+    });
+    $('#tab_lista_contatos_filter').addClass('pull-right');
+    $('#tab_lista_contatos_paginate').addClass('pull-right');
+  });
 
-    </script> -->
+    </script>
 
   </body>
   </html>
