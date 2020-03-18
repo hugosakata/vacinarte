@@ -60,6 +60,12 @@ global $wpdb;
     margin-top: 2.6vw;
     height: 4.5vw;
   }
+  tr{
+    font-size: 14px;
+  }
+  td{
+    font-size: 12px;
+  }
   </style>
   <body>
   
@@ -69,7 +75,7 @@ global $wpdb;
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
   
-<div class="container"><!-- container principal-->
+<div class="container" style="width: 100%;"><!-- container principal-->
     
     <div class="row">
         <div class="col-xs-10">
