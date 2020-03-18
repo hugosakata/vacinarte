@@ -44,10 +44,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'cd_cli'  => $id_cli,
         'nm_ctt'  => $nm_contato,
         'tel_pri' => $tel_pri,
+        'email'   => $email,
         'obs_ctt' => $obs_ctt
       ),
       array(
         '%d',
+        '%s',
         '%s',
         '%s',
         '%s'

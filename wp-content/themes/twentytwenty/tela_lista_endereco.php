@@ -116,7 +116,7 @@ if(isset($_GET['id'])){
                           
                           if (count($enderecos)<=0){
                             echo "<script language='javascript' type='text/javascript'>
-                            window.location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id={$id_cli}; ?>';</script>";
+                            window.location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id={$id_cli};';</script>";
                           }
 
 
