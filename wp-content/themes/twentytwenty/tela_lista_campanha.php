@@ -88,10 +88,10 @@ global $wpdb;
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
         </div>
-        <div class="col-xs-2" style="align:center">
+        <!-- <div class="col-xs-2" style="align:center">
           <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
           value="Novo" style="margin-top:35px"/>
-        </div>
+        </div> -->
     </div><!-- fecha div row -->
 
     <div class="row txtbox"><!-- row  -->
