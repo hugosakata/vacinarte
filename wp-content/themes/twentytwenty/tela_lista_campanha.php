@@ -100,17 +100,17 @@ global $wpdb;
                       <table class="table table-striped" id="tab_lista_campanha">
                         <thead>
                           <tr>
-                            <th>Nome Campanha</th>
-                            <th>Cliente</th>
-                            <th>Tipo Serviço</th>
-                            <th>Data Início</th>
-                            <th>Data Fim</th>
-                            <th>Endereço</th>
-                            <th>Contato</th>
-                            <th>Vacina</th>
-                            <th>Qtde</th>
-                            <th>Valor Unit</th>
-                            <th>Ações</th>
+                            <th class="fontTH">Nome Campanha</th>
+                            <th class="fontTH">Cliente</th>
+                            <th class="fontTH">Tipo Serviço</th>
+                            <th class="fontTH">Data Início</th>
+                            <th class="fontTH">Data Fim</th>
+                            <th class="fontTH">Endereço</th>
+                            <th class="fontTH">Contato</th>
+                            <th class="fontTH">Vacina</th>
+                            <th class="fontTH">Qtde</th>
+                            <th class="fontTH">Valor Unit</th>
+                            <th class="fontTH">Ações</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -159,17 +159,17 @@ global $wpdb;
                           {
                         ?>
                           <tr>
-                            <td><?php echo $campanha->NM_CMP ?></td>
-                            <td><?php echo $campanha->NM_FANT ?></td>
-                            <td><?php echo $campanha->NM_TP_SRV ?></td>
-                            <td><?php echo $campanha->DT_INI ?></td>
-                            <td><?php echo $campanha->DT_FIM ?></td>
-                            <td><?php echo $campanha->LOCAL ?></td>
-                            <td><?php echo $campanha->CTTO ?></td>
-                            <td><?php echo $campanha->VAC ?></td>
-                            <td><?php echo $campanha->QTD_VCNA ?></td>
-                            <td><?php echo $campanha->VLR_VCNA ?></td>
-                            <td>
+                            <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
+                            <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
+                            <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
+                            <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
+                            <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
+                            <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
+                            <td class="fontTD"><?php echo $campanha->CTTO ?></td>
+                            <td class="fontTD"><?php echo $campanha->VAC ?></td>
+                            <td class="fontTD"><?php echo $campanha->QTD_VCNA ?></td>
+                            <td class="fontTD"><?php echo $campanha->VLR_VCNA ?></td>
+                            <td class="fontTD">
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
@@ -224,8 +224,6 @@ global $wpdb;
     });
     $('#tab_lista_campanha_filter').addClass('pull-right');
     $('#tab_lista_campanha_paginate').addClass('pull-right');
-    $(th).addClass('fontTH');
-    $(td).addClass('fontTD');
   });
 
     </script>
