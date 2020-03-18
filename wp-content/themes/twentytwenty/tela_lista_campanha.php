@@ -204,9 +204,7 @@ global $wpdb;
     $('#tab_lista_campanha').DataTable({
       "ordering": true,
 	    "paginate": true,
-      columnDefs: [
-          { type: 'date-uk', targets: 3}
-      ],
+      "dateFormat": "dd/mm/yyyy",
       "oLanguage": {
 	            "sProcessing": "Processando...",
 	            "sLengthMenu": "Exibir _MENU_ registros",
