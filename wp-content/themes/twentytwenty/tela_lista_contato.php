@@ -118,10 +118,10 @@ if(isset($_GET['id'])){
                           {
                         ?>
                           <tr>
-                            <td>$contato->nm_ctt</td>
-                            <td>$contato->tel_pri</td>
-                            <td>$contato->email</td>
-                            <td>$contato->obs_ctt</td>
+                            <td><?php echo $contato->nm_ctt ?></td>
+                            <td><?php echo $contato->tel_pri ?></td>
+                            <td><?php echo $contato->email ?></td>
+                            <td><?php echo $contato->obs_ctt ?></td>
                             <!-- <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
