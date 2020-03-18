@@ -11,7 +11,7 @@ $total_clientes_pf = $wpdb->get_var($sql);
 $sql = "SELECT count(*) as total FROM CLIENTES where cd_tp_cli=2";
 $total_clientes_pj = $wpdb->get_var($sql);
 
-$sql = "SELECT count(*) as total FROM CAMPANHA where dt_ini <= now() + INTERVAL 1 DAY AND dt_fim >= now()";
+$sql = "SELECT COUNT(CD_CMP) QTD_CMP FROM CAMPANHA WHERE DT_FIM >= NOW()";
 $total_campanha_ativa = $wpdb->get_var($sql);
 
 
