@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     );
     $id_vcl = $wpdb->insert_id;
 
-    if ($id_ctt > 0 && $id_vcl > 0)
+    if ($id_ctt > 0 && $id_vcl > 0){
       $wpdb->query("COMMIT");
 
       echo "<script language='javascript' type='text/javascript'>
@@ -77,8 +77,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/listar-contatos/?id={$id_cli}';</script>";
 
-    else
+    } else {
       $wpdb->query("ROLLBACK");
+
+      $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+    }
    
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
