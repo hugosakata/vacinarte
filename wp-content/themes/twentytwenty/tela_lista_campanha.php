@@ -162,7 +162,7 @@ global $wpdb;
                             <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
                             <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
                             <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
-                            <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
+                            <td class="fontTD" data-sort="YYYYMMDD"><?php echo $campanha->DT_INI ?></td>
                             <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
                             <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
                             <td class="fontTD"><?php echo $campanha->CTTO ?></td>
