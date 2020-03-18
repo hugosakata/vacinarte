@@ -56,7 +56,7 @@ global $wpdb;
   input{
     height: 1vw;
   } 
-  .btn_salvar{
+  .btn_cad{
     margin-top: 2.6vw;
     height: 4.5vw;
   }
@@ -74,6 +74,10 @@ global $wpdb;
     <div class="row">
         <div class="col-xs-10">
           <h3 class="page-header">Campanhas</h3>
+        </div>
+        <div class="col-xs-2" style="align:center">
+          <input class="btn_cad pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
+          value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
 
