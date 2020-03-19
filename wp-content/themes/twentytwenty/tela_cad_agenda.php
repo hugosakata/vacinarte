@@ -5,12 +5,17 @@ global $wpdb;
 
 <?php
 
-$cd_cmp = $dt_agenda = $hr_fim = $hr_ini = $nm_cmp = $nm_fant = $obs_agenda = "";
-$cd_tp_atend = $tel_pri = $cd_end= $id_cli = $nm_ctt = $dt_agenda = $agenda = "";
-$id_agenda = 0;
+$id_cmp = "";
 
 if(isset($_GET['id'])){
-  $id_cli = $_GET['id'];
+  $id_cmp = $_GET['id'];//id da campanha
+  $sql = "
+          SELECT 
+          `cd_cmp`, `nm_cmp`, `cd_cli`, `cd_vcl_end`, `cd_tp_srv`, `dt_ini`, `dt_fim` 
+          FROM `CAMPANHA` 
+          WHERE cd_cmp = '{$id_cmp}'
+          ";
+  $campanha = $wpdb->get_row($sql);
 }
 
  function load(){
@@ -157,29 +162,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-8 col-xs-offset-1">
               <label>Nome</label>
               <input type="text" name="nm_cmp" class="form-control" 
-              value="<?php echo $nm_cmp; ?>" disabled>
+              value="<?php echo $campanha->nm_cmp; ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Tipo</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $nm_emp; ?>" disabled>
+              value="<?php echo $campanha->cd_tp_srv; ?>" disabled>
             </div>
 
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Empresa</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $nm_emp; ?>" disabled>
+              value="<?php echo $campanha->cd_cli; ?>" disabled>
             </div>
             
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de início</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $nm_emp; ?>" disabled>
+              value="<?php echo $campanha->dt_ini; ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de término</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $nm_emp; ?>" disabled>
+              value="<?php echo $campanha->dt_fim; ?>" disabled>
             </div>
 
           </div>
