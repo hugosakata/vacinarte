@@ -31,7 +31,7 @@ function date_converter($_date = null) {
  function load(){
     global $id_cmp, $dt_atend, $hr_ini, $hr_fim, $nm_enfermeiro;
 
-    $dt_atend = str_replace("'", "", trim($_POST["dt_atend"]));
+    $dt_atend = date_converter(str_replace("'", "", trim($_POST["dt_atend"])));
     $hr_ini = str_replace("'", "", trim($_POST["hr_ini"]));
     $hr_fim = str_replace("'", "", trim($_POST["hr_fim"]));
     $nm_enfermeiro = str_replace("'", "", trim($_POST["nm_enfermeiro"]));
