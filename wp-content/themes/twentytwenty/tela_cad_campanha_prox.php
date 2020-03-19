@@ -156,6 +156,9 @@ if($form == 'salvar'){
                   "
                 );
                 
+                $msg_err .= $wpdb->show_errors();
+                $msg_err .=$wpdb->print_error();
+
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
