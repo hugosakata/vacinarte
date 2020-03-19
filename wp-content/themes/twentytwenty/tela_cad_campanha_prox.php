@@ -156,7 +156,7 @@ if($form == 'salvar'){
                       `cidade`, 
                       `estado`
                   FROM `ENDERECO`, `VCL_ENDERECO` 
-                  WHERE `ENDERECO`.`cd_end`=`VCL_ENDERECO`.`cd_cli` and 
+                  WHERE `ENDERECO`.`cd_end`=`VCL_ENDERECO`.`cd_end` and 
                   `VCL_ENDERECO`.`cd_cli`={$cd_cli}
                   "
                 );
