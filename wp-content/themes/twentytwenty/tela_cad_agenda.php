@@ -191,12 +191,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de início</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo date_converter($data_ini); ?>" disabled>
+              value="<?php echo $campanha->dt_ini ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de término</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo date_converter($data_fim); ?>" disabled>
+              value="<?php echo $campanha->dt_fim; ?>" disabled>
             </div>
 
           </div>
