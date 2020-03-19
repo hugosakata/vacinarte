@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseOne"><h3>Dados da campanha</h3></a>
+            data-parent="#searchAccordion" href="#collapseOne"><h3><small>Dados da campanha</small></h3></a>
         </div>
         <div id="collapseOne" class="accordion-body collapse in">
           <div class="accordion-inner">
@@ -192,7 +192,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <a class="accordion-toggle" data-toggle="collapse"
             data-parent="#searchAccordion" href="#collapseTwo"><h3>Dados do agendamento</h3></a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse in">
+        <div id="collapseTwo" class="accordion-body collapse">
           <div class="accordion-inner">
             <form action="#" method="post">
 
