@@ -42,6 +42,7 @@ function form_valido() {
       !empty($tp_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
+        $form = 'salvar';
         $valido = true;
       
   }
@@ -51,7 +52,7 @@ function form_valido() {
 
 load();
 
-if($form == 'proxima'){
+if($form == 'salvar'){
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
