@@ -140,7 +140,6 @@ if($form == 'salvar'){
               <label style="font-size: 14px;">Endereço</label>
               <select class="selectpicker form-control" id="cd_end" name="cd_end">
               <option value=""></option>
-              </select>
               <?php
                 $enderecos = $wpdb->get_results( 
                   "
@@ -149,7 +148,13 @@ if($form == 'salvar'){
                       `VCL_ENDERECO`.`cd_vcl_end`,
                       `ENDERECO`.`cd_end`, 
                       `nm_end`, 
-                      `logradouro` AS END_COMPLETO
+                      `logradouro`, 
+                      `num_end`, 
+                      `complemento`, 
+                      `bairro`, 
+                      `cep`, 
+                      `cidade`, 
+                      `estado`
                   FROM `ENDERECO`, `VCL_ENDERECO` 
                   WHERE `ENDERECO`.`cd_end`=`VCL_ENDERECO`.`cd_cli` and 
                   `VCL_ENDERECO`.`cd_cli`={$cd_cli}
@@ -162,10 +167,11 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                teste<br>
+                <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?></option>
               <?php
                 }
               ?>
+              </select>
               
             </div>
           </div>
