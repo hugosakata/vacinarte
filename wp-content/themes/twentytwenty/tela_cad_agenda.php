@@ -42,7 +42,7 @@ function date_converter($_date = null) {
 
     $valido = false;
     if (!empty($id_cmp) &&
-        !empty($data_age) &&
+        !empty($dt_atend) &&
         !empty($hr_ini) &&
         !empty($hr_fim) &&
         !empty($nm_enfermeiro)){
@@ -194,12 +194,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <div class="form-group col-xs-10 col-xs-offset-1">
               <label>Enfermeiro(a)</label>
-              <input type="text" name="nm_fant" class="form-control" 
+              <input type="text" name="nm_enfermeiro" class="form-control" 
               value="<?php echo $nm_enfermeiro; ?>">
             </div>
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
-              <input type="text" id="dt_agenda" name="dt_agenda" class="form-control"
+              <input type="text" id="dt_atend" name="dt_atend" class="form-control"
               value="<?php echo $dt_atend; ?>"/>
             </div>
             
