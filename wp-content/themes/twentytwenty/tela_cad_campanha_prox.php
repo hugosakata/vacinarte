@@ -157,7 +157,7 @@ if($form == 'salvar'){
                   "
                 );
                 
-                foreach ( $enderecos as $cliente ) 
+                foreach ( $enderecos as $endereco ) 
                 {
               ?>
                 <option value=<?php echo $endereco->cd_end ?>;><?php echo $endereco->nm_end ?></option>
