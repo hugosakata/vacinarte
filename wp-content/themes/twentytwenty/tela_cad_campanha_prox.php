@@ -8,8 +8,8 @@ global $wpdb;
 $id_cmp = 0;
 $campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
 
-if(isset($_GET['id'])){
-  $id_cmp = $_GET['id'];
+if(isset($_GET['page'])){
+  $form = $_GET['page'];
 }
 
 function load(){
@@ -51,31 +51,33 @@ function form_valido() {
 
 load();
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-  if (form_valido()){
-    $wpdb->insert(
-      'CAMPANHA',
-      array(
-        'nm_cmp'    => $campanha,
-        'cd_cli'    => $cd_cli,
-        'cd_tp_srv' => $tp_srv,
-        'dt_ini'    => $dt_ini,
-        'dt_fim'    => $dt_fim
-      ),
-      array(
-        '%s',
-        '%d',
-        '%d',
-        '%s',
-        '%s'
-      )
-    );
-    $id_cmp = $wpdb->insert_id;
-    $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_retorno}'";
-    $cmp = $wpdb->get_row($sql);
-  } else {
-      $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+if($form == 2){
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+   
+    if (form_valido()){
+      $wpdb->insert(
+        'CAMPANHA',
+        array(
+          'nm_cmp'    => $campanha,
+          'cd_cli'    => $cd_cli,
+          'cd_tp_srv' => $tp_srv,
+          'dt_ini'    => $dt_ini,
+          'dt_fim'    => $dt_fim
+        ),
+        array(
+          '%s',
+          '%d',
+          '%d',
+          '%s',
+          '%s'
+        )
+      );
+      $id_cmp = $wpdb->insert_id;
+      $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_retorno}'";
+      $cmp = $wpdb->get_row($sql);
+    } else {
+        $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+    }
   }
 }
 
