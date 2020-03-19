@@ -167,7 +167,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?></option>
+                  <option id="<?php echo $endereco->cd_end; ?>" value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?><span class="hide"><?php echo $endereco->logradouro; ?>,<?php echo $endereco->num_end; ?>,<?php echo $endereco->complemento; ?>,<?php echo $endereco->bairro; ?>,<?php echo $endereco->cidade; ?></span></option>
               <?php
                 }
               ?>
@@ -175,6 +175,11 @@ if($form == 'salvar'){
               
             </div>
           </div>
+
+          <div class="form-group col-xs-4 col-xs-offset-3 hide">
+              <label style="font-size: 14px;">Logradouro</label>
+              <span class="spanEnd"></span>
+            </div>
           
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
@@ -212,5 +217,15 @@ if($form == 'salvar'){
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
     
+    <script type="text/javascript" >
+
+    // $('#cd_end').on('change', function(){
+    //   var id = $('#cd_end').val();
+    //   var logradouro = $("#"+id).
+    //   var end = logra.concat(": ", num, ", ", comp, " ", bairro, " / ", cid);
+    //   $(".spanEndereco").html(end);
+    // });
+
+    </script>
   </body>
   </html>
