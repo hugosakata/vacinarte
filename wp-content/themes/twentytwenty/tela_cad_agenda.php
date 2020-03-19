@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$id_cmp = "";
+$id_cmp = $data_ini = $data_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
@@ -18,6 +18,8 @@ if(isset($_GET['id'])){
         cd_cmp = '{$id_cmp}'
           ";
   $campanha = $wpdb->get_row($sql);
+  $data_ini = $campanha->dt_ini;
+  $data_fim = $campanha->dt_fim;
 }
 
 function date_converter($_date = null) {
@@ -189,12 +191,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de início</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo date_converter($campanha->dt_ini); ?>" disabled>
+              value="<?php echo date_converter($data_ini); ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de término</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo date_converter($campanha->dt_fim); ?>" disabled>
+              value="<?php echo date_converter($data_fim); ?>" disabled>
             </div>
 
           </div>
