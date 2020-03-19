@@ -139,8 +139,8 @@ if($form == 'salvar'){
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Endereço</label>
               <select class="selectpicker form-control" id="cd_end" name="cd_end"
-              value="<?php echo $tp_srv; ?>">
-              <option value=""></option>
+              value="<?php echo $cd_end; ?>">
+              <!-- <option value=""></option> -->
               <?php
                 $enderecos = $wpdb->get_results( 
                   "
@@ -169,18 +169,6 @@ if($form == 'salvar'){
             </div>
           </div>
           
-          <div class="row hide">
-            <div class="form-group col-xs-2 col-xs-offset-3">
-              <label style="font-size: 14px;">Tipo</label>
-              <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
-              value="<?php echo $tp_srv; ?>">
-                <option value=""></option>
-                <option value="1">Gesto</option>
-                <option value="2">Completo</option>
-              </select>
-            </div>
-          </div>
-
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
               <label style="font-size: 14px;">Data de início</label>
