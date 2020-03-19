@@ -243,6 +243,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script>
     $("#idOne").click(function(){
+      alert(document.getElementById('collapseOne').classList.contains("accordion-body collapse in"));
       if (document.getElementById('collapseOne').classList.contains("accordion-body collapse in")){
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
       } else {
@@ -250,6 +251,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       }
     });
     $("#idTwo").click(function(){
+      alert(document.getElementById('collapseOne').classList.contains("accordion-body collapse in"));
       if (document.getElementById('collapseTwo').classList.contains("accordion-body collapse in")){
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
       } else {
