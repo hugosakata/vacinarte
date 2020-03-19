@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $form = "";
-$campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
+$campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = $cd_end = "";
 
 if(isset($_GET['page'])){
   $form = $_GET['page'];
