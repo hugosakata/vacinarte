@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idOne"><h3><small>Dados da campanha</small></h3></a>
+            data-parent="#searchAccordion" id="idOne"><h3 style="margin-top: -1vw;"><small>Dados da campanha</small></h3></a>
         </div>
         <div id="collapseOne" class="accordion-body collapse in">
           <div class="accordion-inner">
@@ -190,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idTwo"><h3><small>Dados do agendamento</small></h3></a>
+            data-parent="#searchAccordion" id="idTwo"><h3 style="margin-top: -1vw;"><small>Dados do agendamento</small></h3></a>
         </div>
         <div id="collapseTwo" class="accordion-body collapse">
           <div class="accordion-inner">
@@ -243,14 +243,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script>
     $("#idOne").click(function(){
-      if (document.getElementById('collapseOne').classList.contains("accordion-body collapse in")){
+      if (document.getElementById('collapseOne').classList.contains("in")){
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
       } else {
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
       }
     });
     $("#idTwo").click(function(){
-      if (document.getElementById('collapseTwo').classList.contains("accordion-body collapse in")){
+      if (document.getElementById('collapseTwo').classList.contains("in")){
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
       } else {
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse in');
