@@ -146,8 +146,8 @@ if($form == 'salvar'){
                   SELECT
                     VCL.CD_CLI,
                     VCL.CD_VCL_END,
-                    END.CD_END,
-                    END.NM_END,
+                    END.CD_END as cd_end,
+                    END.NM_END as nm_end,
                     CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL
                   FROM
                     ENDERECO END,
@@ -160,8 +160,8 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                <option value='<?php echo $endereco->cd_end ?>';><?php echo $endereco->nm_end ?></option>
-            <?php
+                <option value=<?php echo $endereco->cd_end ?>;><?php echo $endereco->nm_end ?></option>
+              <?php
               }
               ?>
               </select>
