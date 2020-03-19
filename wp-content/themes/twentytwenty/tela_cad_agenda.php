@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idOne">+ Dados da campanha</a> <?php echo $campanha->nm_cmp; ?>
+            data-parent="#searchAccordion" id="idOne">+ Dados da campanha - <?php echo $campanha->nm_cmp; ?></a> 
         </div>
         <div id="collapseOne" class="accordion-body collapse">
           <div class="accordion-inner">
@@ -260,19 +260,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $("#idOne").click(function(){
       if (document.getElementById('collapseOne').classList.contains("in")){
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
-        $("#idOne").text("+ Dados da campanha");
+        $("#idOne").text("+" + $("#idOne").text().substring(1));
       } else {
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
-        $("#idOne").text("- Dados da campanha");
+        $("#idOne").text("-" + $("#idOne").text().substring(1));
       }
     });
     $("#idTwo").click(function(){
       if (document.getElementById('collapseTwo').classList.contains("in")){
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
-        $("#idTwo").text("+ Dados do agendamento");
+        $("#idTwo").text("+" + $("#idTwo").text().substring(1));
       } else {
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse in');
-        $("#idTwo").text("- Dados do agendamento");
+        $("#idTwo").text("-" + $("#idTwo").text().substring(1));
       }
       
     });
