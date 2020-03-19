@@ -152,7 +152,7 @@ if($form == 'salvar'){
                             `bairro`, "-", `cep`, "-", `cidade`, "-", `estado`) AS END_COMPLETO
                   FROM `ENDERECO`, `VCL_ENDERECO` 
                   WHERE `ENDERECO`.`cd_end`=`VCL_ENDERECO`.`cd_cli` and 
-                  `VCL_ENDERECO`.`cd_cli`={$id_cli}
+                  `VCL_ENDERECO`.`cd_cli`={$cd_cli}
                   "
                 );
                 
