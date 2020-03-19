@@ -170,7 +170,7 @@ global $wpdb;
                             <td class="fontTD"><?php echo $campanha->QTD_VCNA ?></td>
                             <td class="fontTD"><?php echo $campanha->VLR_VCNA ?></td>
                             <td class="fontTD">
-                              <a href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">access_alarm</i></a>
+                              <a title='Agendar' href='http://vacinarte-admin.com.br/campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">access_alarm</i></a>
                             </td>
                           </tr>
                           <?php
