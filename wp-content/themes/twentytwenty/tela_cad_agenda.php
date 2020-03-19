@@ -10,13 +10,23 @@ $id_cmp = "";
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
   $sql = "
-          SELECT 
-          `cd_cmp`, `nm_cmp`, `cd_cli`, `cd_vcl_end`, `cd_tp_srv`, `dt_ini`, `dt_fim` 
-          FROM `CAMPANHA` 
-          WHERE cd_cmp = '{$id_cmp}'
+        SELECT 
+        `cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, `dt_ini`, `dt_fim` 
+        FROM `CAMPANHA`, `TP_SRV`, `CLIENTES`
+        WHERE `CAMPANHA`.`cd_tp_srv`=`TP_SRV`.`cd_tp_srv` AND
+        `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` and
+        cd_cmp = '{$id_cmp}'
           ";
   $campanha = $wpdb->get_row($sql);
 }
+
+function date_converter($_date = null) {
+  $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
+  if ($_date != null && preg_match($format, $_date, $partes)) {
+    return $partes[3].'-'.$partes[2].'-'.$partes[1];
+  }
+  return false;
+  }
 
  function load(){
     global $cd_cli, $cd_cmp, $cd_end, $cd_ctt, $cd_tp_srv, $cd_tp_atend, $dt_agenda, $hr_ini, $hr_fim, $obs_agenda;
@@ -167,24 +177,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Tipo</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->cd_tp_srv; ?>" disabled>
+              value="<?php echo $campanha->nm_tp_srv; ?>" disabled>
             </div>
 
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label>Empresa</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->cd_cli; ?>" disabled>
+              value="<?php echo $campanha->nm_fant; ?>" disabled>
             </div>
             
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de início</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->dt_ini; ?>" disabled>
+              value="<?php echo date_converter($campanha->dt_ini); ?>" disabled>
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 12px;">Data de término</label>
               <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->dt_fim; ?>" disabled>
+              value="<?php echo date_converter($campanha->dt_fim); ?>" disabled>
             </div>
 
           </div>
