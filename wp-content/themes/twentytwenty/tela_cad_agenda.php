@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$id_cmp = $data_ini = $data_fim = "";
+$id_cmp = $data = $hora_ini = $hora_fim = $nm_enfermeiro = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
@@ -18,8 +18,6 @@ if(isset($_GET['id'])){
         cd_cmp = '{$id_cmp}'
           ";
   $campanha = $wpdb->get_row($sql);
-  $data_ini = $campanha->dt_ini;
-  $data_fim = $campanha->dt_fim;
 }
 
 function date_converter($_date = null) {
@@ -31,34 +29,23 @@ function date_converter($_date = null) {
   }
 
  function load(){
-    global $cd_cli, $cd_cmp, $cd_end, $cd_ctt, $cd_tp_srv, $cd_tp_atend, $dt_agenda, $hr_ini, $hr_fim, $obs_agenda;
+    global $id_cmp = $data = $hora_ini = $hora_fim = $nm_enfermeiro;
 
-    $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
-    $cd_end = str_replace("'", "", trim($_POST["cd_end"]));
-    $cd_cmp = str_replace("'", "", trim($_POST["cd_cmp"]));
-    $cd_ctt = str_replace("'", "", trim($_POST["cd_ctt"]));
-    $cd_tp_srv = str_replace("'", "", trim($_POST["cd_tp_srv"]));
-    $cd_tp_atend = str_replace("'", "", trim($_POST["cd_tp_atend"]));
-    $dt_agenda = str_replace("'", "", trim($_POST["dt_agenda"]));
-    $hr_ini = str_replace("'", "", trim($_POST["hr_ini"]));
-    $hr_fim = str_replace("'", "", trim($_POST["hr_fim"]));
-    $obs_agenda = str_replace("'", "", trim($_POST["obs_agenda"]));
+    $data = str_replace("'", "", trim($_POST["data"]));
+    $hora_ini = str_replace("'", "", trim($_POST["hora_ini"]));
+    $hora_fim = str_replace("'", "", trim($_POST["hora_fim"]));
+    $nm_enfermeiro = str_replace("'", "", trim($_POST["nm_enfermeiro"]));
  }
 
  function form_valido() {
-    global $cd_cli, $cd_cmp, $cd_end, $cd_ctt, $cd_tp_srv, $cd_tp_atend, $nm_ctt, $dt_agenda, $hr_ini, $hr_fim, $obs_agenda;
+    global $id_cmp = $data = $hora_ini = $hora_fim = $nm_enfermeiro;
 
     $valido = false;
-    if (!empty($cd_cli) &&
-        !empty($cd_end) &&
-        !empty($cd_cmp) &&
-        !empty($cd_ctt) &&
-        !empty($cd_tp_srv) &&
-        !empty($cd_tp_atend) &&
-        !empty($nm_ctt) &&
-        !empty($dt_agenda) &&
-        !empty($hr_ini) &&
-        !empty($hr_fim)){
+    if (!empty($id_cmp) &&
+        !empty($data) &&
+        !empty($hora_ini) &&
+        !empty($hora_fim) &&
+        !empty($nm_enfermeiro)){
           $valido = true;
     }
 
@@ -70,35 +57,25 @@ function date_converter($_date = null) {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
     $wpdb->insert(
-      'CONTATO',
+      'ATENDIMENTO',
       array(
-        'cd_cmp'      => $cd_cmp,
-        'cd_tp_srv'   => $cd_tp_srv,
-        'cd_tp_atend' => $cd_tp_atend,
-        'cd_cli'      => $cd_cli,
-        'cd_end'      => $cd_end,
-        'cd_ctt'      => $cd_ctt,
-        'dt_agenda'   => $dt_agenda,
-        'hr_ini'      => $hr_ini,
-        'hr_fim'      => $hr_fim,
-        'obs_agenda'  => $obs_agenda
+        'cd_cmp'          => $id_cmp,
+        'dt_atend'        => $data,
+        'hr_ini'          => $hr_ini,
+        'hr_fim'          => $hr_fim,
+      'nm_enfermeiro'     => $nm_enfermeiro
       ),
       array(
         '%d',
         '%d',
         '%d',
         '%d',
-        '%d',
-        '%d',
-        '%s',
-        '%s',
-        '%s',
         '%s'
       )
     );
-    $id_agenda = $wpdb->insert_id;
-    $sql = "SELECT * FROM AGENDA WHERE cd_agenda = '{$id_agenda}'";
-    $agenda = $wpdb->get_row($sql);
+    $id_atend = $wpdb->insert_id;
+    $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$id_atend}'";
+    $atendimento = $wpdb->get_row($sql);
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -218,25 +195,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-10 col-xs-offset-1">
               <label>Enfermeiro(a)</label>
               <input type="text" name="nm_fant" class="form-control" 
-              value="<?php echo $nm_fant; ?>">
+              value="<?php echo $atendimento->nm_enfermeiro; ?>">
             </div>
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
               <input type="text" id="dt_agenda" name="dt_agenda" class="form-control"
-              value="<?php echo $dt_agenda; ?>"/>
+              value="<?php echo $atendimento->dt_atend; ?>"/>
             </div>
             
            
             <div class="form-group col-xs-2">
               <label>Hora Início</label>
               <input type="text" name="hr_ini" class="form-control"
-              value="<?php echo $hr_ini; ?>">
+              value="<?php echo $atendimento->hr_ini; ?>">
             </div>
 
             <div class="form-group col-xs-2">
               <label>Hora Fim</label>
               <input type="text" name="hr_fim" class="form-control"
-              value="<?php echo $hr_fim; ?>">
+              value="<?php echo $atendimento->hr_fim; ?>">
             </div>
             
           </div>          
