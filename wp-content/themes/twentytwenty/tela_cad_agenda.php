@@ -61,9 +61,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       array(
         'cd_cmp'          => $id_cmp,
         'dt_atend'        => $data,
-        'hr_ini'          => $hr_ini,
-        'hr_fim'          => $hr_fim,
-      'nm_enfermeiro'     => $nm_enfermeiro
+        'hr_ini'          => $hora_ini,
+        'hr_fim'          => $hora_fim,
+        'nm_enfermeiro'   => $nm_enfermeiro
       ),
       array(
         '%d',
@@ -195,25 +195,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-10 col-xs-offset-1">
               <label>Enfermeiro(a)</label>
               <input type="text" name="nm_fant" class="form-control" 
-              value="<?php echo $atendimento->nm_enfermeiro; ?>">
+              value="<?php echo $nm_enfermeiro; ?>">
             </div>
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
               <input type="text" id="dt_agenda" name="dt_agenda" class="form-control"
-              value="<?php echo $atendimento->dt_atend; ?>"/>
+              value="<?php echo $data; ?>"/>
             </div>
             
            
             <div class="form-group col-xs-2">
               <label>Hora Início</label>
               <input type="text" name="hr_ini" class="form-control"
-              value="<?php echo $atendimento->hr_ini; ?>">
+              value="<?php echo $hr_ini; ?>">
             </div>
 
             <div class="form-group col-xs-2">
               <label>Hora Fim</label>
               <input type="text" name="hr_fim" class="form-control"
-              value="<?php echo $atendimento->hr_fim; ?>">
+              value="<?php echo $hr_fim; ?>">
             </div>
             
           </div>          
