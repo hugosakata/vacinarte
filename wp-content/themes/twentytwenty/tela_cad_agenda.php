@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idOne">+ Dados da campanha</a>
+            data-parent="#searchAccordion" id="idOne">+ Dados da campanha</a> <?php echo $campanha->nm_cmp; ?>
         </div>
         <div id="collapseOne" class="accordion-body collapse">
           <div class="accordion-inner">
