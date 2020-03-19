@@ -75,7 +75,7 @@ load();
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
-        <form class="form" action="http://vacinarte-admin.com.br/cadastrar-campanha-prox/" method="post">
+        <form class="form" action="http://vacinarte-admin.com.br/cadastrar-campanha-FORM2/" method="post">
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
@@ -137,7 +137,7 @@ load();
 
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-3">
-              <input type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
+              <input type="submit" class="button btn btn-danger btn_salvar" value="Próxima">
             </div>
             <div class="col-xs-2 col-xs-offset-1 hide">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
