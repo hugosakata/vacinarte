@@ -242,14 +242,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div><!-- fecha row txtbox -->
 
     <script>
-    $("idOne").click(function(){
+    $("#idOne").click(function(){
       if (document.getElementById('collapseOne').classList.contains("accordion-body collapse in")){
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
       } else {
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
       }
     });
-    $("idTwo").click(function(){
+    $("#idTwo").click(function(){
       if (document.getElementById('collapseTwo').classList.contains("accordion-body collapse in")){
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
       } else {
