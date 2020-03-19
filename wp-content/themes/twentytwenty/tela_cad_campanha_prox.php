@@ -143,17 +143,16 @@ if($form == 'salvar'){
               <?php
                 $enderecos = $wpdb->get_results( 
                   "
-                  SELECT
-                    VCL.CD_CLI,
-                    VCL.CD_VCL_END,
-                    END.CD_END as cd_end,
-                    END.NM_END as nm_end,
-                    CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL
-                  FROM
-                    ENDERECO END,
-                    (SELECT * FROM VCL_ENDERECO WHERE CD_CLI = '{$cd_cli}') VCL
-                  WHERE
-                    VCL.CD_END = END.CD_END
+                  SELECT 
+                    `VCL_ENDERECO`.`cd_cli`,
+                      `VCL_ENDERECO`.`cd_vcl_end`,
+                      `ENDERECO`.`cd_end`, 
+                      `nm_end`, 
+                      CONCAT(`logradouro`, '-', `num_end`, '-', `complemento`, "-",
+                            `bairro`, "-", `cep`, "-", `cidade`, "-", `estado`) AS END_COMPLETO
+                  FROM `ENDERECO`, `VCL_ENDERECO` 
+                  WHERE `ENDERECO`.`cd_end`=`VCL_ENDERECO`.`cd_cli` and 
+                  `VCL_ENDERECO`.`cd_cli`={$id_cli}
                   "
                 );
                 
