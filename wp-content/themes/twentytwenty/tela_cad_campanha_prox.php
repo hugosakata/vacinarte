@@ -167,7 +167,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option class="opt" id="<?php echo $endereco->cd_end; ?>" data-log="<?php echo $endereco->logradouro; ?>" value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?><span hidden><?php echo $endereco->logradouro; ?>,<?php echo $endereco->num_end; ?>,<?php echo $endereco->complemento; ?>,<?php echo $endereco->bairro; ?>,<?php echo $endereco->cidade; ?></span></option>
+                  <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . $endereco->bairro; ?></option>
               <?php
                 }
               ?>
@@ -216,18 +216,6 @@ if($form == 'salvar'){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript" >
-
-    $('.opt').on('click', function(){
-       var logra = $(this).data('log');
-       alert(logra);
-    //   var logradouro = $("#"+id).
-    //   var end = logra.concat(": ", num, ", ", comp, " ", bairro, " / ", cid);
-    //   $(".spanEndereco").html(end);
-    });
-
-    </script>
     
   </body>
   </html>
