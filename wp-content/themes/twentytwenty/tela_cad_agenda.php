@@ -78,6 +78,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_atend = $wpdb->insert_id;
     $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$id_atend}'";
     $atendimento = $wpdb->get_row($sql);
+
+    echo "<script language='javascript' type='text/javascript'>
+      alert('Agendamento salvo com sucesso!');</script>";
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
