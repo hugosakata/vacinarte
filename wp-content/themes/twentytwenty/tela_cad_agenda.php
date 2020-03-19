@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idOne"><h3><small>Dados da campanha</small></h3></a>
+            data-parent="#searchAccordion" id="idOne"><h3 style="margin-top: -2vw;"><small>Dados da campanha</small></h3></a>
         </div>
         <div id="collapseOne" class="accordion-body collapse in">
           <div class="accordion-inner">
@@ -243,7 +243,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script>
     $("#idOne").click(function(){
-      alert(document.getElementById('collapseOne').classList.contains("in"));
       if (document.getElementById('collapseOne').classList.contains("in")){
         document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
       } else {
@@ -251,7 +250,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       }
     });
     $("#idTwo").click(function(){
-      alert(document.getElementById('collapseOne').classList.contains("in"));
       if (document.getElementById('collapseTwo').classList.contains("in")){
         document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
       } else {
