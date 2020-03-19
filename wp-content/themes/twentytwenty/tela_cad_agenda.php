@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Agenda de campanha <span><?php echo $id_cli; ?></span>
+          <h3 class="page-header">Agendamento de campanha
           <br>
             <small>Preencha o formulário abaixo para agendar</small> 
           </h3>
@@ -134,12 +134,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="col-lg-12 col-xs-8" style="margin-top: -1vw;">
         <form action="#" method="post">
 
-        <input type="text" name="cd_cli" class="hide" value="<?php echo $cd_cli; ?>">
-        <input type="text" name="cd_ctt" class="hide" value="<?php echo $cd_ctt; ?>">
-        <input type="text" name="cd_cmp" class="hide" value="<?php echo $cd_cmp; ?>">
-        <input type="text" name="cd_tp_srv" class="hide" value="<?php echo $cd_tp_srv; ?>">
+        <div class="row campanha page-header" style="margin-top: -1vw;">
+            <center><h3>Dados da campanha</h3></center>
+            <div class="form-group col-xs-8 col-xs-offset-1">
+              <label>Nome</label>
+              <input type="text" name="nm_cmp" class="form-control" 
+              value="<?php echo $nm_cmp; ?>" disabled>
+            </div>
+            <div class="form-group col-xs-2">
+              <label style="font-size: 12px;">Tipo</label>
+              <input type="text" name="nm_srv" class="form-control"
+              value="<?php echo $nm_emp; ?>" disabled>
+            </div>
 
-          <div class="row data">
+            <div class="form-group col-xs-6 col-xs-offset-1">
+              <label>Empresa</label>
+              <input type="text" name="nm_srv" class="form-control"
+              value="<?php echo $nm_emp; ?>" disabled>
+            </div>
+            
+            <div class="form-group col-xs-2">
+              <label style="font-size: 12px;">Data de início</label>
+              <input type="text" name="nm_srv" class="form-control"
+              value="<?php echo $nm_emp; ?>" disabled>
+            </div>
+            <div class="form-group col-xs-2">
+              <label style="font-size: 12px;">Data de término</label>
+              <input type="text" name="nm_srv" class="form-control"
+              value="<?php echo $nm_emp; ?>" disabled>
+            </div>
+
+          </div><br><br>
+
+          <div class="row agendamento page-header" style="margin-top: -3vw;">
+            <center><h3>Dados do agendamento</h3></center>
+            <div class="form-group col-xs-10 col-xs-offset-1">
+              <label>Enfermeiro(a)</label>
+              <input type="text" name="nm_fant" class="form-control" 
+              value="<?php echo $nm_fant; ?>">
+            </div>
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
               <input type="text" id="dt_agenda" name="dt_agenda" class="form-control"
@@ -148,76 +181,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
            
             <div class="form-group col-xs-2">
-              <label>Início</label>
+              <label>Hora Início</label>
               <input type="text" name="hr_ini" class="form-control"
               value="<?php echo $hr_ini; ?>">
             </div>
 
             <div class="form-group col-xs-2">
-              <label>Fim</label>
+              <label>Hora Fim</label>
               <input type="text" name="hr_fim" class="form-control"
               value="<?php echo $hr_fim; ?>">
             </div>
-          </div>
-
-          <div class="row cliente">
-
-            <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Empresa</label>
-              <input type="text" name="nm_fant" class="form-control" 
-              value="<?php echo $nm_fant; ?>">
-            </div>
-
-            <div class="form-group col-xs-2">
-              <label>Contato</label>
-              <input type="text" name="nm_ctt" class="form-control"
-              value="<?php echo $nm_ctt; ?>">
-            </div>
-
-            <div class="form-group col-xs-2">
-              <label>Telefone</label>
-              <input type="text" name="tel_pri" class="form-control"
-              value="<?php echo $tel_pri; ?>">
-            </div>
-
-          </div>
-
-          <div class="row campanha">
-
-            <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Campanha</label>
-              <input type="text" name="nm_cmp" class="form-control" 
-              value="<?php echo $nm_cmp; ?>">
-            </div>
-
-            <div class="form-group col-xs-2">
-              <label>Serviço</label>
-              <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $nm_srv; ?>">
-            </div>
-
-            <div class="form-group col-xs-2">
-              <label style="font-size: 12px;">Atendimento</label>
-              <select class="selectpicker form-control" id="cd_tp_atend" name="cd_tp_atend">
-                <option value=""></option>
-                <option value="1">In loco</option>
-                <option value="2">Balcão</option>
-              </select>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Observação</label>
-              <input type="text" name="obs_agenda" class="form-control" 
-              value="<?php echo $obs_agenda; ?>">
-            </div>
-          </div>
+            
+          </div>          
           
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="col-xs-2 col-xs-offset-3">
               <input type="submit" class="button btn btn-danger " value="Agendar">
+            </div>
+            <div class="col-xs-2 col-xs-offset-1">
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+              value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
           </div>
         </form><!-- fecha form -->
