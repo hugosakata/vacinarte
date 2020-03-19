@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$id_cmp = $data = $hora_ini = $hora_fim = $nm_enfermeiro = "";
+$id_cmp = $dt_atend = $hr_ini = $hr_fim = $nm_enfermeiro = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
@@ -29,22 +29,22 @@ function date_converter($_date = null) {
   }
 
  function load(){
-    global $id_cmp = $data = $hora_ini = $hora_fim = $nm_enfermeiro;
+    global $id_cmp, $dt_atend, $hr_ini, $hr_fim, $nm_enfermeiro;
 
-    $data = str_replace("'", "", trim($_POST["data"]));
-    $hora_ini = str_replace("'", "", trim($_POST["hora_ini"]));
-    $hora_fim = str_replace("'", "", trim($_POST["hora_fim"]));
+    $dt_atend = str_replace("'", "", trim($_POST["dt_atend"]));
+    $hr_ini = str_replace("'", "", trim($_POST["hr_ini"]));
+    $hr_fim = str_replace("'", "", trim($_POST["hr_fim"]));
     $nm_enfermeiro = str_replace("'", "", trim($_POST["nm_enfermeiro"]));
  }
 
  function form_valido() {
-    global $id_cmp = $data = $hora_ini = $hora_fim = $nm_enfermeiro;
+    global $id_cmp, $dt_atend, $hr_ini, $hr_fim, $nm_enfermeiro;  
 
     $valido = false;
     if (!empty($id_cmp) &&
-        !empty($data) &&
-        !empty($hora_ini) &&
-        !empty($hora_fim) &&
+        !empty($data_age) &&
+        !empty($hr_ini) &&
+        !empty($hr_fim) &&
         !empty($nm_enfermeiro)){
           $valido = true;
     }
@@ -60,9 +60,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       'ATENDIMENTO',
       array(
         'cd_cmp'          => $id_cmp,
-        'dt_atend'        => $data,
-        'hr_ini'          => $hora_ini,
-        'hr_fim'          => $hora_fim,
+        'dt_atend'        => $dt_atend,
+        'hr_ini'          => $hr_ini,
+        'hr_fim'          => $hr_fim,
         'nm_enfermeiro'   => $nm_enfermeiro
       ),
       array(
@@ -200,7 +200,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
               <input type="text" id="dt_agenda" name="dt_agenda" class="form-control"
-              value="<?php echo $data; ?>"/>
+              value="<?php echo $dt_atend; ?>"/>
             </div>
             
            
