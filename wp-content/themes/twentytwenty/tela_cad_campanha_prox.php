@@ -167,7 +167,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option id="<?php echo $endereco->cd_end; ?>" data-log="<?php echo $endereco->logradouro; ?>" value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?><span hidden><?php echo $endereco->logradouro; ?>,<?php echo $endereco->num_end; ?>,<?php echo $endereco->complemento; ?>,<?php echo $endereco->bairro; ?>,<?php echo $endereco->cidade; ?></span></option>
+                  <option class="opt" id="<?php echo $endereco->cd_end; ?>" data-log="<?php echo $endereco->logradouro; ?>" value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?><span hidden><?php echo $endereco->logradouro; ?>,<?php echo $endereco->num_end; ?>,<?php echo $endereco->complemento; ?>,<?php echo $endereco->bairro; ?>,<?php echo $endereco->cidade; ?></span></option>
               <?php
                 }
               ?>
@@ -216,10 +216,10 @@ if($form == 'salvar'){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    <?php
+
     <script type="text/javascript" >
 
-    $(option).on('click', function(){
+    $('.opt').on('click', function(){
        var logra = $(this).data('log');
        alert(logra);
     //   var logradouro = $("#"+id).
@@ -228,6 +228,6 @@ if($form == 'salvar'){
     });
 
     </script>
-    ?>
+    
   </body>
   </html>
