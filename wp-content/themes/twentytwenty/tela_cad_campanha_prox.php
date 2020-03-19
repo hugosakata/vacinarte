@@ -138,9 +138,8 @@ if($form == 'salvar'){
           <div class="row">
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Endereço</label>
-              <select class="selectpicker form-control" id="cd_end" name="cd_end"
-              value="<?php echo $cd_end; ?>">
-              <!-- <option value=""></option> -->
+              <select class="selectpicker form-control" id="cd_end" name="cd_end">
+              <option value=""></option>
               <?php
                 $enderecos = $wpdb->get_results( 
                   "
