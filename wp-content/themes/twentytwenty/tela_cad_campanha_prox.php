@@ -163,7 +163,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                <?php echo $endereco->cd_end ?> - <?php echo $endereco->nm_end ?> asd<br>
+                teste<br>
               <?php
                 }
               ?>
