@@ -1,4 +1,4 @@
-<?php /* Template Name: TelaCadCampanha */
+<?php /* Template Name: TelaCadCampanhaProx */
 
 global $wpdb;
 ?>
@@ -6,24 +6,78 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $cd_cli = $tp_srv = "";
+$campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv;
+  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
-  // $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
-  // $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
+  $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
+  $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
 
 }
 
+function date_converter($_date = null) {
+  $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
+  if ($_date != null && preg_match($format, $_date, $partes)) {
+    return $partes[3].'-'.$partes[2].'-'.$partes[1];
+  }
+  return false;
+  }
+
+function form_valido() {
+  global $campanha, $cd_cli, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
+  $dt_ini = date_converter($data_ini);
+  $dt_fim = date_converter($data_fim);
+
+  $valido = false;
+  if (!empty($campanha) &&
+      !empty($cd_cli) &&
+      !empty($tp_srv) &&
+      !empty($dt_ini) && 
+      !empty($dt_fim)){
+        $valido = true;
+      
+  }
+  
+  return $valido;
+}
+
 load();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+  if (form_valido()){
+    $wpdb->insert(
+      'CAMPANHA',
+      array(
+        'nm_cmp'    => $campanha,
+        'cd_cli'    => $cd_cli,
+        'cd_tp_srv' => $tp_srv,
+        'dt_ini'    => $dt_ini,
+        'dt_fim'    => $dt_fim
+      ),
+      array(
+        '%s',
+        '%d',
+        '%d',
+        '%s',
+        '%s'
+      )
+    );
+    $id_cmp = $wpdb->insert_id;
+    $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_retorno}'";
+    $cmp = $wpdb->get_row($sql);
+  } else {
+      $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+  }
+}
 
 ?>
 
@@ -48,12 +102,6 @@ load();
   }
   </style>
   <body>
-  <script type="text/javascript" >
-    function selectEndereco(id_cli){
-        
-    }
-  </script>
-  
   <?php include 'tela_header.php';?>
 
   <?php if ($_COOKIE["logado"] <= 0){
@@ -64,7 +112,7 @@ load();
     
     <div class="row formCadCmp">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha 
+          <h3 class="page-header">Cadastro de Campanha <span><?php echo $dt_ini; ?></span> / <span><?php echo $dt_fim; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
@@ -75,45 +123,54 @@ load();
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
-        <form class="form" action="http://vacinarte-admin.com.br/cadastrar-campanha-prox/" method="post">
+        <form class="form" action="#" method="post">
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
-              <input type="text" id="campanha" name="campanha" class="form-control" 
-              value="<?php echo $campanha; ?>" required />
+              <input type="text" id="campanha" name="campanha" class="form-control"
+              value="<?php echo $campanha; ?>"/>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-xs-4 col-xs-offset-3">
-              <label style="font-size: 14px;">Empresa</label>
-              <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
-              value="<?php echo $cd_cli; ?>" required >
+              <label style="font-size: 14px;">Endereço</label>
+              <select class="selectpicker form-control" id="cd_end" name="cd_end"
+              value="<?php echo $cd_end; ?>">
               <option value=""></option>
               <?php
-                $clientes = $wpdb->get_results( 
+                $enderecos = $wpdb->get_results( 
                   "
-                  SELECT cd_cli, nm_rz_soc, nm_fant 
-                  FROM CLIENTES
-                  WHERE cd_tp_cli=2 order by nm_fant
+                  SELECT
+                    VCL.CD_CLI,
+                    VCL.CD_VCL_END,
+                    END.CD_END,
+                    END.NM_END,
+                    CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL
+                  FROM
+                    ENDERECO END,
+                    (SELECT * FROM VCL_ENDERECO WHERE CD_CLI = '{$cd_cli}') VCL
+                  WHERE
+                    VCL.CD_END = END.CD_END
                   "
                 );
                 
-                foreach ( $clientes as $cliente ) 
+                foreach ( $enderecos as $cliente ) 
                 {
               ?>
-                <option value=<?php echo $cliente->cd_cli ?>;><?php echo $cliente->nm_fant ?></option>
+                <option value=<?php echo $endereco->cd_end ?>;><?php echo $endereco->nm_end ?></option>
             <?php
               }
               ?>
               </select>
+              <input type="text" id="endereco" class="form-control" value="<?php echo $endereco->$local; ?>"/>
             </div>
           </div>
           
-          <div class="row">
+          <div class="row hide">
             <div class="form-group col-xs-2 col-xs-offset-3">
               <label style="font-size: 14px;">Tipo</label>
               <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
-              value="<?php echo $tp_srv; ?>" required >
+              value="<?php echo $tp_srv; ?>">
                 <option value=""></option>
                 <option value="1">Gesto</option>
                 <option value="2">Completo</option>
@@ -121,7 +178,7 @@ load();
             </div>
           </div>
 
-          <div class="row hide">
+          <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
               <label style="font-size: 14px;">Data de início</label>
               <input type="text" id="dt_ini" name="dt_ini" class="form-control"
@@ -139,7 +196,7 @@ load();
             <div class="col-xs-2 col-xs-offset-3">
               <input type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
             </div>
-            <div class="col-xs-2 col-xs-offset-1 hide">
+            <div class="col-xs-2 col-xs-offset-1">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
               value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
