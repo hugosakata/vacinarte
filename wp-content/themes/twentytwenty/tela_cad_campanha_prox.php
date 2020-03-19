@@ -161,11 +161,11 @@ if($form == 'salvar'){
                 {
               ?>
                 <option value=<?php echo $endereco->cd_end ?>;><?php echo $endereco->nm_end ?></option>
+                <input type="text" id="endereco" class="form-control hide" value="<?php echo $endereco->$local; ?>"/>
             <?php
               }
               ?>
               </select>
-              <input type="text" id="endereco" class="form-control" value="<?php echo $endereco->$local; ?>"/>
             </div>
           </div>
           
