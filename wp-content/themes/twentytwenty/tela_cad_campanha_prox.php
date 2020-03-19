@@ -13,10 +13,11 @@ if(isset($_GET['page'])){
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp;
+  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
+  $cd_end = str_replace("'", "", trim($_POST["cd_end"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
@@ -138,7 +139,7 @@ if($form == 'salvar'){
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Endereço</label>
               <select class="selectpicker form-control" id="cd_end" name="cd_end"
-              value="<?php echo $cd_end; ?>">
+              value="<?php echo $tp_srv; ?>">
               <option value=""></option>
               <?php
                 $enderecos = $wpdb->get_results( 
