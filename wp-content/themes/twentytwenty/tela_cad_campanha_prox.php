@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$form = 0;
+$form = "";
 $campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = "";
 
 if(isset($_GET['page'])){
@@ -51,7 +51,7 @@ function form_valido() {
 
 load();
 
-if($form == 2){
+if($form == 'proxima'){
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
