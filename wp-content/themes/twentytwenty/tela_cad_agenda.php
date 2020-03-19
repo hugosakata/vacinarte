@@ -88,7 +88,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -132,10 +133,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-8" style="margin-top: -1vw;">
-        <form action="#" method="post">
 
-        <div class="row campanha page-header" style="margin-top: -1vw;">
-            <center><h3>Dados da campanha</h3></center>
+<div class="accordion" id="searchAccordion">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne"><h3>Dados da campanha</h3></a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <form>
+
+        <div class="row campanha page-header">
+            
             <div class="form-group col-xs-8 col-xs-offset-1">
               <label>Nome</label>
               <input type="text" name="nm_cmp" class="form-control" 
@@ -164,10 +174,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="<?php echo $nm_emp; ?>" disabled>
             </div>
 
-          </div><br><br>
+          </div>
+        </form><!-- fecha form -->
+          </div>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo"><h3>Dados do agendamento</h3></a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <form action="#" method="post">
 
-          <div class="row agendamento page-header" style="margin-top: -3vw;">
-            <center><h3>Dados do agendamento</h3></center>
+          <div class="row agendamento page-header">
+            
             <div class="form-group col-xs-10 col-xs-offset-1">
               <label>Enfermeiro(a)</label>
               <input type="text" name="nm_fant" class="form-control" 
@@ -204,6 +226,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
         </form><!-- fecha form -->
+          </div>
+        </div>
+      </div>
+    </div>
       </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
 
