@@ -69,9 +69,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       ),
       array(
         '%d',
-        '%d',
-        '%d',
-        '%d',
+        '%s',
+        '%s',
+        '%s',
         '%s'
       )
     );
