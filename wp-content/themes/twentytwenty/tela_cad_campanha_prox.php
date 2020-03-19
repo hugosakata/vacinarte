@@ -167,7 +167,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option id="<?php echo $endereco->cd_end; ?>" value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?><span class="hide"><?php echo $endereco->logradouro; ?>,<?php echo $endereco->num_end; ?>,<?php echo $endereco->complemento; ?>,<?php echo $endereco->bairro; ?>,<?php echo $endereco->cidade; ?></span></option>
+                  <option id="<?php echo $endereco->cd_end; ?>" value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end; ?><span hidden><?php echo $endereco->logradouro; ?>,<?php echo $endereco->num_end; ?>,<?php echo $endereco->complemento; ?>,<?php echo $endereco->bairro; ?>,<?php echo $endereco->cidade; ?></span></option>
               <?php
                 }
               ?>
