@@ -216,16 +216,18 @@ if($form == 'salvar'){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    
+    <?php
     <script type="text/javascript" >
 
-    // $('#cd_end').on('change', function(){
-    //   var id = $('#cd_end').val();
+    $(option).on('click', function(){
+       var logra = $(this).data('log');
+       alert(logra);
     //   var logradouro = $("#"+id).
     //   var end = logra.concat(": ", num, ", ", comp, " ", bairro, " / ", cid);
     //   $(".spanEndereco").html(end);
-    // });
+    });
 
     </script>
+    ?>
   </body>
   </html>
