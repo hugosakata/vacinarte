@@ -138,7 +138,7 @@ if($form == 'salvar'){
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Endereço</label>
               <select class="selectpicker form-control" id="cd_end" name="cd_end"
-              value="">
+              value="<?php echo $cd_end; ?>">
               <option value=""></option>
               <?php
                 $enderecos = $wpdb->get_results( 
@@ -160,7 +160,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                <option value=<?php echo $endereco->cd_end ?>><?php echo $endereco->nm_end ?></option>
+                <option value=<?php echo $endereco->cd_end ?>;><?php echo $endereco->nm_end ?></option>
             <?php
               }
               ?>
