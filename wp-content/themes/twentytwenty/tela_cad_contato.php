@@ -113,6 +113,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      margin-bottom: 10px;
                      color: #a94442; }
     </style>
+    <script type="text/javascript" >
+      function IsEmail(email){
+          var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
+          var check=/@[w-]+./;
+          var checkend=/.[a-zA-Z]{2,3}$/;
+          if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
+            alert("Email inválido!");
+            $("#email").text("");
+          }
+      }
+    </script>
   </head>
   <body>
   <?php include 'tela_header.php'; ?>
@@ -183,16 +194,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    <script type="text/javascript" >
-      function IsEmail(email){
-          var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
-          var check=/@[w-]+./;
-          var checkend=/.[a-zA-Z]{2,3}$/;
-          if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
-            alert("Email inválido!");
-            $("#email").text("");
-          }
-      }
-    </script>
+    
   </body>
   </html>
