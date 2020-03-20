@@ -40,22 +40,27 @@ load();
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!--  Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    
+    <script type='text/javascript' src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
+    <style>
+      .help-block{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #a94442;
+      }
+      .corpo{
+        background-color: WhiteSmoke;
+      }
+      .formCadCmp{
+        margin-top: -2vw;
+      }
+    </style>
   </head>
-  <style>
-  .help-block{
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: #a94442;
-  }
-  .corpo{
-		background-color: WhiteSmoke;
-	}
-  .formCadCmp{
-    margin-top: -2vw;
-  }
-  </style>
+  
   <body class="corpo">
   
   

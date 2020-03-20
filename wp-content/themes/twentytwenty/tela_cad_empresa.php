@@ -86,8 +86,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Clientes PJ - Cadastro</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Cesup Styles -->
+    <!-- Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+
+    <script type='text/javascript' src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
     <style type="text/css">
       .help-block{
@@ -100,12 +104,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		    background-color: WhiteSmoke;
 	    }
     </style>
-    <script type='text/javascript'
-  src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type='text/javascript'
-  src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-  href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
   </head>
   <body class="corpo">
   <?php include 'tela_header.php';?>
