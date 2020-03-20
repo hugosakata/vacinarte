@@ -53,11 +53,6 @@ load();
   <body class="corpo">
   
   
-    function selectEndereco(id_cli){
-        
-    }
-  </script>
-  
   <?php include 'tela_header.php';?>
 
   <?php if ($_COOKIE["logado"] <= 0){
