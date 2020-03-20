@@ -116,7 +116,7 @@ if($form == 'salvar'){
     
     <div class="row formCadCmp">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha <span><?php echo $cd_cli; ?></span> / <span><?php echo $dt_fim; ?></span>
+          <h3 class="page-header">Cadastro de Campanha <span><?php echo $cd_cli; ?></span> / <span><?php echo $tp_srv; ?></span>
           <br>
             <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
@@ -167,7 +167,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . $endereco->bairro; ?></option>
+                  <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . " - " . $endereco->bairro; ?></option>
               <?php
                 }
               ?>
@@ -176,11 +176,6 @@ if($form == 'salvar'){
             </div>
           </div>
 
-          <div class="form-group col-xs-4 col-xs-offset-3 hide">
-              <label style="font-size: 14px;">Logradouro</label>
-              <span class="spanEnd"></span>
-            </div>
-          
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
               <label style="font-size: 14px;">Data de início</label>

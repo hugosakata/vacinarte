@@ -48,7 +48,8 @@ load();
   }
   </style>
   <body>
-  <script type="text/javascript" >
+  
+  
     function selectEndereco(id_cli){
         
     }
