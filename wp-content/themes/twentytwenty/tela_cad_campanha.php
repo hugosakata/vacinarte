@@ -102,7 +102,7 @@ load();
                 foreach ( $clientes as $cliente ) 
                 {
               ?>
-                <option value=<?php echo $cliente->cd_cli ?>;><?php echo $cliente->nm_fant ?></option>
+                <option value='<?php echo $cliente->cd_cli ?>'><?php echo $cliente->nm_fant ?></option>
             <?php
               }
               ?>

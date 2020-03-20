@@ -132,10 +132,7 @@ if($form == 'salvar'){
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
-        <input type="text" id="cd_cli" name="cd_cli" class="form-control"
-            class="hide" value="<?php echo $cd_cli; ?>"/>
-        <input type="text" id="tp_srv" name="tp_srv" class="form-control"
-          class="hide" value="<?php echo $tp_srv; ?>"/>
+        
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
@@ -175,7 +172,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . " - " . $endereco->bairro; ?></option>
+                  <option value='<?php echo $endereco->cd_end; ?>'><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . " - " . $endereco->bairro; ?></option>
               <?php
                 }
               ?>
