@@ -209,13 +209,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            
             <div class="form-group col-xs-2">
               <label>Hora Início</label>
-              <input type="text" name="hr_ini" class="form-control"
+              <input type="text" id="hr_ini" name="hr_ini" class="form-control"
               value="<?php echo $hr_ini; ?>">
             </div>
 
             <div class="form-group col-xs-2">
               <label>Hora Fim</label>
-              <input type="text" name="hr_fim" class="form-control"
+              <input type="text" id="hr_fim" name="hr_fim" class="form-control"
               value="<?php echo $hr_fim; ?>">
             </div>
             
@@ -267,6 +267,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="http://www.vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://www.vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#dt_atend").mask("99/99/9999");
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#hr_ini").mask("99:99");
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#hr_fim").mask("99:99");
+      });
+    </script>
   </body>
   </html>

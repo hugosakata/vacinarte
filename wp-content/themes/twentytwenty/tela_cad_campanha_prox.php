@@ -130,12 +130,6 @@ if($acao == 'salvar'){
         </div>
     </div><!-- fecha div row -->
 
-    <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $form . " - camp = " . $campanha; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $cd_vcl_end . " - cli = " . $cd_cli; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $tp_srv . " / " . $data_ini . " / " . $data_fim; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo " conv = " . $dt_ini . " / " . $dt_fim; ?></h4></span></center>
-
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
@@ -179,9 +173,6 @@ if($acao == 'salvar'){
                   `VCL_ENDERECO`.`cd_cli`={$cd_cli}
                   "
                 );
-                
-                $msg_err .= $wpdb->show_errors();
-                $msg_err .=$wpdb->print_error();
 
                 foreach ( $enderecos as $endereco ) 
                 {
