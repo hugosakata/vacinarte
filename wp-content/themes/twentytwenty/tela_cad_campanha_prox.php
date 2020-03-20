@@ -138,7 +138,7 @@ if($form == 'salvar'){
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
           <div class="hide">
-            <input type="text" id="cliente" name="cliente" class="form-control"
+            <input type="text" id="cd_cli" name="cd_cli" class="form-control"
                 value="<?php echo $cd_cli; ?>"/>
             <input type="text" id="serv" name="serv" class="form-control"
               value="<?php echo $tp_srv; ?>"/>
@@ -226,6 +226,16 @@ if($form == 'salvar'){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#dt_ini").mask("99/99/9999");
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#dt_fim").mask("99/99/9999");
+      });
+    </script>
   </body>
   </html>
