@@ -115,13 +115,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
     <script type="text/javascript" >
       function IsEmail(email){
-          // var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
-          // var check=/@[w-]+./;
-          // var checkend=/.[a-zA-Z]{2,3}$/;
-          // if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
+        var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        if(!filter.test(email)){
             alert("Email inválido!");
             document.getElementById('email').value=("");
-          // }
+          }
       }
     </script>
   </head>
@@ -161,7 +159,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group col-xs-2">
               <label>Email</label>
-              <input type="text" name="email" class="form-control" placeholder="Email" 
+              <input type="text" id="email" name="email" class="form-control" placeholder="Email" 
               onblur="IsEmail(this.value);"
               value="<?php echo $email; ?>">
             </div>
