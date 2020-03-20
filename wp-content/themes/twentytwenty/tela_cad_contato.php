@@ -76,6 +76,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       echo "<script language='javascript' type='text/javascript'>
       alert('Contato salvo com sucesso!');</script>";
 
+      //limpa relatorio
+      $nm_contato = $tel_pri = $email = $obs_ctt = "";
+
       // echo "<script language='javascript' type='text/javascript'>
       //   window.location.href='http://vacinarte-admin.com.br/listar-contatos/?id={$id_cli}';</script>";
 
@@ -110,6 +113,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      margin-bottom: 10px;
                      color: #a94442; }
     </style>
+
+    <script language="Javascript">
+      function IsEmail(email){
+          var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
+          var check=/@[w-]+./;
+          var checkend=/.[a-zA-Z]{2,3}$/;
+          if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
+            alert("Email inválido!);
+            $("#email").text("");
+          }
+      }
+    </script>
   </head>
   <body>
   <?php include 'tela_header.php'; ?>
@@ -147,7 +162,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group col-xs-2">
               <label>Email</label>
-              <input type="text" name="email" class="form-control" placeholder="Email"
+              <input type="text" name="email" class="form-control" placeholder="Email" 
+              onblur="IsEmail(this.value);"
               value="<?php echo $email; ?>">
             </div>
             <div class="form-group col-xs-2">
