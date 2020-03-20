@@ -13,7 +13,7 @@ if(isset($_GET['page'])){
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end, $form;
+  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
@@ -21,7 +21,7 @@ function load(){
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
-  $form = 'salvar';
+  
 }
   
 
@@ -38,14 +38,14 @@ function form_valido() {
   $dt_ini = date_converter($data_ini);
   $dt_fim = date_converter($data_fim);
 
-  $form = 'salvar';
   $valido = false;
   if (!empty($campanha) &&
       !empty($cd_cli) &&
       !empty($tp_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
-        $valido = true;
+    $form = 'salvar';
+    $valido = true;
   }
   return $valido;
 }
