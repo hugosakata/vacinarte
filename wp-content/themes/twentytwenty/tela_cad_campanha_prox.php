@@ -142,7 +142,7 @@ if($acao == 'salvar'){
                 value="salvar"/>
             <input type="text" id="cd_cli" name="cd_cli" class="form-control"
                 value="<?php echo $cd_cli; ?>"/>
-            <input type="text" id="serv" name="serv" class="form-control"
+            <input type="text" id="tp_srv" name="tp_srv" class="form-control"
               value="<?php echo $tp_srv; ?>"/>
           </div>
           <div class="row">  
