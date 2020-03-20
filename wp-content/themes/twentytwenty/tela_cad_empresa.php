@@ -66,6 +66,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $id_retorno = $wpdb->insert_id;
       $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
       $cliente = $wpdb->get_row($sql);
+
+      echo "<script language='javascript' type='text/javascript'>
+      alert('Cliente salvo com sucesso!');</script>";
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -120,15 +123,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="row">  
             <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Razão Social*</label>
-              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
+              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" maxlength="150" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
             </div>
             <div class="form-group col-xs-3">
               <label>Nome fantasia*</label>
-              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" <?php echo "value='$cliente->nm_fant'"; ?>/>
+              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" maxlength="150" <?php echo "value='$cliente->nm_fant'"; ?>/>
             </div>
             <div class="form-group col-xs-2">
               <label>CNPJ*</label>
-              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
+              <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
             </div>
           </div>
          
@@ -159,6 +162,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#cnpj").mask("99.999.999/9999-99");
+      });
+    </script>
 
   </body>
   </html>
