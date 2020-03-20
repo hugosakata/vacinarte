@@ -76,8 +76,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       echo "<script language='javascript' type='text/javascript'>
       alert('Contato salvo com sucesso!');</script>";
 
-      echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/listar-contatos/?id={$id_cli}';</script>";
+      // echo "<script language='javascript' type='text/javascript'>
+      //   window.location.href='http://vacinarte-admin.com.br/listar-contatos/?id={$id_cli}';</script>";
 
     } else {
       $wpdb->query("ROLLBACK");
