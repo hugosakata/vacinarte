@@ -72,7 +72,7 @@ img.emoji {
     height: 4vw;
     margin-top: -2.5vw;
   }
-  .textMenu{
+  .navbar-default .navbar-nav > li > a {
     text-decoration: none;
     color: #2d3436;
   }
@@ -100,7 +100,7 @@ img.emoji {
 
               <ul class="nav navbar-nav" style="margin-left: 36vw;">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle textMenu" data-toggle="dropdown" 
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
                     role="button" aria-haspopup="true" 
                     aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
