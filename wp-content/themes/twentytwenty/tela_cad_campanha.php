@@ -43,6 +43,12 @@ load();
 
   </head>
   <style>
+  .help-block{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #a94442;
+  }
   .corpo{
 		background-color: WhiteSmoke;
 	}

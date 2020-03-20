@@ -90,13 +90,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <style type="text/css">
-        .help-block{ display: block;
-                     margin-top: 5px;
-                     margin-bottom: 10px;
-                     color: #a94442; }
-   .corpo{
-		  background-color: WhiteSmoke;
-	}
+      .help-block{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #a94442;
+      }
+      .corpo{
+		    background-color: WhiteSmoke;
+	    }
     </style>
     <script type='text/javascript'
   src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
