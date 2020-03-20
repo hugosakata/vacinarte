@@ -82,7 +82,7 @@ global $wpdb;
           <h3 class="page-header">Agenda</h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input class="btn_cad pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-agendamento/';" 
+          <input class="btn_cad pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
           value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
