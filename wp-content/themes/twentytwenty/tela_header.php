@@ -125,7 +125,7 @@ img.emoji {
               </ul>
 
               <ul class="nav navbar-nav ">
-                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/iniciar-atendimento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
                 <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
                 <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
               </ul>            
