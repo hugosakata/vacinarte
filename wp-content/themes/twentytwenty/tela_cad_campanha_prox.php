@@ -125,13 +125,17 @@ if($form == 'salvar'){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $form; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $campanha . " - cli = " . $cd_cli; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $form . " - camp = " . $campanha; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $cd_end . " - cli = " . $cd_cli; ?></h4></span></center>
     <center><span class="help-block"><h4><?php echo $tp_srv . " / " . $dt_ini . " / " . $dt_fim; ?></h4></span></center>
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
+        <input type="text" id="cd_cli" name="cd_cli" class="form-control"
+            class="hide" value="<?php echo $cd_cli; ?>"/>
+        <input type="text" id="tp_srv" name="tp_srv" class="form-control"
+          class="hide" value="<?php echo $tp_srv; ?>"/>
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
