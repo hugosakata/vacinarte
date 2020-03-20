@@ -103,7 +103,9 @@ global $wpdb;
                       <table class="table table-striped" id="tab_lista_agenda">
                         <thead>
                           <tr>
-                            <th class="fontTH">Nome Camapnha</th>
+                            <th class="fontTH">Nome Campanha</th>
+                            <th class="fontTH">Nome Cliente</th>
+                            <th class="fontTH">Endereço</th>
                             <th class="fontTH">Enfermeiro(a)</th>
                             <th class="fontTH">Data</th>
                             <th class="fontTH">Hora Início</th>
@@ -118,14 +120,26 @@ global $wpdb;
                             SELECT 
                             `cd_atend`, 
                             `nm_cmp`, 
+                            `nm_fant`,
+                            `ENDERECO`.`logradouro`,
+                            `ENDERECO`.`nm_end`,
+                            `ENDERECO`.`num_end`,
+                            `ENDERECO`.`complemento`,
+                            `ENDERECO`.`bairro`,
+                            `ENDERECO`.`cep`,
+                            `ENDERECO`.`cidade`,
+                            `ENDERECO`.`estado`,
                             `dt_atend`, 
                             `hr_ini`, 
                             `hr_fim`, 
                             `nm_enfermeiro` 
-                            FROM `ATENDIMENTO`, `CAMPANHA`
+                            FROM `ATENDIMENTO`, `CAMPANHA`, `CLIENTES`, `VCL_ENDERECO`, `ENDERECO`
                             WHERE
-                            `ATENDIMENTO`.`cd_cmp`=`CAMPANHA`.`cd_cmp`
-                            ORDER BY `dt_atend`,`hr_ini`, `hr_fim` DESC
+                            `ATENDIMENTO`.`cd_cmp`=`CAMPANHA`.`cd_cmp` AND
+                            `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` AND
+                            `CAMPANHA`.`cd_vcl_end`=`VCL_ENDERECO`.`cd_vcl_end` AND
+                            `VCL_ENDERECO`.`cd_end`=`ENDERECO`.`cd_end`
+                            ORDER BY `cd_atend` DESC
 
                             "
                           );
@@ -135,6 +149,8 @@ global $wpdb;
                         ?>
                           <tr>
                             <td class="fontTD"><?php echo $agenda->nm_cmp ?></td>
+                            <td class="fontTD"><?php echo $agenda->nm_fant ?></td>
+                            <td class="fontTD"><?php echo $agenda->nm_end . ": " . $agenda->logradouro . ", " . $agenda->num_end . " - " . $agenda->bairro; ?></td>
                             <td class="fontTD"><?php echo $agenda->nm_enfermeiro ?></td>
                             <td class="fontTD"><?php echo $agenda->dt_atend ?></td>
                             <td class="fontTD"><?php echo $agenda->hr_ini ?></td>
