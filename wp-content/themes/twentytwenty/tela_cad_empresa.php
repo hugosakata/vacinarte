@@ -120,11 +120,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="row">  
             <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Razão Social*</label>
-              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
+              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" maxlength="150" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
             </div>
             <div class="form-group col-xs-3">
               <label>Nome fantasia*</label>
-              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" <?php echo "value='$cliente->nm_fant'"; ?>/>
+              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" maxlength="150" <?php echo "value='$cliente->nm_fant'"; ?>/>
             </div>
             <div class="form-group col-xs-2">
               <label>CNPJ*</label>
