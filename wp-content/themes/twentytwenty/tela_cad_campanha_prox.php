@@ -24,6 +24,14 @@ function load(){
   $form = 'salvar';
 }
 
+function date_converter($_date = null) {
+  $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
+  if ($_date != null && preg_match($format, $_date, $partes)) {
+    return $partes[3].'-'.$partes[2].'-'.$partes[1];
+  }
+  return false;
+  }
+
 function form_valido() {
   global $campanha, $cd_cli, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
   $dt_ini = date_converter($data_ini);
@@ -66,7 +74,7 @@ if($form == 'salvar'){
         )
       );
       $id_cmp = $wpdb->insert_id;
-      $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_retorno}'";
+      $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
       $cmp = $wpdb->get_row($sql);
     } else {
         $msg_err = "Ops! Faltou preencher algum campo obrigatório";
@@ -115,6 +123,7 @@ if($form == 'salvar'){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $form; ?></h4></span></center>
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
