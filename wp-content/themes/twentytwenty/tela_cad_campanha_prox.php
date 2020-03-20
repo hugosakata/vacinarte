@@ -21,7 +21,7 @@ function load(){
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
-
+  $form = 'salvar';
 }
 
 function form_valido() {
@@ -35,7 +35,6 @@ function form_valido() {
       !empty($tp_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
-        $form = 'salvar';
         $valido = true;
       
   }
