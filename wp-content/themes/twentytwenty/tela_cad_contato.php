@@ -115,13 +115,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
     <script type="text/javascript" >
       function IsEmail(email){
-          var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
-          var check=/@[w-]+./;
-          var checkend=/.[a-zA-Z]{2,3}$/;
-          if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
+          // var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
+          // var check=/@[w-]+./;
+          // var checkend=/.[a-zA-Z]{2,3}$/;
+          // if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
             alert("Email inválido!");
             document.getElementById('email').value=("");
-          }
+          // }
       }
     </script>
   </head>
