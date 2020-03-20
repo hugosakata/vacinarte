@@ -5,7 +5,7 @@ global $wpdb;
 
 <?php
 
-$form = "";
+$acao = "";
 $campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = $cd_end = "";
 
 if(isset($_GET['page'])){
@@ -21,8 +21,9 @@ function date_converter($_date = null) {
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
+  global $acao, $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
+  $acao = $_POST["acao"];
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
   $cd_end = str_replace("'", "", trim($_POST["cd_end"]));
@@ -43,7 +44,6 @@ function form_valido() {
       !empty($tp_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
-    $form = 'salvar';
     $valido = true;
   }
   return $valido;
@@ -53,7 +53,7 @@ function form_valido() {
 
 load();
 
-if($form == 'salvar'){
+if($acao == 'salvar'){
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
@@ -138,6 +138,8 @@ if($form == 'salvar'){
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
           <div class="hide">
+            <input type="text" id="acao" name="acao" class="form-control"
+                value="salvar"/>
             <input type="text" id="cd_cli" name="cd_cli" class="form-control"
                 value="<?php echo $cd_cli; ?>"/>
             <input type="text" id="serv" name="serv" class="form-control"

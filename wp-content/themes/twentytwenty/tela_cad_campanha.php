@@ -76,7 +76,7 @@ load();
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
-        <form class="form" action="http://vacinarte-admin.com.br/cadastrar-campanha-form/?page=proxima" method="post">
+        <form class="form" action="http://vacinarte-admin.com.br/cadastrar-campanha-form/" method="post">
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
