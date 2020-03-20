@@ -24,7 +24,7 @@ function load(){
   global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
-  $cd_cli = str_replace("'", "", trim($_POST["cliente"]));
+  $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
   $cd_end = str_replace("'", "", trim($_POST["cd_end"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
