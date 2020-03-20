@@ -66,6 +66,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $id_retorno = $wpdb->insert_id;
       $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
       $cliente = $wpdb->get_row($sql);
+
+      echo "<script language='javascript' type='text/javascript'>
+      alert('Cliente salvo com sucesso!');</script>";
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
