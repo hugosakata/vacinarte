@@ -114,6 +114,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
         text-align: center;
         margin-top: 6vw;
     }
+	.linkPanel{
+		color: DarkBlue;
+	}
 </style>
 </head>
 <body>
@@ -134,7 +137,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
                     <div class="row painel" style="text-align:center;">
 
-					<a href="http://vacinarte-admin.com.br/listar-pj/">
+					<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-pj/">
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelPJ">
