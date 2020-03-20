@@ -43,11 +43,14 @@ load();
 
   </head>
   <style>
+  .corpo{
+		background-color: WhiteSmoke;
+	}
   .formCadCmp{
     margin-top: -2vw;
   }
   </style>
-  <body>
+  <body class="corpo">
   
   
     function selectEndereco(id_cli){

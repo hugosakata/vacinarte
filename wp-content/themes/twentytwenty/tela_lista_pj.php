@@ -46,6 +46,9 @@ global $wpdb;
   </head>
 
   <style>
+  .corpo{
+		background-color: WhiteSmoke;
+	}
   #tab_cli_pj_info, #tab_cli_pj_paginate{
     font-size: 15px;
   }
@@ -69,7 +72,7 @@ global $wpdb;
   }
   </style>
   
-  <body>
+  <body class="corpo">
   
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){

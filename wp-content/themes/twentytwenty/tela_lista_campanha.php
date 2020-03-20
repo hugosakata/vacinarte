@@ -35,6 +35,9 @@ global $wpdb;
 
   </head>
   <style>
+  .corpo{
+		background-color: WhiteSmoke;
+	}
   #tab_lista_campanha_paginate{
     font-size: 15px;
     margin-top: -2vw;
@@ -67,7 +70,7 @@ global $wpdb;
     font-size: 12px;
   }
   </style>
-  <body>
+  <body class="corpo">
   
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){

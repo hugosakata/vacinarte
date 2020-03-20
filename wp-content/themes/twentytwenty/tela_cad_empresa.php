@@ -94,6 +94,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      margin-top: 5px;
                      margin-bottom: 10px;
                      color: #a94442; }
+   .corpo{
+		  background-color: WhiteSmoke;
+	}
     </style>
     <script type='text/javascript'
   src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -102,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <link rel="stylesheet" type="text/css"
   href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
   </head>
-  <body>
+  <body class="corpo">
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
