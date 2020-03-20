@@ -23,15 +23,6 @@ function load(){
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
   
 }
-  
-
-function date_converter($_date = null) {
-  $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
-  if ($_date != null && preg_match($format, $_date, $partes)) {
-    return $partes[3].'-'.$partes[2].'-'.$partes[1];
-  }
-  return false;
-  }
 
 function form_valido() {
   global $campanha, $cd_cli, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim, $form;
@@ -216,6 +207,14 @@ if($form == 'salvar'){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    
+    <script>
+      function date_converter($_date = null) {
+        $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
+        if ($_date != null && preg_match($format, $_date, $partes)) {
+          return $partes[3].'-'.$partes[2].'-'.$partes[1];
+        }
+        return false;
+      }
+    </script>
   </body>
   </html>
