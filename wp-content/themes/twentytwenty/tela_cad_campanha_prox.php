@@ -102,6 +102,8 @@ if($form == 'salvar'){
     <!--  Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
+    <script type='text/javascript' src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
   </head>
   <style>
   .formCadCmp{
