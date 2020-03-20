@@ -53,7 +53,7 @@ function form_valido() {
 
 load();
 
-if($form == 'salvar'){
+if($form == 'proxima'){
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
@@ -116,7 +116,7 @@ if($form == 'salvar'){
     
     <div class="row formCadCmp">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha <span><?php echo $cd_cli; ?></span> / <span><?php echo $tp_srv; ?></span>
+          <h3 class="page-header">Cadastro de Campanha 
           <br>
             <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
           </h3>
