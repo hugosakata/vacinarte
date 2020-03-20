@@ -127,7 +127,7 @@ if($form == 'salvar'){
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
     <center><span class="help-block"><h4><?php echo $form . " - camp = " . $campanha; ?></h4></span></center>
     <center><span class="help-block"><h4><?php echo $cd_end . " - cli = " . $cd_cli; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $tp_srv . " / " . $dt_ini . " / " . $dt_fim; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $tp_srv . " / " . $data_ini . " / " . $data_fim; ?></h4></span></center>
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
