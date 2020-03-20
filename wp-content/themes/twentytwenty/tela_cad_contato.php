@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           var checkend=/.[a-zA-Z]{2,3}$/;
           if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){
             alert("Email inválido!");
-            $("#email").text("");
+            document.getElementById('email').value=("");
           }
       }
     </script>
