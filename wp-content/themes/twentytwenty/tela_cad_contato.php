@@ -183,7 +183,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    <script language="text/javascript">
+    <script type="text/javascript" >
       function IsEmail(email){
           var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
           var check=/@[w-]+./;
