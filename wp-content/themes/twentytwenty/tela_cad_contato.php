@@ -161,6 +161,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-xs-2 col-xs-offset-1">
               <input type="submit" class="button btn btn-danger " value="Salvar">
             </div>
+            <div class="col-xs-2 col-xs-offset-1">
+              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_cli; ?>';" 
+              value="Endereços" <?php if ($id_cli <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+            </div> 
           </div>
         </form><!-- fecha form -->
       </div><!-- fecha col 12 -->
