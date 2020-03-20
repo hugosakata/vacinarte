@@ -147,23 +147,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="#" method="post">
           
           <div class="row">
-            <div class="form-group col-xs-2 col-xs-offset-1">
+            <div class="form-group col-xs-8 col-xs-offset-1">
               <label>Nome do contato*</label>
               <input type="text" name="nm_contato" class="form-control" placeholder="Nome do contato"
               value="<?php echo $nm_contato; ?>">
             </div>
-            <div class="form-group col-xs-2">
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-8 col-xs-offset-1">
               <label>Telefone*</label>
               <input type="text" id="tel_pri" name="tel_pri" class="form-control" placeholder="telefone principal"
               value="<?php echo $tel_pri; ?>">
             </div>
-            <div class="form-group col-xs-2">
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-8 col-xs-offset-1">
               <label>Email</label>
               <input type="text" id="email" name="email" class="form-control" placeholder="Email" 
               onblur="IsEmail(this.value);"
               value="<?php echo $email; ?>">
             </div>
-            <div class="form-group col-xs-2">
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-8 col-xs-offset-1">
               <label>Observação</label>
               <input type="text" name="obs_ctt" class="form-control" placeholder="Observações gerais"
               value="<?php echo $obs_ctt; ?>">
