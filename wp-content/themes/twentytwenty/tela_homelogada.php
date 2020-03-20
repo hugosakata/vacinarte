@@ -134,7 +134,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
                     <div class="row painel" style="text-align:center;">
 
-					<a href="http://vacinarte-admin.com.br/cadastrar-pj/">
+					<a href="http://vacinarte-admin.com.br/listar-pj/">
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelPJ">
@@ -149,7 +149,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
 					</a>
 
-					<a href="http://vacinarte-admin.com.br/cadastrar-pj/">
+					<a href="http://vacinarte-admin.com.br/listar-campanha/">
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelCMP">
@@ -164,7 +164,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
                     </a>
 
-					<a href="http://vacinarte-admin.com.br/cadastrar-pj/">    
+					<a href="#">    
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelAGE">
@@ -178,7 +178,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                             </div><!-- fecha panel dags_totaldem -->
                         </div><!-- fecha col -->
 					</a>
-					
+
                     </div><!-- fecha row -->
 
                 </div>
