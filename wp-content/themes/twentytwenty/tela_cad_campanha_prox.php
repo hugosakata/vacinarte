@@ -13,7 +13,7 @@ if(isset($_GET['page'])){
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
+  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end, $form;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
@@ -21,6 +21,8 @@ function load(){
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
+  $form = 'salvar';
+}
   
 
 function date_converter($_date = null) {
@@ -44,11 +46,11 @@ function form_valido() {
       !empty($dt_ini) && 
       !empty($dt_fim)){
         $valido = true;
-}
   }
-  
   return $valido;
 }
+  
+
 
 load();
 
