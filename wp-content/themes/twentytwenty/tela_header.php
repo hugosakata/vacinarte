@@ -110,7 +110,7 @@ img.emoji {
                     aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Clientes PJ</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
                     <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
                   </ul>
                 </li>
