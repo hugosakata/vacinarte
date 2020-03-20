@@ -36,6 +36,7 @@ function form_valido() {
   $dt_ini = date_converter($data_ini);
   $dt_fim = date_converter($data_fim);
 
+  $form = 'salvar';
   $valido = false;
   if (!empty($campanha) &&
       !empty($cd_cli) &&
@@ -43,7 +44,6 @@ function form_valido() {
       !empty($dt_ini) && 
       !empty($dt_fim)){
         $valido = true;
-        $form = 'salvar';
 }
   }
   
