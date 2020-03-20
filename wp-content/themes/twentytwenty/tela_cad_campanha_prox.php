@@ -57,26 +57,29 @@ if($form == 'salvar'){
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
-      $wpdb->insert(
-        'CAMPANHA',
-        array(
-          'nm_cmp'    => $campanha,
-          'cd_cli'    => $cd_cli,
-          'cd_tp_srv' => $tp_srv,
-          'dt_ini'    => $dt_ini,
-          'dt_fim'    => $dt_fim
-        ),
-        array(
-          '%s',
-          '%d',
-          '%d',
-          '%s',
-          '%s'
-        )
-      );
-      $id_cmp = $wpdb->insert_id;
-      $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
-      $cmp = $wpdb->get_row($sql);
+      // $wpdb->insert(
+      //   'CAMPANHA',
+      //   array(
+      //     'nm_cmp'    => $campanha,
+      //     'cd_cli'    => $cd_cli,
+      //     'cd_tp_srv' => $tp_srv,
+      //     'dt_ini'    => $dt_ini,
+      //     'dt_fim'    => $dt_fim
+      //   ),
+      //   array(
+      //     '%s',
+      //     '%d',
+      //     '%d',
+      //     '%s',
+      //     '%s'
+      //   )
+      // );
+      // $id_cmp = $wpdb->insert_id;
+      // $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+      // $cmp = $wpdb->get_row($sql);
+
+      echo "<script language='javascript' type='text/javascript'>
+      alert('{$campanha}\n{$cd_cli}\n{$tp_srv}\n{$dt_ini}\n{$dt_fim}');</script>";
     } else {
         $msg_err = "Ops! Faltou preencher algum campo obrigatório";
     }
