@@ -119,7 +119,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
  
- 
+  <header id="site-header" class="header-footer-group" role="banner" style="margin-top: -2vw;">
+    
   <div >
         <nav class="navbar navbar-default cabeca">
           <div class="container-fluid" style="background-color: Gainsboro;">
@@ -171,9 +172,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div><!-- /.container-fluid -->
         </nav>
       </div>
-
-
-
+      </header>
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
