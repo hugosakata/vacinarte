@@ -167,7 +167,7 @@ if($form == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . $endereco->bairro; ?></option>
+                  <option value=<?php echo $endereco->cd_end; ?>;><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . " - " . $endereco->bairro; ?></option>
               <?php
                 }
               ?>
@@ -176,11 +176,6 @@ if($form == 'salvar'){
             </div>
           </div>
 
-          <div class="form-group col-xs-4 col-xs-offset-3 hide">
-              <label style="font-size: 14px;">Logradouro</label>
-              <span class="spanEnd"></span>
-            </div>
-          
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
               <label style="font-size: 14px;">Data de início</label>
