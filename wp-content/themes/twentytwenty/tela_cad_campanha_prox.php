@@ -24,14 +24,6 @@ function load(){
 
 }
 
-function date_converter($_date = null) {
-  $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
-  if ($_date != null && preg_match($format, $_date, $partes)) {
-    return $partes[3].'-'.$partes[2].'-'.$partes[1];
-  }
-  return false;
-  }
-
 function form_valido() {
   global $campanha, $cd_cli, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim;
   $dt_ini = date_converter($data_ini);
@@ -53,7 +45,7 @@ function form_valido() {
 
 load();
 
-if($form == 'proxima'){
+if($form == 'salvar'){
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
