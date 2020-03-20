@@ -120,9 +120,12 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 	.legendaPanel{
 		font-weight: bold;
 	}
+	.corpo{
+		background-color: WhiteSmoke;
+	}
 </style>
 </head>
-<body>
+<body class="corpo">
     
     <?php include 'tela_header.php';?>
 

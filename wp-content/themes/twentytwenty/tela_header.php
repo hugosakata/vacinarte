@@ -67,14 +67,19 @@ img.emoji {
 		html { margin-top: 46px !important; }
 		* html body { margin-top: 46px !important; }
 	}
+  .cabeca{
+    border: none;
+    height: 4vw;
+    margin-top: -2.5vw;
+  }
 </style>
 </head>
-<body style="background-color: transparent;">
+<body >
     
     <header id="site-header" class="header-footer-group" role="banner" style="margin-top: -2vw;">
     
       <div >
-        <nav class="navbar navbar-default" style="border: none;">
+        <nav class="navbar navbar-default cabeca">
           <div class="container-fluid" style="background-color: transparent;">
             <!-- Brand and toggle get grouped for better mobile display -->
         
