@@ -13,7 +13,7 @@ if(isset($_GET['page'])){
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
+  global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end, $form;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
