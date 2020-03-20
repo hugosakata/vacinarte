@@ -24,7 +24,7 @@ function load(){
   global $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
-  $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
+  $cd_cli = str_replace("'", "", trim($_POST["cliente"]));
   $cd_end = str_replace("'", "", trim($_POST["cd_end"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
@@ -132,7 +132,12 @@ if($form == 'salvar'){
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
-        
+          <div class="hide">
+            <input type="text" id="cliente" name="cliente" class="form-control"
+                value="<?php echo $cd_cli; ?>"/>
+            <input type="text" id="serv" name="serv" class="form-control"
+              value="<?php echo $tp_srv; ?>"/>
+          </div>
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Campanha</label>
