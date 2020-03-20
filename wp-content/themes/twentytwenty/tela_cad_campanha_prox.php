@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $acao = "";
-$campanha = $cd_cli = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = $cd_end = "";
+$campanha = $cd_cli = $cd_vcl_end = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = $cd_end = "";
 
 if(isset($_GET['page'])){
   $form = $_GET['page'];
@@ -21,12 +21,12 @@ function date_converter($_date = null) {
 }
 
 function load(){
-  global $acao, $campanha, $cd_cli, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
+  global $acao, $campanha, $cd_cli, $cd_vcl_end, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
   $acao = $_POST["acao"];
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
-  $cd_end = str_replace("'", "", trim($_POST["cd_end"]));
+  $cd_vcl_end = str_replace("'", "", trim($_POST["cd_vcl_end"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
@@ -34,13 +34,14 @@ function load(){
 }
 
 function form_valido() {
-  global $campanha, $cd_cli, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim, $form;
+  global $campanha, $cd_cli, $cd_vcl_end, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim, $form;
   $dt_ini = date_converter($data_ini);
   $dt_fim = date_converter($data_fim);
 
   $valido = false;
   if (!empty($campanha) &&
       !empty($cd_cli) &&
+      !empty($cd_vcl_end) &&
       !empty($tp_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
@@ -62,6 +63,7 @@ if($acao == 'salvar'){
       //   array(
       //     'nm_cmp'    => $campanha,
       //     'cd_cli'    => $cd_cli,
+      //     'cd_vcl_end'=> $cd_vcl_end,
       //     'cd_tp_srv' => $tp_srv,
       //     'dt_ini'    => $dt_ini,
       //     'dt_fim'    => $dt_fim
@@ -79,7 +81,7 @@ if($acao == 'salvar'){
       // $cmp = $wpdb->get_row($sql);
 
       echo "<script language='javascript' type='text/javascript'>
-      alert('{$campanha}\n{$cd_cli}\n{$tp_srv}\n{$dt_ini}\n{$dt_fim}');</script>";
+      alert('Campanha salva com sucesso!');</script>";
     } else {
         $msg_err = "Ops! Faltou preencher algum campo obrigatório";
     }
@@ -130,7 +132,7 @@ if($acao == 'salvar'){
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
     <center><span class="help-block"><h4><?php echo $form . " - camp = " . $campanha; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $cd_end . " - cli = " . $cd_cli; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $cd_vcl_end . " - cli = " . $cd_cli; ?></h4></span></center>
     <center><span class="help-block"><h4><?php echo $tp_srv . " / " . $data_ini . " / " . $data_fim; ?></h4></span></center>
     <center><span class="help-block"><h4><?php echo " conv = " . $dt_ini . " / " . $dt_fim; ?></h4></span></center>
 
@@ -155,7 +157,7 @@ if($acao == 'salvar'){
           <div class="row">
             <div class="form-group col-xs-4 col-xs-offset-3">
               <label style="font-size: 14px;">Endereço</label>
-              <select class="selectpicker form-control" id="cd_end" name="cd_end">
+              <select class="selectpicker form-control" id="cd_vcl_end" name="cd_vcl_end">
               <option value=""></option>
               <?php
                 $enderecos = $wpdb->get_results( 
@@ -184,7 +186,7 @@ if($acao == 'salvar'){
                 foreach ( $enderecos as $endereco ) 
                 {
               ?>
-                  <option value='<?php echo $endereco->cd_end; ?>'><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . " - " . $endereco->bairro; ?></option>
+                  <option value='<?php echo $endereco->cd_vcl_end; ?>'><?php echo $endereco->nm_end . ": " . $endereco->logradouro . ", " . $endereco->num_end . " - " . $endereco->bairro; ?></option>
               <?php
                 }
               ?>
