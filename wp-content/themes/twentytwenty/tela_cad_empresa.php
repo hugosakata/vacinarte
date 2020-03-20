@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group col-xs-2">
               <label>CNPJ*</label>
-              <input type="text" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
+              <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
             </div>
           </div>
          
@@ -159,6 +159,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#cnpj").mask("99.999.999/9999-99");
+      });
+    </script>
 
   </body>
   </html>
