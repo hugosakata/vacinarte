@@ -80,7 +80,7 @@ img.emoji {
     
       <div >
         <nav class="navbar navbar-default cabeca">
-          <div class="container-fluid" style="background-color: transparent;">
+          <div class="container-fluid" style="background-color: Gainsboro;">
             <!-- Brand and toggle get grouped for better mobile display -->
         
             <!-- Collect the nav links, forms, and other content for toggling -->
