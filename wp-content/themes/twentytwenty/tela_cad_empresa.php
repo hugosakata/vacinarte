@@ -168,7 +168,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){	
         $("#cnpj").mask("99.999.999/9999-99");
