@@ -115,7 +115,10 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
         margin-top: 6vw;
     }
 	.linkPanel{
-		color: DarkBlue;
+		color: MidnightBlue;
+	}
+	.legendaPanel{
+		font-weight: bold;
 	}
 </style>
 </head>
@@ -144,7 +147,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2><?php echo $total_clientes_pj; ?></h2></div>
-                                            <div>Clientes PJ</div>
+                                            <div class="legendaPanel">Clientes PJ</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
@@ -152,14 +155,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
 					</a>
 
-					<a href="http://vacinarte-admin.com.br/listar-campanha/">
+					<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-campanha/">
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelCMP">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2><?php echo $total_campanha_ativa; ?></h2></div>
-                                            <div>Campanhas Ativas</div>
+                                            <div class="legendaPanel">Campanhas Ativas</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
@@ -167,14 +170,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                         </div><!-- fecha col -->
                     </a>
 
-					<a href="#">    
+					<a class="linkPanel" href="#">    
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelAGE">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
                                             <div class="huge"><h2>5</h2></div>
-                                            <div>Agendamentos</div>
+                                            <div class="legendaPanel">Agendamentos</div>
                                         </div><!-- fecha col xm 12 -->
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
