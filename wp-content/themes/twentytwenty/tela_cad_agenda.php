@@ -110,8 +110,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               margin-bottom: 10px;
               color: #a94442; }
     </style>
-
-<head>
 <script type='text/javascript'
   src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type='text/javascript'
