@@ -136,8 +136,16 @@ $username_err = $password_err = "";
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+        body{
+            font: 14px sans-serif;
+        }
+        .wrapper{
+            width: 350px;
+            padding: 20px;
+        }
+        .corpo{
+            background-color: WhiteSmoke;
+        }
     </style>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
@@ -194,7 +202,7 @@ img.emoji {
 	}
 </style>
 </head>
-<body>
+<body class="corpo">
     
     <header id="site-header" class="header-footer-group" role="banner">
         <div class="header-inner section-inner">
