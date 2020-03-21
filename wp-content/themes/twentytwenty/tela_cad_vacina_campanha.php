@@ -116,11 +116,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         width: 103%;
       }
       .link_home{
-        cursor: pointer;
+        /* cursor: pointer; */
+        margin-top: 1vw;
+        margin-left: 2vw;
       }
       .navbar-default .navbar-nav > li > a {
         text-decoration: none;
-        color: #2d3436;
+        color: DimGray;
+        font-size: 18px;
       }
     </style>
   </head>
