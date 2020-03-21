@@ -127,23 +127,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
 
     <div class="row txtbox"><!-- row formulario -->
-      <div class="col-lg-12 col-xs-8">
-        <form action="#" method="post">
-          <div class="row">  
-            <div class="form-group col-xs-5 col-xs-offset-1">
-              <label>Razão Social*</label>
-              <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" maxlength="150" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
+      <form action="#" method="post">
+        <div class="col-lg-12 col-xs-8">
+            
+            <div class="row">  
+              <div class="form-group col-xs-4 col-xs-offset-2">
+                <label>Razão Social*</label>
+                <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" maxlength="150" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
+              </div>
             </div>
-            <div class="form-group col-xs-3">
-              <label>Nome fantasia*</label>
-              <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" maxlength="150" <?php echo "value='$cliente->nm_fant'"; ?>/>
+            
+            <div class="row">
+              <div class="form-group col-xs-4 col-xs-offset-2">
+                <label>Nome fantasia*</label>
+                <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" maxlength="150" <?php echo "value='$cliente->nm_fant'"; ?>/>
+              </div>
             </div>
-            <div class="form-group col-xs-2">
-              <label>CNPJ*</label>
-              <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
+            
+            <div class="form-group col-xs-4 col-xs-offset-2">
+              <div class="form-group col-xs-2">
+                <label>CNPJ*</label>
+                <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
+              </div>
             </div>
-          </div>
-         
+
+        </div>
+        
+        <div class="col-lg-12 col-xs-8">
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
               <input type="submit" class="button btn btn-danger " value="Salvar"/>
@@ -158,8 +168,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
-        </form><!-- fecha form -->
-      </div><!-- fecha col 12 -->
+        </div><!-- fecha col 12 -->
+      </form><!-- fecha form -->
     </div><!-- fecha row txtbox -->
 
     
