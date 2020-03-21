@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
 <div class="container"><!-- container principal-->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</button>
+<span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span>
     <div class="row">
         <div class="col-lg-12 col-xs-12">
           <h3 class="page-header texto_cabeca">Vacina</h3>
