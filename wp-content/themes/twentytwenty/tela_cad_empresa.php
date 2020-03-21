@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .corpo{
 		    background-color: WhiteSmoke;
 	    }
-      .btns_geral{
+      .btn_geral{
         width: 8vw;
         font-size: 14px;
         border-radius: 6px;
