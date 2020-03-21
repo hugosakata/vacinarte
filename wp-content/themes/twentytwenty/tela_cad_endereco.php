@@ -87,6 +87,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       )
     );
     $id_vcl = $wpdb->insert_id;
+    $sql = "SELECT * FROM ENDERECO WHERE cd_END = '{$i_end}'";
+    $endereco = $wpdb->get_row($sql);
 
     // echo "<script language='javascript' type='text/javascript'>
     // alert('{$id_end}, {$id_vcl}');</script>";
@@ -255,31 +257,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Nome*</label>
               <input type="text" name="nm_end" class="form-control" 
-                placeholder="Nome do endereço" value="<?php echo $nm_end; ?>">
+                placeholder="Nome do endereço" value="<?php if($id_end !=0) {echo $endereco[0]->nm_end;} ?>">
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 14px;">CEP*</label>
               <input type="text" name="cep" class="form-control" 
                 placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
+              onblur="pesquisacep(this.value);" value="<?php if($id_end !=0) {echo $endereco[0]->cep;} ?>">
             </div>
           </div>
           <div class="row">
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label style="font-size: 14px;">Logradouro*</label>
               <input type="text" id="logra" name="logra" class="form-control" 
-                placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
+                placeholder="Rua / Avenida..." value="<?php if($id_end !=0) {echo $endereco[0]->logradouro;} ?>">
             </div>
             <div class="form-group col-xs-1">
               <label style="font-size: 14px;">Número*</label>
               <input type="text" name="num_logra" class="form-control" 
-                placeholder="Nº" value="<?php echo $num_logra; ?>">
+                placeholder="Nº" value="<?php if($id_end !=0) {echo $endereco[0]->num_end;} ?>">
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 14px;">Complemento</label>
               <input type="text" name="compl_logra" 
                 class="form-control" placeholder="apto / lote / bloco"
-                value="<?php echo $compl_logra; ?>">
+                value="<?php if($id_end !=0) {echo $endereco[0]->complemento;} ?>">
             </div>
           </div>
           
@@ -287,18 +289,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-3 col-xs-offset-1">
               <label style="font-size: 14px;">Bairro*</label>
               <input type="text" id="bairro" name="bairro" class="form-control" 
-                placeholder="Bairro" value="<?php echo $bairro; ?>">
+                placeholder="Bairro" value="<?php if($id_end !=0) {echo $endereco[0]->bairro;} ?>">
             </div>
             
             <div class="form-group col-xs-3">
               <label style="font-size: 14px;">Cidade*</label>
               <input type="text" id="cidade" name="cidade" class="form-control" 
-                placeholder="Cidade" value="<?php echo $cidade; ?>">
+                placeholder="Cidade" value="<?php if($id_end !=0) {echo $endereco[0]->cidade;} ?>">
             </div>
             <div class="form-group col-xs-1">
               <label style="font-size: 14px;">UF*</label>
               <select class="selectpicker form-control" id="uf_br" name="uf_br"
-              value="<?php echo $uf_br; ?>">
+              value="<?php if($id_end !=0) {echo $endereco[0]->estado;} ?>">
                 <option value=""></option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
@@ -332,7 +334,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="row btns">
             <div class="col-xs-1 col-xs-offset-1">
-              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar">
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral"
+              value="Salvar" <?php if ($id_end != 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>>
             </div>
             <div class="col-xs-1">
               <input id="btn_ctt" class="btn_geral btn_contato" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
