@@ -154,10 +154,10 @@ load();
 
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-3">
-              <input type="submit" class="button btn btn-danger btn_salvar" value="Próxima">
+              <input id="btn_prox" type="submit" class="button btn btn-danger btn_salvar" value="Próxima">
             </div>
             <div class="col-xs-2 col-xs-offset-1 hide">
-              <input id="btn_prox" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+              <input  type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
               value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>
