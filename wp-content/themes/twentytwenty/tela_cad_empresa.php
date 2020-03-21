@@ -105,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	    }
       .texto_cabeca{
         font-size: 25px;
-        margin-top: 0.5vw;
+        margin-top: 0.5vw !important;
       }
       #btn_salvar, #btn_end, #btn_ctt{
         width: 8vw;

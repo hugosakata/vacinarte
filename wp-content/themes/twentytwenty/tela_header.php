@@ -77,6 +77,12 @@ img.emoji {
     height: 4vw;
     margin-top: -2.5vw;
   }
+  .link_home{
+    cursor: pointer;"
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: darkgray;
+  }
   .navbar-default .navbar-nav > li > a {
     text-decoration: none;
     color: #2d3436;
@@ -97,7 +103,7 @@ img.emoji {
               <div class="header-inner section-inner" style="height: 3vw; width: 18vw; position: absolute;">
                 <div class="header-titles-wrapper">					
                     <div class="header-titles">
-                        <div class="site-title faux-heading"><a style="cursor: pointer;" href="http://vacinarte-admin.com.br/home">Vacinarte</a></div>
+                        <div class="site-title faux-heading"><a class="link_home" href="http://vacinarte-admin.com.br/home">Vacinarte</a></div>
                     </div><!-- .header-titles -->
                 </div><!-- .header-titles-wrapper -->
             </div><!-- .header-inner -->
