@@ -108,10 +108,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <style type="text/css">
-        .help-block{ display: block;
-                     margin-top: 5px;
-                     margin-bottom: 10px;
-                     color: #a94442; }
+      .help-block{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #a94442; 
+      }
+      .corpo{
+		    background-color: WhiteSmoke;
+	    }
+      .texto_cabeca{
+        font-size: 25px;
+        margin-top: 0.5vw !important;
+        color: dimgray;
+      }
+      #btn_salvar, #btn_end{
+        width: 8vw;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+      #btn_end{
+        padding-left: 10px;
+      }
     </style>
     <script type="text/javascript" >
       function IsEmail(email){
@@ -123,17 +141,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       }
     </script>
   </head>
-  <body>
+  <body class="corpo">
+
   <?php include 'tela_header.php'; ?>
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
+
 <div class="container"><!-- container principal-->
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Contato 
+          <h3 class="page-header texto_cabeca">Cadastro de Contato 
           <br>
             <small>Preencha o formulário abaixo para cadastrar um novo contato</small> 
           </h3>
@@ -147,41 +167,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="#" method="post">
           
           <div class="row">
-            <div class="form-group col-xs-8 col-xs-offset-1">
-              <label>Nome do contato*</label>
+            <div class="form-group col-xs-5 col-xs-offset-2">
+              <label style="font-size: 14px;">Nome do contato*</label>
               <input type="text" name="nm_contato" class="form-control" placeholder="Nome do contato"
               value="<?php echo $nm_contato; ?>">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-8 col-xs-offset-1">
-              <label>Telefone*</label>
+            <div class="form-group col-xs-5 col-xs-offset-2">
+              <label style="font-size: 14px;">Telefone*</label>
               <input type="text" id="tel_pri" name="tel_pri" class="form-control" placeholder="telefone principal"
               value="<?php echo $tel_pri; ?>">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-8 col-xs-offset-1">
-              <label>Email</label>
+            <div class="form-group col-xs-5 col-xs-offset-2">
+              <label style="font-size: 14px;">Email</label>
               <input type="text" id="email" name="email" class="form-control" placeholder="Email" 
               onblur="IsEmail(this.value);"
               value="<?php echo $email; ?>">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-8 col-xs-offset-1">
-              <label>Observação</label>
+            <div class="form-group col-xs-5 col-xs-offset-2">
+              <label style="font-size: 14px;">Observação</label>
               <input type="text" name="obs_ctt" class="form-control" placeholder="Observações gerais"
               value="<?php echo $obs_ctt; ?>">
             </div>
           </div>
           
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-1">
-              <input type="submit" class="button btn btn-danger " value="Salvar">
+            <div class="col-xs-1 col-xs-offset-2">
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar">
             </div>
-            <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_cli; ?>';" 
+            <div class="col-xs-1">
+              <input id="btn_end" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_cli; ?>';" 
               value="Endereços" <?php if ($id_cli <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>

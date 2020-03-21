@@ -295,7 +295,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 placeholder="Cidade" value="<?php echo $cidade; ?>">
             </div>
             <div class="form-group col-xs-1">
-              <label> style="font-size: 14px;"UF*</label>
+              <label style="font-size: 14px;">UF*</label>
               <select class="selectpicker form-control" id="uf_br" name="uf_br"
               value="<?php echo $uf_br; ?>">
                 <option value=""></option>
@@ -330,11 +330,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
           </div>
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-1">
-              <input id="brn_salvar" type="submit" class="button btn btn-danger " value="Salvar">
+            <div class="col-xs-1 col-xs-offset-1">
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar">
             </div>
-            <div class="col-xs-2 col-xs-offset-1">
-              <input id="btn_ct" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
+            <div class="col-xs-1">
+              <input id="btn_ctt" class="btn_geral btn_contato" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
               value="Contatos" <?php if ($id_cli <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
           </div>
