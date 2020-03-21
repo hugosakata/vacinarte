@@ -57,13 +57,18 @@ global $wpdb;
     #tab_cli_pj_filter.label#text{
       text-align: left;
     }
-    .btn_salvar{
+    #btn_salvar{
       width: 8vw;
       font-size: 14px;
       border-radius: 6px;
       margin-top: 2.6vw;
       /* height: 4.5vw; */
     }
+    .texto_cabeca{
+      font-size: 25px;
+      margin-top: 0.5vw !important;
+      color: dimgray;
+      }
     
     </style>
   </head>
@@ -82,13 +87,10 @@ global $wpdb;
     
     <div class="row">
         <div class="col-xs-10">
-          <h3 class="page-header">Clientes PJ
-          <!-- <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
-          </h3>
+          <h3 class="page-header texto_cabeca">Clientes PJ</h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input class="btn_salvar pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+          <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
           value="Novo" style="margin-top:35px"/>
         </div>
     </div><!-- fecha div row -->
