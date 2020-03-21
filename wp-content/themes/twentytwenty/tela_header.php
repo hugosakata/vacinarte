@@ -78,10 +78,7 @@ img.emoji {
     margin-top: -2.5vw;
   }
   .link_home{
-    cursor: pointer;"
-    margin-bottom: 10px;
-    font-size: 22px;
-    color: darkgray;
+    cursor: pointer;
   }
   .navbar-default .navbar-nav > li > a {
     text-decoration: none;

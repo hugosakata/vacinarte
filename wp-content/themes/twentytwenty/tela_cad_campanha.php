@@ -55,6 +55,16 @@ load();
       .corpo{
         background-color: WhiteSmoke;
       }
+      .texto_cabeca{
+        font-size: 25px;
+        margin-top: 0.5vw !important;
+        color: dimgray;
+      }
+      #btn_prox{
+        width: 8vw;
+        font-size: 14px;
+        border-radius: 6px;
+      }
       .formCadCmp{
         margin-top: -2vw;
       }
@@ -74,10 +84,7 @@ load();
     
     <div class="row formCadCmp">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha 
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
-          </h3>
+          <h3 class="page-header texto_cabeca">Cadastro de Campanha</h3>
         </div>
     </div><!-- fecha div row -->
 
@@ -150,7 +157,7 @@ load();
               <input type="submit" class="button btn btn-danger btn_salvar" value="Próxima">
             </div>
             <div class="col-xs-2 col-xs-offset-1 hide">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+              <input class="btn_prox" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
               value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>
