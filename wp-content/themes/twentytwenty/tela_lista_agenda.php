@@ -22,53 +22,53 @@ global $wpdb;
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel='stylesheet' id='dashicons-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dashicons.min.css?ver=5.3.2' media='all' />
-<link rel='stylesheet' id='admin-bar-css'  href='http://vacinarte-admin.com.br/wp-includes/css/admin-bar.min.css?ver=5.3.2' media='all' />
-<link rel='stylesheet' id='wp-block-library-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' media='all' />
-<link rel='stylesheet' id='twentytwenty-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/style.css?ver=1.1' media='all' />
+    <link rel='stylesheet' id='admin-bar-css'  href='http://vacinarte-admin.com.br/wp-includes/css/admin-bar.min.css?ver=5.3.2' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' media='all' />
+    <link rel='stylesheet' id='twentytwenty-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/style.css?ver=1.1' media='all' />
 
 
     <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
 
 
   </head>
   <style>
-  .corpo{
-		background-color: WhiteSmoke;
-	}
-  #tab_lista_agenda_paginate{
-    font-size: 15px;
-    margin-top: -2vw;
-  }
-  #tab_lista_agenda_info{
-    font-size: 15px;
-  }
-  .dataTables_empty{
-    text-align: center;
-    font-weight: bold;
-  }
-  #tab_lista_agenda_filter{
-    width: 30%;
-    margin-top: -3vw;
-  }
-  #tab_lista_agenda_length{
-    width: 30%;
-  }
-  input{
-    height: 1vw;
-  } 
-  .btn_cad{
-    margin-top: 2.6vw;
-    height: 4.5vw;
-  }
-  .fontTH{
-    font-size: 14px;
-  }
-  .fontTD{
-    font-size: 12px;
-  }
+    .corpo{
+      background-color: WhiteSmoke;
+    }
+    #tab_lista_agenda_paginate{
+      font-size: 15px;
+      margin-top: -2vw;
+    }
+    #tab_lista_agenda_info{
+      font-size: 15px;
+    }
+    .dataTables_empty{
+      text-align: center;
+      font-weight: bold;
+    }
+    #tab_lista_agenda_filter{
+      width: 30%;
+      margin-top: -3vw;
+    }
+    #tab_lista_agenda_length{
+      width: 30%;
+    }
+    input{
+      height: 1vw;
+    } 
+    .btn_cad{
+      margin-top: 2.6vw;
+      height: 4.5vw;
+    }
+    .fontTH{
+      font-size: 14px;
+    }
+    .fontTD{
+      font-size: 12px;
+    }
   </style>
   <body class="corpo">
   

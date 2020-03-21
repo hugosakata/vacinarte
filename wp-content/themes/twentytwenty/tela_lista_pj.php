@@ -26,59 +26,53 @@ global $wpdb;
     <title>Clientes PJ</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Cesup Styles -->
+    <!-- Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- DataTable -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.jqueryui.min.css">
-    <link href="../css/datatables.min.css" rel="stylesheet" >
-    <script type="text/javascript" src="../DataTables/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="../DataTables/js/dataTables.jqueryui.min.js"></script>
-    <script type="text/javascript" src="../DataTables/js/jquery.dataTables.min.js"></script> -->
-
+   
+    <style>
+    .corpo{
+      background-color: WhiteSmoke;
+    }
+    #tab_cli_pj_info, #tab_cli_pj_paginate{
+      font-size: 15px;
+    }
+    input{
+      height: 1vw;
+    }
+    #tab_cli_pj_length{
+      width: 30%;
+      margin-left: 1vw;
+    }
+    #tab_cli_pj_filter{
+      width: 30%;
+      margin-right: 0.5vw;
+    }
+    #tab_cli_pj_filter.label#text{
+      text-align: left;
+    }
+    .btn_salvar{
+      margin-top: 2.6vw;
+      height: 4.5vw;
+    }
+    </style>
   </head>
 
-  <style>
-  .corpo{
-		background-color: WhiteSmoke;
-	}
-  #tab_cli_pj_info, #tab_cli_pj_paginate{
-    font-size: 15px;
-  }
-  input{
-    height: 1vw;
-  }
-  #tab_cli_pj_length{
-    width: 30%;
-    margin-left: 1vw;
-  }
-  #tab_cli_pj_filter{
-    width: 30%;
-    margin-right: 0.5vw;
-  }
-  #tab_cli_pj_filter.label#text{
-    text-align: left;
-  }
-  .btn_salvar{
-    margin-top: 2.6vw;
-    height: 4.5vw;
-  }
-  </style>
   
   <body class="corpo">
   
   <?php include 'tela_header.php';?>
+
   <?php if ($_COOKIE["logado"] <= 0){
-        echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/';</script>";
-    }?>
+      echo "<script language='javascript' type='text/javascript'>
+      window.location.href='http://vacinarte-admin.com.br/';</script>";
+  }?>
   
 <div class="container"><!-- container principal-->
     
