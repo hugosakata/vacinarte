@@ -105,19 +105,86 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         margin-left: 10px;
       }
       .formCadVacCmp{
-    margin-top: -2vw;
-  }
+        margin-top: -2vw;
+      }
+      .cabeca{
+        border: none;
+        height: 4vw;
+        margin-top: -2.5vw;
+      }
+      .link_home{
+        cursor: pointer;
+      }
+      .navbar-default .navbar-nav > li > a {
+        text-decoration: none;
+        color: #2d3436;
+      }
     </style>
   </head>
   <body class="corpo">
-  <?php include 'tela_header.php';?>
+  <!-- <?php include 'tela_header.php';?> -->
 
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
 <div class="container"><!-- container principal-->
-<span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span>
+  <div class="jumbotron">
+    <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
+    <div >
+        <nav class="navbar navbar-default cabeca">
+          <div class="container-fluid" style="background-color: Gainsboro;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+              <div class="header-inner section-inner" style="height: 3vw; width: 18vw; position: absolute;">
+                <div class="header-titles-wrapper">					
+                    <div class="header-titles">
+                        <div class="site-title faux-heading"><a class="link_home" href="http://vacinarte-admin.com.br/home">Vacinarte</a></div>
+                    </div><!-- .header-titles -->
+                </div><!-- .header-titles-wrapper -->
+            </div><!-- .header-inner -->
+              
+
+              <ul class="nav navbar-nav" style="margin-left: 36vw;">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                    role="button" aria-haspopup="true" 
+                    aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" 
+                    data-toggle="dropdown" role="button" aria-haspopup="true" 
+                    aria-expanded="false">Listar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav">
+                <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
+                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+              </ul>            
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+
+  </div>
     <div class="row">
         <div class="col-lg-12 col-xs-12">
           <h3 class="page-header texto_cabeca">Vacina</h3>
