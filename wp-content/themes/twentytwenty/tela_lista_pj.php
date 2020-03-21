@@ -78,22 +78,93 @@ global $wpdb;
     .btn_endereco{
       color: GoldenRod;
     }
-     .btn_contato{
-       color: DarkCyan;
-     } 
+    .btn_contato{
+      color: DarkCyan;
+    } 
+    .barra4vw{
+      height: 4vw !important;
+    }
+    .cabeca{
+      border: none;
+      margin-left: -15px;
+      width: 103%;
+    }
+    .link_home{
+      margin-left: 2vw;
+      text-decoration: none;
+      color: DimGray;
+      font-size: 18px;
+    }
+    .navbar-default .navbar-nav > li > a {
+      text-decoration: none;
+      color: DimGray;
+      font-size: 18px;
+    }
     </style>
   </head>
 
   
   <body class="corpo">
   
-  <?php include 'tela_header.php';?>
+  
 
   <?php if ($_COOKIE["logado"] <= 0){
       echo "<script language='javascript' type='text/javascript'>
       window.location.href='http://vacinarte-admin.com.br/';</script>";
   }?>
-  
+
+ <div class="container-fluid barra4vw">
+    <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
+    <div >
+        <nav class="navbar navbar-default cabeca barra4vw">
+          <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar barra4vw">
+              <div style="margin-top: 1vw;">
+                <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+              </div>
+
+              <ul class="nav navbar-nav" style="margin-left: 36vw;">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                    role="button" aria-haspopup="true" 
+                    aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" 
+                    data-toggle="dropdown" role="button" aria-haspopup="true" 
+                    aria-expanded="false">Listar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav">
+                <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
+                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+              </ul>            
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+
+  </div>
+ 
 <div class="container"><!-- container principal-->
     
     <div class="row">

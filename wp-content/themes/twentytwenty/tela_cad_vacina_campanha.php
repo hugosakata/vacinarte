@@ -116,8 +116,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         width: 103%;
       }
       .link_home{
-        /* cursor: pointer; */
-        margin-top: 1vw;
         margin-left: 2vw;
         text-decoration: none;
         color: DimGray;
@@ -146,7 +144,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar barra4vw">
-              <div>
+              <div style="margin-top: 1vw;">
                 <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
               </div>
 
