@@ -168,6 +168,8 @@ if($acao == 'salvar'){
                 value="<?php echo $cd_cli; ?>"/>
             <input type="text" id="tp_srv" name="tp_srv" class="form-control"
               value="<?php echo $tp_srv; ?>"/>
+            <input type="text" id="local_srv" name="local_srv" class="form-control"
+              value="<?php echo $local_srv; ?>"/>
           </div>
           <div class="row">  
             <div class="form-group col-xs-4 col-xs-offset-3">
