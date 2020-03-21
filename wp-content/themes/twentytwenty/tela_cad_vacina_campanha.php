@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="site-title faux-heading"><a class="link_home" href="http://vacinarte-admin.com.br/home">Vacinarte</a></div>
                     </div><!-- .header-titles -->
                 </div><!-- .header-titles-wrapper -->
-            </div><!-- .header-inner -->
+              </div><!-- .header-inner -->
               
 
               <ul class="nav navbar-nav" style="margin-left: 36vw;">
