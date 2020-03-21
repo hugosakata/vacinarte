@@ -119,6 +119,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         /* cursor: pointer; */
         margin-top: 1vw;
         margin-left: 2vw;
+        text-decoration: none;
+        color: DimGray;
+        font-size: 18px;
       }
       .navbar-default .navbar-nav > li > a {
         text-decoration: none;
@@ -143,8 +146,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar barra4vw">
-              <div class="link_home">
-                <a href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+              <div>
+                <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
               </div>
 
               <ul class="nav navbar-nav" style="margin-left: 36vw;">
