@@ -122,14 +122,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
   </head>
   <body class="corpo">
-  <!-- <?php include 'tela_header.php';?> -->
 
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
-<div class="container"><!-- container principal-->
-  <div class="jumbotron">
+
+<div class="jumbotron">
     <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
     <div >
         <nav class="navbar navbar-default cabeca">
@@ -185,6 +184,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </div>
 
   </div>
+
+<div class="container"><!-- container principal-->
+  
     <div class="row">
         <div class="col-lg-12 col-xs-12">
           <h3 class="page-header texto_cabeca">Vacina</h3>
