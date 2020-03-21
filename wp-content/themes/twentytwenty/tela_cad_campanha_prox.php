@@ -108,11 +108,33 @@ if($acao == 'salvar'){
 
   </head>
   <style>
+  .help-block{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #a94442;
+  }
+  .corpo{
+    background-color: WhiteSmoke;
+  }
+  .texto_cabeca{
+    font-size: 25px;
+    margin-top: 2.5vw !important;
+    color: dimgray;
+  }
+  #btn_salvar, #btn_vac{
+    width: 8vw;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  #btn_vac{
+    padding-left: 10px;
+  }
   .formCadCmp{
     margin-top: -2vw;
   }
   </style>
-  <body>
+  <body class="corpo">
   <?php include 'tela_header.php';?>
 
   <?php if ($_COOKIE["logado"] <= 0){
@@ -123,10 +145,7 @@ if($acao == 'salvar'){
     
     <div class="row formCadCmp">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header">Cadastro de Campanha 
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar uma nova campanha</small>
-          </h3>
+          <h3 class="page-header texto_cabeca">Cadastro de Campanha</h3>
         </div>
     </div><!-- fecha div row -->
 
@@ -200,12 +219,12 @@ if($acao == 'salvar'){
             </div>
           </div>
 
-          <div class="row btns">
+          <div class="row btns" style="margin-top: 1vw;">
             <div class="col-xs-2 col-xs-offset-3">
-              <input type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+              <input id="btn_vac" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
               value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>

@@ -57,7 +57,7 @@ load();
       }
       .texto_cabeca{
         font-size: 25px;
-        margin-top: 1.5vw !important;
+        margin-top: 2.5vw !important;
         color: dimgray;
       }
       #btn_prox{
