@@ -133,10 +133,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <style type="text/css">
-        .help-block{ display: block;
-                     margin-top: 5px;
-                     margin-bottom: 10px;
-                     color: #a94442; }
+      .help-block{
+         display: block;
+         margin-top: 5px;
+         margin-bottom: 10px;
+         color: #a94442;
+      }
+      .corpo{
+		    background-color: WhiteSmoke;
+	    }
+      .texto_cabeca{
+        font-size: 25px;
+        margin-top: 0.5vw !important;
+        color: dimgray;
+      }
+      #btn_salvar, #btn_ctt{
+        width: 8vw;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+      #btn_ctt{
+        padding-left: 15px;
+      }
     </style>
 
 <script type="text/javascript" >
@@ -209,7 +227,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </script>
 
   </head>
-  <body>
+  <body class="corpo">
+
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
@@ -220,10 +239,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Endereço 
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo endereço</small> 
-          </h3>
+          <h3 class="page-header texto_cabeca">Cadastro de Endereço</h3>
         </div>
     </div><!-- fecha div row -->
 
@@ -236,12 +252,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
         <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
-              <label>Nome*</label>
+              <label style="font-size: 14px;">Nome*</label>
               <input type="text" name="nm_end" class="form-control" 
                 placeholder="Nome do endereço" value="<?php echo $nm_end; ?>">
             </div>
             <div class="form-group col-xs-2">
-              <label>CEP*</label>
+              <label style="font-size: 14px;">CEP*</label>
               <input type="text" name="cep" class="form-control" 
                 placeholder="Sem hífen"
               onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
@@ -249,17 +265,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="row">
             <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Logradouro*</label>
+              <label style="font-size: 14px;">Logradouro*</label>
               <input type="text" id="logra" name="logra" class="form-control" 
                 placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
             </div>
             <div class="form-group col-xs-1">
-              <label>Número*</label>
+              <label style="font-size: 14px;">Número*</label>
               <input type="text" name="num_logra" class="form-control" 
                 placeholder="Nº" value="<?php echo $num_logra; ?>">
             </div>
             <div class="form-group col-xs-2">
-              <label>Complemento</label>
+              <label style="font-size: 14px;">Complemento</label>
               <input type="text" name="compl_logra" 
                 class="form-control" placeholder="apto / lote / bloco"
                 value="<?php echo $compl_logra; ?>">
@@ -268,18 +284,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
           <div class="row">
             <div class="form-group col-xs-3 col-xs-offset-1">
-              <label>Bairro*</label>
+              <label style="font-size: 14px;">Bairro*</label>
               <input type="text" id="bairro" name="bairro" class="form-control" 
                 placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             
             <div class="form-group col-xs-3">
-              <label>Cidade*</label>
+              <label style="font-size: 14px;">Cidade*</label>
               <input type="text" id="cidade" name="cidade" class="form-control" 
                 placeholder="Cidade" value="<?php echo $cidade; ?>">
             </div>
             <div class="form-group col-xs-1">
-              <label>UF*</label>
+              <label> style="font-size: 14px;"UF*</label>
               <select class="selectpicker form-control" id="uf_br" name="uf_br"
               value="<?php echo $uf_br; ?>">
                 <option value=""></option>
@@ -315,10 +331,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="submit" class="button btn btn-danger " value="Salvar">
+              <input id="brn_salvar" type="submit" class="button btn btn-danger " value="Salvar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
+              <input id="btn_ct" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
               value="Contatos" <?php if ($id_cli <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
           </div>
