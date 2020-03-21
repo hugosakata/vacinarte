@@ -33,6 +33,9 @@ function form_valido() {
         $valido = true;
   }
   
+  echo "<script language='javascript' type='text/javascript'>
+      alert('valor: '+"{$vlr_vcna}");</script>";
+
   return $valido;
 }
 
