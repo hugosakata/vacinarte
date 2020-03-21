@@ -64,9 +64,7 @@ global $wpdb;
       margin-top: 2.6vw;
       /* height: 4.5vw; */
     }
-    #btn_salvar, #btn_end{
-        
-      }
+    
     </style>
   </head>
 
