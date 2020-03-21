@@ -156,7 +156,6 @@ if($acao == 'salvar'){
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-    <center><span class="help-block"><h4><?php echo $local_srv; ?></h4></span></center>
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
