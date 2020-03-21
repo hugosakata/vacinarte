@@ -140,14 +140,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar barra4vw">
-              <div class="header-inner section-inner" style="height: 3vw; width: 18vw; position: absolute;">
-                <div class="header-titles-wrapper">					
-                    <div class="header-titles">
-                        <div class="site-title faux-heading"><a class="link_home" href="http://vacinarte-admin.com.br/home">Vacinarte</a></div>
-                    </div><!-- .header-titles -->
-                </div><!-- .header-titles-wrapper -->
-              </div><!-- .header-inner -->
-              
+              <div class="link_home">
+                <a href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+              </div>
 
               <ul class="nav navbar-nav" style="margin-left: 36vw;">
                 <li class="dropdown">
