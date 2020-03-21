@@ -40,7 +40,7 @@ $username_err = $password_err = "";
             // //exit( wp_redirect( "http://vacinarte-admin.com.br/teste/" ) );
 
             //seta cookie de logado de meia hora - 0.5 * 3600
-            setcookie("logado", 1, (time() + (3 * 60)));
+            setcookie("logado", 1, (time() + (0.5 * 3600)));
 
             echo "<script language='javascript' type='text/javascript'>
             window.location.href='http://vacinarte-admin.com.br/home/';</script>";
