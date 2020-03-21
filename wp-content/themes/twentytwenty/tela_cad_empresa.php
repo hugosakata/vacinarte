@@ -164,17 +164,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         </div>
         
-        <div class="col-lg-12 col-xs-8">
+        <div class="col-lg-12 col-xs-8" style="margin-top: 1vw;">
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-3">
+            <div class="col-xs-1 col-xs-offset-3">
               <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar"/>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-1" style="margin-left: 1vw;">
 
               <input id="btn_end" type="button" class="btn_geral btn_endereco" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
               value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
-            <div class="col-xs-2">
+            <div class="col-xs-1" style="margin-left: 1vw;">
               <input id="btn_ctt" type="button" class="btn_geral btn_contato" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
               value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
