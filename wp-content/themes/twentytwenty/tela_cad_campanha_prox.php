@@ -6,7 +6,7 @@ global $wpdb;
 <?php
 
 $acao = "";
-$campanha = $cd_cli = $cd_vcl_end = $tp_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = $cd_end = "";
+$campanha = $cd_cli = $cd_vcl_end = $tp_srv = $local_srv = $dt_ini = $dt_fim = $data_ini = $data_fim = $cd_end = "";
 
 if(isset($_GET['page'])){
   $form = $_GET['page'];
@@ -21,20 +21,21 @@ function date_converter($_date = null) {
 }
 
 function load(){
-  global $acao, $campanha, $cd_cli, $cd_vcl_end, $tp_srv, $data_ini, $data_fim, $cmp, $cd_end;
+  global $acao, $campanha, $cd_cli, $cd_vcl_end, $tp_srv, $local_srv, $data_ini, $data_fim, $cmp, $cd_end;
 
   $acao = $_POST["acao"];
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
   $cd_vcl_end = str_replace("'", "", trim($_POST["cd_vcl_end"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
+  $local_srv = str_replace("'", "", trim($_POST["local_srv"]));
   $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
   
 }
 
 function form_valido() {
-  global $campanha, $cd_cli, $cd_vcl_end, $tp_srv, $dt_ini, $dt_fim, $data_ini, $data_fim, $form;
+  global $campanha, $cd_cli, $cd_vcl_end, $tp_srv, $local_srv, $dt_ini, $dt_fim, $data_ini, $data_fim, $form;
   $dt_ini = date_converter($data_ini);
   $dt_fim = date_converter($data_fim);
 
@@ -43,6 +44,7 @@ function form_valido() {
       !empty($cd_cli) &&
       !empty($cd_vcl_end) &&
       !empty($tp_srv) &&
+      !empty($local_srv) &&
       !empty($dt_ini) && 
       !empty($dt_fim)){
     $valido = true;
@@ -61,15 +63,18 @@ if($acao == 'salvar'){
       $wpdb->insert(
         'CAMPANHA',
         array(
-          'nm_cmp'    => $campanha,
-          'cd_cli'    => $cd_cli,
-          'cd_vcl_end'=> $cd_vcl_end,
-          'cd_tp_srv' => $tp_srv,
-          'dt_ini'    => $dt_ini,
-          'dt_fim'    => $dt_fim
+          'nm_cmp'        => $campanha,
+          'cd_cli'        => $cd_cli,
+          'cd_vcl_end'    => $cd_vcl_end,
+          'cd_tp_srv'     => $tp_srv,
+          'cd_local_srv'  => $local_srv,
+          'dt_ini'        => $dt_ini,
+          'dt_fim'        => $dt_fim
         ),
         array(
           '%s',
+          '%d',
+          '%d',
           '%d',
           '%d',
           '%s',
@@ -149,6 +154,9 @@ if($acao == 'salvar'){
           <h3 class="page-header texto_cabeca">Cadastro de Campanha</h3>
         </div>
     </div><!-- fecha div row -->
+
+    <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+    <center><span class="help-block"><h4><?php echo $local_srv; ?></h4></span></center>
 
     <div class="row formCadCmp"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">

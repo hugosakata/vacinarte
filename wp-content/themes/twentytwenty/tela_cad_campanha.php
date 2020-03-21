@@ -6,18 +6,19 @@ global $wpdb;
 <?php
 
 $id_cmp = 0;
-$campanha = $cd_cli = $tp_srv = "";
+$campanha = $cd_cli = $tp_srv = $local_srv = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
 }
 
 function load(){
-  global $campanha, $cd_cli, $tp_srv;
+  global $campanha, $cd_cli, $tp_srv, $local_srv;
 
   $campanha = str_replace("'", "", trim($_POST["campanha"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
   $tp_srv = str_replace("'", "", trim($_POST["tp_srv"]));
+  $local_srv = str_replace("'", "", trim($_POST["local_srv"]));
   // $data_ini = str_replace("'", "", trim($_POST["dt_ini"]));
   // $data_fim = str_replace("'", "", trim($_POST["dt_fim"]));
 
@@ -128,7 +129,7 @@ load();
           
           <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-3">
-              <label style="font-size: 14px;">Tipo</label>
+              <label style="font-size: 14px;">Tipo de serviço</label>
               <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
               value="<?php echo $tp_srv; ?>" required >
                 <option value=""></option>
@@ -136,19 +137,15 @@ load();
                 <option value="2">Completo</option>
               </select>
             </div>
-          </div>
-
-          <div class="row hide">
-            <div class="form-group col-xs-2 col-xs-offset-3">
-              <label style="font-size: 14px;">Data de início</label>
-              <input type="text" id="dt_ini" name="dt_ini" class="form-control"
-              value="<?php echo $dt_ini; ?>"/>
-            </div>
 
             <div class="form-group col-xs-2">
-              <label style="font-size: 14px;">Data de término</label>
-              <input type="text" id="dt_fim" name="dt_fim" class="form-control"
-              value="<?php echo $dt_fim; ?>"/>
+              <label style="font-size: 14px;">Local do serviço</label>
+              <select class="selectpicker form-control" id="local_srv" name="local_srv"
+              value="<?php echo $local_srv; ?>" required >
+                <option value=""></option>
+                <option value="1">In Loco</option>
+                <option value="2">Balcão</option>
+              </select>
             </div>
           </div>
 
