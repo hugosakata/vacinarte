@@ -87,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       )
     );
     $id_vcl = $wpdb->insert_id;
-    $sql = "SELECT * FROM ENDERECO WHERE cd_END = '{$i_end}'";
+    $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$i_end}'";
     $endereco = $wpdb->get_row($sql);
 
     // echo "<script language='javascript' type='text/javascript'>
@@ -257,31 +257,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Nome*</label>
               <input type="text" name="nm_end" class="form-control" 
-                placeholder="Nome do endereço" value="<?php if($id_end !=0) {echo $endereco[0]->nm_end;} ?>">
+                placeholder="Nome do endereço" value="<?php echo $nm_end; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 14px;">CEP*</label>
               <input type="text" name="cep" class="form-control" 
                 placeholder="Sem hífen"
-              onblur="pesquisacep(this.value);" value="<?php if($id_end !=0) {echo $endereco[0]->cep;} ?>">
+              onblur="pesquisacep(this.value);" value="<?php echo $cep; ?>">
             </div>
           </div>
           <div class="row">
             <div class="form-group col-xs-6 col-xs-offset-1">
               <label style="font-size: 14px;">Logradouro*</label>
               <input type="text" id="logra" name="logra" class="form-control" 
-                placeholder="Rua / Avenida..." value="<?php if($id_end !=0) {echo $endereco[0]->logradouro;} ?>">
+                placeholder="Rua / Avenida..." value="<?php echo $logra; ?>">
             </div>
             <div class="form-group col-xs-1">
               <label style="font-size: 14px;">Número*</label>
               <input type="text" name="num_logra" class="form-control" 
-                placeholder="Nº" value="<?php if($id_end !=0) {echo $endereco[0]->num_end;} ?>">
+                placeholder="Nº" value="<?php echo $num_logra; ?>">
             </div>
             <div class="form-group col-xs-2">
               <label style="font-size: 14px;">Complemento</label>
               <input type="text" name="compl_logra" 
                 class="form-control" placeholder="apto / lote / bloco"
-                value="<?php if($id_end !=0) {echo $endereco[0]->complemento;} ?>">
+                value="<?php echo $compl_logra; ?>">
             </div>
           </div>
           
@@ -289,18 +289,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group col-xs-3 col-xs-offset-1">
               <label style="font-size: 14px;">Bairro*</label>
               <input type="text" id="bairro" name="bairro" class="form-control" 
-                placeholder="Bairro" value="<?php if($id_end !=0) {echo $endereco[0]->bairro;} ?>">
+                placeholder="Bairro" value="<?php echo $bairro; ?>">
             </div>
             
             <div class="form-group col-xs-3">
               <label style="font-size: 14px;">Cidade*</label>
               <input type="text" id="cidade" name="cidade" class="form-control" 
-                placeholder="Cidade" value="<?php if($id_end !=0) {echo $endereco[0]->cidade;} ?>">
+                placeholder="Cidade" value="<?php echo $cidade; ?>">
             </div>
             <div class="form-group col-xs-1">
               <label style="font-size: 14px;">UF*</label>
               <select class="selectpicker form-control" id="uf_br" name="uf_br"
-              value="<?php if($id_end !=0) {echo $endereco[0]->estado;} ?>">
+              value="<?php echo $uf_br; ?>">
                 <option value=""></option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
