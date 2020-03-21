@@ -119,7 +119,7 @@ img.emoji {
                 </li>
               </ul>
               
-              <ul class="nav navbar-nav ">
+              <ul class="nav navbar-nav hide">
                 <li class="dropdown">
                   <a href="#" style="text-decoration: none;" class="dropdown-toggle" 
                     data-toggle="dropdown" role="button" aria-haspopup="true" 
@@ -132,7 +132,8 @@ img.emoji {
                 </li>
               </ul>
 
-              <ul class="nav navbar-nav ">
+              <ul class="nav navbar-nav hide">
+              <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li>
                 <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
                 <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
                 <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
@@ -141,6 +142,35 @@ img.emoji {
           </div><!-- /.container-fluid -->
         </nav>
       </div>
+
+      <!-- Modal -->
+      <div id="modalBtnCad" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Cadastrar</h4>
+            </div>
+            <div class="modal-body">
+              <div class="col-xs-2" style="align:center">
+                <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+                value="Novo"/>
+              </div>
+              <div class="col-xs-2" style="align:center">
+                <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
+                value="Novo"/>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </header><!-- #site-header -->
     
 
