@@ -93,9 +93,12 @@ global $wpdb;
       margin-left: 2vw;
       text-decoration: none;
       color: DimGray;
-      font-size: 18px;
+      font-size: 20px;
     }
-    
+    .fontMenu{
+      font-size: 15px;
+      font-weight: bold;
+    }
     </style>
   </head>
 
@@ -124,7 +127,7 @@ global $wpdb;
 
               <ul class="nav navbar-nav" style="margin-left: 36vw;">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                  <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
                     role="button" aria-haspopup="true" 
                     aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -150,9 +153,9 @@ global $wpdb;
 
               <ul class="nav navbar-nav">
                 <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
-                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
-                <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
-                <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
               </ul>            
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
