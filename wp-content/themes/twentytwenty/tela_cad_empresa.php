@@ -103,6 +103,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .corpo{
 		    background-color: WhiteSmoke;
 	    }
+      .btns_geral{
+        width: 8vw;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+      .btn_endereco{
+        padding-left: 10px;
+      }
+      .btn_contato{
+        padding-left: 15px;
+      }
     </style>
   </head>
   <body class="corpo">
@@ -127,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
 
     <div class="row txtbox"><!-- row formulario -->
-      <form action="#" method="post">
+      <form action="#" method="post" style="margin-top: -2vw;">
         <div class="col-lg-12 col-xs-8">
             
             <div class="row">  
@@ -156,15 +167,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12 col-xs-8">
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-3">
-              <input type="submit" class="button btn btn-danger " value="Salvar"/>
+              <input type="submit" class="button btn btn-danger btn_geral" value="Salvar"/>
             </div>
             <div class="col-xs-2">
 
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
+              <input type="button" class="btn_geral btn_endereco" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
               value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2">
-              <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
+              <input type="button" class="btn_geral btn_contato" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
               value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
