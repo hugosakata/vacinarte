@@ -123,47 +123,53 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
     <div class="row txtbox"><!-- row formulario -->
-      <div class="col-lg-12 col-xs-12">
-        <form class="form" action="#" method="post">
+      <form class="form" action="#" method="post">
+        <div class="col-lg-12 col-xs-12">
           
           <div class="row formCadVacCmp">
-            <div class="form-group col-xs-3 col-xs-offset-2">
-                <label style="font-size: 12px;">Vacina</label>
-                  <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
-                    <option value=""></option>
-                    <?php
-                      $vacinas = $wpdb->get_results( 
-                        "
-                        SELECT
-                          a.cd_vcna,
-                          a.nm_reg,
-                          a.cd_fbcnte_vcna,
-                          b.nm_fbcnte_vcna
-                        FROM
-                          VACINA a
-                          LEFT JOIN
-                          FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna
+              <div class="form-group col-xs-3 col-xs-offset-2">
+                  <label style="font-size: 12px;">Vacina</label>
+                    <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
+                      <option value=""></option>
+                      <?php
+                        $vacinas = $wpdb->get_results( 
+                          "
+                          SELECT
+                            a.cd_vcna,
+                            a.nm_reg,
+                            a.cd_fbcnte_vcna,
+                            b.nm_fbcnte_vcna
+                          FROM
+                            VACINA a
+                            LEFT JOIN
+                            FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna
+                          
+                          "
+                        );
                         
-                        "
-                      );
-                      
-                      foreach ( $vacinas as $vacinas ) 
-                      {
-                    ?>
-                    <option value=<?php echo $vacinas->cd_vcna ?>;><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
-                    <?php
-                      }
-                    ?>
-                  </select>
+                        foreach ( $vacinas as $vacinas ) 
+                        {
+                      ?>
+                      <option value=<?php echo $vacinas->cd_vcna ?>;><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
+                      <?php
+                        }
+                      ?>
+                    </select>
+              </div>
             </div>
-            <div class="form-group col-xs-1">
-              <label style="font-size: 12px;">Qtde</label>
-              <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
+            
+            <div class="row">
+              <div class="form-group col-xs-1 col-xs-offset-2">
+                <label style="font-size: 12px;">Qtde</label>
+                <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
+              </div>
+            
+              <div class="form-group col-xs-2">
+                <label style="font-size: 12px;">Valor Unit</label>
+                <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
+              </div>
             </div>
-            <div class="form-group col-xs-2">
-              <label style="font-size: 12px;">Valor Unit</label>
-              <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
-            </div>
+
           </div>
           <div class="row btns">
             <div class="col-xs-1 col-xs-offset-2">
@@ -172,8 +178,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               
           </div>
 
-        </form><!-- fecha form -->
-      </div><!-- fecha col 12 -->
+        </div><!-- fecha col 12 -->
+      </form><!-- fecha form -->
     </div><!-- fecha row txtbox -->
 
 
