@@ -61,8 +61,8 @@ global $wpdb;
       width: 8vw;
       font-size: 14px;
       border-radius: 6px;
-      margin-top: 2.6vw;
-      /* height: 4.5vw; */
+      margin-top: 2.6vw !important;
+      height: 3.5vw;
     }
     .texto_cabeca{
       font-size: 25px;
@@ -91,7 +91,7 @@ global $wpdb;
         </div>
         <div class="col-xs-2" style="align:center">
           <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
-          value="Novo" style="margin-top:35px"/>
+          value="Novo"/>
         </div>
     </div><!-- fecha div row -->
 
