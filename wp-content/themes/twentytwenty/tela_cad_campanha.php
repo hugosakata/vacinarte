@@ -57,7 +57,7 @@ load();
       }
       .texto_cabeca{
         font-size: 25px;
-        margin-top: 0.5vw !important;
+        margin-top: 1.5vw !important;
         color: dimgray;
       }
       #btn_prox{
@@ -157,7 +157,7 @@ load();
               <input type="submit" class="button btn btn-danger btn_salvar" value="Próxima">
             </div>
             <div class="col-xs-2 col-xs-offset-1 hide">
-              <input class="btn_prox" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+              <input id="btn_prox" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
               value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>  
           </div>
