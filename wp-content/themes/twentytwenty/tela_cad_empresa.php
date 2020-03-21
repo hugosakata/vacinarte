@@ -169,7 +169,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12 col-xs-8" style="margin-top: 1vw;">
           <div class="row btns">
             <div class="col-xs-1 col-xs-offset-3">
-              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar"/>
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral"
+               value="Salvar" <?php if ($id_cli >=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
             <div class="col-xs-1" style="margin-left: 2vw;">
 
