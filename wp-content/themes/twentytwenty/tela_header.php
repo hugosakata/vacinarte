@@ -106,7 +106,7 @@ img.emoji {
             </div><!-- .header-inner -->
               
 
-              <ul class="nav navbar-nav" style="margin-left: 36vw;">
+              <ul class="nav navbar-nav hide" style="margin-left: 36vw;">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
                     role="button" aria-haspopup="true" 
@@ -132,7 +132,7 @@ img.emoji {
                 </li>
               </ul>
 
-              <ul class="nav navbar-nav hide">
+              <ul class="nav navbar-nav">
               <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li>
                 <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
                 <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
