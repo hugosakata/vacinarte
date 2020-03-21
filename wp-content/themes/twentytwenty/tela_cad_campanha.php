@@ -152,7 +152,7 @@ load();
             </div>
           </div>
 
-          <div class="row btns">
+          <div class="row btns" style="margin-top: 1vw;">
             <div class="col-xs-2 col-xs-offset-3">
               <input id="btn_prox" type="submit" class="button btn btn-danger btn_salvar" value="Próxima">
             </div>
