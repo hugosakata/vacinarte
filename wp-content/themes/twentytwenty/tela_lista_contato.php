@@ -34,29 +34,32 @@ if(isset($_GET['id'])){
 
   </head>
   <style>
-  #tab_lista_contatos_info, #tab_lista_contatos_paginate{
-    font-size: 15px;
-  }
-  input{
-    height: 1vw;
-  }
-  #tab_lista_contatos_length{
-    width: 30%;
-    margin-left: 1vw;
-  }
-  #tab_lista_contatos_filter{
-    width: 30%;
-    margin-right: 0.5vw;
-  }
-  #tab_lista_contatos_filter.label#text{
-    text-align: left;
-  }
-  .btn_salvar{
-    margin-top: 2.6vw;
-    height: 4.5vw;
-  }
+    .corpo{
+          background-color: WhiteSmoke;
+        }
+    #tab_lista_contatos_info, #tab_lista_contatos_paginate{
+      font-size: 15px;
+    }
+    input{
+      height: 1vw;
+    }
+    #tab_lista_contatos_length{
+      width: 30%;
+      margin-left: 1vw;
+    }
+    #tab_lista_contatos_filter{
+      width: 30%;
+      margin-right: 0.5vw;
+    }
+    #tab_lista_contatos_filter.label#text{
+      text-align: left;
+    }
+    .btn_salvar{
+      margin-top: 2.6vw;
+      height: 4.5vw;
+    }
   </style>
-  <body>
+  <body class="corpo">
   
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){

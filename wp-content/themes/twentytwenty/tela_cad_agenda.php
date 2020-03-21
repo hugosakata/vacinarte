@@ -96,29 +96,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Agendamentos</title>
-    <!-- Bootstrap -->
-    <!-- <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Styles -->
-    <!-- <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" > --> -->
+    
     <!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css"
+          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    
     <style type="text/css">
-        .help-block{
-              display: block;
-              margin-top: 5px;
-              margin-bottom: 10px;
-              color: #a94442; }
+      .help-block{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #a94442;
+      }
+      .corpo{
+		    background-color: WhiteSmoke;
+	    }
     </style>
-<script type='text/javascript'
-  src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type='text/javascript'
-  src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-  href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <script type='text/javascript'
+            src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type='text/javascript'
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    
   </head>
-  <body>
+  <body class="corpo">
+
   <?php include 'tela_header.php'; ?>
+  
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";

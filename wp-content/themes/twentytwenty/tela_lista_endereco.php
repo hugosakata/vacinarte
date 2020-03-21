@@ -25,33 +25,36 @@ if(isset($_GET['id'])){
 
   </head>
   <style>
-  #tab_lista_end_paginate{
-    font-size: 15px;
-    margin-top: -2vw;
-  }
-  #tab_lista_end_info{
-    font-size: 15px;
-  }
-  .dataTables_empty{
-    text-align: center;
-    font-weight: bold;
-  }
-  #tab_lista_end_filter{
-    width: 30%;
-    margin-top: -3vw;
-  }
-  #tab_lista_end_length{
-    width: 30%;
-  }
-  input{
-    height: 1vw;
-  } 
-  .btn_salvar{
-    margin-top: 2.6vw;
-    height: 4.5vw;
-  }
+    .corpo{
+          background-color: WhiteSmoke;
+        }
+    #tab_lista_end_paginate{
+      font-size: 15px;
+      margin-top: -2vw;
+    }
+    #tab_lista_end_info{
+      font-size: 15px;
+    }
+    .dataTables_empty{
+      text-align: center;
+      font-weight: bold;
+    }
+    #tab_lista_end_filter{
+      width: 30%;
+      margin-top: -3vw;
+    }
+    #tab_lista_end_length{
+      width: 30%;
+    }
+    input{
+      height: 1vw;
+    } 
+    .btn_salvar{
+      margin-top: 2.6vw;
+      height: 4.5vw;
+    }
   </style>
-  <body>
+  <body class="corpo">
   
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){
