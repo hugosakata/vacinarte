@@ -144,8 +144,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
                     <div class="row painel" style="text-align:center;">
 
-					<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-pj/">
-                        <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
+                    <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
+						<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-pj/">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelPJ">
                                     <div class="row">
@@ -156,8 +156,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                                     </div><!-- fecha row -->
                                 </div><!-- fecha panel heading -->
                             </div><!-- fecha panel dags_totaldem -->
-                        </div><!-- fecha col -->
-					</a>
+						</a>
+                    </div><!-- fecha col -->
 
 					<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-campanha/">
                         <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
