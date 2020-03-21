@@ -1,3 +1,8 @@
+<?php
+//cada vez q o header carregar renova a sessao de logado
+setcookie("logado", 1, (time() + (0.5 * 3600)));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
