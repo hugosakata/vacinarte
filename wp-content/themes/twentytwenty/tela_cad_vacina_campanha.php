@@ -81,25 +81,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <style>
-    .help-block{
-      display: block;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      color: #a94442;
-    }
-    .corpo{
-      background-color: WhiteSmoke;
-    }
-    .texto_cabeca{
-      font-size: 25px;
-      margin-top: 2.5vw !important;
-      color: dimgray;
-    }
-    #btn_salvar{
-      width: 8vw;
-      font-size: 14px;
-      border-radius: 6px;
-    }
+      .help-block{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #a94442;
+      }
+      .corpo{
+        background-color: WhiteSmoke;
+      }
+      .texto_cabeca{
+        font-size: 25px;
+        margin-top: 1vw !important;
+        color: dimgray;
+      }
+      #btn_salvar{
+        width: 8vw;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+      .formCadVacCmp{
+    margin-top: -2vw;
+  }
     </style>
   </head>
   <body class="corpo">
@@ -113,10 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header texto_cabeca">Vacina 
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar vacina para a campanha</small>
-          </h3>
+          <h3 class="page-header texto_cabeca">Vacina</h3>
         </div>
     </div><!-- fecha div row -->
 
@@ -126,7 +126,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="col-lg-12 col-xs-12">
         <form class="form" action="#" method="post">
           
-          <div class="row">
+          <div class="row formCadVacCmp">
             <div class="form-group col-xs-3 col-xs-offset-2">
                 <label style="font-size: 12px;">Vacina</label>
                   <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
