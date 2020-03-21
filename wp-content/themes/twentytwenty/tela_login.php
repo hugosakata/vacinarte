@@ -204,7 +204,7 @@ img.emoji {
 </head>
 <body class="corpo">
     
-    <header id="site-header" class="header-footer-group" role="banner">
+    <header id="site-header" class="header-footer-group" role="banner" style="margin-top: -3vw;">
         <div class="header-inner section-inner">
             <div class="header-titles-wrapper">					
                 <div class="header-titles">
