@@ -129,6 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       }
       #btn_end{
         padding-left: 10px;
+        margin-left: 2vw;
       }
     </style>
     <script type="text/javascript" >
@@ -153,10 +154,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header texto_cabeca">Cadastro de Contato 
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo contato</small> 
-          </h3>
+          <h3 class="page-header texto_cabeca">Cadastro de Contato</h3>
         </div>
     </div><!-- fecha div row -->
 

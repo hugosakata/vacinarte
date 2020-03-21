@@ -58,9 +58,15 @@ global $wpdb;
       text-align: left;
     }
     .btn_salvar{
+      width: 8vw;
+      font-size: 14px;
+      border-radius: 6px;
       margin-top: 2.6vw;
-      height: 4.5vw;
+      /* height: 4.5vw; */
     }
+    #btn_salvar, #btn_end{
+        
+      }
     </style>
   </head>
 

@@ -154,6 +154,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       }
       #btn_ctt{
         padding-left: 15px;
+        margin-left: 2vw;
       }
     </style>
 
