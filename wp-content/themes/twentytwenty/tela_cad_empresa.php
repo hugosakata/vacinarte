@@ -131,21 +131,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12 col-xs-8">
             
             <div class="row">  
-              <div class="form-group col-xs-4 col-xs-offset-2">
+              <div class="form-group col-xs-4 col-xs-offset-3">
                 <label>Razão Social*</label>
                 <input type="text" name="razao" class="form-control" placeholder="Razão Social da empresa" maxlength="150" <?php echo "value='$cliente->nm_rz_soc'"; ?>/>
               </div>
             </div>
             
             <div class="row">
-              <div class="form-group col-xs-4 col-xs-offset-2">
+              <div class="form-group col-xs-4 col-xs-offset-3">
                 <label>Nome fantasia*</label>
                 <input type="text" name="nm_fant" class="form-control" placeholder="Nome fantasia" maxlength="150" <?php echo "value='$cliente->nm_fant'"; ?>/>
               </div>
             </div>
             
-            <div class="form-group col-xs-4 col-xs-offset-2">
-              <div class="form-group col-xs-2">
+            <div class="row">
+              <div class="form-group col-xs-4 col-xs-offset-3">
                 <label>CNPJ*</label>
                 <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Sem pontos/hífen" <?php echo "value='$cliente->cpf_cnpj'"; ?>/>
               </div>
@@ -155,15 +155,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         <div class="col-lg-12 col-xs-8">
           <div class="row btns">
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="col-xs-2 col-xs-offset-3">
               <input type="submit" class="button btn btn-danger " value="Salvar"/>
             </div>
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="col-xs-2">
 
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
               value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
-            <div class="col-xs-2 col-xs-offset-1">
+            <div class="col-xs-2">
               <input type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
               value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
