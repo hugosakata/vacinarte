@@ -99,6 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         width: 8vw;
         font-size: 14px;
         border-radius: 6px;
+        margin-left: 10px;
       }
       .formCadVacCmp{
     margin-top: -2vw;
@@ -128,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
           <div class="row formCadVacCmp">
               <div class="form-group col-xs-3 col-xs-offset-2">
-                  <label style="font-size: 12px;">Vacina</label>
+                  <label style="font-size: 14px;">Vacina</label>
                     <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
                       <option value=""></option>
                       <?php
@@ -160,12 +161,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <div class="row">
               <div class="form-group col-xs-1 col-xs-offset-2">
-                <label style="font-size: 12px;">Qtde</label>
+                <label style="font-size: 14px;">Qtde</label>
                 <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
               </div>
             
               <div class="form-group col-xs-2">
-                <label style="font-size: 12px;">Valor Unit</label>
+                <label style="font-size: 14px;">Valor Unit</label>
                 <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
               </div>
             </div>
