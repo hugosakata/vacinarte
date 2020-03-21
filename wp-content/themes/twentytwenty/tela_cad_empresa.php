@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .corpo{
 		    background-color: WhiteSmoke;
 	    }
-      .btn_geral{
+      #btn_salvar{
         width: 8vw;
         font-size: 14px;
         border-radius: 6px;
@@ -167,7 +167,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12 col-xs-8">
           <div class="row btns">
             <div class="col-xs-2 col-xs-offset-3">
-              <input type="submit" class="button btn btn-danger btn_geral" value="Salvar"/>
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar"/>
             </div>
             <div class="col-xs-2">
 
