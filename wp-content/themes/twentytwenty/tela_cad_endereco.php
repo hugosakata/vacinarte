@@ -87,8 +87,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       )
     );
     $id_vcl = $wpdb->insert_id;
-    $sql = "SELECT * FROM ENDERECO WHERE cd_end = '{$i_end}'";
-    $endereco = $wpdb->get_row($sql);
 
     // echo "<script language='javascript' type='text/javascript'>
     // alert('{$id_end}, {$id_vcl}');</script>";
@@ -334,8 +332,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
           <div class="row btns">
             <div class="col-xs-1 col-xs-offset-1">
-              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral"
-              value="Salvar" <?php if ($id_end != 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>>
+              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar" />
             </div>
             <div class="col-xs-1">
               <input id="btn_ctt" class="btn_geral btn_contato" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
