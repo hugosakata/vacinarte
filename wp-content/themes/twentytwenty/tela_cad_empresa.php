@@ -103,6 +103,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .corpo{
 		    background-color: WhiteSmoke;
 	    }
+      .texto_cabeca{
+        font-size: 25px;
+        margin-top: 0.5vw;
+      }
       #btn_salvar, #btn_end, #btn_ctt{
         width: 8vw;
         font-size: 14px;
@@ -127,10 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Cadastro de Cliente PJ
-          <br>
-            <small>Preencha o formulário abaixo para cadastrar um novo cliente</small>
-          </h3>
+          <h3 class="page-header texto_cabeca">Cadastro de Cliente PJ</h3>
         </div>
     </div><!-- fecha div row -->
 
