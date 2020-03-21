@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         '%d',
         '%d',
         '%d',
-        '%d'
+        '%f'
       )
     );
     $id_vcna_cmp = $wpdb->insert_id;
