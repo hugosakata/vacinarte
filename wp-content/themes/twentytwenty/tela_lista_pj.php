@@ -61,7 +61,6 @@ global $wpdb;
       width: 8vw;
       font-size: 14px;
       border-radius: 6px;
-      margin-top: 2.6vw !important;
       height: 3.5vw;
     }
     .texto_cabeca{
@@ -69,7 +68,19 @@ global $wpdb;
       margin-top: 0.5vw !important;
       color: dimgray;
       }
-    
+    .btn_icon{
+      padding-left: 5px;
+      cursor: pointer;
+    }
+    .btn_edit{
+      color: CornflowerBlue;
+    }
+    .btn_endereco{
+      color: GoldenRod;
+    }
+     .btn_contato{
+       color: DarkCyan;
+     } 
     </style>
   </head>
 
@@ -134,9 +145,9 @@ global $wpdb;
                             <td><?php echo $cliente->nm_fant ?></td>
                             <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
-                              <a title='Editar' href='http://vacinarte-admin.com.br/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                              <a title='Endereços' href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">home</i></a>
-                              <a title='Contatos' href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">phone</i></a>
+                              <a title='Editar' href='http://vacinarte-admin.com.br/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_edit">edit</i></a>
+                              <a title='Endereços' href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco">home</i></a>
+                              <a title='Contatos' href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato">phone</i></a>
                               <!-- <a href='#/?delete=<?php //echo $cliente->cd_cli; ?>'><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a> -->
                             </td>
                           </tr>
