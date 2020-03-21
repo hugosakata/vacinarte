@@ -95,11 +95,7 @@ global $wpdb;
       color: DimGray;
       font-size: 18px;
     }
-    .navbar-default .navbar-nav > li > a {
-      text-decoration: none;
-      color: DimGray;
-      font-size: 18px;
-    }
+    
     </style>
   </head>
 
