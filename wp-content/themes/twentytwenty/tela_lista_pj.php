@@ -118,7 +118,7 @@ global $wpdb;
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar barra4vw">
-              <ul style="margin-top: 1vw;">
+              <ul class="nav navbar-nav" style="margin-top: 1vw;">
                 <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
               </ul>
 
