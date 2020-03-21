@@ -107,10 +107,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .formCadVacCmp{
         margin-top: -2vw;
       }
+      .barra4vw{
+        height: 4vw !important;
+      }
       .cabeca{
         border: none;
-        height: 4vw;
-        margin-top: -2.5vw;
+        margin-left: -15px;
+        width: 103%;
       }
       .link_home{
         cursor: pointer;
@@ -128,15 +131,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
 
-<div class="container-fluid">
+<div class="container-fluid barra4vw">
     <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
     <div >
-        <nav class="navbar navbar-default cabeca">
-          <div class="container-fluid" style="background-color: Gainsboro;">
+        <nav class="navbar navbar-default cabeca barra4vw">
+          <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
             <!-- Brand and toggle get grouped for better mobile display -->
         
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+            <div class="navbar barra4vw">
               <div class="header-inner section-inner" style="height: 3vw; width: 18vw; position: absolute;">
                 <div class="header-titles-wrapper">					
                     <div class="header-titles">
