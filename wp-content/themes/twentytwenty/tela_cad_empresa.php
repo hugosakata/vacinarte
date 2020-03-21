@@ -103,15 +103,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .corpo{
 		    background-color: WhiteSmoke;
 	    }
-      #btn_salvar{
+      #btn_salvar, #btn_end, #btn_ctt{
         width: 8vw;
         font-size: 14px;
         border-radius: 6px;
       }
-      .btn_endereco{
+      #btn_end{
         padding-left: 10px;
       }
-      .btn_contato{
+      #btn_ctt{
         padding-left: 15px;
       }
     </style>
@@ -171,11 +171,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="col-xs-2">
 
-              <input type="button" class="btn_geral btn_endereco" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
+              <input id="btn_end" type="button" class="btn_geral btn_endereco" onclick="location.href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
               value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
             <div class="col-xs-2">
-              <input type="button" class="btn_geral btn_contato" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
+              <input id="btn_ctt" type="button" class="btn_geral btn_contato" onclick="location.href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
               value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div> 
           </div>
