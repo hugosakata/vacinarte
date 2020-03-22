@@ -63,23 +63,16 @@ global $wpdb;
     text-align: center;
     font-weight: bold;
   }
-  #tab_lista_campanha_paginate{
+  #tab_lista_campanha_info, #tab_lista_campanha_paginate{
     font-size: 15px;
-    margin-top: -2vw;
-  }
-  #tab_lista_campanha_info{
-    font-size: 15px;
-  }
-  .dataTables_empty{
-    text-align: center;
-    font-weight: bold;
   }
   #tab_lista_campanha_filter{
     width: 30%;
-    margin-top: -3vw;
+    margin-top: 2vw;
   }
   #tab_lista_campanha_length{
     width: 30%;
+    margin-left: 1vw;
   }
   input{
     height: 2vw;
