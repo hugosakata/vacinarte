@@ -56,11 +56,7 @@ global $wpdb;
       text-align: center;
       font-weight: bold;
     }
-    #tab_lista_agenda_paginate{
-      font-size: 15px;
-      margin-top: -2vw;
-    }
-    #tab_lista_agenda_info{
+    #tab_cli_pj_info, #tab_lista_agenda_paginate{
       font-size: 15px;
     }
     .dataTables_empty{
@@ -69,13 +65,14 @@ global $wpdb;
     }
     #tab_lista_agenda_filter{
       width: 30%;
-      margin-top: -3vw;
+      margin-right: 2vw;
     }
     #tab_lista_agenda_length{
       width: 30%;
+      margin-left: 1vw;
     }
     input{
-      height: 1vw;
+      height: 2vw;
     }
     #btn_salvar{
       width: 8vw;
