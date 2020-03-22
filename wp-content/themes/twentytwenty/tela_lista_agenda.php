@@ -17,26 +17,44 @@ global $wpdb;
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel='stylesheet' id='dashicons-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dashicons.min.css?ver=5.3.2' media='all' />
-    <link rel='stylesheet' id='admin-bar-css'  href='http://vacinarte-admin.com.br/wp-includes/css/admin-bar.min.css?ver=5.3.2' media='all' />
-    <link rel='stylesheet' id='wp-block-library-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' media='all' />
-    <link rel='stylesheet' id='twentytwenty-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/style.css?ver=1.1' media='all' />
-
-
-    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
-
-
+    <!-- DataTable -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
+  
   </head>
   <style>
     .corpo{
       background-color: WhiteSmoke;
+    }
+    .texto_cabeca{
+      font-size: 25px;
+      margin-top: 2vw !important;
+      color: dimgray;
+      }
+    .barra4vw{
+      height: 4vw !important;
+    }
+    .cabeca{
+      border: none;
+      margin-left: -15px;
+      width: 103%;
+    }
+    .link_home{
+      margin-left: 2vw;
+      text-decoration: none;
+      color: #353b48;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .fontMenu{
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .dataTables_empty{
+      text-align: center;
+      font-weight: bold;
     }
     #tab_lista_agenda_paginate{
       font-size: 15px;
@@ -58,7 +76,14 @@ global $wpdb;
     }
     input{
       height: 1vw;
-    } 
+    }
+    #btn_salvar{
+      width: 8vw;
+      font-size: 14px;
+      border-radius: 6px;
+      height: 3.5vw;
+      margin-top: 1vw;
+    }
     .btn_cad{
       margin-top: 2.6vw;
       height: 4.5vw;
@@ -72,107 +97,157 @@ global $wpdb;
   </style>
   <body class="corpo">
   
-  <?php include 'tela_header.php';?>
-  <?php if ($_COOKIE["logado"] <= 0){
+    <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
-  
-<div class="container" style="width: 100%;"><!-- container principal-->
-    
-    <div class="row">
-        <div class="col-xs-10">
-          <h3 class="page-header">Agenda</h3>
-        </div>
-        <div class="col-xs-2" style="align:center">
-          <input class="btn_cad pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
-          value="Novo" style="margin-top:35px"/>
-        </div>
-    </div><!-- fecha div row -->
 
-    <div class="row txtbox"><!-- row  -->
-      <div class="col-lg-12 col-xs-12">
-        <div class="row"><!--div row de consulta -->
-          <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active">
-            <div class="col-lg-12 col-xs-12">
-              <div class="row paineldeconsulta">
-                <div class="col-lg-12 col-xs-12"><!-- posiciona  -->
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-                      <table class="table table-striped" id="tab_lista_agenda">
-                        <thead>
-                          <tr>
-                            <th class="fontTH">Nome Campanha</th>
-                            <th class="fontTH">Nome Cliente</th>
-                            <th class="fontTH">Endereço</th>
-                            <th class="fontTH">Enfermeiro(a)</th>
-                            <th class="fontTH">Data</th>
-                            <th class="fontTH">Hora Início</th>
-                            <th class="fontTH">Hora Fim</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        
-                        <?php
-                          $agendas = $wpdb->get_results( 
-                            "
-                            SELECT 
-                            `cd_atend`, 
-                            `nm_cmp`, 
-                            `nm_fant`,
-                            `ENDERECO`.`logradouro`,
-                            `ENDERECO`.`nm_end`,
-                            `ENDERECO`.`num_end`,
-                            `ENDERECO`.`complemento`,
-                            `ENDERECO`.`bairro`,
-                            `ENDERECO`.`cep`,
-                            `ENDERECO`.`cidade`,
-                            `ENDERECO`.`estado`,
-                            `dt_atend`, 
-                            `hr_ini`, 
-                            `hr_fim`, 
-                            `nm_enfermeiro` 
-                            FROM `ATENDIMENTO`, `CAMPANHA`, `CLIENTES`, `VCL_ENDERECO`, `ENDERECO`
-                            WHERE
-                            `ATENDIMENTO`.`cd_cmp`=`CAMPANHA`.`cd_cmp` AND
-                            `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` AND
-                            `CAMPANHA`.`cd_vcl_end`=`VCL_ENDERECO`.`cd_vcl_end` AND
-                            `VCL_ENDERECO`.`cd_end`=`ENDERECO`.`cd_end`
-                            ORDER BY `cd_atend` DESC
-
-                            "
-                          );
-                          
-                          foreach ( $agendas as $agenda ) 
-                          {
-                        ?>
-                          <tr>
-                            <td class="fontTD"><?php echo $agenda->nm_cmp ?></td>
-                            <td class="fontTD"><?php echo $agenda->nm_fant ?></td>
-                            <td class="fontTD"><?php echo $agenda->nm_end . ": " . $agenda->logradouro . ", " . $agenda->num_end . " - " . $agenda->bairro; ?></td>
-                            <td class="fontTD"><?php echo $agenda->nm_enfermeiro ?></td>
-                            <td class="fontTD"><?php echo $agenda->dt_atend ?></td>
-                            <td class="fontTD"><?php echo $agenda->hr_ini ?></td>
-                            <td class="fontTD"><?php echo $agenda->hr_fim ?></td>
-                          </tr>
-                          <?php
-                            }
-                          ?>
+    <div class="container-fluid barra4vw">
+    <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
+      <div >
+        <nav class="navbar navbar-default cabeca barra4vw">
+          <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
+            <!-- Brand and toggle get grouped for better mobile display -->
         
-                        </tbody>
-                      </table>
-                    </div><!-- fecha panel corpo -->
-                  </div><!-- fecha panel default -->
-                </div><!-- fecha col lg 12 -->
-              </div><!-- fecha row paineldemequipe -->
-          </div><!-- fecha col lg 12 -->
-          </div><!-- fecha div painel  -->
-        </div>
-        </div>
-      </div><!-- fecha col 12 -->
-    </div><!-- fecha row txtbox -->
-</div><!-- fecha container principal -->  
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar barra4vw">
+              <ul class="nav navbar-nav" style="margin-top: 1vw;">
+                <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+              </ul>
+
+              <ul class="nav navbar-nav" style="margin-left: 48vw;">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
+                    role="button" aria-haspopup="true" 
+                    aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
+                    data-toggle="dropdown" role="button" aria-haspopup="true" 
+                    aria-expanded="false">Listar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav">
+                <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
+                <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+              </ul>            
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+    </div>
+
+    <div class="container" style="width: 100%;"><!-- container principal-->
+      
+      <div class="row">
+          <div class="col-xs-10">
+            <h3 class="page-header texto_cabeca">Agenda</h3>
+          </div>
+          <div class="col-xs-2" style="align:center">
+            <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
+            value="Novo"/>
+          </div>
+      </div><!-- fecha div row -->
+
+      <div class="row txtbox"><!-- row  -->
+        <div class="col-lg-12 col-xs-12">
+          <div class="row"><!--div row de consulta -->
+            <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active">
+              <div class="col-lg-12 col-xs-12">
+                <div class="row paineldeconsulta">
+                  <div class="col-lg-12 col-xs-12"><!-- posiciona  -->
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <table class="table table-striped" id="tab_lista_agenda">
+                          <thead>
+                            <tr>
+                              <th class="fontTH">Nome Campanha</th>
+                              <th class="fontTH">Nome Cliente</th>
+                              <th class="fontTH">Endereço</th>
+                              <th class="fontTH">Enfermeiro(a)</th>
+                              <th class="fontTH">Data</th>
+                              <th class="fontTH">Hora Início</th>
+                              <th class="fontTH">Hora Fim</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          
+                          <?php
+                            $agendas = $wpdb->get_results( 
+                              "
+                              SELECT 
+                              `cd_atend`, 
+                              `nm_cmp`, 
+                              `nm_fant`,
+                              `ENDERECO`.`logradouro`,
+                              `ENDERECO`.`nm_end`,
+                              `ENDERECO`.`num_end`,
+                              `ENDERECO`.`complemento`,
+                              `ENDERECO`.`bairro`,
+                              `ENDERECO`.`cep`,
+                              `ENDERECO`.`cidade`,
+                              `ENDERECO`.`estado`,
+                              `dt_atend`, 
+                              `hr_ini`, 
+                              `hr_fim`, 
+                              `nm_enfermeiro` 
+                              FROM `ATENDIMENTO`, `CAMPANHA`, `CLIENTES`, `VCL_ENDERECO`, `ENDERECO`
+                              WHERE
+                              `ATENDIMENTO`.`cd_cmp`=`CAMPANHA`.`cd_cmp` AND
+                              `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` AND
+                              `CAMPANHA`.`cd_vcl_end`=`VCL_ENDERECO`.`cd_vcl_end` AND
+                              `VCL_ENDERECO`.`cd_end`=`ENDERECO`.`cd_end`
+                              ORDER BY `cd_atend` DESC
+
+                              "
+                            );
+                            
+                            foreach ( $agendas as $agenda ) 
+                            {
+                          ?>
+                            <tr>
+                              <td class="fontTD"><?php echo $agenda->nm_cmp ?></td>
+                              <td class="fontTD"><?php echo $agenda->nm_fant ?></td>
+                              <td class="fontTD"><?php echo $agenda->nm_end . ": " . $agenda->logradouro . ", " . $agenda->num_end . " - " . $agenda->bairro; ?></td>
+                              <td class="fontTD"><?php echo $agenda->nm_enfermeiro ?></td>
+                              <td class="fontTD"><?php echo $agenda->dt_atend ?></td>
+                              <td class="fontTD"><?php echo $agenda->hr_ini ?></td>
+                              <td class="fontTD"><?php echo $agenda->hr_fim ?></td>
+                            </tr>
+                            <?php
+                              }
+                            ?>
+          
+                          </tbody>
+                        </table>
+                      </div><!-- fecha panel corpo -->
+                    </div><!-- fecha panel default -->
+                  </div><!-- fecha col lg 12 -->
+                </div><!-- fecha row paineldemequipe -->
+            </div><!-- fecha col lg 12 -->
+            </div><!-- fecha div painel  -->
+          </div>
+          </div>
+        </div><!-- fecha col 12 -->
+      </div><!-- fecha row txtbox -->
+    </div><!-- fecha container principal -->  
 
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>

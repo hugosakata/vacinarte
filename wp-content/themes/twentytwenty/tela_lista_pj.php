@@ -40,6 +40,30 @@ global $wpdb;
     .corpo{
       background-color: WhiteSmoke;
     }
+    .texto_cabeca{
+      font-size: 25px;
+      margin-top: 2vw !important;
+      color: dimgray;
+      }
+    .barra4vw{
+      height: 4vw !important;
+    }
+    .cabeca{
+      border: none;
+      margin-left: -15px;
+      width: 103%;
+    }
+    .link_home{
+      margin-left: 2vw;
+      text-decoration: none;
+      color: #353b48;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .fontMenu{
+      font-size: 15px;
+      font-weight: bold;
+    }
     .dataTables_empty{
       text-align: center;
       font-weight: bold;
@@ -68,11 +92,6 @@ global $wpdb;
       height: 3.5vw;
       margin-top: 1vw;
     }
-    .texto_cabeca{
-      font-size: 25px;
-      margin-top: 2vw !important;
-      color: dimgray;
-      }
     .btn_icon{
       padding-left: 5px;
       cursor: pointer;
@@ -86,25 +105,6 @@ global $wpdb;
     .btn_contato{
       color: DarkCyan;
     } 
-    .barra4vw{
-      height: 4vw !important;
-    }
-    .cabeca{
-      border: none;
-      margin-left: -15px;
-      width: 103%;
-    }
-    .link_home{
-      margin-left: 2vw;
-      text-decoration: none;
-      color: #353b48;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .fontMenu{
-      font-size: 15px;
-      font-weight: bold;
-    }
     .th_1{
       width: 35%;
     }
