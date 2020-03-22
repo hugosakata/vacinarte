@@ -87,6 +87,11 @@ if($acao == 'salvar'){
 
       echo "<script language='javascript' type='text/javascript'>
       alert('Campanha salva com sucesso!');</script>";
+      
+      //limpa formulario
+      $acao = $cd_cli = $tp_srv = $local_srv = "";
+      $campanha = $cd_vcl_end = $dt_ini = $dt_fim = $form"";
+
     } else {
         $msg_err = "Ops! Faltou preencher algum campo obrigatório";
     }

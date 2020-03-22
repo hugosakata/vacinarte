@@ -126,8 +126,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-size: 15px;
       font-weight: bold;
     }
-     
+    .aviso{
+      font-size: 8px;
+      color: tomato;
+    }
     </style>
+
+    <script type="text/javascript">
+      function mostraAviso(){
+        document.getElementById('avisoPonto').removeClass('hide');
+      }
+    </script>
   </head>
   <body class="corpo">
 
@@ -237,7 +246,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="row">
                 <div class="form-group col-xs-1 col-xs-offset-2">
                   <label style="font-size: 14px;">Qtde</label>
-                  <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
+                  <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
+                  onblur="mostraAviso();">
                 </div>
               
                 <div class="form-group col-xs-2">
@@ -245,7 +255,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
                 </div>
               </div>
-
+              <span id="avisoPonto" class="aviso hide">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
             </div>
             <div class="row btns">
               <div class="col-xs-1 col-xs-offset-2">

@@ -133,6 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-size: 14px;
       border-radius: 6px;
       height: 3vw;
+      border: none;
     }
     #btn_end{
       padding-left: 10px;
