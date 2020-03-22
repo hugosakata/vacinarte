@@ -17,27 +17,52 @@ global $wpdb;
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel='stylesheet' id='dashicons-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dashicons.min.css?ver=5.3.2' media='all' />
-<link rel='stylesheet' id='admin-bar-css'  href='http://vacinarte-admin.com.br/wp-includes/css/admin-bar.min.css?ver=5.3.2' media='all' />
-<link rel='stylesheet' id='wp-block-library-css'  href='http://vacinarte-admin.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' media='all' />
-<link rel='stylesheet' id='twentytwenty-style-css'  href='http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/style.css?ver=1.1' media='all' />
-
-
-    <script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-<script src='http://vacinarte-admin.com.br/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
-
+    <!-- DataTable -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
 
   </head>
   <style>
   .corpo{
 		background-color: WhiteSmoke;
 	}
+  .texto_cabeca{
+    font-size: 25px;
+    margin-top: 2vw !important;
+    color: dimgray;
+  }
+  .barra4vw{
+    height: 4vw !important;
+  }
+  .cabeca{
+    border: none;
+    margin-left: -15px;
+    width: 103%;
+  }
+  .link_home{
+    margin-left: 2vw;
+    text-decoration: none;
+    color: #353b48;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .fontMenu{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  #btn_novo{
+      width: 8vw;
+      font-size: 14px;
+      border-radius: 6px;
+      height: 3.5vw;
+      margin-top: 1vw;
+    }
+  .dataTables_empty{
+    text-align: center;
+    font-weight: bold;
+  }
   #tab_lista_campanha_paginate{
     font-size: 15px;
     margin-top: -2vw;
@@ -57,7 +82,7 @@ global $wpdb;
     width: 30%;
   }
   input{
-    height: 1vw;
+    height: 2vw;
   } 
   .btn_cad{
     margin-top: 2.6vw;
@@ -72,129 +97,180 @@ global $wpdb;
   </style>
   <body class="corpo">
   
-  <?php include 'tela_header.php';?>
-  <?php if ($_COOKIE["logado"] <= 0){
+    <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
   
-<div class="container" style="width: 100%;"><!-- container principal-->
-    
-    <div class="row">
-        <div class="col-xs-10">
-          <h3 class="page-header">Campanhas</h3>
-        </div>
-        <div class="col-xs-2" style="align:center">
-          <input class="btn_cad pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
-          value="Novo" style="margin-top:35px"/>
-        </div>
-    </div><!-- fecha div row -->
-
-    <div class="row txtbox"><!-- row  -->
-      <div class="col-lg-12 col-xs-12">
-        <div class="row"><!--div row de consulta -->
-          <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active">
-            <div class="col-lg-12 col-xs-12">
-              <div class="row paineldeconsulta">
-                <div class="col-lg-12 col-xs-12"><!-- posiciona  -->
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-                      <table class="table table-striped" id="tab_lista_campanha">
-                        <thead>
-                          <tr>
-                            <th class="fontTH">Nome Campanha</th>
-                            <th class="fontTH">Cliente</th>
-                            <th class="fontTH">Tipo Serviço</th>
-                            <th class="fontTH">Data Início</th>
-                            <th class="fontTH">Data Fim</th>
-                            <th class="fontTH">Endereço</th>
-                            <th class="fontTH">Contato</th>
-                            <th class="fontTH">Vacina</th>
-                            <th class="fontTH">Qtde</th>
-                            <th class="fontTH">Valor Unit</th>
-                            <th class="fontTH">Ações</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        
-                        <?php
-                          $campanhas = $wpdb->get_results( 
-                            "
-                            SELECT
-                              CMP.CD_CMP,
-                              CMP.NM_CMP,
-                              CMP.CD_CLI,
-                              CLI.NM_FANT,
-                              CMP.CD_TP_SRV,
-                              SRV.NM_TP_SRV,
-                              CMP.DT_INI,
-                              CMP.DT_FIM,
-                              END.CD_END,
-                              CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL,
-                              VC.CD_CTT,
-                              CONCAT(CON.NM_CTT, ': ', CON.TEL_PRI, ' / ', CON.EMAIL) CTTO,
-                              VVC.CD_VCL_VCNA_CMP,
-                              VVC.CD_VCNA,
-                              CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) VAC,
-                              VVC.QTD_VCNA,
-                              VVC.VLR_VCNA
-                            FROM
-                              CAMPANHA CMP
-                              LEFT JOIN TP_SRV SRV ON CMP.CD_TP_SRV = SRV.CD_TP_SRV
-                              LEFT JOIN CLIENTES CLI ON CMP.CD_CLI = CLI.CD_CLI
-                              LEFT JOIN VCL_ENDERECO VE ON CMP.CD_VCL_END = VE.CD_VCL_END
-                              LEFT JOIN ENDERECO END ON VE.CD_END = END.CD_END AND CMP.CD_CLI = VE.CD_CLI
-                              LEFT JOIN VCL_CONTATO VC ON CMP.CD_CLI = VC.CD_CLI
-                              LEFT JOIN CONTATO CON ON VC.CD_CTT = CON.CD_CTT
-                              LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
-                              LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
-                              LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
-                            WHERE
-                              CMP.DT_FIM >= now()
-                            ORDER BY
-                              CMP.DT_INI ASC
-
-                            "
-                          );
-                          
-                          foreach ( $campanhas as $campanha ) 
-                          {
-                        ?>
-                          <tr>
-                            <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
-                            <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
-                            <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
-                            <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
-                            <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
-                            <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
-                            <td class="fontTD"><?php echo $campanha->CTTO ?></td>
-                            <td class="fontTD"><?php echo $campanha->VAC ?></td>
-                            <td class="fontTD"><?php echo $campanha->QTD_VCNA ?></td>
-                            <td class="fontTD"><?php echo $campanha->VLR_VCNA ?></td>
-                            <td class="fontTD">
-                              <a title='Agendar' href='http://vacinarte-admin.com.br/cadastrar-agendamento/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">access_alarm</i></a>
-                              <a title='Vacinas' href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">colorize</i></a>
-                              
-                            </td>
-                          </tr>
-                          <?php
-                            }
-                          ?>
+    <div class="container-fluid barra4vw">
+    <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
+      <div >
+        <nav class="navbar navbar-default cabeca barra4vw">
+          <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
+            <!-- Brand and toggle get grouped for better mobile display -->
         
-                        </tbody>
-                      </table>
-                    </div><!-- fecha panel corpo -->
-                  </div><!-- fecha panel default -->
-                </div><!-- fecha col lg 12 -->
-              </div><!-- fecha row paineldemequipe -->
-          </div><!-- fecha col lg 12 -->
-          </div><!-- fecha div painel  -->
-        </div>
-        </div>
-      </div><!-- fecha col 12 -->
-    </div><!-- fecha row txtbox -->
-</div><!-- fecha container principal -->  
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar barra4vw">
+              <ul class="nav navbar-nav" style="margin-top: 1vw;">
+                <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+              </ul>
+
+              <ul class="nav navbar-nav" style="margin-left: 48vw;">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
+                    role="button" aria-haspopup="true" 
+                    aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
+                    data-toggle="dropdown" role="button" aria-haspopup="true" 
+                    aria-expanded="false">Listar <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
+                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav">
+                <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
+                <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+              </ul>            
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="container" style="width: 100%;"><!-- container principal-->
+      
+      <div class="row">
+          <div class="col-xs-10">
+            <h3 class="page-header texto_cabeca">Campanhas</h3>
+          </div>
+          <div class="col-xs-2" style="align:center">
+            <input id="btn_novo" class="btn btn-danger pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/campanha/';" 
+            value="Novo" />
+          </div>
+      </div><!-- fecha div row -->
+
+      <div class="row txtbox"><!-- row  -->
+        <div class="col-lg-12 col-xs-12">
+          <div class="row"><!--div row de consulta -->
+            <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active">
+              <div class="col-lg-12 col-xs-12">
+                <div class="row paineldeconsulta">
+                  <div class="col-lg-12 col-xs-12"><!-- posiciona  -->
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <table class="table table-striped" id="tab_lista_campanha">
+                          <thead>
+                            <tr>
+                              <th class="fontTH">Nome Campanha</th>
+                              <th class="fontTH">Cliente</th>
+                              <th class="fontTH">Tipo Serviço</th>
+                              <th class="fontTH">Data Início</th>
+                              <th class="fontTH">Data Fim</th>
+                              <th class="fontTH">Endereço</th>
+                              <th class="fontTH">Contato</th>
+                              <th class="fontTH">Vacina</th>
+                              <th class="fontTH">Qtde</th>
+                              <th class="fontTH">Valor Unit</th>
+                              <th class="fontTH">Ações</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          
+                          <?php
+                            $campanhas = $wpdb->get_results( 
+                              "
+                              SELECT
+                                CMP.CD_CMP,
+                                CMP.NM_CMP,
+                                CMP.CD_CLI,
+                                CLI.NM_FANT,
+                                CMP.CD_TP_SRV,
+                                SRV.NM_TP_SRV,
+                                CMP.DT_INI,
+                                CMP.DT_FIM,
+                                END.CD_END,
+                                CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL,
+                                VC.CD_CTT,
+                                CONCAT(CON.NM_CTT, ': ', CON.TEL_PRI, ' / ', CON.EMAIL) CTTO,
+                                VVC.CD_VCL_VCNA_CMP,
+                                VVC.CD_VCNA,
+                                CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) VAC,
+                                VVC.QTD_VCNA,
+                                VVC.VLR_VCNA
+                              FROM
+                                CAMPANHA CMP
+                                LEFT JOIN TP_SRV SRV ON CMP.CD_TP_SRV = SRV.CD_TP_SRV
+                                LEFT JOIN CLIENTES CLI ON CMP.CD_CLI = CLI.CD_CLI
+                                LEFT JOIN VCL_ENDERECO VE ON CMP.CD_VCL_END = VE.CD_VCL_END
+                                LEFT JOIN ENDERECO END ON VE.CD_END = END.CD_END AND CMP.CD_CLI = VE.CD_CLI
+                                LEFT JOIN VCL_CONTATO VC ON CMP.CD_CLI = VC.CD_CLI
+                                LEFT JOIN CONTATO CON ON VC.CD_CTT = CON.CD_CTT
+                                LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
+                                LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
+                                LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
+                              WHERE
+                                CMP.DT_FIM >= now()
+                              ORDER BY
+                                CMP.DT_INI ASC
+
+                              "
+                            );
+                            
+                            foreach ( $campanhas as $campanha ) 
+                            {
+                          ?>
+                            <tr>
+                              <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
+                              <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
+                              <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
+                              <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
+                              <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
+                              <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
+                              <td class="fontTD"><?php echo $campanha->CTTO ?></td>
+                              <td class="fontTD"><?php echo $campanha->VAC ?></td>
+                              <td class="fontTD"><?php echo $campanha->QTD_VCNA ?></td>
+                              <td class="fontTD"><?php echo $campanha->VLR_VCNA ?></td>
+                              <td class="fontTD">
+                                <a title='Agendar' href='http://vacinarte-admin.com.br/cadastrar-agendamento/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">access_alarm</i></a>
+                                <a title='Vacinas' href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">colorize</i></a>
+                                
+                              </td>
+                            </tr>
+                            <?php
+                              }
+                            ?>
+          
+                          </tbody>
+                        </table>
+                      </div><!-- fecha panel corpo -->
+                    </div><!-- fecha panel default -->
+                  </div><!-- fecha col lg 12 -->
+                </div><!-- fecha row paineldemequipe -->
+            </div><!-- fecha col lg 12 -->
+            </div><!-- fecha div painel  -->
+          </div>
+          </div>
+        </div><!-- fecha col 12 -->
+      </div><!-- fecha row txtbox -->
+    </div><!-- fecha container principal -->  
 
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>

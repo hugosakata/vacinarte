@@ -85,7 +85,7 @@ global $wpdb;
     #tab_cli_pj_filter.label#text{
       text-align: left;
     }
-    #btn_salvar{
+    #btn_novo{
       width: 8vw;
       font-size: 14px;
       border-radius: 6px;
@@ -189,7 +189,7 @@ global $wpdb;
           <h3 class="page-header texto_cabeca">Clientes PJ</h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+          <input id="btn_novo" class="btn btn-danger pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
           value="Novo"/>
         </div>
     </div><!-- fecha div row -->
