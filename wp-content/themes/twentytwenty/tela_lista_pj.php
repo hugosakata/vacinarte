@@ -109,7 +109,7 @@ global $wpdb;
     .th_3{
       width: 20%;
     }
-    .th_1{
+    .th_4{
       width: 15%;
     }
     </style>
