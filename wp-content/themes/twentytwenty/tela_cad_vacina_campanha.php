@@ -131,160 +131,160 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body class="corpo">
 
-  <?php if ($_COOKIE["logado"] <= 0){
+    <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
 
-<div class="container-fluid barra4vw">
-    <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
-    <div >
-        <nav class="navbar navbar-default cabeca barra4vw">
-          <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
-            <!-- Brand and toggle get grouped for better mobile display -->
-        
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="navbar barra4vw">
-              <ul class="nav navbar-nav" style="margin-top: 1vw; float: left;">
-                <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
-              </ul>
-
-              <ul class="nav navbar-nav" style="margin-left: 48vw;">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
-                    role="button" aria-haspopup="true" 
-                    aria-expanded="false">Cadastrar <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
-                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
-                  </ul>
-                </li>
-              </ul>
-              
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
-                    data-toggle="dropdown" role="button" aria-haspopup="true" 
-                    aria-expanded="false">Listar <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
-                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
-                  </ul>
-                </li>
-              </ul>
-
-              <ul class="nav navbar-nav">
-                <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
-                <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
-                <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
-                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
-              </ul>            
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
-      </div>
-
-  </div>
-
-<div class="container"><!-- container principal-->
-  
-    <div class="row">
-        <div class="col-lg-12 col-xs-12">
-          <h3 class="page-header texto_cabeca">Vacina</h3>
-        </div>
-    </div><!-- fecha div row -->
-
-    <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
-
-    <div class="row txtbox"><!-- row formulario -->
-      <form class="form" action="#" method="post">
-        <div class="col-lg-12 col-xs-12">
+    <div class="container-fluid barra4vw">
+      <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
+      <div >
+          <nav class="navbar navbar-default cabeca barra4vw">
+            <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
+              <!-- Brand and toggle get grouped for better mobile display -->
           
-          <div class="row formCadVacCmp">
-              <div class="form-group col-xs-3 col-xs-offset-2">
-                  <label style="font-size: 14px;">Vacina</label>
-                    <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
-                      <option value=""></option>
-                      <?php
-                        $vacinas = $wpdb->get_results( 
-                          "
-                          SELECT
-                            a.cd_vcna,
-                            a.nm_reg,
-                            a.cd_fbcnte_vcna,
-                            b.nm_fbcnte_vcna
-                          FROM
-                            VACINA a
-                            LEFT JOIN
-                            FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna
-                          
-                          "
-                        );
-                        
-                        foreach ( $vacinas as $vacinas ) 
-                        {
-                      ?>
-                      <option value=<?php echo $vacinas->cd_vcna ?>;><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
-                      <?php
-                        }
-                      ?>
-                    </select>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="form-group col-xs-1 col-xs-offset-2">
-                <label style="font-size: 14px;">Qtde</label>
-                <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
-              </div>
-            
-              <div class="form-group col-xs-2">
-                <label style="font-size: 14px;">Valor Unit</label>
-                <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
-              </div>
-            </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="navbar barra4vw">
+                <ul class="nav navbar-nav" style="margin-top: 1vw; float: left;">
+                  <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+                </ul>
 
-          </div>
-          <div class="row btns">
-            <div class="col-xs-1 col-xs-offset-2">
-              <input id="btn_salvar" type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
-            </div>
-              
-          </div>
+                <ul class="nav navbar-nav" style="margin-left: 48vw;">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
+                      role="button" aria-haspopup="true" 
+                      aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
+                      <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                      <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
+                      data-toggle="dropdown" role="button" aria-haspopup="true" 
+                      aria-expanded="false">Listar <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
+                      <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
+                      <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                    </ul>
+                  </li>
+                </ul>
 
-        </div><!-- fecha col 12 -->
-      </form><!-- fecha form -->
-    </div><!-- fecha row txtbox -->
-
-      <!-- Modal -->
-      <div id="modalBtnCad" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Cadastrar</h4>
-            </div>
-            <div class="modal-body">
-              <div class="col-xs-2" style="align:center">
-                <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
-                value="Novo"/>
-              </div>
-              <div class="col-xs-2" style="align:center">
-                <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
-                value="Novo"/>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-
+                <ul class="nav navbar-nav">
+                  <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
+                  <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                  <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                  <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+                </ul>            
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
         </div>
-      </div>
+
+    </div>
+
+  <div class="container"><!-- container principal-->
+    
+      <div class="row">
+          <div class="col-lg-12 col-xs-12">
+            <h3 class="page-header texto_cabeca">Vacina</h3>
+          </div>
+      </div><!-- fecha div row -->
+
+      <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+
+      <div class="row txtbox"><!-- row formulario -->
+        <form class="form" action="#" method="post">
+          <div class="col-lg-12 col-xs-12">
+            
+            <div class="row formCadVacCmp">
+                <div class="form-group col-xs-3 col-xs-offset-2">
+                    <label style="font-size: 14px;">Vacina</label>
+                      <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
+                        <option value=""></option>
+                        <?php
+                          $vacinas = $wpdb->get_results( 
+                            "
+                            SELECT
+                              a.cd_vcna,
+                              a.nm_reg,
+                              a.cd_fbcnte_vcna,
+                              b.nm_fbcnte_vcna
+                            FROM
+                              VACINA a
+                              LEFT JOIN
+                              FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna
+                            
+                            "
+                          );
+                          
+                          foreach ( $vacinas as $vacinas ) 
+                          {
+                        ?>
+                        <option value=<?php echo $vacinas->cd_vcna ?>;><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
+                        <?php
+                          }
+                        ?>
+                      </select>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group col-xs-1 col-xs-offset-2">
+                  <label style="font-size: 14px;">Qtde</label>
+                  <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
+                </div>
+              
+                <div class="form-group col-xs-2">
+                  <label style="font-size: 14px;">Valor Unit</label>
+                  <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
+                </div>
+              </div>
+
+            </div>
+            <div class="row btns">
+              <div class="col-xs-1 col-xs-offset-2">
+                <input id="btn_salvar" type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
+              </div>
+                
+            </div>
+
+          </div><!-- fecha col 12 -->
+        </form><!-- fecha form -->
+      </div><!-- fecha row txtbox -->
+
+        <!-- Modal -->
+        <div id="modalBtnCad" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cadastrar</h4>
+              </div>
+              <div class="modal-body">
+                <div class="col-xs-2" style="align:center">
+                  <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+                  value="Novo"/>
+                </div>
+                <div class="col-xs-2" style="align:center">
+                  <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
+                  value="Novo"/>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
 
     
@@ -294,4 +294,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
    
   </body>
-  </html>
+</html>

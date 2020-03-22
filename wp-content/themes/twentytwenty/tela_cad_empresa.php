@@ -91,8 +91,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <!-- <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"> -->
 
-    <script type='text/javascript' src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <!-- <script type='text/javascript' src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
 
     <style type="text/css">
       .help-block{
