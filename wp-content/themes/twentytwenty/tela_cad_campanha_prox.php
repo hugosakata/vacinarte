@@ -132,8 +132,8 @@ if($acao == 'salvar'){
     height: 3vw;
   }
   #btn_vac{
-    padding-left: 18px;
-    margin-left: 2vw;
+    padding-left: 14px;
+    margin-left: 11vw;
   }
   .formCadCmp{
     margin-top: -2vw;
@@ -304,7 +304,7 @@ if($acao == 'salvar'){
                 <input id="btn_salvar" type="submit" class="button btn btn-danger btn_salvar" value="Salvar">
               </div>
               <div class="col-xs-1">
-                <input id="btn_vac" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+                <input id="btn_vac" class="btn btn-danger" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
                 value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
               </div>  
             </div>
