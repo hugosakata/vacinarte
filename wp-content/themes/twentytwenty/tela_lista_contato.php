@@ -21,16 +21,10 @@ if(isset($_GET['id'])){
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- DataTable -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../DataTables/css/dataTables.jqueryui.min.css">
-    <link href="../css/datatables.min.css" rel="stylesheet" >
-    <script type="text/javascript" src="../DataTables/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="../DataTables/js/dataTables.jqueryui.min.js"></script>
-    <script type="text/javascript" src="../DataTables/js/jquery.dataTables.min.js"></script> -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
 
   </head>
   <style>
@@ -61,6 +55,10 @@ if(isset($_GET['id'])){
       font-size: 15px;
       font-weight: bold;
     }
+    .dataTables_empty{
+      text-align: center;
+      font-weight: bold;
+    }
     #tab_lista_contatos_info, #tab_lista_contatos_paginate{
       font-size: 15px;
     }
@@ -73,7 +71,7 @@ if(isset($_GET['id'])){
     }
     #tab_lista_contatos_filter{
       width: 30%;
-      margin-right: 0.5vw;
+      margin-right: 2vw;
     }
     #tab_lista_contatos_filter.label#text{
       text-align: left;
@@ -224,7 +222,7 @@ if(isset($_GET['id'])){
       </div><!-- fecha row txtbox -->
     </div><!-- fecha container principal -->  
 
-<script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
+    <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
     
