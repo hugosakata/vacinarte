@@ -35,7 +35,7 @@ if(isset($_GET['id'])){
     }
     .texto_cabeca{
       font-size: 25px;
-      margin-top: 1vw !important;
+      margin-top: 2vw !important;
       color: dimgray;
     }
     .barra4vw{
@@ -76,12 +76,8 @@ if(isset($_GET['id'])){
       text-align: left;
     }
     input{
-      height: 1vw;
+      height: 2vw;
     } 
-    .btn_salvar{
-      margin-top: 2.6vw;
-      height: 4.5vw;
-    }
     #btn_salvar{
       width: 8vw;
       font-size: 14px;
