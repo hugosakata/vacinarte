@@ -99,13 +99,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Cesup Styles -->
-    <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
+    
     <!-- Google Material Icons -->
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" type="text/css"
-          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"> -->
+    <link rel="stylesheet" type="text/css"
+          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
     
     <style type="text/css">
       .help-block{
