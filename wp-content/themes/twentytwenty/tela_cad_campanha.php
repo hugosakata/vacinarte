@@ -63,6 +63,7 @@ load();
         width: 8vw;
         font-size: 14px;
         border-radius: 6px;
+        height: 3vw;
       }
       .formCadCmp{
         margin-top: -2vw;
