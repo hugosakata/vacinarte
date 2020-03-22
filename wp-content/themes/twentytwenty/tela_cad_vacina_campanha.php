@@ -120,12 +120,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         text-decoration: none;
         color: #353b48;
         font-size: 18px;
+        font-weight: bold;
       }
-      .navbar-default .navbar-nav > li > a {
-        text-decoration: none;
-        color: DimGray;
-        font-size: 18px;
-      }
+      .fontMenu{
+      font-size: 15px;
+      font-weight: bold;
+    }
+     
     </style>
   </head>
   <body class="corpo">
@@ -148,9 +149,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
               </div>
 
-              <ul class="nav navbar-nav" style="margin-left: 36vw;">
+              <ul class="nav navbar-nav" style="margin-left: 48vw;">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                  <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
                     role="button" aria-haspopup="true" 
                     aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -163,7 +164,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" 
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
                     data-toggle="dropdown" role="button" aria-haspopup="true" 
                     aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -176,9 +177,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
               <ul class="nav navbar-nav">
                 <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
-                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
-                <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
-                <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
               </ul>            
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

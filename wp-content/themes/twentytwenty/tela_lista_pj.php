@@ -94,7 +94,8 @@ global $wpdb;
       margin-left: 2vw;
       text-decoration: none;
       color: #353b48;
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: bold;
     }
     .fontMenu{
       font-size: 15px;
