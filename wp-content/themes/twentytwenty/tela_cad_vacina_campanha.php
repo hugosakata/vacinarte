@@ -127,7 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-weight: bold;
     }
     .aviso{
-      font-size: 8px;
+      font-size: 12px;
       color: tomato;
     }
     </style>
@@ -250,8 +250,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   <label style="font-size: 14px;">Valor Unit</label>
                   <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
                 </div>
+
+                <div class="form-group col-xs-2">
+                  <span id="avisoPonto" class="aviso hide">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
+                </div>
               </div>
-              <span id="avisoPonto" class="aviso hide">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
             </div>
             <div class="row btns">
               <div class="col-xs-1 col-xs-offset-2">
