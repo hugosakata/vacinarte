@@ -305,7 +305,7 @@ if($acao == 'salvar'){
               </div>
               <div class="col-xs-1">
                 <input id="btn_vac" class="btn btn-danger" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
-                value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+                value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray; border: none;'"; } ?>/>
               </div>  
             </div>
 
