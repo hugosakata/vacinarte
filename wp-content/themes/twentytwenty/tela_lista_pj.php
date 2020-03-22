@@ -44,7 +44,7 @@ global $wpdb;
       font-size: 15px;
     }
     input{
-      height: 1vw;
+      height: 2vw;
     }
     #tab_cli_pj_length{
       width: 30%;
@@ -52,7 +52,7 @@ global $wpdb;
     }
     #tab_cli_pj_filter{
       width: 30%;
-      margin-right: 0.5vw;
+      margin-right: 2vw;
     }
     #tab_cli_pj_filter.label#text{
       text-align: left;
@@ -62,10 +62,11 @@ global $wpdb;
       font-size: 14px;
       border-radius: 6px;
       height: 3.5vw;
+      margin-top: 1vw;
     }
     .texto_cabeca{
       font-size: 25px;
-      margin-top: 0.5vw !important;
+      margin-top: 2vw !important;
       color: dimgray;
       }
     .btn_icon{
@@ -99,6 +100,18 @@ global $wpdb;
       font-size: 15px;
       font-weight: bold;
     }
+    .th_1{
+      width: 35%;
+    }
+    .th_2{
+      width: 30%;
+    }
+    .th_3{
+      width: 20%;
+    }
+    .th_1{
+      width: 15%;
+    }
     </style>
   </head>
 
@@ -125,7 +138,7 @@ global $wpdb;
                 <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
               </ul>
 
-              <ul class="nav navbar-nav" style="margin-left: 36vw;">
+              <ul class="nav navbar-nav" style="margin-left: 48vw;">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
                     role="button" aria-haspopup="true" 
@@ -140,7 +153,7 @@ global $wpdb;
               
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" style="text-decoration: none;" class="dropdown-toggle" 
+                  <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
                     data-toggle="dropdown" role="button" aria-haspopup="true" 
                     aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -171,7 +184,7 @@ global $wpdb;
           <h3 class="page-header texto_cabeca">Clientes PJ</h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+          <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
           value="Novo"/>
         </div>
     </div><!-- fecha div row -->
@@ -189,10 +202,10 @@ global $wpdb;
                       <table class="table table-striped" id="tab_cli_pj">
                         <thead>
                           <tr>
-                            <th>Razão Social</th>
-                            <th>Nome Fantasia</th>
-                            <th>CNPJ</th>
-                            <th>Ações</th>
+                            <th class="th_1">Razão Social</th>
+                            <th class="th_2">Nome Fantasia</th>
+                            <th class="th_3">CNPJ</th>
+                            <th class="th_4">Ações</th>
                           </tr>
                         </thead>
                         <tbody>
