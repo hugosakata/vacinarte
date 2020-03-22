@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Google Material Icons -->
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -140,6 +140,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-size: 15px;
       font-weight: bold;
     }
+    input{
+      height: 2vw;
+    } 
     </style>
     <script type='text/javascript'
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
