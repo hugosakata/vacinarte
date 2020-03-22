@@ -97,11 +97,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <title>Agendamentos</title>
     
+    <!-- Bootstrap -->
+    <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Cesup Styles -->
+    <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
     <!-- Google Material Icons -->
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" type="text/css"
-          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <!-- <link rel="stylesheet" type="text/css"
+          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"> -->
     
     <style type="text/css">
       .help-block{
@@ -113,36 +117,109 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .corpo{
 		    background-color: WhiteSmoke;
 	    }
+      .texto_cabeca{
+        font-size: 25px;
+        margin-top: 1vw !important;
+        color: dimgray;
+      }
+      .barra4vw{
+        height: 4vw !important;
+      }
+      .cabeca{
+        border: none;
+        margin-left: -15px;
+        width: 103%;
+      }
+      .link_home{
+        margin-left: 2vw;
+        text-decoration: none;
+        color: #353b48;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .fontMenu{
+      font-size: 15px;
+      font-weight: bold;
+    }
     </style>
-    <script type='text/javascript'
+    <!-- <script type='text/javascript'
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type='text/javascript'
-            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
     
   </head>
   <body class="corpo">
 
-  <?php include 'tela_header.php'; ?>
   
-  <?php if ($_COOKIE["logado"] <= 0){
+    <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='http://vacinarte-admin.com.br/';</script>";
     }?>
+
+<div class="container-fluid barra4vw">
+      <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
+      <div >
+          <nav class="navbar navbar-default cabeca barra4vw">
+            <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
+              <!-- Brand and toggle get grouped for better mobile display -->
+          
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="navbar barra4vw">
+                <ul class="nav navbar-nav" style="margin-top: 1vw; float: left;">
+                  <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+                </ul>
+
+                <ul class="nav navbar-nav" style="margin-left: 48vw;">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle fontMenu" data-toggle="dropdown" 
+                      role="button" aria-haspopup="true" 
+                      aria-expanded="false">Cadastrar <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
+                      <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
+                      <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" style="text-decoration: none;" class="dropdown-toggle fontMenu" 
+                      data-toggle="dropdown" role="button" aria-haspopup="true" 
+                      aria-expanded="false">Listar <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
+                      <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
+                      <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                  <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
+                  <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                  <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
+                  <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+                </ul>            
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        </div>
+
+    </div>
+
 <div class="container"><!-- container principal-->
     
     <div class="row">
         <div class="col-lg-12">
-          <h3 class="page-header">Agendamento de campanha
-          <br>
-            <small>Preencha o formulário abaixo para agendar</small> 
-          </h3>
+          <h3 class="page-header texto_cabeca">Agendamento de campanha</h3>
         </div>
     </div><!-- fecha div row -->
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
     <div class="row txtbox"><!-- row formulario -->
-      <div class="col-lg-12 col-xs-8" style="margin-top: -1vw;">
+      <div class="col-lg-12 col-xs-8" >
 
 <div class="accordion" id="searchAccordion">
       <div class="accordion-group">
