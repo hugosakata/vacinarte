@@ -16,12 +16,17 @@ if(isset($_GET['id'])){
    
     <title>Endereços do Cliente</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <!-- <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
+    <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- DataTable -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
 
   </head>
   <style>
@@ -157,7 +162,7 @@ if(isset($_GET['id'])){
         <div class="col-xs-2" style="align:center">
           <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
           onclick="location.href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php echo $id_cli; ?>';" 
-          value="Novo" style="margin-top:35px"/>
+          value="Novo" />
         </div>
     </div><!-- fecha div row -->
 
