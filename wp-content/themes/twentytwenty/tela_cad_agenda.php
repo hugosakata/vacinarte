@@ -142,10 +142,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-weight: bold;
     }
     </style>
-    <!-- <script type='text/javascript'
+    <script type='text/javascript'
             src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type='text/javascript'
-            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     
   </head>
   <body class="corpo">
