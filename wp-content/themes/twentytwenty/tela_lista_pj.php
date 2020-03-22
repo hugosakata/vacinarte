@@ -126,7 +126,7 @@ global $wpdb;
       window.location.href='http://vacinarte-admin.com.br/';</script>";
   }?>
 
- <div class="container-fluid barra4vw">
+  <div class="container-fluid barra4vw">
     <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
     <div >
         <nav class="navbar navbar-default cabeca barra4vw">
