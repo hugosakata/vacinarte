@@ -233,7 +233,7 @@ global $wpdb;
                             <td><?php echo $cliente->nm_fant ?></td>
                             <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
-                              <a title='Editar' href='http://vacinarte-admin.com.br/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_edit">edit</i></a>
+                              <a class="hide" title='Editar' href='http://vacinarte-admin.com.br/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_edit">edit</i></a>
                               <a title='Endereços' href='http://vacinarte-admin.com.br/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco">home</i></a>
                               <a title='Contatos' href='http://vacinarte-admin.com.br/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato">phone</i></a>
                               <!-- <a href='#/?delete=<?php //echo $cliente->cd_cli; ?>'><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a> -->

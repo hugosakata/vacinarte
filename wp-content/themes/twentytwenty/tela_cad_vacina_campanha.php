@@ -132,11 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     </style>
 
-    <script type="text/javascript">
-      function mostraAviso(){
-        document.getElementById('avisoPonto').removeClass('hide');
-      }
-    </script>
+    
   </head>
   <body class="corpo">
 
@@ -302,6 +298,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      function mostraAviso(){
+        $('#avisoPonto').removeClass('hide');
+      }
+    </script>
    
   </body>
 </html>
