@@ -145,9 +145,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar barra4vw">
-              <div style="margin-top: 1vw;">
+              <ul class="nav navbar-nav" style="margin-top: 1vw; float: left;">
                 <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
-              </div>
+              </ul>
 
               <ul class="nav navbar-nav" style="margin-left: 48vw;">
                 <li class="dropdown">
