@@ -68,7 +68,6 @@ global $wpdb;
   }
   #tab_lista_campanha_filter{
     width: 30%;
-    margin-top: 2vw;
   }
   #tab_lista_campanha_length{
     width: 30%;
