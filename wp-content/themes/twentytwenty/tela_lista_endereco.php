@@ -182,7 +182,7 @@ if(isset($_GET['id'])){
                             <th>CEP</th>
                             <th>Cidade</th>
                             <th>Estado</th>
-                            <th>Ativo</th>
+                            <!-- <th>Ativo</th> -->
                             <!-- <th>Ações</th> -->
                           </tr>
                         </thead>
@@ -218,7 +218,7 @@ if(isset($_GET['id'])){
                             <td><?php echo $endereco->cep ?></td>
                             <td><?php echo $endereco->cidade ?></td>
                             <td><?php echo $endereco->estado ?></td>
-                            <td><?php echo $endereco->ativo ?></td>
+                            <!-- <td><?php echo $endereco->ativo ?></td> -->
                             <!-- <td>
                               <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php //echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
