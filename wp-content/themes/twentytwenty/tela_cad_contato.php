@@ -104,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Cadastro de Contato</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Cesup Styles -->
+    <!-- Styles -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <style type="text/css">
