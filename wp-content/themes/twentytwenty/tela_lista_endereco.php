@@ -57,11 +57,7 @@ if(isset($_GET['id'])){
       font-size: 15px;
       font-weight: bold;
     }
-    #tab_lista_end_paginate{
-      font-size: 15px;
-      margin-top: -2vw;
-    }
-    #tab_lista_end_info{
+    #tab_lista_end_info, #tab_lista_end_paginate{
       font-size: 15px;
     }
     .dataTables_empty{
@@ -70,10 +66,14 @@ if(isset($_GET['id'])){
     }
     #tab_lista_end_filter{
       width: 30%;
-      margin-top: -3vw;
+      margin-right: 2vw;
     }
     #tab_lista_end_length{
       width: 30%;
+      margin-left: 1vw;
+    }
+    #tab_lista_end_filter.label#text{
+      text-align: left;
     }
     input{
       height: 1vw;

@@ -40,6 +40,10 @@ global $wpdb;
     .corpo{
       background-color: WhiteSmoke;
     }
+    .dataTables_empty{
+      text-align: center;
+      font-weight: bold;
+    }
     #tab_cli_pj_info, #tab_cli_pj_paginate{
       font-size: 15px;
     }
