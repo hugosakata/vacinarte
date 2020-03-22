@@ -118,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       .link_home{
         margin-left: 2vw;
         text-decoration: none;
-        color: DimGray;
+        color: #353b48;
         font-size: 18px;
       }
       .navbar-default .navbar-nav > li > a {

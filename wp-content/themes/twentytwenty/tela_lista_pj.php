@@ -93,7 +93,7 @@ global $wpdb;
     .link_home{
       margin-left: 2vw;
       text-decoration: none;
-      color: DimGray;
+      color: #353b48;
       font-size: 20px;
     }
     .fontMenu{
