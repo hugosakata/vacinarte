@@ -131,6 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       color: tomato;
     }
     </style>
+
     
   </head>
   <body class="corpo">
@@ -241,7 +242,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="row">
                 <div class="form-group col-xs-1 col-xs-offset-2">
                   <label style="font-size: 14px;">Qtde</label>
-                  <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control">
+                  <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
+                  onblur="mostraAviso();">
                 </div>
               
                 <div class="form-group col-xs-2">
@@ -249,7 +251,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
                 </div>
               </div>
-              <span id="avisoPonto" class="aviso">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
+              <span id="avisoPonto" class="aviso hide">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
             </div>
             <div class="row btns">
               <div class="col-xs-1 col-xs-offset-2">
@@ -262,12 +264,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form><!-- fecha form -->
       </div><!-- fecha row txtbox -->
 
+        <!-- Modal -->
+        <div id="modalBtnCad" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cadastrar</h4>
+              </div>
+              <div class="modal-body">
+                <div class="col-xs-2" style="align:center">
+                  <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-pj/';" 
+                  value="Novo"/>
+                </div>
+                <div class="col-xs-2" style="align:center">
+                  <input id="btn_salvar" class="pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
+                  value="Novo"/>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
     
 </div><!-- fecha container principal -->  
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript">
+      function mostraAviso(){
+        $('#avisoPonto').removeClass('hide');
+      }
+    </script>
    
   </body>
 </html>

@@ -90,7 +90,7 @@ if($acao == 'salvar'){
       
       //limpa formulario
       $acao = $cd_cli = $tp_srv = $local_srv = "";
-      $campanha = $cd_vcl_end = $dt_ini = $dt_fim = $form"";
+      $campanha = $cd_vcl_end = $dt_ini = $dt_fim = $form = "";
 
     } else {
         $msg_err = "Ops! Faltou preencher algum campo obrigatório";
