@@ -127,8 +127,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-weight: bold;
     }
     .aviso{
-      font-size: 12px;
-      color: tomato;
+      font-size: 1vw;
+      color: maroon;
     }
     </style>
 
@@ -251,7 +251,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
                 </div>
 
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-2" style="margin-top: 30px;">
                   <span id="avisoPonto" class="aviso hide">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
                 </div>
               </div>
