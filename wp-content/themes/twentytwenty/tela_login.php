@@ -1,5 +1,8 @@
 <?php /* Template Name: Login */
-
+//passo a passo pra voltar pra producao
+//mudar as variaveis no arquiv wp-config.php
+//retirar o site home e url
+//comentar o banco de desenv e colocaro banco producao
 global $wpdb;
 
 //get_header(); 

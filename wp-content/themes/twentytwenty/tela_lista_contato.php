@@ -198,6 +198,7 @@ if (isset($acao) && $acao == "deletar"){
                               <th>Telefone</th>
                               <th>Email</th>
                               <th>Observação</th>
+                              <th>Ações</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -224,17 +225,11 @@ if (isset($acao) && $acao == "deletar"){
                               <td><?php echo $contato->tel_pri ?></td>
                               <td><?php echo $contato->email ?></td>
                               <td><?php echo $contato->obs_ctt ?></td>
-                              <?php
-                                if ($desenv=="true"){
-                                ?>
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                                 <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
                                 <a onclick="return confirm('Are you sure?');" href="#/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                               </td>
-                              <?php
-                                }
-                              ?>
                             </tr>
                             <?php
                               }
