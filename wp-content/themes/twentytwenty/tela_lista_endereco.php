@@ -222,7 +222,7 @@ if (isset($acao) && $acao == "delete"){
                             `VCL_ENDERECO` as VCL_ENDERECO 
                             WHERE 
                             ENDERECO.cd_end=VCL_ENDERECO.cd_end and 
-                            VCL_ENDERECO.cd_cli={$id_cli} order by `nm_end`, `logradouro`
+                            VCL_ENDERECO.cd_cli={$id_cli} and ativo=1 order by `nm_end`, `logradouro`
                             "
                           );
                           
