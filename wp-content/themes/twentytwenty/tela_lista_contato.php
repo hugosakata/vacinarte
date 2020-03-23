@@ -208,7 +208,7 @@ if (isset($acao) && $acao == "delete"){
                               SELECT `cd_ctt`, `cd_cli`, `nm_ctt`, `tel_pri`, 
                               `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
                               FROM `CONTATO`
-                              WHERE cd_cli={$id_cli} order by `nm_ctt`
+                              WHERE cd_cli={$id_cli} and status=1 order by `nm_ctt`
                               "
                             );
                             
