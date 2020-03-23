@@ -10,18 +10,17 @@ if(isset($_GET['id'])){
 }
 
 if (isset($acao) && $acao == "delete"){
-  $result = 1;
-  // $wpdb->update(
-  //   'CONTATO',
-  //   array(
-  //     'status'      => '0'     
-  //   ),
-  //   array( 'cd_ctt' =>  $id_ctt),
-  //   array(
-  //     '%d'
-  //   ),
-  //   array( '%d' )
-  // );
+  $result = $wpdb->update(
+    'CONTATO',
+    array(
+      'status'      => '0'     
+    ),
+    array( 'cd_ctt' =>  $id_ctt),
+    array(
+      '%d'
+    ),
+    array( '%d' )
+  );
   if($result > 0){
     echo "<script language='javascript' type='text/javascript'>
     alert('Contato excluído com sucesso!');</script>";
