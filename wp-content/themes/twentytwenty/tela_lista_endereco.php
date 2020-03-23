@@ -205,7 +205,7 @@ if(isset($_GET['id'])){
                           
                           if (count($enderecos)<=0){
                             echo "<script language='javascript' type='text/javascript'>
-                            window.location.href='<?php echo $home; ?>/cadastrar-endereco/?id={$id_cli}';</script>";
+                            window.location.href='{$home}/cadastrar-endereco/?id={$id_cli}';</script>";
                           }
 
 
