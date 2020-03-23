@@ -9,6 +9,9 @@ if(isset($_GET['id'])){
   $acao = $_GET['acao'];
 }
 
+echo "<script language='javascript' type='text/javascript'>
+    alert('{$acao},{$id_ctt}');</script>";
+
 if (isset($acao) && $acao == "deletar"){
   $result = 1;
   // $wpdb->update(
