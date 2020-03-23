@@ -214,7 +214,7 @@ if (isset($acao) && $acao == "delete"){
                             
                             if (count($contatos)<=0){
                               echo "<script language='javascript' type='text/javascript'>
-                              window.location.href='<?php echo $home; ?>/cadastrar-contato/?id={$id_cli}';</script>";
+                              window.location.href='{$home}/cadastrar-contato/?id={$id_cli}';</script>";
                             }
 
                             foreach ( $contatos as $contato ) 
