@@ -230,7 +230,7 @@ if (isset($acao) && $acao == "deletar"){
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                                 <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
-                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
+                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                               </td>
                             </tr>
                             <?php
