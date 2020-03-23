@@ -19,6 +19,11 @@ define('WP_CACHE', true);
  * @package WordPress
  */
 
+//desenv - producao comentar as duas linhas 23 e 24
+define ('WP_HOME', 'http://desenv.vacinarte-admin.com.br'); 
+define ('WP_SITEURL', 'http://desenv.vacinarte-admin.com.br');
+
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 //define( 'DB_NAME', 'u414589721_0BIRA' );
