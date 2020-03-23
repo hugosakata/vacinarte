@@ -4,7 +4,6 @@ global $wpdb;
 $home = get_home_url(); 
 
 if(isset($_GET['id'])){
-  $desenv = $_GET['desenv'];
   $id_cli = $_GET['id'];
   $id_ctt = $_GET['id_ctt'];
   $acao = $_GET['acao'];
