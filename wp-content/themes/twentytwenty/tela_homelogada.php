@@ -1,6 +1,7 @@
 <?php /* Template Name: HomeLogada */
 
 global $wpdb;
+$home = get_home_url(); 
 ?>
  
  <?php
@@ -132,7 +133,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
     <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/';</script>";
+        window.location.href='{$home}/';</script>";
     }?>
     
     <div class="wrap">
@@ -145,7 +146,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                     <div class="row painel" style="text-align:center;">
 
                     <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
-						<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-pj/">
+						<a class="linkPanel" href="<?php echo $home; ?>/listar-pj/">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelPJ">
                                     <div class="row">
@@ -160,7 +161,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                     </div><!-- fecha col -->
 
                     <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
-						<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-campanha/">
+						<a class="linkPanel" href="<?php echo $home; ?>/listar-campanha/">
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelCMP">
                                     <div class="row">
@@ -175,7 +176,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                     </div><!-- fecha col -->
 
                     <div class="col" style="display:inline-block; margin: 10px; width: 15vw; cursor: pointer;">
-						<a class="linkPanel" href="http://vacinarte-admin.com.br/listar-agendamento/">    
+						<a class="linkPanel" href="<?php echo $home; ?>/listar-agendamento/">    
                             <div class="panel " id="dash_demandas">
                                 <div class="panel-heading painelAGE">
                                     <div class="row">

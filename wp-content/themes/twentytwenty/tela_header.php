@@ -1,6 +1,7 @@
 <?php
 //cada vez q o header carregar renova a sessao de logado
 setcookie("logado", 1, (time() + (0.5 * 3600)));
+$home = get_home_url(); 
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +101,7 @@ img.emoji {
               <div class="header-inner section-inner" style="height: 3vw; width: 18vw; position: absolute;">
                 <div class="header-titles-wrapper">					
                     <div class="header-titles">
-                        <div class="site-title faux-heading"><a class="link_home" href="http://vacinarte-admin.com.br/home">Vacinarte</a></div>
+                        <div class="site-title faux-heading"><a class="link_home" href="<?php echo $home; ?>/home">Vacinarte</a></div>
                     </div><!-- .header-titles -->
                 </div><!-- .header-titles-wrapper -->
             </div><!-- .header-inner -->
@@ -113,8 +114,8 @@ img.emoji {
                     aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
-                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                    <li><a href="<?php echo $home; ?>/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="<?php echo $home; ?>/campanha/">Campanha</a></li>
                   </ul>
                 </li>
               </ul>
@@ -126,17 +127,17 @@ img.emoji {
                     aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
-                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                    <li><a href="<?php echo $home; ?>/listar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="<?php echo $home; ?>/listar-campanhas/">Campanhas</a></li>
                   </ul>
                 </li>
               </ul>
 
               <ul class="nav navbar-nav">
                 <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
-                <li><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" href="<?php echo $home; ?>/listar-agendamento/">Agenda</a></li>
                 <li><a style="text-decoration: none;" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
-                <li class="page_item page-item-13"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+                <li class="page_item page-item-13"><a style="text-decoration: none;" href="<?php echo $home; ?>/?sair=true">Sair</a></li>
               </ul>            
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

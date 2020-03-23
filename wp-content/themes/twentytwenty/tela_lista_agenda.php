@@ -1,6 +1,7 @@
 <?php /* Template Name: TelaListaAgenda */
 
 global $wpdb;
+$home = get_home_url(); 
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +97,7 @@ global $wpdb;
   
     <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/';</script>";
+        window.location.href='{$home}/';</script>";
     }?>
 
     <div class="container-fluid barra4vw">
@@ -109,7 +110,7 @@ global $wpdb;
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar barra4vw">
               <ul class="nav navbar-nav" style="margin-top: 1vw;">
-                <a class="link_home" href="http://vacinarte-admin.com.br/home"><span>Vacinarte</span></a>
+                <a class="link_home" href="<?php echo $home; ?>/home"><span>Vacinarte</span></a>
               </ul>
 
               <ul class="nav navbar-nav" style="margin-left: 48vw;">
@@ -119,8 +120,8 @@ global $wpdb;
                     aria-expanded="false">Cadastrar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <!-- <li><a href="http://vacinarte-admin.com.br/cadastrar-pf/">Pessoa física</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/cadastrar-pj/">Pessoa jurídica</a></li>
-                    <li><a href="http://vacinarte-admin.com.br/campanha/">Campanha</a></li>
+                    <li><a href="<?php echo $home; ?>/cadastrar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="<?php echo $home; ?>/campanha/">Campanha</a></li>
                   </ul>
                 </li>
               </ul>
@@ -132,17 +133,17 @@ global $wpdb;
                     aria-expanded="false">Listar <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <!-- <li><a href="http://vacinarte-admin.com.br/listar-pf/">Clientes PF</a></li> -->
-                    <li><a href="http://vacinarte-admin.com.br/listar-pj/">Pessoa jurídica</a></li>
-                    <li><a href="http://vacinarte-admin.com.br/listar-campanhas/">Campanhas</a></li>
+                    <li><a href="<?php echo $home; ?>/listar-pj/">Pessoa jurídica</a></li>
+                    <li><a href="<?php echo $home; ?>/listar-campanhas/">Campanhas</a></li>
                   </ul>
                 </li>
               </ul>
 
               <ul class="nav navbar-nav">
                 <!-- <li><a style="text-decoration: none;" href="#" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></li> -->
-                <li><a style="text-decoration: none;" class="fontMenu" href="http://vacinarte-admin.com.br/listar-agendamento/">Agenda</a></li>
+                <li><a style="text-decoration: none;" class="fontMenu" href="<?php echo $home; ?>/listar-agendamento/">Agenda</a></li>
                 <li><a style="text-decoration: none;" class="fontMenu" href="https://www.vacinarte.com.br/">Site Vacinarte</a></li>
-                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="http://vacinarte-admin.com.br/?sair=true">Sair</a></li>
+                <li class="page_item page-item-13 fontMenu"><a style="text-decoration: none;" href="<?php echo $home; ?>/?sair=true">Sair</a></li>
               </ul>            
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -157,7 +158,7 @@ global $wpdb;
             <h3 class="page-header texto_cabeca">Agenda</h3>
           </div>
           <div class="col-xs-2" style="align:center">
-            <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='http://vacinarte-admin.com.br/listar-campanhas/';" 
+            <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='<?php echo $home; ?>/listar-campanhas/';" 
             value="Novo"/>
           </div>
       </div><!-- fecha div row -->

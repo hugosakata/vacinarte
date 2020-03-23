@@ -1,6 +1,7 @@
 <?php /* Template Name: CadastroEndereco */
 
 global $wpdb;
+$home = get_home_url(); 
 ?>
 
 <?php
@@ -233,7 +234,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <?php include 'tela_header.php';?>
   <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/';</script>";
+        window.location.href='{$home}/';</script>";
     }?>
 
 <div class="container"><!-- container principal-->
@@ -335,7 +336,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input id="btn_salvar" type="submit" class="button btn btn-danger btn_geral" value="Salvar" />
             </div>
             <div class="col-xs-1">
-              <input id="btn_ctt" class="btn_geral btn_contato" type="button" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
+              <input id="btn_ctt" class="btn_geral btn_contato" type="button" onclick="location.href='<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
               value="Contatos" <?php if ($id_cli <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
           </div>
