@@ -3,7 +3,32 @@
 global $wpdb;
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
+  $id_ctt = $_GET['id_ctt'];
+  $acao = $_GET['acao'];
 }
+
+if (isset($acao) && $acao == "deletar"){
+  $result = 1;
+  // $wpdb->update(
+  //   'CONTATO',
+  //   array(
+  //     'status'      => '0'     
+  //   ),
+  //   array( 'cd_ctt' =>  $id_ctt),
+  //   array(
+  //     '%d'
+  //   ),
+  //   array( '%d' )
+  // );
+  if($result > 0){
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Contato excluído com sucesso!');</script>";
+  } else {
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -198,11 +223,11 @@ if(isset($_GET['id'])){
                               <td><?php echo $contato->tel_pri ?></td>
                               <td><?php echo $contato->email ?></td>
                               <td><?php echo $contato->obs_ctt ?></td>
-                              <!-- <td>
-                                <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                                <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                                <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
-                              </td> -->
+                              <td>
+                                <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
+                                <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
+                                <a onclick="return confirm('Are you sure?');" href="#/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
+                              </td>
                             </tr>
                             <?php
                               }
