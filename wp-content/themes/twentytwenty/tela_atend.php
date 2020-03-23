@@ -1,7 +1,7 @@
 <?php /* Template Name: TelaAtend */
 
 global $wpdb;
-
+$home = get_home_url();
 ?>
 
 
@@ -30,7 +30,7 @@ global $wpdb;
 
 <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/';</script>";
+        window.location.href='{$home}';</script>";
     }?>
 
     <div class="row">

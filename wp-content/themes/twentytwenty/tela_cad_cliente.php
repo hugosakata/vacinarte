@@ -2,7 +2,7 @@
 
 global $wpdb;
 
-//get_header(); 
+$home = get_home_url(); 
 ?>
 
 <?php

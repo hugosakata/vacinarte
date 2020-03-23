@@ -1,6 +1,7 @@
 <?php /* Template Name: TelaCadAgenda */
 
 global $wpdb;
+$home = get_home_url();
 ?>
 
 <?php
@@ -127,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
-        window.location.href='http://vacinarte-admin.com.br/';</script>";
+        window.location.href='{$home}';</script>";
     }?>
 
 <div class="container"><!-- container principal-->
@@ -230,7 +231,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="submit" class="button btn btn-danger " value="Agendar">
             </div>
             <div class="col-xs-2 col-xs-offset-1">
-              <input type="button" class="btn btn-danger" onclick="location.href='http://vacinarte-admin.com.br/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+              <input type="button" class="btn btn-danger" onclick="<?php echo "location.href='{$home}/cadastrar-vacina-campanha/?id={$id_cmp}';" ; ?>" 
               value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
             </div>
           </div>

@@ -5,7 +5,7 @@
 //comentar o banco de desenv e colocaro banco producao
 global $wpdb;
 
-//get_header(); 
+$home = get_home_url();
 ?>
 
 <?php
@@ -45,8 +45,10 @@ $username_err = $password_err = "";
             //seta cookie de logado de meia hora - 0.5 * 3600
             setcookie("logado", 1, (time() + (0.5 * 3600)));
 
+
+
             echo "<script language='javascript' type='text/javascript'>
-            window.location.href='http://vacinarte-admin.com.br/home/';</script>";
+            window.location.href='{$home}/home/';</script>";
         } else {
             $msg_err="Algo deu errado!\n\nVerifique os dados informados e tente novamente!";
         }
