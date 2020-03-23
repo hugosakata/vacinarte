@@ -5,6 +5,29 @@ $home = get_home_url();
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
+  $id_ctt = $_GET['id_end'];
+  $acao = $_GET['acao'];
+}
+
+if (isset($acao) && $acao == "delete"){
+  $result = $wpdb->update(
+    'ENDERECO',
+    array(
+      'status'      => '0'     
+    ),
+    array( 'cd_end' =>  $id_end),
+    array(
+      '%d'
+    ),
+    array( '%d' )
+  );
+  if($result > 0){
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Endereço excluído com sucesso!');</script>";
+  } else {
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+  }
 }
 ?>
 
@@ -185,7 +208,7 @@ if(isset($_GET['id'])){
                             <th>Cidade</th>
                             <th>Estado</th>
                             <!-- <th>Ativo</th> -->
-                            <!-- <th>Ações</th> -->
+                            <th>Ações</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -220,12 +243,13 @@ if(isset($_GET['id'])){
                             <td><?php echo $endereco->cep ?></td>
                             <td><?php echo $endereco->cidade ?></td>
                             <td><?php echo $endereco->estado ?></td>
-                            <!-- <td><?php echo $endereco->ativo ?></td> -->
-                            <!-- <td>
-                              <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                              <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php //echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                              <a><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
-                            </td> -->
+                            <td>
+                              <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
+                              <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php //echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
+                              <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-enderecos/?id=<?php echo $id_cli; ?>&id_end=<?php echo $endereco->cd_end; ?>&acao=delete">
+                                <i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i>
+                              </a>
+                            </td>
                           </tr>
                           <?php
                             }
