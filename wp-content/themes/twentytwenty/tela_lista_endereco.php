@@ -5,7 +5,7 @@ $home = get_home_url();
 
 if(isset($_GET['id'])){
   $id_cli = $_GET['id'];
-  $id_ctt = $_GET['id_end'];
+  $id_end = $_GET['id_end'];
   $acao = $_GET['acao'];
 }
 
