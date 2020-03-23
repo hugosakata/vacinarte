@@ -13,7 +13,7 @@ if (isset($acao) && $acao == "delete"){
   $result = $wpdb->update(
     'ENDERECO',
     array(
-      'status'      => '0'     
+      'ativo'      => '0'     
     ),
     array( 'cd_end' =>  $id_end),
     array(
