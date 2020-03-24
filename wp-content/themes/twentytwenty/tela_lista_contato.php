@@ -220,7 +220,7 @@ if (isset($acao) && $acao == "delete"){
                             foreach ( $contatos as $contato ) 
                             {
                           ?>
-                            <tr id="<?php echo $cliente->cd_ctt; ?>">
+                            <tr id="<?php echo $contato->cd_ctt; ?>">
                               <td><?php echo $contato->nm_ctt ?></td>
                               <td><?php echo $contato->tel_pri ?></td>
                               <td><?php echo $contato->email ?></td>
