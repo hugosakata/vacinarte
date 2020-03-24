@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
       
-    if (!isset($acao)){
+    if (!isset($acao) && empty($acao)){
       $wpdb->insert(
         'CLIENTES',
         array(
