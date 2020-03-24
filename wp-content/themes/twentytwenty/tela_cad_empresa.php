@@ -9,10 +9,10 @@ $razao = $nm_fant = $cnpj = $msg_err = $acao = $cd_cli = "";
 $id_retorno = 0;
 
  function load(){
-    global $razao, $nm_fant, $cnpj, $acao, $cd_cli;
+    global $razao, $nm_fant, $cnpj, $acao, $id_retorno;
 
     $acao = str_replace("'", "", trim($_POST["acao"]));
-    $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
+    $id_retorno = str_replace("'", "", trim($_POST["id_retorno"]));
     $razao = str_replace("'", "", trim($_POST["razao"]));
     $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
     $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
     echo "<script language='javascript' type='text/javascript'>
-    alert('{$acao}, {$cd_cli}');</script>";
+    alert('{$acao}, {$id_retorno}');</script>";
     if ($acao == "edit"){
       $linhas_afetadas = $wpdb->update(
         'CLIENTES',
@@ -250,8 +250,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="hide">
                 <input type="text" id="acao" name="acao" class="form-control"
                     value="<?php echo $acao; ?>"/>
-                <input type="text" id="cd_cli" name="cd_cli" class="form-control"
-                    value="<?php echo $cd_cli; ?>"/>
+                <input type="text" id="id_retorno" name="id_retorno" class="form-control"
+                    value="<?php echo $id_retorno; ?>"/>
               </div>
               <div class="row">  
                 <div class="form-group col-xs-4 col-xs-offset-3">
