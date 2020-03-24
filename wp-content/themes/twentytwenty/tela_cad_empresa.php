@@ -49,7 +49,8 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-      
+    echo "<script language='javascript' type='text/javascript'>
+    alert('{$acao}');</script>";
     if ($acao == "edit"){
       $linhas_afetadas = $wpdb->update(
         'CLIENTES',
