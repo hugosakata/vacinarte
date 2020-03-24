@@ -6,15 +6,24 @@ $home = get_home_url();
 
 <?php
 
-$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = "";
+$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = $id_ctt = "";
 $id_ctt = $id_vcl = 0;
 
-if(isset($_GET['id'])){
+if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
+  $id_ctt = $_GET['id_ctt'];
+  $acao = $_GET['acao'];
+
+  $sql = "SELECT * FROM CONTATO WHERE cd_ctt = '{$id_ctt}'";
+  $contato = $wpdb->get_row($sql);
 }
 
  function load(){
-    global $nm_contato, $tel_pri, $email, $obs_ctt;
+    global $nm_contato, $tel_pri, $email, $obs_ctt, $acao, $id_ctt, $id_cli;
+
+    $acao = str_replace("'", "", trim($_POST["acao"]));
+    $id_ctt = str_replace("'", "", trim($_POST["id_ctt"]));
+    $id_cli = str_replace("'", "", trim($_POST["id_cli"]));
 
     $nm_contato = str_replace("'", "", trim($_POST["nm_contato"]));
     $tel_pri = str_replace("'", "", trim($_POST["tel_pri"]));
@@ -38,55 +47,85 @@ if(isset($_GET['id'])){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    $wpdb->query ("START TRANSACTION");
-    $wpdb->insert(
-      'CONTATO',
-      array(
-        'cd_cli'  => $id_cli,
-        'nm_ctt'  => $nm_contato,
-        'tel_pri' => $tel_pri,
-        'email'   => $email,
-        'obs_ctt' => $obs_ctt
-      ),
-      array(
-        '%d',
-        '%s',
-        '%s',
-        '%s',
-        '%s'
-      )
-    );
-    $id_ctt = $wpdb->insert_id;
 
-    $wpdb->insert(
-      'VCL_CONTATO',
-      array(
-        'cd_cli'      => $id_cli,
-        'cd_ctt'      => $id_ctt        
-      ),
-      array(
-        '%s',
-        '%s'
-      )
-    );
-    $id_vcl = $wpdb->insert_id;
-
-    if ($id_ctt > 0 && $id_vcl > 0){
-      $wpdb->query("COMMIT");
-
-      echo "<script language='javascript' type='text/javascript'>
-      alert('Contato salvo com sucesso!');</script>";
-
-      //limpa relatorio
-      $nm_contato = $tel_pri = $email = $obs_ctt = "";
-
-      // echo "<script language='javascript' type='text/javascript'>
-      //   window.location.href='http://vacinarte-admin.com.br/listar-contatos/?id={$id_cli}';</script>";
-
+    if ($acao == "edit"){
+      $linhas_afetadas = $wpdb->update(
+        'CONTATO',
+        array(
+          'cd_cli'  => $id_cli,
+          'nm_ctt'  => $nm_contato,
+          'tel_pri' => $tel_pri,
+          'email'   => $email,
+          'obs_ctt' => $obs_ctt
+        ),
+        array( 'cd_ctt' =>  $id_ctt),
+        array(
+          '%d',
+          '%s',
+          '%s',
+          '%s',
+          '%s'
+        )
+      );
+      if ($linhas_afetadas > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Contato salvo com sucesso!');</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+      }
     } else {
-      $wpdb->query("ROLLBACK");
 
-      $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+      $wpdb->query ("START TRANSACTION");
+      $wpdb->insert(
+        'CONTATO',
+        array(
+          'cd_cli'  => $id_cli,
+          'nm_ctt'  => $nm_contato,
+          'tel_pri' => $tel_pri,
+          'email'   => $email,
+          'obs_ctt' => $obs_ctt
+        ),
+        array(
+          '%d',
+          '%s',
+          '%s',
+          '%s',
+          '%s'
+        )
+      );
+      $id_ctt = $wpdb->insert_id;
+
+      $wpdb->insert(
+        'VCL_CONTATO',
+        array(
+          'cd_cli'      => $id_cli,
+          'cd_ctt'      => $id_ctt        
+        ),
+        array(
+          '%s',
+          '%s'
+        )
+      );
+      $id_vcl = $wpdb->insert_id;
+
+      if ($id_ctt > 0 && $id_vcl > 0){
+        $wpdb->query("COMMIT");
+
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Contato salvo com sucesso!');</script>";
+
+        //limpa relatorio
+        $nm_contato = $tel_pri = $email = $obs_ctt = "";
+
+        // echo "<script language='javascript' type='text/javascript'>
+        //   window.location.href='http://vacinarte-admin.com.br/listar-contatos/?id={$id_cli}';</script>";
+
+      } else {
+        $wpdb->query("ROLLBACK");
+
+        $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+      }
     }
    
   } else {
@@ -236,18 +275,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-lg-12 col-xs-8">
           <form action="#" method="post">
             
+            <div class="hide">
+                <input type="text" id="acao" name="acao" class="form-control"
+                    value="<?php echo $acao; ?>"/>
+                <input type="text" id="id_cli" name="id_cli" class="form-control"
+                    value="<?php echo $id_cli; ?>"/>
+                <input type="text" id="id_ctt" name="id_ctt" class="form-control"
+                    value="<?php echo $id_ctt; ?>"/>
+              </div>
+
             <div class="row">
               <div class="form-group col-xs-5 col-xs-offset-2">
                 <label style="font-size: 14px;">Nome do contato*</label>
                 <input type="text" name="nm_contato" class="form-control" placeholder="Nome do contato"
-                value="<?php echo $nm_contato; ?>">
+                value="<?php echo $contato->nm_ctt; ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-xs-5 col-xs-offset-2">
                 <label style="font-size: 14px;">Telefone*</label>
                 <input type="text" id="tel_pri" name="tel_pri" class="form-control" placeholder="telefone principal"
-                value="<?php echo $tel_pri; ?>">
+                value="<?php echo $contato->tel_pri; ?>">
               </div>
             </div>
             <div class="row">
@@ -255,14 +303,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label style="font-size: 14px;">Email</label>
                 <input type="text" id="email" name="email" class="form-control" placeholder="Email" 
                 onblur="IsEmail(this.value);"
-                value="<?php echo $email; ?>">
+                value="<?php echo $contato->email; ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-xs-5 col-xs-offset-2">
                 <label style="font-size: 14px;">Observação</label>
                 <input type="text" name="obs_ctt" class="form-control" placeholder="Observações gerais"
-                value="<?php echo $obs_ctt; ?>">
+                value="<?php echo $contato->obs_ctt; ?>">
               </div>
             </div>
             

@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $cliente = $wpdb->get_row($sql);
 
       echo "<script language='javascript' type='text/javascript'>
-      alert('Cliente salvo com sucesso!!');</script>";
+      alert('Cliente salvo com sucesso!');</script>";
     }
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
