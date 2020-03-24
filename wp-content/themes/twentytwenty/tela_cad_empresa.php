@@ -5,12 +5,14 @@ $home = get_home_url();
 ?>
 
 <?php
-$razao = $nm_fant = $cnpj = $msg_err = "";
+$razao = $nm_fant = $cnpj = $msg_err = $acao = $cd_cli = "";
 $id_retorno = 0;
 
  function load(){
-    global $razao, $nm_fant, $cnpj;
+    global $razao, $nm_fant, $cnpj, $acao, $cd_cli;
 
+    $acao = str_replace("'", "", trim($_POST["acao"]));
+    $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
     $razao = str_replace("'", "", trim($_POST["razao"]));
     $nm_fant = str_replace("'", "", trim($_POST["nm_fant"]));
     $cnpj = str_replace("'", "", trim($_POST["cnpj"]));
@@ -50,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
     echo "<script language='javascript' type='text/javascript'>
-    alert('{$acao}');</script>";
+    alert('{$acao}, {$cd_cli}');</script>";
     if ($acao == "edit"){
       $linhas_afetadas = $wpdb->update(
         'CLIENTES',
@@ -245,7 +247,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="row txtbox"><!-- row formulario -->
         <form action="#" method="post" style="margin-top: -2vw;">
           <div class="col-lg-12 col-xs-8">
-              
+              <div class="hide">
+                <input type="text" id="acao" name="acao" class="form-control"
+                    value="<?php echo $acao; ?>"/>
+                <input type="text" id="cd_cli" name="cd_cli" class="form-control"
+                    value="<?php echo $cd_cli; ?>"/>
+              </div>
               <div class="row">  
                 <div class="form-group col-xs-4 col-xs-offset-3">
                   <label style="font-size: 14px;">Razão Social*</label>
