@@ -220,14 +220,14 @@ if (isset($acao) && $acao == "delete"){
                             foreach ( $contatos as $contato ) 
                             {
                           ?>
-                            <tr>
+                            <tr id="<?php echo $cliente->cd_ctt; ?>>
                               <td><?php echo $contato->nm_ctt ?></td>
                               <td><?php echo $contato->tel_pri ?></td>
                               <td><?php echo $contato->email ?></td>
                               <td><?php echo $contato->obs_ctt ?></td>
                               <td>
-                                <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
-                                <a><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
+                                <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
+                                <a href="<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=edit"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
                                 <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                               </td>
                             </tr>
@@ -282,6 +282,12 @@ if (isset($acao) && $acao == "delete"){
   });
 
     </script>
-
+    <script>
+    $('tr').dblclick(function(){
+      var id_ctt = $(this).attr('id_ctt');
+      window.location = "<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>&id_ctt=" + id_ctt + "&acao=edit";
+      return false;
+    })
+    </script>
   </body>
   </html>
