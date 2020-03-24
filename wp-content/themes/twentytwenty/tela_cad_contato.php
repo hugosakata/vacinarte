@@ -9,6 +9,8 @@ $home = get_home_url();
 $nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = $id_ctt = "";
 $id_ctt = $id_vcl = 0;
 
+load();
+
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
   $id_ctt = $_GET['id_ctt'];
@@ -42,8 +44,6 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
     return $valido;
  }
-
- load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
