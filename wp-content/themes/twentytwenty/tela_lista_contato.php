@@ -284,7 +284,7 @@ if (isset($acao) && $acao == "delete"){
     </script>
     <script>
     $('tr').dblclick(function(){
-      var id_ctt = $(this).attr('id_ctt');
+      var id_ctt = $(this).attr('id');
       window.location = "<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>&id_ctt=" + id_ctt + "&acao=edit";
       return false;
     })
