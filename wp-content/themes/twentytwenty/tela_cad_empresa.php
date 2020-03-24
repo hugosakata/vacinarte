@@ -41,6 +41,7 @@ $id_retorno = 0;
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_retorno = $_GET["id"];
+  $acao = $_GET["acao"];
 
   $sql = "SELECT * FROM CLIENTES WHERE cd_cli = '{$id_retorno}'";
   $cliente = $wpdb->get_row($sql);
@@ -49,6 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
       
+    if (!isset($acao)){
       $wpdb->insert(
         'CLIENTES',
         array(
@@ -69,7 +71,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $cliente = $wpdb->get_row($sql);
 
       echo "<script language='javascript' type='text/javascript'>
-      alert('Cliente salvo com sucesso!');</script>";
+      alert('Cliente salvo com sucesso!!');</script>";
+    } else {
+      $linhas_afetadas = $wpdb->update(
+        'CLIENTES',
+        array(
+          'nm_rz_soc' => $razao,
+          'nm_fant'   => $nm_fant,
+          'cpf_cnpj'  => $cnpj,
+          'cd_tp_cli' => 2
+        ),
+        array( 'cd_cli' =>  $id_retorno),
+        array(
+          '%s',
+          '%s',
+          '%s',
+          '%d'
+        )
+      );
+      if ($linhas_afetadas > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Cliente salvo com sucesso!');</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+      }
+    }
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }

@@ -233,7 +233,7 @@ $home = get_home_url();
                             <td><?php echo $cliente->nm_fant ?></td>
                             <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
-                              <a class="hide" title='Editar' href='<?php echo $home; ?>/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_edit">edit</i></a>
+                              <a title='Editar' href='<?php echo $home; ?>/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>&acao=edit' ><i class="material-icons btn_icon btn_edit">edit</i></a>
                               <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco">home</i></a>
                               <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato">phone</i></a>
                               <!-- <a href='#/?delete=<?php //echo $cliente->cd_cli; ?>'><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a> -->
@@ -294,7 +294,7 @@ $home = get_home_url();
     <script>
     $('tr').dblclick(function(){
       var id = $(this).attr('id');
-      window.location = "<?php echo $home; ?>/cadastrar-pj/?id=" + id;
+      window.location = "<?php echo $home; ?>/cadastrar-pj/?id=" + id + "&acao=edit";
       return false;
     })
     </script>
