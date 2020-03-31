@@ -230,7 +230,7 @@ $home = get_home_url();
                             foreach ( $campanhas as $campanha ) 
                             {
                           ?>
-                            <tr title="-Endereço:&&#35;13;<?php echo $campanha->LOCAL ?>&&#35;13;-Contato:&&#35;13;<?php echo $campanha->CTTO ?>">
+                            <tr title="-Endereço:&#13;<?php echo $campanha->LOCAL ?>&#13;-Contato:&#13;<?php echo $campanha->CTTO ?>">
                               <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
                               <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
                               <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
