@@ -30,7 +30,11 @@ function form_valido() {
       !empty($qtd_retorno) &&
       !empty($qtd_cortesia)){
         $valido = true;
-       
+        echo "<script language='javascript' type='text/javascript'>
+        alert('sucesso!');</script>";
+  }else{
+    echo "<script language='javascript' type='text/javascript'>
+        alert('Fracasso!');</script>";
   }
   
   return $valido;
