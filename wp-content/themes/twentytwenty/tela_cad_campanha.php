@@ -179,9 +179,12 @@ load();
                 <?php
                   $clientes = $wpdb->get_results( 
                     "
-                    SELECT cd_cli, nm_rz_soc, nm_fant 
-                    FROM CLIENTES
-                    WHERE cd_tp_cli=2 order by nm_fant
+                    SELECT cli.cd_cli, nm_rz_soc, nm_fant 
+                    FROM CLIENTES cli
+                    WHERE cd_tp_cli=2 and 
+                    (select count(cd_vcl_end) from VCL_ENDERECO vlc where vlc.cd_cli=cli.cd_cli) > 0 and
+                    (select count(cd_vcl_ctt) from VCL_CONTATO vlc where vlc.cd_cli=cli.cd_cli) > 0                            
+                    order by nm_fant
                     "
                   );
                   
