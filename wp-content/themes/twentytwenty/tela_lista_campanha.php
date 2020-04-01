@@ -177,8 +177,8 @@ $home = get_home_url();
                               <th class="fontTH">Tipo Serviço</th>
                               <th class="fontTH">Data Início</th>
                               <th class="fontTH">Data Fim</th>
-                              <!-- <th class="fontTH">Endereço</th>
-                              <th class="fontTH">Contato</th> -->
+                              <th class="fontTH">Endereço</th>
+                              <!-- <th class="fontTH">Contato</th> -->
                               <th class="fontTH">Vacina</th>
                               <th class="fontTH">Qtde</th>
                               <th class="fontTH">Valor Unit</th>
@@ -201,25 +201,30 @@ $home = get_home_url();
                                 CMP.DT_FIM,
                                 END.CD_END,
                                 CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) LOCAL,
-                                VC.CD_CTT,
-                                CONCAT(CON.NM_CTT, ': ', CON.TEL_PRI, ' / ', CON.EMAIL) CTTO,
                                 VVC.CD_VCL_VCNA_CMP,
                                 VVC.CD_VCNA,
                                 CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) VAC,
                                 VVC.QTD_VCNA,
                                 VVC.VLR_VCNA
                               FROM
-                                CAMPANHA CMP
-                                LEFT JOIN TP_SRV SRV ON CMP.CD_TP_SRV = SRV.CD_TP_SRV
-                                LEFT JOIN CLIENTES CLI ON CMP.CD_CLI = CLI.CD_CLI
-                                LEFT JOIN VCL_ENDERECO VE ON CMP.CD_VCL_END = VE.CD_VCL_END
-                                LEFT JOIN ENDERECO END ON VE.CD_END = END.CD_END AND CMP.CD_CLI = VE.CD_CLI
-                                LEFT JOIN VCL_CONTATO VC ON CMP.CD_CLI = VC.CD_CLI
-                                LEFT JOIN CONTATO CON ON VC.CD_CTT = CON.CD_CTT
-                                LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
-                                LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
-                                LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
+                                CAMPANHA CMP,
+                                TP_SRV SRV, 
+                                CLIENTES CLI, 
+                                VCL_ENDERECO VE, 
+                                ENDERECO END,
+                                VCL_VCNA_CMP VVC,
+                                VACINA VCNA,
+                                FBCNTE_VCNA FAB
                               WHERE
+                              CMP.CD_TP_SRV = SRV.CD_TP_SRV and
+                              CMP.CD_CLI = CLI.CD_CLI and
+                              CMP.CD_VCL_END = VE.CD_VCL_END and
+                              VE.CD_END = END.CD_END AND 
+
+                              CMP.CD_CMP = VVC.CD_CMP and
+                              VVC.CD_VCNA = VCNA.CD_VCNA and
+                              VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA and
+
                                 CMP.DT_FIM >= now()
                               ORDER BY
                                 CMP.DT_INI ASC
@@ -236,8 +241,8 @@ $home = get_home_url();
                               <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
                               <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
                               <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
-                              <!-- <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
-                              <td class="fontTD"><?php echo $campanha->CTTO ?></td> -->
+                              <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
+                               <!-- <td class="fontTD"><?php //echo $campanha->CTTO ?></td> -->
                               <td class="fontTD"><?php echo $campanha->VAC ?></td>
                               <td class="fontTD"><?php echo $campanha->QTD_VCNA ?></td>
                               <td class="fontTD"><?php echo $campanha->VLR_VCNA ?></td>
