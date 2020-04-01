@@ -218,8 +218,10 @@ $home = get_home_url();
                         <?php
                           $clientes = $wpdb->get_results( 
                             "
-                            SELECT cd_cli, nm_rz_soc, nm_fant, cpf_cnpj 
-                            FROM CLIENTES
+                            SELECT cli.cd_cli, nm_rz_soc, nm_fant, cpf_cnpj,
+                            (select count(cd_vcl_end) from VCL_ENDERECO vlc where vlc.cd_cli=cli.cd_cli) as total_end,
+                            (select count(cd_vcl_ctt) from VCL_CONTATO vlc where vlc.cd_cli=cli.cd_cli) as totalc_ctt
+                            FROM CLIENTES cli
                             WHERE cd_tp_cli=2 order by nm_rz_soc, nm_fant
                             "
                           );
@@ -234,8 +236,8 @@ $home = get_home_url();
                             <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
                               <a title='Editar' href='<?php echo $home; ?>/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>&acao=edit' ><i class="material-icons btn_icon btn_edit">edit</i></a>
-                              <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco">home</i></a>
-                              <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato">phone</i></a>
+                              <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco <?php if ($cliente->total_end<=0) echo "icon-red"; ?>">home</i></a>
+                              <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato <?php if ($cliente->total_ctt<=0) echo "icon-red"; ?>">phone</i></a>
                               <!-- <a href='#/?delete=<?php //echo $cliente->cd_cli; ?>'><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a> -->
                             </td>
                           </tr>
