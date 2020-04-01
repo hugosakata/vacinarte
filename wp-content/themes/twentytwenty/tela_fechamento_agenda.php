@@ -30,8 +30,7 @@ function form_valido() {
       !empty($qtd_retorno) &&
       !empty($qtd_cortesia)){
         $valido = true;
-        echo "<script language='javascript' type='text/javascript'>
-        alert('sucesso!');</script>";
+       
   }
   
   return $valido;
@@ -243,7 +242,7 @@ load();
       <div class="row formCadCmp"><!-- row formulario -->
         <div class="col-lg-12 col-sm-12">
           <form class="form" action="#" method="post">
-            <input type="text" class="hide" name="cd_atend" value="$cd_agenda">
+            <input type="text" class="hide" name="cd_atend" value="<?php echo $cd_atend; ?>">
             <div class="row">  
               <div class="form-group col-xs-5 col-xs-offset-1">
                 <label>Campanha</label>
