@@ -8,10 +8,12 @@ setcookie("logado", 1, (time() + (0.5 * 3600)));
 
 $agenda = $atend = $cd_atend = $campanha = $dt_agenda = $enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
 
+load();
 
-if(isset($_GET['id'])){
+if($_SERVER["REQUEST_METHOD"] == "GET"){
   $cd_atend = $_GET['id'];
 }
+
 
 function load(){
   global $agenda, $atend, $cd_atend, $qtd_vcna, $qtd_retorno, $qtd_cortesia;
@@ -39,9 +41,6 @@ function form_valido() {
   
   return $valido;
 }
-
-load();
-
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
