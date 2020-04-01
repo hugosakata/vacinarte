@@ -193,7 +193,11 @@ $home = get_home_url();
           value="Novo"/>
         </div>
     </div><!-- fecha div row -->
-
+    <div class="row">
+        <div class="col-xs-10">
+          <small class="page-header texto_cabeca" style="color:red">*icones vermelhos representam pendências no cadastro</small>
+        </div>
+    </div>
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
         <div class="row"><!--div row painel de consulta -->
