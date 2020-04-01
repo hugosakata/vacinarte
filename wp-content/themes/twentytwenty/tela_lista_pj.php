@@ -220,7 +220,7 @@ $home = get_home_url();
                             "
                             SELECT cli.cd_cli, nm_rz_soc, nm_fant, cpf_cnpj,
                             (select count(cd_vcl_end) from VCL_ENDERECO vlc where vlc.cd_cli=cli.cd_cli) as total_end,
-                            (select count(cd_vcl_ctt) from VCL_CONTATO vlc where vlc.cd_cli=cli.cd_cli) as totalc_ctt
+                            (select count(cd_vcl_ctt) from VCL_CONTATO vlc where vlc.cd_cli=cli.cd_cli) as total_ctt
                             FROM CLIENTES cli
                             WHERE cd_tp_cli=2 order by nm_rz_soc, nm_fant
                             "
