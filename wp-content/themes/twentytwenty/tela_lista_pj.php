@@ -239,9 +239,9 @@ $home = get_home_url();
                             <td><?php echo $cliente->nm_fant ?></td>
                             <td><?php echo $cliente->cpf_cnpj ?></td>
                             <td>
-                              <a title='Editar' href='<?php echo $home; ?>/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>&acao=edit' ><i class="material-icons btn_icon btn_edit">edit</i></a>
-                              <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco" <?php if ($cliente->total_end<=0) echo 'style="color:red"'; ?>>home</i></a>
-                              <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato" <?php if ($cliente->total_ctt<=0) echo 'style="color:red"'; ?>>phone</i></a>
+                              <a title='Editar' href='<?php echo $home; ?>/cadastrar-pj/?id=<?php echo $cliente->cd_cli; ?>&acao=edit' ><i class="material-icons btn_icon btn_edit" style="color:green">edit</i></a>
+                              <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_endereco" <?php if ($cliente->total_end<=0) echo 'style="color:red"' else echo 'style="color:green"'; ?>>home</i></a>
+                              <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $cliente->cd_cli; ?>' ><i class="material-icons btn_icon btn_contato" <?php if ($cliente->total_ctt<=0) echo 'style="color:red"' else echo 'style="color:green"'; ?>>phone</i></a>
                               <!-- <a href='#/?delete=<?php //echo $cliente->cd_cli; ?>'><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a> -->
                             </td>
                           </tr>
