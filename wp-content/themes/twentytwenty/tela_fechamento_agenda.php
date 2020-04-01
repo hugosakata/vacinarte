@@ -269,7 +269,7 @@ load();
             <div class="row">
               <div class="form-group col-xs-1 col-xs-offset-1">
                 <label>Envio</label>
-                <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control" value="<?php echo $$agenda->QTD_VCNA_ENVIO; ?>" disabled="true">
+                <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control" value="<?php echo $agenda->QTD_VCNA_ENVIO; ?>" disabled="true">
               </div>
 
               <div class="form-group col-xs-1">

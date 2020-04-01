@@ -184,6 +184,7 @@ $home = get_home_url();
                               <th class="fontTH">Data</th>
                               <th class="fontTH">Hora Início</th>
                               <th class="fontTH">Hora Fim</th>
+                              <th class="fontTH">Fechar</th>
                             </tr>
                           </thead>
                           <tbody>
