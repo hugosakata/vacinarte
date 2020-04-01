@@ -172,7 +172,7 @@ load();
             </div>
             <div class="row">
               <div class="form-group col-xs-4 col-xs-offset-3">
-                <label style="font-size: 14px;">Empresa</label>
+                <label style="font-size: 14px;">Empresa (com cadastro sem pendências)</label>
                 <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
                 value="<?php echo $cd_cli; ?>" required >
                 <option value=""></option>
