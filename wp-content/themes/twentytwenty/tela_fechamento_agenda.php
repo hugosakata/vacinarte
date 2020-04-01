@@ -240,8 +240,8 @@ load();
 
       <div class="row formCadCmp"><!-- row formulario -->
         <div class="col-lg-12 col-sm-12">
-          <form class="form" action="#" method="post">
-            <input type="text" class="hide" name="cd_atend" value="$cd_agenda">
+          <!-- <form class="form" action="#" method="post">
+            <input type="text" class="hide" name="cd_atend" value="$cd_agenda"> -->
             <div class="row">  
               <div class="form-group col-xs-5 col-xs-offset-1">
                 <label>Campanha</label>
@@ -273,6 +273,8 @@ load();
                 <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control" value="<?php echo $agenda->QTD_VCNA_ENVIO; ?>" disabled="true">
               </div>
 
+              <form class="form" action="#" method="post">
+              <input type="text" class="hide" name="cd_atend" value="$cd_agenda">
               <div class="form-group col-xs-1">
                 <label>Retorno</label>
                 <input type="text" id="qtd_retorno" name="qtd_retorno" class="form-control">
