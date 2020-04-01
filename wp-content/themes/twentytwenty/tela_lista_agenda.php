@@ -1,6 +1,7 @@
 <?php /* Template Name: TelaListaAgenda */
 
 global $wpdb;
+setcookie("logado", 1, (time() + (0.5 * 3600)));
 $home = get_home_url(); 
 ?>
 
@@ -228,6 +229,9 @@ $home = get_home_url();
                               <td class="fontTD"><?php echo $agenda->dt_atend ?></td>
                               <td class="fontTD"><?php echo $agenda->hr_ini ?></td>
                               <td class="fontTD"><?php echo $agenda->hr_fim ?></td>
+                              <td class="fontTD">
+                                <a title='Agendar' href='<?php echo $home; ?>/fechar-agendamento/?id=<?php echo $agenda->cd_atend; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkGreen; cursor: pointer;">archive</i></a>
+                              </td>
                             </tr>
                             <?php
                               }
