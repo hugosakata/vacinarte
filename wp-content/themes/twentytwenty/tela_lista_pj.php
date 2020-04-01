@@ -195,7 +195,7 @@ $home = get_home_url();
     </div><!-- fecha div row -->
     <div class="row">
         <div class="col-xs-10">
-          <small class="page-header texto_cabeca" style="color:red">*icones vermelhos representam pendências no cadastro</small>
+          <small style="color:red">*icones vermelhos representam pendências no cadastro</small>
         </div>
     </div>
     <div class="row txtbox"><!-- row formulario -->
