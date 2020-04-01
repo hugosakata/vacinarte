@@ -41,11 +41,11 @@ load();
   if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     if (form_valido()){
-      $wpdb->update(
+      $linhas_afetadas = $wpdb->update(
         'ATENDIMENTO',
         array(
           'qtd_vcna_retorno'	=> $qtd_retorno,
-          'qtd_cortesia'        => $qtd_cortesia
+          'qtd_cortesia'      => $qtd_cortesia
         ),
         array(
           'cd_atend' => $cd_atend
@@ -53,17 +53,18 @@ load();
         array(
           '%d',
           '%d'
-        ),
-        array(
-          '%d'
         )
       );
+      if ($linhas_afetadas > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Fechamento salvo com sucesso!');</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+      }
      
       $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'";
       $atend = $wpdb->get_row($sql);
-
-      echo "<script language='javascript' type='text/javascript'>
-      alert('Fechamento salvo com sucesso!');</script>";
       
       //limpa formulario
       $cd_atend = $campanha = $dt_agenda = $enfermeira = "";
