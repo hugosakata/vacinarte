@@ -32,11 +32,6 @@ function form_valido() {
       !empty($qtd_retorno) &&
       !empty($qtd_cortesia)){
         $valido = true;
-        echo "<script language='javascript' type='text/javascript'>
-        alert('sucesso!');</script>";
-  }else{
-    echo "<script language='javascript' type='text/javascript'>
-        alert('Fracasso!');</script>";
   }
   
   return $valido;
@@ -71,8 +66,8 @@ function form_valido() {
       $atend = $wpdb->get_row($sql);
       
       //limpa formulario
-      $cd_atend = $campanha = $dt_agenda = $enfermeira = "";
-      $qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
+      //$cd_atend = $campanha = $dt_agenda = $enfermeira = "";
+      //$qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
 
     } else {
         $msg_err = "Ops! Faltou preencher algum campo obrigatório";
@@ -278,11 +273,11 @@ function form_valido() {
               </div>
               <div class="form-group col-xs-1">
                 <label>Retorno</label>
-                <input type="text" id="qtd_retorno" name="qtd_retorno" class="form-control">
+                <input type="text" id="qtd_retorno" name="qtd_retorno" class="form-control" value="<?php echo $sql->qtd_vcna_retorno; ?>">
               </div>
               <div class="form-group col-xs-1">
                 <label>Cortesia</label>
-                <input type="text" id="qtd_cortesia" name="qtd_cortesia" class="form-control">
+                <input type="text" id="qtd_cortesia" name="qtd_cortesia" class="form-control" value="<?php echo $sql->qtd_cortesia; ?>">
               </div>
             </div>
 
