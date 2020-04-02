@@ -56,7 +56,8 @@ function form_valido() {
         )
       );
       if ($linhas_afetadas > 0){
-        
+        echo "<script language='javascript' type='text/javascript'>
+        alert('o primeiro update foi sucesso!');</script>";
         $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'";
         $envio = $sql[0]->qtd_vcna_envio;
         $retorno = $sql[0]->qtd_vcna_retorno;
@@ -65,6 +66,9 @@ function form_valido() {
         $sql = "SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'";
         $aplic = $sql[0]->qtd_vcna_aplic;
         $tot_aplic = $aplic + $uso_dia;
+
+        echo "<script language='javascript' type='text/javascript'>
+          alert('TOTAL APLICAÇÕES = '+{$tot_aplic});</script>";
 
         $resultado = $wpdb->update(
           'VCL_VCNA_CMP',
