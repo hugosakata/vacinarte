@@ -40,7 +40,7 @@ function form_valido() {
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if (form_valido()){
-      $wpdb->query ("START TRANSACTION");
+      //$wpdb->query ("START TRANSACTION");
       $linhas_afetadas = $wpdb->update(
         'ATENDIMENTO',
         array(
@@ -71,11 +71,11 @@ function form_valido() {
           $aplic = $ap->qtd_vcna_aplic;
         };
         echo "<script language='javascript' type='text/javascript'>
-          alert('total aplicações = '+{$aplic});</script>";
+          alert('total aplicações antes = '+{$aplic});</script>";
         $tot_aplic = $aplic + $uso_dia;
 
         echo "<script language='javascript' type='text/javascript'>
-          alert('TOTAL APLICAÇÕES = '+{$tot_aplic});</script>";
+          alert('TOTAL APLICAÇÕES DEPOIS = '+{$tot_aplic});</script>";
 
         $resultado = $wpdb->update(
           'VCL_VCNA_CMP',
@@ -90,7 +90,7 @@ function form_valido() {
           )
         );
         if($resultado > 0){
-          $wpdb->query("COMMIT");
+          //$wpdb->query("COMMIT");
           echo "<script language='javascript' type='text/javascript'>
           alert('Fechamento salvo com sucesso!');</script>";
         }else{
