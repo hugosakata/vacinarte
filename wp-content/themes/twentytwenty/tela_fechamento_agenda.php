@@ -59,15 +59,15 @@ function form_valido() {
         echo "<script language='javascript' type='text/javascript'>
         alert('o primeiro update foi sucesso!');</script>";
         $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'";
-        $envio = $sql[0]->qtd_vcna_envio;
+        $envio = $sql->qtd_vcna_envio;
         echo "<script language='javascript' type='text/javascript'>
           alert('ENVIO = '+{$envio});</script>";
-        $retorno = $sql[0]->qtd_vcna_retorno;
+        $retorno = $sql->qtd_vcna_retorno;
         $uso_dia = $envio - $retorno;
-        $cmp = $sql[0]->cd_cmp;
+        $cmp = $sql->cd_cmp;
         
         $sql = "SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'";
-        $aplic = $sql[0]->qtd_vcna_aplic;
+        $aplic = $sql->qtd_vcna_aplic;
         $tot_aplic = $aplic + $uso_dia;
 
         echo "<script language='javascript' type='text/javascript'>
