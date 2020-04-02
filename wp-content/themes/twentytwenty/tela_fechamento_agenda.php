@@ -66,11 +66,11 @@ function form_valido() {
           $cmp = $at->cd_cmp;
         };
         $uso_dia = $envio - $retorno;
-        echo "<script language='javascript' type='text/javascript'>
-          alert('aplicações = '+{$uso_dia});</script>";
         
         $sql = "SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'";
         $aplic = $sql->qtd_vcna_aplic;
+        echo "<script language='javascript' type='text/javascript'>
+          alert('total aplicações = '+{$aplic});</script>";
         $tot_aplic = $aplic + $uso_dia;
 
         echo "<script language='javascript' type='text/javascript'>
