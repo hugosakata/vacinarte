@@ -56,6 +56,7 @@ function form_valido() {
           '%d'
         )
       );
+      
       if ($linhas_afetadas > 0){
         echo "<script language='javascript' type='text/javascript'>
         alert('o primeiro update foi sucesso!');</script>";
