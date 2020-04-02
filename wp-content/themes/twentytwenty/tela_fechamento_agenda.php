@@ -6,7 +6,8 @@ setcookie("logado", 1, (time() + (0.5 * 3600)));
 
 <?php
 
-$envio = $agenda = $atend = $cd_atend = $campanha = $dt_agenda = $enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
+$aplic = $envio = $agenda = $atend = $cd_atend = $campanha = $dt_agenda = "";
+$enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
 
 load();
 
@@ -16,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
 
 function load(){
-  global $agenda, $atend, $cd_atend, $qtd_vcna, $qtd_retorno, $qtd_cortesia, $envio;
+  global $agenda, $atend, $cd_atend, $qtd_vcna, $qtd_retorno, $qtd_cortesia, $envio, $aplic;
 
   $cd_atend = str_replace("'", "", trim($_POST["cd_atend"]));
   $qtd_retorno = str_replace("'", "", trim($_POST["qtd_retorno"]));
