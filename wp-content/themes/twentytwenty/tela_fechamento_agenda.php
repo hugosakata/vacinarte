@@ -63,6 +63,8 @@ function form_valido() {
         $retorno = $sql[0]->qtd_vcna_retorno;
         $uso_dia = $envio - $retorno;
         $cmp = $sql[0]->cd_cmp;
+        echo "<script language='javascript' type='text/javascript'>
+          alert('cd_cmp = '+{$cmp});</script>";
         $sql = "SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'";
         $aplic = $sql[0]->qtd_vcna_aplic;
         $tot_aplic = $aplic + $uso_dia;
