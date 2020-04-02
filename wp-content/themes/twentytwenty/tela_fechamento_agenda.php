@@ -38,8 +38,9 @@ function form_valido() {
 }
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-   
+    
     if (form_valido()){
+      $wpdb->query ("START TRANSACTION");
       $linhas_afetadas = $wpdb->update(
         'ATENDIMENTO',
         array(
@@ -55,14 +56,42 @@ function form_valido() {
         )
       );
       if ($linhas_afetadas > 0){
-        echo "<script language='javascript' type='text/javascript'>
-        alert('Fechamento salvo com sucesso!');</script>";
+        
+        $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'";
+        $envio = $sql[0]->qtd_vcna_envio;
+        $retorno = $sql[0]->qtd_vcna_retorno;
+        $uso_dia = $envio - $retorno;
+        $cmp = $sql[0]->cd_cmp;
+        $sql = "SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'";
+        $aplic = $sql[0]->qtd_vcna_aplic;
+        $tot_aplic = $aplic + $uso_dia;
+
+        $resultado = $wpdb->update(
+          'VCL_VCNA_CMP',
+          array(
+            'qtd_vcna_aplic'	=> $tot_aplic
+          ),
+          array(
+            'cd_cmp' => $cmp
+          ),
+          array(
+            '%d'
+          )
+        );
+        if($resultado > 0){
+          $wpdb->query("COMMIT");
+          echo "<script language='javascript' type='text/javascript'>
+          alert('Fechamento salvo com sucesso!');</script>";
+        }else{
+          echo "<script language='javascript' type='text/javascript'>
+          alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+        }
       } else {
         echo "<script language='javascript' type='text/javascript'>
-        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+        alert('Ops! Algo deu errado, tente novamente mais tarde!!');</script>";
       }
      
-      $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'";
+      
       $atend = $wpdb->get_row($sql);
       
       //limpa formulario
