@@ -58,13 +58,13 @@ function form_valido() {
       if ($linhas_afetadas > 0){
         echo "<script language='javascript' type='text/javascript'>
         alert('o primeiro update foi sucesso!');</script>";
-        $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'";
-        $envio = $sql->qtd_vcna_envio;
+        $atendimento = $wpdb->get_results("SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'");
+        $envio = $atendimento->qtd_vcna_envio;
         echo "<script language='javascript' type='text/javascript'>
           alert('ENVIO = '+{$envio});</script>";
-        $retorno = $sql->qtd_vcna_retorno;
-        $uso_dia = $envio - $retorno;
-        $cmp = $sql->cd_cmp;
+        //$retorno = $sql->qtd_vcna_retorno;
+        //$uso_dia = $envio - $retorno;
+        //$cmp = $sql->cd_cmp;
         
         $sql = "SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'";
         $aplic = $sql->qtd_vcna_aplic;
