@@ -92,5 +92,13 @@ $home = get_home_url();
 <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
 <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+      window.onload = function() { 
+        if(performance.navigation.type == 2){
+          location.reload(true);
+        }
+      };
+      window.onunload = function(){};
+    </script>
   </body>
   </html>

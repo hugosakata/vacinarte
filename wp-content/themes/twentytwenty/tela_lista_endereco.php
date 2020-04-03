@@ -303,5 +303,14 @@ if (isset($acao) && $acao == "delete"){
   });
 
     </script>
+
+<script type="text/javascript">
+      window.onload = function() { 
+        if(performance.navigation.type == 2){
+          location.reload(true);
+        }
+      };
+      window.onunload = function(){};
+    </script>
   </body>
   </html>
