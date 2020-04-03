@@ -109,6 +109,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+
+  <script type="text/javascript" >
+  alert(performance.navigation.type);
+  if(performance.navigation.type == 2){
+    alert("reload");
+    location.reload(true);
+  }
+  </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
