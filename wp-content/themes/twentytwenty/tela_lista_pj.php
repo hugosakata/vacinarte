@@ -308,18 +308,10 @@ $home = get_home_url();
       return false;
     })
     </script>
-      <input type="hidden" id="refreshed" value="no">
-      <script type="text/javascript">
-      onload=function(){
-      var e=document.getElementById("refreshed");
-      if(e.value=="no"){
-        alert("refresh no");
-        e.value="yes";
-      } else {
-        alert("refresh");
-        e.value="no";
-        location.reload();}
-      }
-      </script>
+    <script type="text/javascript">
+      window.onload = function() { alert('window.onload alert'); };
+      window.onunload = function(){};
+      alert('inline alert');
+    </script>
   </body>
   </html>
