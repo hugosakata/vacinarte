@@ -177,7 +177,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <script type="text/javascript" >
+    alert(performance.navigation.type);
     if(performance.navigation.type == 2){
+      alert("reload");
       location.reload(true);
     }
     </script>
