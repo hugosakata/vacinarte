@@ -127,15 +127,7 @@ $home = get_home_url();
 
   
   <body class="corpo">
-  
-  <script type="text/javascript" >
-  alert(performance.navigation.type);
-  if(performance.navigation.type == 2){
-    alert("reload");
-    location.reload(true);
-  }
-  </script>
-  
+
 
   <?php if ($_COOKIE["logado"] <= 0){
       echo "<script language='javascript' type='text/javascript'>
@@ -316,5 +308,13 @@ $home = get_home_url();
       return false;
     })
     </script>
+      <input type="hidden" id="refreshed" value="no">
+      <script type="text/javascript">
+      onload=function(){
+      var e=document.getElementById("refreshed");
+      if(e.value=="no")e.value="yes";
+      else{e.value="no";location.reload();}
+      }
+      </script>
   </body>
   </html>
