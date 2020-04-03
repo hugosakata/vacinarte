@@ -69,8 +69,8 @@ function form_valido() {
         echo "<script language='javascript' type='text/javascript'>
           alert('CD_CMP = '+{$cmp}+' / ENVIO = '+{$envio}+' / USADAS = '+{$uso_dia});</script>";
 
-        $wpdb->get_results("SELECT qtd_vcna_aplic VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
-        foreach( $wpdb as $ap ){
+        $aplicacoes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
+        foreach( $aplicacoes as $ap ){
           $aplic = $ap->qtd_vcna_aplic;
         };
         echo "<script language='javascript' type='text/javascript'>
