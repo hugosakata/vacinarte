@@ -177,6 +177,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/styles.css" rel="stylesheet" >
 
     <script type="text/javascript" >
+    if(performance.navigation.type == 2){
+      location.reload(true);
+    }
+    </script>
+
+    <script type="text/javascript" >
     
     function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
