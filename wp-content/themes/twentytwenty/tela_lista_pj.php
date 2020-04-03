@@ -123,19 +123,18 @@ $home = get_home_url();
     }
     </style>
 
-<script type="text/javascript" >
+  </head>
+
+  
+  <body class="corpo">
+  
+  <script type="text/javascript" >
   alert(performance.navigation.type);
   if(performance.navigation.type == 2){
     alert("reload");
     location.reload(true);
   }
   </script>
-
-  </head>
-
-  
-  <body class="corpo">
-  
   
 
   <?php if ($_COOKIE["logado"] <= 0){
