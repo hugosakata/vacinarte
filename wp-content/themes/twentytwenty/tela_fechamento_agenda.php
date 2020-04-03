@@ -67,7 +67,7 @@ function form_valido() {
         //   $cmp = $at->cd_cmp;
         // };
         $cmp = $atendimento->cd_cmp;
-        $uso_dia = $envio - $retorno;
+        //$uso_dia = $envio - $retorno;
         echo "<script language='javascript' type='text/javascript'>
           alert('CD_CMP = '+{$cmp});</script>";
         $aplicacoes = $wpdb->get_results("SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
