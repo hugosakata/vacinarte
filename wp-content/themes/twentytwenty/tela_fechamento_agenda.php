@@ -56,18 +56,20 @@ function form_valido() {
           '%d'
         )
       );
-      
+
       if ($linhas_afetadas > 0){
         echo "<script language='javascript' type='text/javascript'>
         alert('o primeiro update foi sucesso!');</script>";
-        $atendimento = $wpdb->get_results("SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'");
-        foreach( $atendimento as $at ) {
-          $envio = $at->qtd_vcna_envio;
-          $retorno = $at->qtd_vcna_retorno;
-          $cmp = $at->cd_cmp;
-        };
+        $atendimento = $wpdb->get_results("SELECT cd_cmp FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'");
+        // foreach( $atendimento as $at ) {
+        //   $envio = $at->qtd_vcna_envio;
+        //   $retorno = $at->qtd_vcna_retorno;
+        //   $cmp = $at->cd_cmp;
+        // };
+        $cmp = $atendimento->cd_cmp;
         $uso_dia = $envio - $retorno;
-        
+        echo "<script language='javascript' type='text/javascript'>
+          alert('CD_CMP = '+{$cmp});</script>";
         $aplicacoes = $wpdb->get_results("SELECT * VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
         foreach( $aplicacoes as $ap ){
           $aplic = $ap->qtd_vcna_aplic;
