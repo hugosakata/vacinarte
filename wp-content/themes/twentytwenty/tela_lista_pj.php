@@ -118,6 +118,15 @@ $home = get_home_url();
       width: 15%;
     }
     </style>
+
+<script type="text/javascript" >
+  alert(performance.navigation.type);
+  if(performance.navigation.type == 2){
+    alert("reload");
+    location.reload(true);
+  }
+  </script>
+
   </head>
 
   
