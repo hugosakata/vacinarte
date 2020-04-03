@@ -312,8 +312,13 @@ $home = get_home_url();
       <script type="text/javascript">
       onload=function(){
       var e=document.getElementById("refreshed");
-      if(e.value=="no")e.value="yes";
-      else{e.value="no";location.reload();}
+      if(e.value=="no"){
+        alert("refresh no");
+        e.value="yes";
+      } else {
+        alert("refresh");
+        e.value="no";
+        location.reload();}
       }
       </script>
   </body>
