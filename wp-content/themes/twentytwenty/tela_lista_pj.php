@@ -309,13 +309,13 @@ $home = get_home_url();
     })
     </script>
     <script type="text/javascript">
-      // window.onload = function() { 
-      //   alert('window.onload alert'); 
-      //   location.reload();
-      // };
+      window.onload = function() { 
+        alert(performance.navigation.type); 
+        if(performance.navigation.type == 2){
+          location.reload(true);
+        }
+      };
       window.onunload = function(){};
-      alert('reload');
-      location.reload();
     </script>
   </body>
   </html>
