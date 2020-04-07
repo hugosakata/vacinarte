@@ -231,7 +231,7 @@ $home = get_home_url();
                               <td class="fontTD"><?php echo $agenda->hr_ini ?></td>
                               <td class="fontTD"><?php echo $agenda->hr_fim ?></td>
                               <td class="fontTD">
-                                <a title='Agendar' href='<?php echo $home; ?>/fechar-agendamento/?id=<?php echo $agenda->cd_atend; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkGreen; cursor: pointer;">archive</i></a>
+                                <a title='Agendar' href='<?php echo $home; ?>/fechar-agendamento/?id=<?php echo $agenda->cd_atend; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkGreen; cursor: pointer;">invert_colors_off</i></a>
                               </td>
                             </tr>
                             <?php

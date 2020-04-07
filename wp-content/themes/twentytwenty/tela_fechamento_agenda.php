@@ -58,27 +58,22 @@ function form_valido() {
       );
 
       if ($linhas_afetadas > 0){
-        echo "<script language='javascript' type='text/javascript'>
-        alert('o primeiro update foi sucesso!');</script>";
+        
         $atendimento = $wpdb->get_results("SELECT cd_cmp, qtd_vcna_envio FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'");
         foreach( $atendimento as $at ) {
            $cmp = $at->cd_cmp;
            $envio = $at->qtd_vcna_envio;
          };
         $uso_dia = $envio - $qtd_retorno;
-        echo "<script language='javascript' type='text/javascript'>
-          alert('CD_CMP = '+{$cmp}+' / ENVIO = '+{$envio}+' / USADAS = '+{$uso_dia});</script>";
+        // echo "<script language='javascript' type='text/javascript'>
+        //   alert('CD_CMP = '+{$cmp}+' / ENVIO = '+{$envio}+' / USADAS = '+{$uso_dia});</script>";
 
         $aplicacoes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
         foreach( $aplicacoes as $ap ){
           $aplic = $ap->qtd_vcna_aplic;
         };
-        echo "<script language='javascript' type='text/javascript'>
-          alert('qtd vcna aplicadas antes = '+{$aplic});</script>";
+        
         $tot_aplic = $aplic + $uso_dia;
-
-        echo "<script language='javascript' type='text/javascript'>
-          alert('TOTAL APLICAÇÕES DEPOIS = '+{$tot_aplic});</script>";
 
         $resultado = $wpdb->update(
           'VCL_VCNA_CMP',
@@ -269,7 +264,7 @@ function form_valido() {
             VCL_VCNA_CMP VVC,
             VACINA VCNA
           WHERE
-            ATEND.CD_ATEND = 1 AND
+            ATEND.CD_ATEND = {$cd_atend} AND
             CMP.CD_CMP = ATEND.CD_CMP AND
             VVC.CD_CMP = ATEND.CD_CMP AND
             VCNA.CD_VCNA = VVC.CD_VCNA
