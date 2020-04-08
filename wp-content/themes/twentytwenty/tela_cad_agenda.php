@@ -206,10 +206,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
           <div class="row agendamento page-header">
             
-            <div class="form-group col-xs-10 col-xs-offset-1">
+            <div class="form-group col-xs-5 col-xs-offset-1">
               <label>Enfermeiro(a)</label>
               <input type="text" name="nm_enfermeiro" class="form-control" 
               value="<?php echo $nm_enfermeiro; ?>">
+            </div>
+            <div class="form-group col-xs-5 col-xs-offset-1">
+              <label>Vacina</label>
+              <input type="text" name="nm_gen" class="form-control" 
+              value="<?php echo $campanha->nm_gen; ?>">
             </div>
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
@@ -231,7 +236,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
 
             <div class="form-group col-xs-2">
-              <label>Qtd Envio da vacina <?php echo $campanha->nm_gen; ?></label>
+              <label>Qtd Envio</label>
               <input type="text" id="qtd_vcna_envio" name="qtd_vcna_envio" class="form-control"
               value="<?php echo $qtd_vcna_envio; ?>">
             </div>
