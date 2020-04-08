@@ -211,7 +211,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="text" name="nm_enfermeiro" class="form-control" 
               value="<?php echo $nm_enfermeiro; ?>">
             </div>
-            <div class="form-group col-xs-5 col-xs-offset-1">
+            <div class="form-group col-xs-5">
               <label>Vacina</label>
               <input type="text" name="nm_gen" class="form-control" 
               value="<?php echo $campanha->nm_gen; ?>">
