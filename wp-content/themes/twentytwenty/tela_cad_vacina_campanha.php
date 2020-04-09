@@ -214,8 +214,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row formCadVacCmp">
                 <div class="form-group col-xs-3 col-xs-offset-2">
                     <label style="font-size: 14px;">Vacina</label>
-                      <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
-                        <option value="<?php echo $vacina->nm_reg; ?>"></option>
+                      <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna"
+                      value="<?php echo $vacina->nm_reg; ?>">
+                        <option value=""></option>
                         <?php
                           $vacinas = $wpdb->get_results( 
                             "
