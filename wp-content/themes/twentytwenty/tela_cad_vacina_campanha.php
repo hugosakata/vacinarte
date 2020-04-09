@@ -236,7 +236,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                           foreach ( $vacinas as $vacinas ) 
                           {
                         ?>
-                        <option value=<?php echo $vacinas->cd_vcna ?>;><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
+                        <option value=<?php echo $vacinas->cd_vcna ?>; <?php if($vacinas->cd_vcna ==  $vacina->cd_vcna) echo "selected" ; ?>><?php echo $vacinas->nm_reg . " - " . $vacinas->nm_fbcnte_vcna ?></option>
                         <?php
                           }
                         ?>
