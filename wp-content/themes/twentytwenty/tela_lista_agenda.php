@@ -213,7 +213,8 @@ $home = get_home_url();
                               `ATENDIMENTO`.`cd_cmp`=`CAMPANHA`.`cd_cmp` AND
                               `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` AND
                               `CAMPANHA`.`cd_vcl_end`=`VCL_ENDERECO`.`cd_vcl_end` AND
-                              `VCL_ENDERECO`.`cd_end`=`ENDERECO`.`cd_end`
+                              `VCL_ENDERECO`.`cd_end`=`ENDERECO`.`cd_end` AND
+                              `ATENDIMENTO`.`bl_fechamento` = 0
                               ORDER BY `cd_atend` DESC
 
                               "
