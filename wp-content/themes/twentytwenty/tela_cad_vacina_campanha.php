@@ -10,8 +10,16 @@ $id_vcna_cmp = 0;
 $cd_cmp = 0;
 $cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = "";
 
-if(isset($_GET['id'])){
+load();
+
+if($_SERVER["REQUEST_METHOD"] == "GET"){
   $cd_cmp = $_GET['id'];
+
+  $sql = "
+    SELECT * FROM `VACINA`, `VCL_VCNA_CMP`
+    WHERE VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
+    VCL_VCNA_CMP.cd_cmp= '{$cd_cmp}'";
+  $vacina = $wpdb->get_row($sql);
 }
 
 function load(){
@@ -36,8 +44,6 @@ function form_valido() {
   
   return $valido;
 }
-
-load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
@@ -209,7 +215,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="form-group col-xs-3 col-xs-offset-2">
                     <label style="font-size: 14px;">Vacina</label>
                       <select class="selectpicker form-control" id="cd_vcna" name="cd_vcna">
-                        <option value=""></option>
+                        <option value="<?php echo $vacina->nm_reg; ?>"></option>
                         <?php
                           $vacinas = $wpdb->get_results( 
                             "
@@ -241,16 +247,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="form-group col-xs-1 col-xs-offset-2">
                   <label style="font-size: 14px;">Qtde</label>
                   <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                  onblur="mostraAviso();">
+                  onblur="mostraAviso();" value="<?php echo $vacina->qtd_vcna; ?>">
                 </div>
               
                 <div class="form-group col-xs-2">
                   <label style="font-size: 14px;">Valor Unit</label>
-                  <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control">
+                  <input type="text" id="vlr_vcna" name="vlr_vcna" class="form-control"
+                  value="<?php echo $vacina->vlr_vcna; ?>">
                 </div>
 
                 <div class="form-group col-xs-5" style="margin-top: 30px;">
-                  <span id="avisoPonto" class="aviso hide">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
+                  <span id="avisoPonto" class="aviso">Para colocar centavos, usar ponto ( . ) ao invés de vírgula ( , ). Ex.: 1000.99</span>
                 </div>
               </div>
             </div>
