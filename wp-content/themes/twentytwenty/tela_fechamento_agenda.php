@@ -70,9 +70,10 @@ function form_valido() {
         // echo "<script language='javascript' type='text/javascript'>
         //   alert('CD_CMP = '+{$cmp}+' / ENVIO = '+{$envio}+' / USADAS = '+{$uso_dia});</script>";
 
-        $aplicacoes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
+        $aplicacoes = $wpdb->get_results("SELECT qtd_vcna, qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
         foreach( $aplicacoes as $ap ){
           $aplic = $ap->qtd_vcna_aplic;
+          $qt_total = $ap->qtd_vcna;
         };
         
         $tot_aplic = $aplic + $uso_dia;
@@ -90,9 +91,14 @@ function form_valido() {
           )
         );
         if($resultado > 0){
+          $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cd_cmp}'");
+          foreach( $qtdes as $qt ) {
+             $aplic_atual = $at->qtd_vcna_aplic;
+           };
+           //$restante = $qt_total - $aplic_atual;
           //$wpdb->query("COMMIT");
           echo "<script language='javascript' type='text/javascript'>
-          alert('Fechamento salvo com sucesso!');</script>";
+          alert('Fechamento salvo com sucesso! Foram aplicadas {$aplic_atual} de {$qt_total}');</script>";
         }else{
           echo "<script language='javascript' type='text/javascript'>
           alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
