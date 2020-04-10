@@ -6,13 +6,13 @@ $home = get_home_url();
 
 <?php
 
-$id_cmp = $dt_atend = $data_atend = $hr_ini = $hr_fim = $qtd_vcna_envio = $nm_enfermeiro = "";
+$id_cmp = $dt_atend = $data_atend = $hr_ini = $hr_fim = $qtd_vcna_envio = $nm_enfermeiro = $qtd_vcna = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
   $sql = "
           SELECT 
-          CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, `dt_ini`, `dt_fim`, `VACINA`.nm_gen
+          CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, `dt_ini`, `dt_fim`, `VACINA`.nm_gen, `VCL_VCNA_CMP`.`qtd_vcna`, `VCL_VCNA_CMP`.`qtd_vcna_aplic`
           FROM `CAMPANHA`, `TP_SRV`, `CLIENTES`, `VCL_VCNA_CMP`, `VACINA`
           WHERE `CAMPANHA`.`cd_tp_srv`=`TP_SRV`.`cd_tp_srv` AND
           `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` and
@@ -206,15 +206,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
           <div class="row agendamento page-header">
             
-            <div class="form-group col-xs-5 col-xs-offset-1">
+            <div class="form-group col-xs-4 col-xs-offset-1">
               <label>Enfermeiro(a)</label>
               <input type="text" name="nm_enfermeiro" class="form-control" 
               value="<?php echo $nm_enfermeiro; ?>">
             </div>
-            <div class="form-group col-xs-5">
+            <div class="form-group col-xs-4">
               <label>Vacina</label>
               <input type="text" name="nm_gen" class="form-control" 
               value="<?php echo $campanha->nm_gen; ?>" disabled>
+            </div>
+            <div class="form-group col-xs-2">
+              <label style="font-size: 14px;">Qtde</label>
+              <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
+              value="<?php echo $qtd_vcna; ?>" disabled />
             </div>
             <div class="form-group col-xs-2 col-xs-offset-1">
               <label style="font-size: 14px;">Data</label>
@@ -233,6 +238,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <label>Hora Fim</label>
               <input type="text" id="hr_fim" name="hr_fim" class="form-control"
               value="<?php echo $hr_fim; ?>">
+            </div>
+
+            <div class="form-group col-xs-2">
+              <label>Qtd Aplicada</label>
+              <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
+              value="<?php echo $qtd_vcna_aplic; ?>" disabled />
             </div>
 
             <div class="form-group col-xs-2">
