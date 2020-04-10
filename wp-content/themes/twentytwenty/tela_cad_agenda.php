@@ -219,7 +219,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   <div class="form-group col-xs-2">
                     <label style="font-size: 14px;">Qtde Contratada</label>
                     <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                    value="<?php echo $campanha->$qtd_vcna; ?>" disabled />
+                    value="<?php echo $campanha->qtd_vcna; ?>" disabled />
                   </div>
                 </div>
 
@@ -242,7 +242,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   <div class="form-group col-xs-2">
                     <label>Qtd Aplicada</label>
                     <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
-                    value="<?php echo $campanha->$qtd_vcna_aplic; ?>" disabled />
+                    value="<?php echo $campanha->qtd_vcna_aplic; ?>" disabled />
                   </div>
                   <div class="form-group col-xs-2">
                     <label>Qtd Envio</label>
