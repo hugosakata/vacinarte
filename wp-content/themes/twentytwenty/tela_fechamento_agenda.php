@@ -91,7 +91,7 @@ function form_valido() {
           )
         );
         if($resultado > 0){
-          $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cd_cmp}'");
+          $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cmp}'");
           foreach( $qtdes as $qt ) {
              $aplic_atual = $qt->qtd_vcna_aplic;
            };
