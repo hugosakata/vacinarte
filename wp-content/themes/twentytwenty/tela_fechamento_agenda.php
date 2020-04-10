@@ -93,7 +93,7 @@ function form_valido() {
         if($resultado > 0){
           $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cd_cmp}'");
           foreach( $qtdes as $qt ) {
-             $aplic_atual = $at->qtd_vcna_aplic;
+             $aplic_atual = $qt->qtd_vcna_aplic;
            };
            //$restante = $qt_total - $aplic_atual;
           //$wpdb->query("COMMIT");
