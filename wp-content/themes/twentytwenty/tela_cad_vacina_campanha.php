@@ -8,7 +8,7 @@ $home = get_home_url();
 
 $id_vcna_cmp = 0;
 $cd_cmp = 0;
-$cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = "";
+$cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = $acao = "";
 
 load();
 
@@ -20,11 +20,15 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     WHERE VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
     VCL_VCNA_CMP.cd_cmp= '{$cd_cmp}'";
   $vacina = $wpdb->get_row($sql);
+
+  if (null !== $vacina)
+    $acao = "edit";
 }
 
 function load(){
-  global $cd_vcna, $qtd_vcna, $vlr_vcna, $vcna, $cd_cmp;
+  global $cd_vcna, $qtd_vcna, $vlr_vcna, $vcna, $cd_cmp, $acao;
 
+  $acao = str_replace("'", "", trim($_POST["acao"]));
   $cd_vcna = str_replace("'", "", trim($_POST["cd_vcna"]));
   $qtd_vcna = str_replace("'", "", trim($_POST["qtd_vcna"]));
   $vlr_vcna = str_replace("'", "", trim($_POST["vlr_vcna"]));
@@ -48,24 +52,56 @@ function form_valido() {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
   if (form_valido()){
-    $wpdb->insert(
-      'VCL_VCNA_CMP',
-      array(
-        'cd_cmp'    => $cd_cmp,
-        'cd_vcna'   => $cd_vcna,
-        'qtd_vcna'  => $qtd_vcna,
-        'vlr_vcna'  => $vlr_vcna
-      ),
-      array(
-        '%d',
-        '%d',
-        '%d',
-        '%f'
-      )
-    );
-    $id_vcna_cmp = $wpdb->insert_id;
-    $sql = "SELECT * FROM VCL_VCNA_CMP WHERE cd_vcna = '{$id_vcna_cmp}'";
-    $vcna = $wpdb->get_row($sql);
+    if ($acao == "edit"){
+      $linhas_afetadas = $wpdb->update(
+        'VCL_VCNA_CMP',
+        array(
+          'cd_cmp'    => $cd_cmp,
+          'cd_vcna'   => $cd_vcna,
+          'qtd_vcna'  => $qtd_vcna,
+          'vlr_vcna'  => $vlr_vcna
+        ),
+        array( 'cd_cmp' =>  $cd_cmp),
+        array(
+          '%d',
+          '%d',
+          '%d',
+          '%f'
+        )
+      );
+      if ($linhas_afetadas > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Vacina salva com sucesso!');</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+      }
+    } else {
+      $wpdb->insert(
+        'VCL_VCNA_CMP',
+        array(
+          'cd_cmp'    => $cd_cmp,
+          'cd_vcna'   => $cd_vcna,
+          'qtd_vcna'  => $qtd_vcna,
+          'vlr_vcna'  => $vlr_vcna
+        ),
+        array(
+          '%d',
+          '%d',
+          '%d',
+          '%f'
+        )
+      );
+      $id_vcna_cmp = $wpdb->insert_id;
+      $sql = "SELECT * FROM VCL_VCNA_CMP WHERE cd_vcna = '{$id_vcna_cmp}'";
+      $vcna = $wpdb->get_row($sql);
+      if ($id_vcna_cmp > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Vacina salva com sucesso!');</script>";
+      } else {
+        $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+      }
+    }
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
@@ -209,6 +245,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <div class="row txtbox"><!-- row formulario -->
         <form class="form" action="#" method="post">
+          <div class="hide">
+              <input type="text" id="acao" name="acao" class="form-control"
+                  value="<?php echo $acao; ?>"/>
+          </div>
           <div class="col-lg-12 col-xs-12">
             
             <div class="row formCadVacCmp">
