@@ -20,32 +20,32 @@ define('WP_CACHE', true);
  */
 
 //desenv - producao comentar as duas linhas 23 e 24
-define ('WP_HOME', 'http://desenv.vacinarte-admin.com.br'); 
-define ('WP_SITEURL', 'http://desenv.vacinarte-admin.com.br');
+// define ('WP_HOME', 'http://desenv.vacinarte-admin.com.br'); 
+// define ('WP_SITEURL', 'http://desenv.vacinarte-admin.com.br');
 
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 //define( 'DB_NAME', 'u414589721_0BIRA' );
 //producao
-//define( 'DB_NAME', 'u414589721_vacinarte' );
+define( 'DB_NAME', 'u414589721_vacinarte' );
 //desenv
-define( 'DB_NAME', 'u414589721_dev_vacinarte' );
+//define( 'DB_NAME', 'u414589721_dev_vacinarte' );
 
 /** MySQL database username */
 //define( 'DB_USER', 'u414589721_Pqmkc' );
 //producao
-//define( 'DB_USER', 'u414589721_vacinarte' );
+define( 'DB_USER', 'u414589721_vacinarte' );
 //desenv
-define( 'DB_USER', 'u414589721_dev_vacinarte' );
+//define( 'DB_USER', 'u414589721_dev_vacinarte' );
 
 /** MySQL database password */
 //define( 'DB_PASSWORD', '1ADFHgUesf' );
 //producao
 //define( 'DB_PASSWORD', 'vacinarte' );
-//define( 'DB_PASSWORD', 'vacinarte' );
+define( 'DB_PASSWORD', 'vacinarte' );
 //desenv
-define( 'DB_PASSWORD', '$ultraseven9708$' );
+//define( 'DB_PASSWORD', '$ultraseven9708$' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'mysql' );
