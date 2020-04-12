@@ -7,7 +7,7 @@ setcookie("logado", 1, (time() + (0.5 * 3600)));
 <?php
 
 $aplic = $envio = $agenda = $atend = $cd_atend = $campanha = $dt_agenda = "";
-$enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
+$enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = $sql = "";
 $fechamento = 1;
 
 load();
@@ -107,9 +107,6 @@ function form_valido() {
         echo "<script language='javascript' type='text/javascript'>
         alert('Ops! Algo deu errado, tente novamente mais tarde!!');</script>";
       }
-     
-      
-      $atend = $wpdb->get_row($sql);
       
       //limpa formulario
       //$cd_atend = $campanha = $dt_agenda = $enfermeira = "";
@@ -253,7 +250,7 @@ function form_valido() {
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
     <?php
-        $agenda = $wpdb->get_results(
+        $sql = 
           "
           SELECT
             ATEND.CD_ATEND,
@@ -276,11 +273,9 @@ function form_valido() {
             CMP.CD_CMP = ATEND.CD_CMP AND
             VVC.CD_CMP = ATEND.CD_CMP AND
             VCNA.CD_VCNA = VVC.CD_VCNA
-          "
-        );
+          ";
                             
-        foreach ( $agenda as $agenda ) 
-        {
+          $agenda = $wpdb->get_row($sql);
     ?>
 
       <div class="row formCadCmp"><!-- row formulario -->
