@@ -332,9 +332,7 @@ function form_valido() {
           </form><!-- fecha form -->
         </div><!-- fecha col 12 -->
       </div><!-- fecha row txtbox -->
-    <?php
-      }
-    ?>
+    
 </div><!-- fecha container principal -->  
 
 	<script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
