@@ -6,12 +6,12 @@
 
 
 $message_body = array(
-	"title" => "teste push notification",
-	"body" => "teste body teste"
+	'title' => 'teste push notification',
+	'body' => 'teste body teste'
 );
 
 $receiver_pn_users = array(
-    "post_title" => "ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]"
+    'post_title' => 'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
 );
 echo "<script language='javascript' type='text/javascript'>
 alert('carrendo push {$receiver_pn_users->post_title}');</script>";
