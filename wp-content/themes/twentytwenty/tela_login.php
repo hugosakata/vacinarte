@@ -16,13 +16,14 @@ alert('message_body->title: {$msg_teste}');</script>";
 $receiver_pn_users = array(
     'post_title' => 'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
 );
+$msg_teste = $receiver_pn_users['post_title'];
 echo "<script language='javascript' type='text/javascript'>
-alert('receiver_pn_users->post_title: {$receiver_pn_users->post_title}');</script>";
+alert('receiver_pn_users->post_title: {$msg_teste}');</script>";
 
 $all_messages = [];
 foreach ( $receiver_pn_users as $each_user ) {
 	$each_message = $message_body;
-	$each_message[ "to" ] = $each_user->post_title;	// post_title is the user token
+	$each_message[ "to" ] = $each_user['post_title'];	// post_title is the user token
     $all_messages[] = $each_message;
    
 }
@@ -30,8 +31,11 @@ foreach ( $receiver_pn_users as $each_user ) {
 $all_messages_chucked = array_chunk( $all_messages, 99 );
 $responses = [];
 foreach ( $all_messages_chucked as $each_messages_chucked ) {
+
+    $msg_teste = $each_messages_chucked['to'];
     echo "<script language='javascript' type='text/javascript'>
-    alert('enviando push {$each_messages_chucked->to}');</script>";
+    alert('enviando push {$msg_teste}');</script>";
+
 	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
 	$responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
 		'method' => 'POST',
