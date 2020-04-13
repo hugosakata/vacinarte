@@ -1,5 +1,5 @@
 <?php
-
+echo "inicio\n";
 global $wpdb;
 
 $sql = "select nm_usu, ";
