@@ -774,11 +774,46 @@ function my_awesome_func( $data ) {
 
 	global $wpdb;
 
-	$query = "
-	select * from LOG_USU
-	";
+	$campanhas = $wpdb->get_results( 
+		"
+		SELECT
+		  CMP.CD_CMP,
+		  CMP.NM_CMP,
+		  CMP.CD_CLI,
+		  CLI.NM_FANT,
+		  CMP.CD_TP_SRV,
+		  SRV.NM_TP_SRV,
+		  CMP.DT_INI,
+		  CMP.DT_FIM,
+		  END.CD_END,
+		  CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) as LOCAL,
+		  VVC.CD_VCL_VCNA_CMP,
+		  VVC.CD_VCNA,
+		  CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) as VAC,
+		  VVC.QTD_VCNA,
+		  VVC.VLR_VCNA
+		FROM
+		  CAMPANHA CMP 
+				  LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
+		  LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
+		  LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA,
+		  TP_SRV SRV, 
+		  CLIENTES CLI, 
+		  VCL_ENDERECO VE, 
+		  ENDERECO END
+		  
+		WHERE
+		CMP.CD_TP_SRV = SRV.CD_TP_SRV and
+		CMP.CD_CLI = CLI.CD_CLI and
+		CMP.CD_VCL_END = VE.CD_VCL_END and
+		VE.CD_END = END.CD_END AND 
 
-	$user = $wpdb->get_row($query);
+		  CMP.DT_FIM >= now()
+		ORDER BY
+		  CMP.DT_INI ASC
+
+		"
+	  );
    
-	return $user;
+	return $campanhas;
   }
