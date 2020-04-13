@@ -25,7 +25,7 @@ $all_messages_chucked = array_chunk( $all_messages, 99 );
 $responses = [];
 foreach ( $all_messages_chucked as $each_messages_chucked ) {
     echo "<script language='javascript' type='text/javascript'>
-    alert('enviando push {$each_messages_chucked}');</script>";
+    alert('enviando push {$each_messages_chucked->to}');</script>";
 	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
 	$responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
 		'method' => 'POST',
