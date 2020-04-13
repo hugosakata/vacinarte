@@ -762,15 +762,15 @@ add_action( 'rest_api_init', function () {
 	  'callback' => 'my_awesome_func',
 	) );
   } );
-  
+
 function my_awesome_func( $data ) {
-	$posts = get_posts( array(
-	  'author' => $data['id'],
-	) );
+	// $posts = get_posts( array(
+	//   'author' => $data['id'],
+	// ) );
    
-	if ( empty( $posts ) ) {
-	  return null;
-	}
+	// if ( empty( $posts ) ) {
+	//   return null;
+	// }
    
-	return $posts[0]->post_title;
+	return "teste rest ok " . $data['id'];
   }
