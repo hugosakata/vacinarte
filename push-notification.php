@@ -1,8 +1,21 @@
 <?php
 
+global $wpdb;
+
+$sql = "select nm_usu, ";
+        $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
+        $sql .="count(tx_log_usu) as existe from LOG_USU ";
+        $sql .="where tx_log_usu = 'hugousu' and pw_usu = 'hugo123'";
+        $user = $wpdb->get_row($sql);
+        if($user->ativo == 1 && $user->existe == 1){
+			$msg_err="Bem-vindo " . $user->nm_usu;
+		} else {
+			$msg_err="deu ruim";
+		}
+
 $message_body = array(
 	'title' => 'teste push notification cron',
-	'body' => 'teste pelo cron teste'
+	'body' => $msg_err
 );
 // $msg_teste = $message_body['title'];
 // echo "<script language='javascript' type='text/javascript'>
@@ -37,37 +50,9 @@ foreach ( $all_messages_chucked as $each_messages_chucked ) {
 
 	echo "tentando enviar push";
 
-	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
-	// $responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
-	// 	'method' => 'POST',
-	// 	'timeout' => 15,
-	// 	'httpversion' => '2.0',
-	// 	'headers' => [ "content-type" => "application/json" ],
-	// 	'body' => json_encode( $each_messages_chucked ),
-	// ] );
 	sendPostData_v1("https://exp.host/--/api/v2/push/send", json_encode( $each_messages_chucked ));
 	echo "push enviado";
 }
-// foreach ( $responses as $response ) {
-// 	if ( is_wp_error( $response ) ) {
-// 		$all_responses_success = false;
-// 		$error_message = $response->get_error_message();
-// 		$admin_notice_message .= json_encode( $error_message ) . "\n";
-// 		continue;
-// 	}
-
-// 	$decoded_body = json_decode( $response[ "body" ], true );
-// 	if ( $response[ "response" ][ "code" ] != 200 ) {
-// 		$all_responses_success = false;
-// 		$admin_notice_message .= json_encode( $decoded_body ) . "\n";
-// 		continue;
-// 	}
-
-// 	$admin_notice_message .= json_encode( $decoded_body ) . "\n";
-// }
-
-// echo "msg ao adm " . $admin_notice_message;
-
 
 function sendPostData_v1($url, $data) {
 	$opts = array('http' => array(
