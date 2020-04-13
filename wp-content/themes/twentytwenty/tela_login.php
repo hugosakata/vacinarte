@@ -34,7 +34,8 @@ $message_body = [
 // 	] );
 // }
 
-alert("push enviado");
+echo "<script language='javascript' type='text/javascript'>
+alert('push enviado');</script>";
 
 global $wpdb;
 
