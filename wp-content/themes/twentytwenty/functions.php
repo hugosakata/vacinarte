@@ -771,6 +771,14 @@ function my_awesome_func( $data ) {
 	// if ( empty( $posts ) ) {
 	//   return null;
 	// }
+
+	global $wpdb;
+
+	$query = "
+	select * from LOG_USU
+	";
+
+	$user = $wpdb->get_row($query);
    
-	return "teste rest ok " . $data['id'];
+	return $user;
   }
