@@ -38,34 +38,56 @@ foreach ( $all_messages_chucked as $each_messages_chucked ) {
 	echo "tentando enviar push";
 
 	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
-	$responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
-		'method' => 'POST',
-		'timeout' => 15,
-		'httpversion' => '2.0',
-		'headers' => [ "content-type" => "application/json" ],
-		'body' => json_encode( $each_messages_chucked ),
-	] );
+	// $responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
+	// 	'method' => 'POST',
+	// 	'timeout' => 15,
+	// 	'httpversion' => '2.0',
+	// 	'headers' => [ "content-type" => "application/json" ],
+	// 	'body' => json_encode( $each_messages_chucked ),
+	// ] );
+	sendPostData_v1("https://exp.host/--/api/v2/push/send", json_encode( $each_messages_chucked ));
 	echo "push enviado";
 }
-foreach ( $responses as $response ) {
-	if ( is_wp_error( $response ) ) {
-		$all_responses_success = false;
-		$error_message = $response->get_error_message();
-		$admin_notice_message .= json_encode( $error_message ) . "\n";
-		continue;
-	}
+// foreach ( $responses as $response ) {
+// 	if ( is_wp_error( $response ) ) {
+// 		$all_responses_success = false;
+// 		$error_message = $response->get_error_message();
+// 		$admin_notice_message .= json_encode( $error_message ) . "\n";
+// 		continue;
+// 	}
 
-	$decoded_body = json_decode( $response[ "body" ], true );
-	if ( $response[ "response" ][ "code" ] != 200 ) {
-		$all_responses_success = false;
-		$admin_notice_message .= json_encode( $decoded_body ) . "\n";
-		continue;
-	}
+// 	$decoded_body = json_decode( $response[ "body" ], true );
+// 	if ( $response[ "response" ][ "code" ] != 200 ) {
+// 		$all_responses_success = false;
+// 		$admin_notice_message .= json_encode( $decoded_body ) . "\n";
+// 		continue;
+// 	}
 
-	$admin_notice_message .= json_encode( $decoded_body ) . "\n";
-}
+// 	$admin_notice_message .= json_encode( $decoded_body ) . "\n";
+// }
 
-echo "msg ao adm " . $admin_notice_message;
+// echo "msg ao adm " . $admin_notice_message;
+
+
+function sendPostData_v1($url, $data) {
+	$opts = array('http' => array(
+	  'method' => 'POST', 
+	  'header' => "Content-type: application/json\r\n",
+	  'content' => $data
+	  )); 
+	$stream = stream_context_create($opts); 
+	$fp = fopen($url, 'rb', false, $stream); 
+	if (!$fp) { // Some error handling 
+	} 
+   
+	// Find out what the page returns as its body 
+	$reply = stream_get_contents($fp); 
+	if ($reply === false) { // Some error handling 
+	} 
+   
+	return $reply; 
+  }
 
 // echo "<script language='javascript' type='text/javascript'>
 // alert('push enviado');</script>";
+?>
