@@ -46,4 +46,3 @@ foreach ( $all_messages_chucked as $each_messages_chucked ) {
 
 // echo "<script language='javascript' type='text/javascript'>
 // alert('push enviado');</script>";
-return "push enviado";
