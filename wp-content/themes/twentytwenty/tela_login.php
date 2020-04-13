@@ -10,9 +10,7 @@ $message_body = [
 	"body" => "teste body teste",
 ];
 
-$receiver_pn_users = [
-    "post_title" => "ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]"
-];
+$receiver_pn_users["post_title"] = "ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]";
 
 $all_messages = [];
 foreach ( $receiver_pn_users as $each_user ) {
