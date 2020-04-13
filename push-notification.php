@@ -45,7 +45,27 @@ foreach ( $all_messages_chucked as $each_messages_chucked ) {
 		'headers' => [ "content-type" => "application/json" ],
 		'body' => json_encode( $each_messages_chucked ),
 	] );
+	echo "push enviado";
 }
+foreach ( $responses as $response ) {
+	if ( is_wp_error( $response ) ) {
+		$all_responses_success = false;
+		$error_message = $response->get_error_message();
+		$admin_notice_message .= json_encode( $error_message ) . "\n";
+		continue;
+	}
+
+	$decoded_body = json_decode( $response[ "body" ], true );
+	if ( $response[ "response" ][ "code" ] != 200 ) {
+		$all_responses_success = false;
+		$admin_notice_message .= json_encode( $decoded_body ) . "\n";
+		continue;
+	}
+
+	$admin_notice_message .= json_encode( $decoded_body ) . "\n";
+}
+
+echo "msg ao adm " . $admin_notice_message;
 
 // echo "<script language='javascript' type='text/javascript'>
 // alert('push enviado');</script>";
