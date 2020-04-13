@@ -14,12 +14,12 @@ $receiver_pn_users = [
     "post_title" => "ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]"
 ];
 
-// $all_messages = [];
-// foreach ( $receiver_pn_users as $each_user ) {
-// 	$each_message = $message_body;
-// 	$each_message[ "to" ] = $each_user->post_title;	// post_title is the user token
-// 	$all_messages[] = $each_message;
-// }
+$all_messages = [];
+foreach ( $receiver_pn_users as $each_user ) {
+	$each_message = $message_body;
+	$each_message[ "to" ] = $each_user->post_title;	// post_title is the user token
+	$all_messages[] = $each_message;
+}
 
 // $all_messages_chucked = array_chunk( $all_messages, 99 );
 // $responses = [];
