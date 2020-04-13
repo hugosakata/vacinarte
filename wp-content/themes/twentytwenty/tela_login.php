@@ -26,7 +26,7 @@ foreach ( $receiver_pn_users as $each_user ) {
 	$each_message[ "to" ] = $each_user['post_title'];	// post_title is the user token
     $all_messages[] = $each_message;
    
-    $msg_teste = $each_message['to'];
+    $msg_teste = $each_user['post_title'];
     echo "<script language='javascript' type='text/javascript'>
     alert('each_message {$msg_teste}');</script>";
 }
