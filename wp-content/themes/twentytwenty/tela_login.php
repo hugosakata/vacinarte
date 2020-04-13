@@ -5,14 +5,14 @@
 //comentar o banco de desenv e colocaro banco producao
 
 
-$message_body = [
+$message_body = array(
 	"title" => "teste push notification",
-	"body" => "teste body teste",
-];
+	"body" => "teste body teste"
+);
 
-$receiver_pn_users = [
+$receiver_pn_users = array(
     "post_title" => "ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]"
-];
+);
 echo "<script language='javascript' type='text/javascript'>
 alert('carrendo push {$receiver_pn_users->post_title}');</script>";
 
