@@ -7,14 +7,13 @@
 
 $message_body = array(
 	'title' => 'teste push notification',
-	'body' => 'teste body teste'
+	'body' => 'teste 1343 teste'
 );
 $msg_teste = $message_body['title'];
 echo "<script language='javascript' type='text/javascript'>
 alert('message_body->title: {$msg_teste}');</script>";
 
 $receiver_pn_users = array( 
-    'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]',
     'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
 );
 $msg_teste = $receiver_pn_users;
@@ -27,7 +26,7 @@ foreach ( $receiver_pn_users as $each_user ) {
 	$each_message[ "to" ] = $each_user;	// post_title is the user token
     $all_messages[] = $each_message;
    
-    $msg_teste = $each_message['to'];
+    $msg_teste = $each_user;
     echo "<script language='javascript' type='text/javascript'>
     alert('each_message {$msg_teste}');</script>";
 }
@@ -36,7 +35,7 @@ $all_messages_chucked = array_chunk( $all_messages, 99 );
 $responses = [];
 foreach ( $all_messages_chucked as $each_messages_chucked ) {
 
-    $msg_teste = $each_messages_chucked->to;
+    $msg_teste = $each_messages_chucked['to'];
     echo "<script language='javascript' type='text/javascript'>
     alert('enviando push {$msg_teste}');</script>";
 
