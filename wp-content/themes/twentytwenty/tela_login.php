@@ -9,12 +9,14 @@ $message_body = array(
 	'title' => 'teste push notification',
 	'body' => 'teste body teste'
 );
+echo "<script language='javascript' type='text/javascript'>
+alert('message_body->title: {$message_body->title}');</script>";
 
 $receiver_pn_users = array(
     'post_title' => 'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
 );
 echo "<script language='javascript' type='text/javascript'>
-alert('carrendo push {$receiver_pn_users->post_title}');</script>";
+alert('receiver_pn_users->post_title: {$receiver_pn_users->post_title}');</script>";
 
 $all_messages = [];
 foreach ( $receiver_pn_users as $each_user ) {
