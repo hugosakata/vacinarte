@@ -756,6 +756,8 @@ function twentytwenty_get_elements_array() {
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
 
+
+//***************** REST API */
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
 	  'methods' => 'GET',
@@ -817,3 +819,15 @@ function my_awesome_func( $data ) {
    
 	return $campanhas;
   }
+
+  //******************* CRONJOB */
+  if ( ! wp_next_scheduled( 'cwp_cron_personalizada' ) ) {
+	wp_schedule_event( time(), 'hourly', 'my_task_hook' );
+  }
+   
+  add_action( 'cwp_cron_personalizada', 'cwp_cron_personalizada_func' );
+   
+  function cwp_cron_personalizada_func() {
+	wp_mail( 'hugosakata@gmail.com', 'Email Automatico', 'Email Automatico para testar WordPress Cron');
+  }
+   
