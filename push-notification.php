@@ -24,7 +24,7 @@ foreach ( $receiver_pn_users as $each_user ) {
     // $msg_teste = $each_user;
     // echo "<script language='javascript' type='text/javascript'>
 	// alert('each_message {$msg_teste}');</script>";
-	echo "enviando push para " . $each_user;
+	echo "registro push para " . $each_user;
 }
 
 $all_messages_chucked = array_chunk( $all_messages, 99 );
@@ -35,7 +35,7 @@ foreach ( $all_messages_chucked as $each_messages_chucked ) {
     // echo "<script language='javascript' type='text/javascript'>
     // alert('enviando push {$msg_teste}');</script>";
 
-	 
+	echo "tentando enviar push";
 
 	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
 	$responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
