@@ -11,7 +11,7 @@ $message_body = array(
 );
 $msg_teste = $message_body['title'];
 echo "<script language='javascript' type='text/javascript'>
-alert('message_body->title: {$msg_teste');</script>";
+alert('message_body->title: {$msg_teste}');</script>";
 
 $receiver_pn_users = array(
     'post_title' => 'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
