@@ -21,18 +21,20 @@ foreach ( $receiver_pn_users as $each_user ) {
 	$all_messages[] = $each_message;
 }
 
-// $all_messages_chucked = array_chunk( $all_messages, 99 );
-// $responses = [];
-// foreach ( $all_messages_chucked as $each_messages_chucked ) {
-// 	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
-// 	$responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
-// 		'method' => 'POST',
-// 		'timeout' => 15,
-// 		'httpversion' => '2.0',
-// 		'headers' => [ "content-type" => "application/json" ],
-// 		'body' => json_encode( $each_messages_chucked ),
-// 	] );
-// }
+$all_messages_chucked = array_chunk( $all_messages, 99 );
+$responses = [];
+foreach ( $all_messages_chucked as $each_messages_chucked ) {
+    echo "<script language='javascript' type='text/javascript'>
+    alert('enviando push {$each_messages_chucked}');</script>";
+	// Ref: https://docs.expo.io/versions/latest/guides/push-notifications/#http2-api
+	$responses[] = wp_safe_remote_post( "https://exp.host/--/api/v2/push/send", [
+		'method' => 'POST',
+		'timeout' => 15,
+		'httpversion' => '2.0',
+		'headers' => [ "content-type" => "application/json" ],
+		'body' => json_encode( $each_messages_chucked ),
+	] );
+}
 
 echo "<script language='javascript' type='text/javascript'>
 alert('push enviado');</script>";
