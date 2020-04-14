@@ -845,7 +845,8 @@ function my_awesome_func( $data ) {
 
 	$message_body = array(
 		'title' => 'teste push notification cron',
-		'body' => $msg_err
+		'body' => $msg_err,
+        'data' => '5df5fc93ee28730017d4b1c1'
 	);
 	// $msg_teste = $message_body['title'];
 	// echo "<script language='javascript' type='text/javascript'>
