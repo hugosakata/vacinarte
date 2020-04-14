@@ -853,7 +853,7 @@ function my_awesome_func( $data ) {
 	// alert('message_body->title: {$msg_teste}');</script>";
 
 	$receiver_pn_users = array( 
-		'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]',
+		//'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]',
         'ExponentPushToken[OQBKosO4zjsbZ9Bn0Qdyy4]'
 	);
 	// $msg_teste = $receiver_pn_users;
