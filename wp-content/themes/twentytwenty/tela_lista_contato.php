@@ -3,8 +3,9 @@
 global $wpdb;
 $home = get_home_url(); 
 
-if(isset($_GET['id'])){
+if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
+  $id_cmp = $_GET['id_cmp'];
   $id_ctt = $_GET['id_ctt'];
   $acao = $_GET['acao'];
 }
@@ -203,22 +204,45 @@ if (isset($acao) && $acao == "delete"){
                           </thead>
                           <tbody>
                           <?php
-                            $contatos = $wpdb->get_results( 
-                              "
-                              SELECT `cd_ctt`, `cd_cli`, `nm_ctt`, `tel_pri`, 
-                              `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-                              FROM `CONTATO`
-                              WHERE cd_cli={$id_cli} and status=1 order by `nm_ctt`
-                              "
-                            );
-                            
-                            if (count($contatos)<=0){
-                              echo "<script language='javascript' type='text/javascript'>
-                              window.location.href='{$home}/cadastrar-contato/?id={$id_cli}';</script>";
-                            }
 
-                            foreach ( $contatos as $contato ) 
-                            {
+                            $sql = "";
+                            if ($id_cli > 0){
+                              $sql = "
+                              SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
+                              `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
+                              FROM `CONTATO`, `VCL_CONTATO`
+                              WHERE 
+                              `VCL_CONTATO`.`cd_ctt`=`CONTATO`.`cd_ctt` and
+                              `VCL_CONTATO`.`cd_cli`={$id_cli} and status=1 order by `nm_ctt`
+                              ";
+                            } else if ($id_cmp > 0){
+                              $sql = "
+                              SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
+                              `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
+                              FROM `CONTATO`, `VCL_CTT_CMP`
+                              WHERE 
+                              `VCL_CTT_CMP`.`cd_ctt`=`CONTATO`.`cd_ctt` and
+                              `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and status=1 order by `nm_ctt`
+                              ";
+                            }
+                            
+                            if ($sql != ""){
+                              $contatos = $wpdb->get_results($sql);
+                              
+                              if (count($contatos)<=0){
+                                $alert = "<script language='javascript' type='text/javascript'>
+                                window.location.href='{$home}/cadastrar-contato/?";
+                                if ($id_cli > 0) 
+                                  $alert.="id=".$id_cli;
+                                else if ($id_cmp > 0) 
+                                  $alert.="id_cmp=".$id_cmp;
+                                $alert.="';</script>";
+
+                                echo $alert;
+                              }
+
+                              foreach ( $contatos as $contato ) 
+                              {
                           ?>
                             <tr id="<?php echo $contato->cd_ctt; ?>">
                               <td><?php echo $contato->nm_ctt ?></td>
@@ -227,11 +251,12 @@ if (isset($acao) && $acao == "delete"){
                               <td><?php echo $contato->obs_ctt ?></td>
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
-                                <a href="<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=edit"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?id=<?php echo $id_cli; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
+                                <a href="<?php echo $home; ?>/cadastrar-contato/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=edit"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                               </td>
                             </tr>
                             <?php
+                                }
                               }
                             ?>
           

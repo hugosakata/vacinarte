@@ -6,13 +6,14 @@ $home = get_home_url();
 
 <?php
 
-$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = $id_ctt = "";
+$nm_contato = $tel_pri = $email = $obs_ctt = $id_cli = $id_cmp = $id_ctt = "";
 $id_ctt = $id_vcl = 0;
 
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
+  $id_cmp = $_GET['id_cmp'];
   $id_ctt = $_GET['id_ctt'];
   $acao = $_GET['acao'];
 
@@ -21,11 +22,12 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 }
 
  function load(){
-    global $nm_contato, $tel_pri, $email, $obs_ctt, $acao, $id_ctt, $id_cli;
+    global $nm_contato, $tel_pri, $email, $obs_ctt, $acao, $id_ctt, $id_cli, $id_cmp;
 
     $acao = str_replace("'", "", trim($_POST["acao"]));
     $id_ctt = str_replace("'", "", trim($_POST["id_ctt"]));
     $id_cli = str_replace("'", "", trim($_POST["id_cli"]));
+    $id_cmp = str_replace("'", "", trim($_POST["id_cmp"]));
 
     $nm_contato = str_replace("'", "", trim($_POST["nm_contato"]));
     $tel_pri = str_replace("'", "", trim($_POST["tel_pri"]));
@@ -52,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $linhas_afetadas = $wpdb->update(
         'CONTATO',
         array(
-          'cd_cli'  => $id_cli,
+          //'cd_cli'  => $id_cli,
           'nm_ctt'  => $nm_contato,
           'tel_pri' => $tel_pri,
           'email'   => $email,
@@ -60,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ),
         array( 'cd_ctt' =>  $id_ctt),
         array(
-          '%d',
+          //'%d',
           '%s',
           '%s',
           '%s',
@@ -80,14 +82,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $wpdb->insert(
         'CONTATO',
         array(
-          'cd_cli'  => $id_cli,
+          //'cd_cli'  => $id_cli,
           'nm_ctt'  => $nm_contato,
           'tel_pri' => $tel_pri,
           'email'   => $email,
           'obs_ctt' => $obs_ctt
         ),
         array(
-          '%d',
+          //'%d',
           '%s',
           '%s',
           '%s',
@@ -96,18 +98,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       );
       $id_ctt = $wpdb->insert_id;
 
-      $wpdb->insert(
-        'VCL_CONTATO',
-        array(
-          'cd_cli'      => $id_cli,
-          'cd_ctt'      => $id_ctt        
-        ),
-        array(
-          '%s',
-          '%s'
-        )
-      );
-      $id_vcl = $wpdb->insert_id;
+      if ($id_cli > 0){
+        $wpdb->insert(
+          'VCL_CONTATO',
+          array(
+            'cd_cli'      => $id_cli,
+            'cd_ctt'      => $id_ctt        
+          ),
+          array(
+            '%s',
+            '%s'
+          )
+        );
+        $id_vcl = $wpdb->insert_id;
+      } else if ($id_cmp>0) {
+        $wpdb->insert(
+          'VCL_CTT_CMP',
+          array(
+            'cd_cmp'      => $id_cmp,
+            'cd_ctt'      => $id_ctt        
+          ),
+          array(
+            '%s',
+            '%s'
+          )
+        );
+        $id_vcl = $wpdb->insert_id;
+      }
 
       if ($id_ctt > 0 && $id_vcl > 0){
         $wpdb->query("COMMIT");
@@ -280,6 +297,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     value="<?php echo $acao; ?>"/>
                 <input type="text" id="id_cli" name="id_cli" class="form-control"
                     value="<?php echo $id_cli; ?>"/>
+                <input type="text" id="id_cmp" name="id_cmp" class="form-control"
+                    value="<?php echo $id_cmp; ?>"/>
                 <input type="text" id="id_ctt" name="id_ctt" class="form-control"
                     value="<?php echo $id_ctt; ?>"/>
               </div>
