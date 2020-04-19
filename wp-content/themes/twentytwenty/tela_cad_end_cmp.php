@@ -12,6 +12,31 @@ if(isset($_GET['id'])){
 $id_cmp = 3;
 $id_cli = 9;
 
+if (id_cmp != ''){
+
+  $vinculo = $wpdb->insert(
+    'VCL_END_CMP',
+    array(
+      'cd_cmp' => $cd_cmp,
+      'cd_end'   => $cd_end
+    ),
+    array(
+      '%d',
+      '%d'
+    )
+  );
+  $id_vcl = $wpdb->insert_id;
+  if($vinculo > 0){
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Endereço salvo com sucesso!');</script>";
+  }else{
+    echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+  }  
+} else {
+    $msg_err = "Ops! Faltou selecionar algum endereço.";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -156,9 +181,10 @@ $id_cli = 9;
           <h3 class="page-header texto_cabeca">Endereços da campanha</h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
-          onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id=<?php echo $id_cli; ?>';" 
-          value="Novo" />
+          <!-- <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
+          onclick="location.href='<?php //echo $home; ?>/cadastrar-endereco/?id=<?php //echo $id_cli; ?>';" 
+          value="Novo" /> -->
+          <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="salvaEndCmp();" value="Salvar" />
         </div>
     </div><!-- fecha div row -->
 
