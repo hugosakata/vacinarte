@@ -12,29 +12,31 @@ if(isset($_GET['id'])){
 $id_cmp = 3;
 $id_cli = 9;
 
-if (id_cmp != ''){
+function salvaEndCmp(){
+  if ($id_cmp != '' || $id_cmp != null){
 
-  $vinculo = $wpdb->insert(
-    'VCL_END_CMP',
-    array(
-      'cd_cmp' => $cd_cmp,
-      'cd_end'   => $cd_end
-    ),
-    array(
-      '%d',
-      '%d'
-    )
-  );
-  $id_vcl = $wpdb->insert_id;
-  if($vinculo > 0){
-    echo "<script language='javascript' type='text/javascript'>
-    alert('Endereço salvo com sucesso!');</script>";
-  }else{
-    echo "<script language='javascript' type='text/javascript'>
-        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
-  }  
-} else {
-    $msg_err = "Ops! Faltou selecionar algum endereço.";
+    $vinculo = $wpdb->insert(
+      'VCL_END_CMP',
+      array(
+        'cd_cmp' => $cd_cmp,
+        'cd_end'   => $cd_end
+      ),
+      array(
+        '%d',
+        '%d'
+      )
+    );
+    $id_vcl = $wpdb->insert_id;
+    if($vinculo > 0){
+      echo "<script language='javascript' type='text/javascript'>
+      alert('Endereço salvo com sucesso!');</script>";
+    }else{
+      echo "<script language='javascript' type='text/javascript'>
+          alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+    }  
+  } else {
+      $msg_err = "Ops! Faltou selecionar algum endereço.";
+  }
 }
 
 ?>
