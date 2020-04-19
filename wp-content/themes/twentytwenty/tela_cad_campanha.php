@@ -310,9 +310,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input id="btn_ctt" type="button" class="btn btn-danger btn_geral btn_contato" onclick="location.href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
                 value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
               </div> 
-              <div class="col-xs-2 col-xs-offset-1 hide">
-                <input  type="button" onclick="location.href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
-                value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+              <div class="col-xs-1">
+                <input id="btn_vac" class="btn btn-danger" type="button" onclick="location.href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
+                value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray; border: none;'"; } ?>/>
               </div>  
             </div>
 
