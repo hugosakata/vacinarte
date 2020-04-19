@@ -3,8 +3,9 @@
 global $wpdb;
 $home = get_home_url(); 
 
-if(isset($_GET['id'])){
+if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
+  $id_cmp = $_GET['id_cmp'];
   $id_end = $_GET['id_end'];
   $acao = $_GET['acao'];
 }
@@ -214,26 +215,48 @@ if (isset($acao) && $acao == "delete"){
                         <tbody>
 
                         <?php
-                          $enderecos = $wpdb->get_results( 
-                            "
+                          $sql ="";
+                          if ($id_cli > 0) {
+                            $sql = "
                             SELECT 
-                            ENDERECO.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
-                            FROM `ENDERECO` as ENDERECO, 
-                            `VCL_ENDERECO` as VCL_ENDERECO 
+                            `ENDERECO`.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+                            FROM `ENDERECO`,
+                            `VCL_ENDERECO`
                             WHERE 
-                            ENDERECO.cd_end=VCL_ENDERECO.cd_end and 
-                            VCL_ENDERECO.cd_cli={$id_cli} and ativo=1 order by `nm_end`, `logradouro`
-                            "
-                          );
-                          
-                          if (count($enderecos)<=0){
-                            echo "<script language='javascript' type='text/javascript'>
-                            window.location.href='{$home}/cadastrar-endereco/?id={$id_cli}';</script>";
+                            `ENDERECO`.cd_end=`VCL_ENDERECO`.cd_end and 
+                            `VCL_ENDERECO`.cd_cli={$id_cli} and ativo=1 order by `nm_end`, `logradouro`
+                            ";
+                          } else if ($id_cmp > 0) {
+                            $sql = "
+                            SELECT 
+                            `ENDERECO`.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+                            FROM `ENDERECO`,
+                            `VCL_END_CMP`
+                            WHERE 
+                            `ENDERECO`.cd_end=`VCL_END_CMP`.cd_end and 
+                            `VCL_END_CMP`.cd_cmp={$id_cmp} and ativo=1 order by `nm_end`, `logradouro`
+                            ";
                           }
 
+                          if ($sql != "") {
 
-                          foreach ( $enderecos as $endereco ) 
-                          {
+                            $enderecos = $wpdb->get_results( $sql );
+                            
+                            if (count($enderecos)<=0){
+                              $alert = "<script language='javascript' type='text/javascript'>
+                              window.location.href='{$home}/cadastrar-endereco/?";
+                              if ($id_cli > 0) 
+                                $alert.="id=".$id_cli;
+                              else if ($id_cmp > 0) 
+                                $alert.="id_cmp=".$id_cmp;
+                              $alert.="';</script>";
+
+                              echo $alert;
+                            }
+
+
+                            foreach ( $enderecos as $endereco ) 
+                            {
                         ?>
                           <tr>
                             <td><?php echo $endereco->nm_end ?></td>
@@ -246,12 +269,13 @@ if (isset($acao) && $acao == "delete"){
                             <td>
                               <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php //echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
-                              <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-enderecos/?id=<?php echo $id_cli; ?>&id_end=<?php echo $endereco->cd_end; ?>&acao=delete">
+                              <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-enderecos/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_end=<?php echo $endereco->cd_end; ?>&acao=delete">
                                 <i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i>
                               </a>
                             </td>
                           </tr>
                           <?php
+                              }
                             }
                           ?>
 

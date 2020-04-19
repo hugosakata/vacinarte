@@ -6,12 +6,13 @@ $home = get_home_url();
 
 <?php
 
-$endereco = $nm_end = $logra = $num_logra = $id_cli = "";
+$endereco = $nm_end = $logra = $num_logra = $id_cli = $id_cmp = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 $id_end = $id_vcl = 0;
 
-if(isset($_GET['id'])){
+if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
+  $id_cmp = $_GET['id_cmp'];
 }
 
  function load(){
@@ -76,18 +77,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     );
     $id_end = $wpdb->insert_id;
 
-    $wpdb->insert(
-      'VCL_ENDERECO',
-      array(
-        'cd_cli'      => $id_cli,
-        'cd_end'      => $id_end        
-      ),
-      array(
-        '%s',
-        '%s'
-      )
-    );
-    $id_vcl = $wpdb->insert_id;
+    if ($id_cli > 0){
+      $wpdb->insert(
+        'VCL_ENDERECO',
+        array(
+          'cd_cli'      => $id_cli,
+          'cd_end'      => $id_end        
+        ),
+        array(
+          '%s',
+          '%s'
+        )
+      );
+      $id_vcl = $wpdb->insert_id;
+    } else if($id_cmp > 0){
+      $wpdb->insert(
+        'VCL_END_CMP',
+        array(
+          'cd_cmp'      => $id_cmp,
+          'cd_end'      => $id_end        
+        ),
+        array(
+          '%s',
+          '%s'
+        )
+      );
+      $id_vcl = $wpdb->insert_id;
+    }
 
     // echo "<script language='javascript' type='text/javascript'>
     // alert('{$id_end}, {$id_vcl}');</script>";
