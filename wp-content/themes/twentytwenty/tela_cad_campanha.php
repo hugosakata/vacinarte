@@ -314,6 +314,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input id="btn_vac" class="btn btn-danger" type="button" onclick="location.href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
                 value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray; border: none;'"; } ?>/>
               </div>  
+              
             </div>
 
           </form><!-- fecha form -->
