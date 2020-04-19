@@ -1,28 +1,21 @@
 <?php
 echo "inicio\n";
-global $wpdb;
-
-$sql = "select nm_usu, ";
-        $sql .="ifnull(bl_sit_usu, 0) as ativo, ";
-        $sql .="count(tx_log_usu) as existe from LOG_USU ";
-        $sql .="where tx_log_usu = 'hugousu' and pw_usu = 'hugo123'";
-        $user = $wpdb->get_row($sql);
-        if($user->ativo == 1 && $user->existe == 1){
-			$msg_err="Bem-vindo " . $user->nm_usu;
-		} else {
-			$msg_err="deu ruim";
-		}
 
 $message_body = array(
-	'title' => 'teste push notification cron',
-	'body' => $msg_err
+	'title' => 'teste push notification cron2',
+	'body' => 'teste',
+    'data' => json_encode(array('id' => '1'))
 );
 // $msg_teste = $message_body['title'];
 // echo "<script language='javascript' type='text/javascript'>
 // alert('message_body->title: {$msg_teste}');</script>";
 
 $receiver_pn_users = array( 
-    'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
+//    'ExponentPushToken[ZDYkv0J59zNuEQ0upuBrzO]'
+//    'ExponentPushToken[OQBKosO4zjsbZ9Bn0Qdyy4]'
+//    'ExponentPushToken[RQgV_CAaDoyjSLBXKkNTaa]'
+    'ExponentPushToken[CndRFMCEpopNNJFAP6c8ND]' //anali
+//    'ExponentPushToken[BQt96oN432TSkvW1mzhb1h]' //tiagones
 );
 // $msg_teste = $receiver_pn_users;
 // echo "<script language='javascript' type='text/javascript'>
