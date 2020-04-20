@@ -239,13 +239,6 @@ function salvaEndCmp(){
                           {
                         ?>
                           <tr>
-                            <td><?php echo $endereco->nm_end ?></td>
-                            <td><?php echo $endereco->logradouro ?></td>
-                            <td><?php echo $endereco->num_end ?></td>
-                            <td><?php echo $endereco->bairro ?></td>
-                            <td><?php echo $endereco->cep ?></td>
-                            <td><?php echo $endereco->cidade ?></td>
-                            <td><?php echo $endereco->estado ?></td>
                             <td>
                               <a class="sel" id="sel_<?php echo $endereco->cd_end; ?>" onclick="montaArr('<?php echo $endereco->cd_end; ?>', 'sel')";>
                                 <i class="material-icons" style="padding-left: 5px; color: DimGray; cursor: pointer;">done</i>
@@ -254,6 +247,13 @@ function salvaEndCmp(){
                                 <i class="material-icons" style="padding-left: 5px; color: Lime; cursor: pointer;">done_all</i>
                               </a>
                             </td>
+                            <td><?php echo $endereco->nm_end ?></td>
+                            <td><?php echo $endereco->logradouro ?></td>
+                            <td><?php echo $endereco->num_end ?></td>
+                            <td><?php echo $endereco->bairro ?></td>
+                            <td><?php echo $endereco->cep ?></td>
+                            <td><?php echo $endereco->cidade ?></td>
+                            <td><?php echo $endereco->estado ?></td>
                           </tr>
                           <?php
                             }
