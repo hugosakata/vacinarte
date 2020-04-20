@@ -10,6 +10,32 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
   $acao = $_GET['acao'];
 }
 
+if ($id_cli > 0) {
+  $titulo = "Endereços do Cliente";
+  $novo = $home.'/cadastrar-endereco/?id='.$id_cli;
+  $sql = "
+        SELECT 
+        `ENDERECO`.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+        FROM `ENDERECO`,
+        `VCL_ENDERECO`
+        WHERE 
+        `ENDERECO`.cd_end=`VCL_ENDERECO`.cd_end and 
+        `VCL_ENDERECO`.cd_cli={$id_cli} and ativo=1 order by `nm_end`, `logradouro`
+        ";
+} else if ($id_cmp > 0) {
+  $titulo = "Endereços da Campanha"; 
+  $novo = $home.'/cadastrar-endereco-campanha/?id_cmp='.$id_cmp; 
+  $sql = "
+        SELECT 
+        `ENDERECO`.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+        FROM `ENDERECO`,
+        `VCL_END_CMP`
+        WHERE 
+        `ENDERECO`.cd_end=`VCL_END_CMP`.cd_end and 
+        `VCL_END_CMP`.cd_cmp={$id_cmp} and ativo=1 order by `nm_end`, `logradouro`
+        ";
+}
+
 if (isset($acao) && $acao == "delete"){
   $result = $wpdb->update(
     'ENDERECO',
@@ -176,22 +202,14 @@ if (isset($acao) && $acao == "delete"){
     
     <div class="row">
         <div class="col-xs-10">
-          <h3 class="page-header texto_cabeca">Endereços do Cliente
+          <h3 class="page-header texto_cabeca"><?php echo $titulo; ?>
           <!-- <br>
             <small>Preencha o formulário abaixo para cadastrar um novo cliente</small> -->
           </h3>
         </div>
         <div class="col-xs-2" style="align:center">
-
-        <?php 
-          if ($id_cli > 0) 
-            $chamada = $home.'/cadastrar-endereco/?id='.$id_cli;
-          else if ($id_cmp > 0) 
-            $chamada = $home.'/cadastrar-endereco-campanha/?id_cmp='.$id_cmp; 
-        ?>
-
           <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
-          onclick="location.href='<?php echo $chamada; ?>';" value="Novo" />
+          onclick="location.href='<?php echo $novo; ?>';" value="Novo" />
         </div>
     </div><!-- fecha div row -->
 
@@ -222,45 +240,15 @@ if (isset($acao) && $acao == "delete"){
                         <tbody>
 
                         <?php
-                          $sql ="";
-                          if ($id_cli > 0) {
-                            $sql = "
-                            SELECT 
-                            `ENDERECO`.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
-                            FROM `ENDERECO`,
-                            `VCL_ENDERECO`
-                            WHERE 
-                            `ENDERECO`.cd_end=`VCL_ENDERECO`.cd_end and 
-                            `VCL_ENDERECO`.cd_cli={$id_cli} and ativo=1 order by `nm_end`, `logradouro`
-                            ";
-                          } else if ($id_cmp > 0) {
-                            $sql = "
-                            SELECT 
-                            `ENDERECO`.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
-                            FROM `ENDERECO`,
-                            `VCL_END_CMP`
-                            WHERE 
-                            `ENDERECO`.cd_end=`VCL_END_CMP`.cd_end and 
-                            `VCL_END_CMP`.cd_cmp={$id_cmp} and ativo=1 order by `nm_end`, `logradouro`
-                            ";
-                          }
 
                           if ($sql != "") {
 
                             $enderecos = $wpdb->get_results( $sql );
                             
                             if (count($enderecos)<=0){
-                              $alert = "<script language='javascript' type='text/javascript'>
-                              window.location.href='{$home}/";
-                              if ($id_cli > 0) 
-                                $alert.="cadastrar-endereco/?id=".$id_cli;
-                              else if ($id_cmp > 0) 
-                                $alert.="cadastrar-endereco-campanha/?id_cmp=".$id_cmp;
-                              $alert.="';</script>";
-
-                              echo $alert;
+                              echo "<script language='javascript' type='text/javascript'>
+                              window.location.href='{$novo}';</script>";
                             }
-
 
                             foreach ( $enderecos as $endereco ) 
                             {
