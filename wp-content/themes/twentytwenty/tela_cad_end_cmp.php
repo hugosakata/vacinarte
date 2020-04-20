@@ -203,6 +203,7 @@ function salvaEndCmp(){
                       <table class="table table-striped" id="tab_end_cmp">
                         <thead>
                           <tr>
+                            <th>Selecionar</th>
                             <th>Nome</th>
                             <th>Logradouro</th>
                             <th>Número</th>
@@ -211,7 +212,6 @@ function salvaEndCmp(){
                             <th>Cidade</th>
                             <th>Estado</th>
                             <!-- <th>Ativo</th> -->
-                            <th>Selecionar</th>
                           </tr>
                         </thead>
                         <tbody>
