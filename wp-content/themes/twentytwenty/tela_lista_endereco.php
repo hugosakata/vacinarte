@@ -182,9 +182,16 @@ if (isset($acao) && $acao == "delete"){
           </h3>
         </div>
         <div class="col-xs-2" style="align:center">
+
+        <?php 
+          if ($id_cli > 0) 
+            $chamada = $home.'/cadastrar-endereco/?id='.$id_cli;
+          else if ($id_cmp > 0) 
+            $chamada = $home.'/cadastrar-endereco-campanha/?id_cmp='.$id_cmp; 
+        ?>
+
           <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
-          onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id=<?php echo $id_cli; ?>';" 
-          value="Novo" />
+          onclick="location.href='<?php echo $chamada; ?>';" value="Novo" />
         </div>
     </div><!-- fecha div row -->
 
@@ -244,11 +251,11 @@ if (isset($acao) && $acao == "delete"){
                             
                             if (count($enderecos)<=0){
                               $alert = "<script language='javascript' type='text/javascript'>
-                              window.location.href='{$home}/cadastrar-endereco/?";
+                              window.location.href='{$home}/";
                               if ($id_cli > 0) 
-                                $alert.="id=".$id_cli;
+                                $alert.="cadastrar-endereco/?id=".$id_cli;
                               else if ($id_cmp > 0) 
-                                $alert.="id_cmp=".$id_cmp;
+                                $alert.="cadastrar-endereco-campanha/?id_cmp=".$id_cmp;
                               $alert.="';</script>";
 
                               echo $alert;
@@ -269,7 +276,13 @@ if (isset($acao) && $acao == "delete"){
                             <td>
                               <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a>
                               <a href='http://vacinarte-admin.com.br/cadastrar-endereco/?id=<?php //echo $endereco->cd_end; ?>'><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a> -->
-                              <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-enderecos/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_end=<?php echo $endereco->cd_end; ?>&acao=delete">
+                              <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-enderecos/?
+                              <?php 
+                                if ($id_cli > 0) 
+                                  echo "id=".$id_cli; 
+                                else if ($id_cmp > 0) 
+                                  echo "id_cmp=".$id_cmp; 
+                              ?>&id_end=<?php echo $endereco->cd_end; ?>&acao=delete">
                                 <i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i>
                               </a>
                             </td>
