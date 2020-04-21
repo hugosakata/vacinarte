@@ -40,7 +40,7 @@ function form_valido() {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
 
-    $arr_selecionados = explode(",", $selecionados);    
+    $arr_selecionados = explode(",", $selecionados.",");    
 
     $sucesso = true;
     //$wpdb->query ("START TRANSACTION");
