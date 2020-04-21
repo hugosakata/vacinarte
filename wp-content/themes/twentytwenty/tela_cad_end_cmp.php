@@ -3,6 +3,8 @@
 global $wpdb;
 $home = get_home_url(); 
 
+load();
+
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cmp = $_GET['id_cmp'];
 
@@ -12,9 +14,11 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 }
 
 function load(){
-  global $selecionados;
+  global $selecionados, $id_cli, $id_cmp;
 
   $selecionados = str_replace("'", "", trim($_POST["selecionados"]));
+  $id_cli = str_replace("'", "", trim($_POST["id_cli"]));
+  $id_cmp = str_replace("'", "", trim($_POST["id_cmp"]));
 }
 
 function form_valido() {
@@ -32,8 +36,6 @@ function form_valido() {
 
   return $valido;
 }
-
-load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
@@ -56,6 +58,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       //   )
       // );
       // $id_vcl = $wpdb->insert_id;
+
+      echo "<script language='javascript' type='text/javascript'>
+      alert('{$id_cmp}, {$arr_selecionado}');</script>";
+
       if ($id_vcl == false){
         $sucesso = false;
         break;
@@ -224,6 +230,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <form action="#" method="post">
             <div class="hide">
               <input type="text" id="selecionados" name="selecionados" class="form-control"/>
+              <input type="text" id="id_cmp" name="id_cmp" class="form-control" value=<?php echo $id_cmp; ?>/>
+              <input type="text" id="id_cli" name="id_cli" class="form-control" value=<?php echo $id_cli; ?>/>
             </div>
             <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
           </form>
