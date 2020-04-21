@@ -230,8 +230,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <form action="#" method="post">
             <div class="hide">
               <input type="text" id="selecionados" name="selecionados" class="form-control"/>
-              <input type="text" id="id_cmp" name="id_cmp" class="form-control" value=<?php echo $id_cmp; ?>/>
-              <input type="text" id="id_cli" name="id_cli" class="form-control" value=<?php echo $id_cli; ?>/>
+              <input type="text" id="id_cmp" name="id_cmp" class="form-control" value="<?php echo $id_cmp; ?>"/>
+              <input type="text" id="id_cli" name="id_cli" class="form-control" value="<?php echo $id_cli; ?>"/>
             </div>
             <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
           </form>
