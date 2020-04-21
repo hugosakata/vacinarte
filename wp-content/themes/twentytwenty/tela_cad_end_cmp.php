@@ -322,7 +322,7 @@ function salvaEndCmp(){
       $('#done_'+id).addClass('hide');
     }
     console.log(arr);
-    $('#selecionados').text(arr);
+    $('#selecionados').val(arr);
   }
     </script>
 
