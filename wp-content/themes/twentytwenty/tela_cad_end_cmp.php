@@ -3,42 +3,80 @@
 global $wpdb;
 $home = get_home_url(); 
 
-if(isset($_GET['id'])){
-  $id_cmp = $_GET['id'];
-  //$id_cli = $_GET['id'];
-  $acao = $_GET['acao'];
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+  $id_cmp = $_GET['id_cmp'];
+
+  $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+  $campanha = $wpdb->get_row($sql);
+  $id_cli = $campanha->cd_cmp;
 }
 
-$id_cmp = 3;
-$id_cli = 9;
+function load(){
+  global $selecionados;
 
-function salvaEndCmp(){
-  if ($id_cmp != '' || $id_cmp != null){
+  $selecionados = str_replace("'", "", trim($_POST["selecionados"]));
+}
 
-    $vinculo = $wpdb->insert(
-      'VCL_END_CMP',
-      array(
-        'cd_cmp' => $cd_cmp,
-        'cd_end'   => $cd_end
-      ),
-      array(
-        '%d',
-        '%d'
-      )
-    );
-    $id_vcl = $wpdb->insert_id;
-    if($vinculo > 0){
+function form_valido() {
+  global $selecionados, $id_cmp, $id_cli;
+
+  echo "<script language='javascript' type='text/javascript'>
+  alert('{$selecionados} , {$id_cmp} , {$id_cli}');</script>";
+
+  $valido = false;
+  if (!empty($selecionados) &&
+      !empty($id_cmp) &&
+      !empty($id_cli)){
+        $valido = true;
+  }
+
+  return $valido;
+}
+
+load();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if (form_valido()){
+
+    $arr_selecionados = explode(",", $selecionados);
+
+    $sucesso = true;
+    //$wpdb->query ("START TRANSACTION");
+    foreach ( $arr_selecionados as $arr_selecionado ) 
+    {
+      // $vinculo = $wpdb->insert(
+      //   'VCL_END_CMP',
+      //   array(
+      //     'cd_cmp' => $id_cmp,
+      //     'cd_end'   => $arr_selecionado
+      //   ),
+      //   array(
+      //     '%d',
+      //     '%d'
+      //   )
+      // );
+      // $id_vcl = $wpdb->insert_id;
+      if ($id_vcl == false){
+        $sucesso = false;
+        break;
+      }
+    }
+
+    if($sucesso == true){
+      //$wpdb->query("COMMIT");
+
       echo "<script language='javascript' type='text/javascript'>
       alert('Endereço salvo com sucesso!');</script>";
     }else{
+     // $wpdb->query("ROLLBACK");
+
       echo "<script language='javascript' type='text/javascript'>
           alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
     }  
   } else {
-      $msg_err = "Ops! Faltou selecionar algum endereço.";
+    $msg_err = "Ops! Faltou selecionar algum endereço";
   }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -179,15 +217,19 @@ function salvaEndCmp(){
   <div class="container"><!-- container principal-->
     
     <div class="row">
-        <div class="col-xs-10">
-          <h3 class="page-header texto_cabeca">Endereços da campanha</h3>
+        <div class="col-xs-9">
+          <h3 class="page-header texto_cabeca">Endereços da Campanha</h3>
         </div>
-        <div class="col-xs-2" style="align:center">
+        <div class="col-xs-3" style="align:center">
           <form action="#" method="post">
             <div class="hide">
               <input type="text" id="selecionados" name="selecionados" class="form-control"/>
             </div>
-            <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
+            <div class="row">
+              <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
+              <input id="btn_novo" class="btn btn-danger pull-right" value="Novo" 
+              onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id_cmp=<?php echo $id_cmp; ?>';"/>
+            </div>
           </form>
         </div>
     </div><!-- fecha div row -->
@@ -231,10 +273,10 @@ function salvaEndCmp(){
                             "
                           );
                           
-                          if (count($enderecos)<=0){
-                            echo "<script language='javascript' type='text/javascript'>
-                            window.location.href='{$home}/cadastrar-endereco/?id={$id_cli}';</script>";
-                          }
+                          // if (count($enderecos)<=0){
+                          //   echo "<script language='javascript' type='text/javascript'>
+                          //   window.location.href='{$home}/cadastrar-endereco/?id={$id_cli}';</script>";
+                          // }
 
 
                           foreach ( $enderecos as $endereco ) 
