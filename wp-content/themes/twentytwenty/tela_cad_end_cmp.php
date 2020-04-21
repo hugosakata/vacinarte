@@ -40,7 +40,7 @@ function form_valido() {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
 
-    $arr_selecionados = explode(",", $selecionados.",");    
+    $arr_selecionados = explode(",", $selecionados);    
 
     $sucesso = true;
     //$wpdb->query ("START TRANSACTION");
@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       if ($id_vcl == false){
         $sucesso = false;
-        break;
+        //break;
       }
     }
 
@@ -374,7 +374,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $('#done_'+id).addClass('hide');
     }
     console.log(arr);
-    $('#selecionados').val(arr + ",");
+    $('#selecionados').val(arr);
   }
     </script>
 
