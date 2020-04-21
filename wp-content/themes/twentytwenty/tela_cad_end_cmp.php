@@ -42,6 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $arr_selecionados = explode(",", $selecionados);
 
+    echo "<script language='javascript' type='text/javascript'>
+    alert('array: {$arr_selecionados}');</script>";
+
     $sucesso = true;
     //$wpdb->query ("START TRANSACTION");
     foreach ( $arr_selecionados as $arr_selecionado ) 
