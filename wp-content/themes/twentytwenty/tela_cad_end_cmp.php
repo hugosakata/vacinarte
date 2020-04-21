@@ -183,10 +183,12 @@ function salvaEndCmp(){
           <h3 class="page-header texto_cabeca">Endereços da campanha</h3>
         </div>
         <div class="col-xs-2" style="align:center">
-          <!-- <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
-          onclick="location.href='<?php //echo $home; ?>/cadastrar-endereco/?id=<?php //echo $id_cli; ?>';" 
-          value="Novo" /> -->
-          <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="salvaEndCmp();" value="Salvar" />
+          <form action="#" method="post">
+            <div class="hide">
+              <input type="text" id="selecionados" name="selecionados" class="form-control"/>
+            </div>
+            <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
+          </form>
         </div>
     </div><!-- fecha div row -->
 
@@ -320,6 +322,7 @@ function salvaEndCmp(){
       $('#done_'+id).addClass('hide');
     }
     console.log(arr);
+    $('#selecionados').text(arr);
   }
     </script>
 
