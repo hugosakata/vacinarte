@@ -374,7 +374,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $('#done_'+id).addClass('hide');
     }
     console.log(arr);
-    $('#selecionados').val(arr);
+    $('#selecionados').val(arr + ",");
   }
     </script>
 
