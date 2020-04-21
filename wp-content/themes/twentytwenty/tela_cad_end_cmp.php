@@ -43,40 +43,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $arr_selecionados = explode(",", $selecionados);    
 
     $sucesso = true;
-    //$wpdb->query ("START TRANSACTION");
+    $wpdb->query ("START TRANSACTION");
     foreach ( $arr_selecionados as $arr_selecionado ) 
     {
-      // $vinculo = $wpdb->insert(
-      //   'VCL_END_CMP',
-      //   array(
-      //     'cd_cmp' => $id_cmp,
-      //     'cd_end'   => $arr_selecionado
-      //   ),
-      //   array(
-      //     '%d',
-      //     '%d'
-      //   )
-      // );
-      // $id_vcl = $wpdb->insert_id;
-
-      $total .= $arr_selecionado.",";
+      $vinculo = $wpdb->insert(
+        'VCL_END_CMP',
+        array(
+          'cd_cmp' => $id_cmp,
+          'cd_end' => $arr_selecionado
+        ),
+        array(
+          '%d',
+          '%d'
+        )
+      );
+      $id_vcl = $wpdb->insert_id;
 
       if ($id_vcl == false){
         $sucesso = false;
-        //break;
+        break;
       }
     }
 
-    echo "<script language='javascript' type='text/javascript'>
-    alert('array: {$total}');</script>";
-
     if($sucesso == true){
-      //$wpdb->query("COMMIT");
+      $wpdb->query("COMMIT");
 
       echo "<script language='javascript' type='text/javascript'>
       alert('Endereço salvo com sucesso!');</script>";
     }else{
-     // $wpdb->query("ROLLBACK");
+     $wpdb->query("ROLLBACK");
 
       echo "<script language='javascript' type='text/javascript'>
           alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
