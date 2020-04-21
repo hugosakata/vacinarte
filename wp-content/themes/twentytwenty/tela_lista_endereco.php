@@ -52,17 +52,11 @@ if (isset($acao) && $acao == "delete"){
       array( '%d' )
     );
   } else if ($id_cmp > 0) {
-    $result = $wpdb->update(
+    $result = $wpdb->delete(
       'VCL_END_CMP',
-      array(
-        'ativo'      => '0'     
-      ),
       array( 
         'cd_end' =>  $id_end, 
         'cd_cmp' =>  $id_cmp
-      ),
-      array(
-        '%d'
       ),
       array( '%d', '%d' )
     );
