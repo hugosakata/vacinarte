@@ -226,9 +226,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="text" id="selecionados" name="selecionados" class="form-control"/>
             </div>
             <div class="row">
-              <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
-              <input id="btn_novo" class="btn btn-danger pull-right" value="Novo" 
-              onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id_cmp=<?php echo $id_cmp; ?>';"/>
+              <div class="col-xs-1">
+                <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
+              </div>
+              <div class="col-xs-1">
+                <input id="btn_novo" class="btn btn-danger pull-right" value="Novo" 
+                onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id_cmp=<?php echo $id_cmp; ?>';"/>
+              </div>
             </div>
           </form>
         </div>
