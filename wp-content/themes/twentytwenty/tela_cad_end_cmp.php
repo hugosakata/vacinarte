@@ -40,11 +40,7 @@ function form_valido() {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
 
-    $arr_selecionados = explode(",", $selecionados);
-
-    $total = count ($arr_selecionados);
-    echo "<script language='javascript' type='text/javascript'>
-    alert('array: {$total}');</script>";
+    $arr_selecionados = explode(",", $selecionados);    
 
     $sucesso = true;
     //$wpdb->query ("START TRANSACTION");
@@ -63,14 +59,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       // );
       // $id_vcl = $wpdb->insert_id;
 
-      echo "<script language='javascript' type='text/javascript'>
-      alert('{$id_cmp}, {$arr_selecionado}');</script>";
+      $total .= $arr_selecionado.",";
 
       if ($id_vcl == false){
         $sucesso = false;
         break;
       }
     }
+
+    echo "<script language='javascript' type='text/javascript'>
+    alert('array: {$total}');</script>";
 
     if($sucesso == true){
       //$wpdb->query("COMMIT");
