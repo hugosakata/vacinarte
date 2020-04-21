@@ -42,8 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $arr_selecionados = explode(",", $selecionados);
 
+    $total = count ($arr_selecionados);
     echo "<script language='javascript' type='text/javascript'>
-    alert('array: {$arr_selecionados}');</script>";
+    alert('array: {$total}');</script>";
 
     $sucesso = true;
     //$wpdb->query ("START TRANSACTION");
