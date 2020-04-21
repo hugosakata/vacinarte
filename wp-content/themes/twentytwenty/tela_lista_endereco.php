@@ -32,22 +32,40 @@ if ($id_cli > 0) {
         `VCL_END_CMP`
         WHERE 
         `ENDERECO`.cd_end=`VCL_END_CMP`.cd_end and 
-        `VCL_END_CMP`.cd_cmp={$id_cmp} and ativo=1 order by `nm_end`, `logradouro`
+        `VCL_END_CMP`.cd_cmp={$id_cmp} and `VCL_END_CMP`.ativo=1 and `ENDERECO`.ativo=1 order by `nm_end`, `logradouro`
         ";
 }
 
 if (isset($acao) && $acao == "delete"){
-  $result = $wpdb->update(
-    'ENDERECO',
-    array(
-      'ativo'      => '0'     
-    ),
-    array( 'cd_end' =>  $id_end),
-    array(
-      '%d'
-    ),
-    array( '%d' )
-  );
+  if ($id_cli > 0) {
+    $result = $wpdb->update(
+      'ENDERECO',
+      array(
+        'ativo'      => '0'     
+      ),
+      array( 'cd_end' =>  $id_end),
+      array(
+        '%d'
+      ),
+      array( '%d' )
+    );
+  } else if ($id_cmp > 0) {
+    $result = $wpdb->update(
+      'VCL_END_CMP',
+      array(
+        'ativo'      => '0'     
+      ),
+      array( 
+        'cd_end' =>  $id_end, 
+        'cd_cmp' =>  $id_cmp
+      ),
+      array(
+        '%d'
+      ),
+      array( '%d', '%d' )
+    );
+  }
+
   if($result > 0){
     echo "<script language='javascript' type='text/javascript'>
     alert('Endereço excluído com sucesso!');</script>";
