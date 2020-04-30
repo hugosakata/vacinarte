@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
   $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
   $campanha = $wpdb->get_row($sql);
-  $id_cli = $campanha->cd_cmp;
+  $id_cli = $campanha->cd_cli;
 }
 
 function load(){
@@ -269,6 +269,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                           $enderecos = $wpdb->get_results( 
                             "
                             SELECT 
+                            (select count(cd_vcl_end_cmp) from `VCL_END_CMP` where `VCL_END_CMP`.cd_end=ENDERECO.cd_end and `VCL_END_CMP`.cd_cmp={$id_cmp}) as total,
                             ENDERECO.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
                             FROM `ENDERECO` as ENDERECO, 
                             `VCL_ENDERECO` as VCL_ENDERECO 
@@ -303,6 +304,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <td><?php echo $endereco->cep ?></td>
                             <td><?php echo $endereco->cidade ?></td>
                             <td><?php echo $endereco->estado ?></td>
+                            <?php if ($endereco->total > 0) {?>
+                              <script>montaArr('<?php echo $endereco->cd_end; ?>', 'sel');</script>
+                            <?php } ?>
                           </tr>
                           <?php
                             }
