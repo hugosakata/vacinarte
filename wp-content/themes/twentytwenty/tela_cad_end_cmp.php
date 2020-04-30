@@ -363,6 +363,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
   function montaArr(id, origem){
+    alert("rodou");
     if(origem == 'sel'){
       arr.push(id);
       $('#sel_'+id).addClass('hide');
