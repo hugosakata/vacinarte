@@ -22,7 +22,7 @@ function date_converter($_date = null) {
 }
 
 function load(){
-  global $nm_cmp, $cd_cli, $tp_srv, $local_srv;
+  global $nm_cmp, $cd_cli, $tp_srv, $local_srv, $data_ini, $data_fim;
 
   $nm_cmp = str_replace("'", "", trim($_POST["nm_cmp"]));
   $cd_cli = str_replace("'", "", trim($_POST["cd_cli"]));
@@ -39,7 +39,7 @@ function form_valido() {
   $dt_fim = date_converter($data_fim);
 
   echo "<script language='javascript' type='text/javascript'>
-    alert('{$nm_cmp}, {$cd_cli}, {$tp_srv}, {$local_srv}, {$dt_ini}, {$dt_fim}, {$dt_ini}, {$dt_fim}');</script>";
+    alert('{$nm_cmp}, {$cd_cli}, {$tp_srv}, {$local_srv}, {$dt_ini}, {$dt_fim}');</script>";
 
   $valido = false;
   if (!empty($nm_cmp) &&
