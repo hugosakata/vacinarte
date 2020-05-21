@@ -77,6 +77,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     );
     $id_end = $wpdb->insert_id;
 
+    echo "<script language='javascript' type='text/javascript'>
+      alert('{$id_cli}, {$id_end}');</script>";
+
     if ($id_cli > 0){
       $wpdb->insert(
         'VCL_ENDERECO',
@@ -105,8 +108,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $id_vcl = $wpdb->insert_id;
     }
 
-    // echo "<script language='javascript' type='text/javascript'>
-    // alert('{$id_end}, {$id_vcl}');</script>";
+    echo "<script language='javascript' type='text/javascript'>
+    alert('{$id_end}, {$id_vcl}');</script>";
 
     if ($id_end > 0 && $id_vcl > 0){
       $wpdb->query("COMMIT");
