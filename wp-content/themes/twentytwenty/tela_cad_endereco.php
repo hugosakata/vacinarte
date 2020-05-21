@@ -17,7 +17,11 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
  function load(){
     global $nm_end, $logra, $num_logra,
-    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err;
+    $compl_logra, $bairro, $cep, $cidade, $uf_br, $msg_err,
+    $id_cli, $id_cmp;
+
+    $id_cli = str_replace("'", "", trim($_POST["id_cli"]));
+    $id_cmp = str_replace("'", "", trim($_POST["id_cmp"]));
 
     $nm_end = str_replace("'", "", trim($_POST["nm_end"]));
     $logra = str_replace("'", "", trim($_POST["logra"]));
@@ -270,6 +274,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="col-lg-12 col-xs-8">
         <form action="#" method="post">
 
+        <div class="hide">
+          <input type="text" id="id_cmp" name="id_cmp" class="form-control" value="<?php echo $id_cmp; ?>"/>
+          <input type="text" id="id_cli" name="id_cli" class="form-control" value="<?php echo $id_cli; ?>"/>
+        </div>
           
         <div class="row">
             <div class="form-group col-xs-2 col-xs-offset-1">
