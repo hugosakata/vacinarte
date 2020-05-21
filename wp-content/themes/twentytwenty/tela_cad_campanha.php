@@ -325,6 +325,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	  <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
-    
+    <script type="text/javascript">
+      $(document).ready(function(){	
+        $("#dt_ini").mask("99/99/9999");
+      });
+      $(document).ready(function(){	
+        $("#dt_fim").mask("99/99/9999");
+      });
+    </script>
   </body>
   </html>
