@@ -38,8 +38,8 @@ function form_valido() {
   $dt_ini = date_converter($data_ini);
   $dt_fim = date_converter($data_fim);
 
-  echo "<script language='javascript' type='text/javascript'>
-    alert('{$nm_cmp}, {$cd_cli}, {$tp_srv}, {$local_srv}, {$dt_ini}, {$dt_fim}');</script>";
+  // echo "<script language='javascript' type='text/javascript'>
+  //   alert('{$nm_cmp}, {$cd_cli}, {$tp_srv}, {$local_srv}, {$dt_ini}, {$dt_fim}');</script>";
 
   $valido = false;
   if (!empty($nm_cmp) &&
