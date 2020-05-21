@@ -274,7 +274,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="col-lg-12 col-xs-8">
         <form action="#" method="post">
 
-        <div class="hide">
+        <div >
           <input type="text" id="id_cmp" name="id_cmp" class="form-control" value="<?php echo $id_cmp; ?>"/>
           <input type="text" id="id_cli" name="id_cli" class="form-control" value="<?php echo $id_cli; ?>"/>
         </div>
