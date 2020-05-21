@@ -10,6 +10,8 @@ $endereco = $nm_end = $logra = $num_logra = $id_cli = $id_cmp = "";
 $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 $id_end = $id_vcl = 0;
 
+load();
+
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_cli = $_GET['id'];
   $id_cmp = $_GET['id_cmp'];
@@ -50,8 +52,6 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
     return $valido;
  }
-
- load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
