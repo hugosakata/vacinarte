@@ -24,8 +24,8 @@ function load(){
 function form_valido() {
   global $selecionados, $id_cmp, $id_cli;
 
-  echo "<script language='javascript' type='text/javascript'>
-  alert('{$selecionados} , {$id_cmp} , {$id_cli}');</script>";
+  //echo "<script language='javascript' type='text/javascript'>
+  //alert('{$selecionados} , {$id_cmp} , {$id_cli}');</script>";
 
   $valido = false;
   if (!empty($selecionados) &&
