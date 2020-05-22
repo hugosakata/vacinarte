@@ -159,7 +159,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       border-radius: 6px;
       height: 3.5vw;
       margin-top: 1vw;
-      margin-right: 1.vw;
+      margin-right: 1.5vw;
     }
     #btn_novo{
       width: 8vw;
