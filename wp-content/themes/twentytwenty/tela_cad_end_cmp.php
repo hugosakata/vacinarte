@@ -159,6 +159,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       border-radius: 6px;
       height: 3.5vw;
       margin-top: 1vw;
+      margin-right: 1.vw;
     }
     #btn_novo{
       width: 8vw;
@@ -227,10 +228,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <div class="container"><!-- container principal-->
     
     <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-9">
           <h3 class="page-header texto_cabeca">Endereços da Campanha</h3>
         </div>
-        <div class="col-xs-2 col-xs-offset-1" style="align:center">
+        <div class="col-xs-1 col-xs-offset-1" style="align:center">
           <form action="#" method="post">
             <div class="hide">
               <input type="text" id="selecionados" name="selecionados" class="form-control"/>
@@ -240,7 +241,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input id="btn_salvar" class="btn btn-danger pull-right" type="submit"  value="Salvar" />
           </form>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-1">
           <input id="btn_novo" class="btn btn-danger pull-right" value="Novo" 
           onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id_cmp=<?php echo $id_cmp; ?>';"/>
         </div>
