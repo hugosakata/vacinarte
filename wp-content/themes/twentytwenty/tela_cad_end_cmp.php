@@ -11,6 +11,13 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
   $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
   $campanha = $wpdb->get_row($sql);
   $id_cli = $campanha->cd_cli;
+
+  $sql = "SELECT GROUP_CONCAT(DISTINCT cd_end
+  ORDER BY cd_end
+  SEPARATOR ',') as cd_ends FROM `VCL_END_CMP`where cd_cmp='{$id_cmp}'";
+
+  $campanha_ends = $wpdb->get_row($sql);
+  $selecionados = $campanha_ends->cd_ends;
 }
 
 function load(){
@@ -233,8 +240,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <div class="col-xs-1 col-xs-offset-1" style="align:center">
           <form action="#" method="post">
-            <div class="hide">
-              <input type="text" id="selecionados" name="selecionados" class="form-control"/>
+            <!-- <div class="hide"> -->
+            <div>
+              <input type="text" id="selecionados" name="selecionados" class="form-control" value="<?php echo $selecionados; ?>"/>
               <input type="text" id="id_cmp" name="id_cmp" class="form-control" value="<?php echo $id_cmp; ?>"/>
               <input type="text" id="id_cli" name="id_cli" class="form-control" value="<?php echo $id_cli; ?>"/>
             </div>
