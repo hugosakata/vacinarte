@@ -345,7 +345,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
     
     <script>
-    var arr = [];  
+    var arr = [<?php echo $selecionados; ?>];  
 
       //datatable
 	$(document).ready(function(){
@@ -376,7 +376,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
   function montaArr(id, origem){
-    alert("rodou");
     if(origem == 'sel'){
       arr.push(id);
       $('#sel_'+id).addClass('hide');
