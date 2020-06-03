@@ -306,10 +306,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         ?>
                           <tr>
                             <td>
-                              <a class="sel" id="sel_<?php echo $endereco->cd_end; ?>" onclick="montaArr('<?php echo $endereco->cd_end; ?>', 'sel')";>
+                              <a class="sel <?php if ($endereco->total > 0){ echo 'hide'; }?>" id="sel_<?php echo $endereco->cd_end; ?>" onclick="montaArr('<?php echo $endereco->cd_end; ?>', 'sel')";>
                                 <i class="material-icons" style="padding-left: 5px; color: DimGray; cursor: pointer;">done</i>
                               </a>
-                              <a class="done hide" id="done_<?php echo $endereco->cd_end; ?>" onclick="montaArr('<?php echo $endereco->cd_end; ?>', 'done')">
+                              <a class="done <?php if ($endereco->total <= 0){ echo 'hide'; }?>" id="done_<?php echo $endereco->cd_end; ?>" onclick="montaArr('<?php echo $endereco->cd_end; ?>', 'done')">
                                 <i class="material-icons" style="padding-left: 5px; color: Lime; cursor: pointer;">done_all</i>
                               </a>
                             </td>
@@ -320,7 +320,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <td><?php echo $endereco->cep ?></td>
                             <td><?php echo $endereco->cidade ?></td>
                             <td><?php echo $endereco->estado ?></td>
-                            <?php if ($endereco->total > 0) {?>
+                            <?php if  {?>
                               <script>montaArr('<?php echo $endereco->cd_end; ?>', 'sel');</script>
                             <?php } ?>
                           </tr>
