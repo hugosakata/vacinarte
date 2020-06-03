@@ -345,7 +345,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.dataTables.min.js"></script>
     
     <script>
-    var arr = [<?php echo $selecionados; ?>];  
+    var selecionados = <?php if (!empty($selecionados)) echo $selecionados; else echo "''"; ?>;
+    var arr = [];  
+    arr.push(selecionados);
 
       //datatable
 	$(document).ready(function(){
