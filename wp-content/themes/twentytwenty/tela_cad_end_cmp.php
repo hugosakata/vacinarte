@@ -320,9 +320,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <td><?php echo $endereco->cep ?></td>
                             <td><?php echo $endereco->cidade ?></td>
                             <td><?php echo $endereco->estado ?></td>
-                            <?php if  {?>
-                              <script>montaArr('<?php echo $endereco->cd_end; ?>', 'sel');</script>
-                            <?php } ?>
                           </tr>
                           <?php
                             }
