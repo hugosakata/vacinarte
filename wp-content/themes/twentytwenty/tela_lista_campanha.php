@@ -199,8 +199,8 @@ $home = get_home_url();
                                 SRV.NM_TP_SRV,
                                 CMP.DT_INI,
                                 CMP.DT_FIM,
-                                END.CD_END,
-                                CONCAT(END.LOGRADOURO, ', ', END.NUM_END, ', ', END.COMPLEMENTO, ', ', END.BAIRRO, ' - ', END.CIDADE) as LOCAL,
+                                ENDE.CD_END,
+                                CONCAT(ENDE.LOGRADOURO, ', ', ENDE.NUM_END, ', ', ENDE.COMPLEMENTO, ', ', ENDE.BAIRRO, ' - ', ENDE.CIDADE) as LOCAL,
                                 VVC.CD_VCL_VCNA_CMP,
                                 VVC.CD_VCNA,
                                 CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) as VAC,
@@ -210,17 +210,15 @@ $home = get_home_url();
                                 CAMPANHA CMP 
 				                        LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
                                 LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
-                                LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA,
+                                LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
+                                LEFT JOIN VCL_ENDERECO VE ON CMP.CD_VCL_END = VE.CD_VCL_END
+                                LEFT JOIN ENDERECO ENDE ON  VE.CD_END = ENDE.CD_END,
                                 TP_SRV SRV, 
-                                CLIENTES CLI, 
-                                VCL_ENDERECO VE, 
-                                ENDERECO END
+                                CLIENTES CLI
                                 
                               WHERE
                               CMP.CD_TP_SRV = SRV.CD_TP_SRV and
                               CMP.CD_CLI = CLI.CD_CLI and
-                              CMP.CD_VCL_END = VE.CD_VCL_END and
-                              VE.CD_END = END.CD_END AND 
 
                                 CMP.DT_FIM >= now()
                               ORDER BY
