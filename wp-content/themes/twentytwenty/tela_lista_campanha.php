@@ -211,7 +211,7 @@ $home = get_home_url();
 				                        LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
                                 LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
                                 LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
-                                LEFT JOIN VCL_ENDERECO VE ON CMP.CD_VCL_END = VE.CD_VCL_END
+                                LEFT JOIN VCL_END_CMP VE ON CMP.CD_CMP = VE.CD_CMP
                                 LEFT JOIN ENDERECO ENDE ON  VE.CD_END = ENDE.CD_END,
                                 TP_SRV SRV, 
                                 CLIENTES CLI
