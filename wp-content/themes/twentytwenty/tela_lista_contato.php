@@ -37,17 +37,38 @@ if ($id_cli > 0) {
 }
 
 if (isset($acao) && $acao == "delete"){
-  $result = $wpdb->update(
-    'CONTATO',
-    array(
-      'status'      => '0'     
-    ),
-    array( 'cd_ctt' =>  $id_ctt),
-    array(
-      '%d'
-    ),
-    array( '%d' )
-  );
+
+  if ($id_cli > 0) {
+    $result = $wpdb->update(
+      'CONTATO',
+      array(
+        'status'      => '0'     
+      ),
+      array( 'cd_ctt' =>  $id_ctt),
+      array(
+        '%d'
+      ),
+      array( '%d' )
+    );
+  } else if ($id_cmp > 0) {
+
+    $sql = "SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '{$id_cmp}' and cd_ctt = '{$id_ctt}'";
+    $vlc_ctt_cmp = $wpdb->get_row($sql);
+    $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
+
+    $linhas_afetadas = $wpdb->update(
+      'VCL_CTT_CMP',
+        array(
+          'ativo'      => '0'     
+        ),
+        array( 'cd_vcl_ctt_cmp' =>  $id_vcl),
+        array(
+          '%d'
+        ),
+        array( '%d' )
+    );
+  }
+  
   if($result > 0){
     echo "<script language='javascript' type='text/javascript'>
     alert('Contato excluído com sucesso!');</script>";
@@ -250,7 +271,13 @@ if (isset($acao) && $acao == "delete"){
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
                                 <a href="<?php echo $home; ?>/cadastrar-contato/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=edit"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
+                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?
+                                <?php 
+                                  if ($id_cli > 0) 
+                                    echo "id=".$id_cli; 
+                                  else if ($id_cmp > 0) 
+                                    echo "id_cmp=".$id_cmp; 
+                                ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                               </td>
                             </tr>
                             <?php
