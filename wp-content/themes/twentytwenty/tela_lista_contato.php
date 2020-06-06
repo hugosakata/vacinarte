@@ -56,7 +56,7 @@ if (isset($acao) && $acao == "delete"){
     $vlc_ctt_cmp = $wpdb->get_row($sql);
     $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
 
-    $linhas_afetadas = $wpdb->update(
+    $result = $wpdb->update(
       'VCL_CTT_CMP',
         array(
           'ativo'      => '0'     
