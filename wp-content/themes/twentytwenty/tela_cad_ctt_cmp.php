@@ -107,6 +107,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }else{
      $wpdb->query("ROLLBACK");
 
+      $msg_err .= $wpdb->show_errors();
+      $msg_err .=$wpdb->print_error();
+
       echo "<script language='javascript' type='text/javascript'>
           alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
     }  
