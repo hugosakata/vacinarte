@@ -62,8 +62,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
         $ativo = $vlc_ctt_cmp->ativo;
 
-        echo "<script language='javascript' type='text/javascript'>
-        alert('{$id_cmp}, {$arr_selecionado}, {$id_vcl}, ativo={$ativo}');</script>";
+        // echo "<script language='javascript' type='text/javascript'>
+        // alert('{$id_cmp}, {$arr_selecionado}, {$id_vcl}, ativo={$ativo}');</script>";
 
         if ($id_vcl > 0){
           if ($ativo <= 0){

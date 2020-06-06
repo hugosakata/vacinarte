@@ -56,18 +56,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     foreach ( $arr_selecionados as $arr_selecionado ) 
     {
       if ($arr_selecionado > 0) {
-        $vinculo = $wpdb->insert(
-          'VCL_END_CMP',
-          array(
-            'cd_cmp' => $id_cmp,
-            'cd_end' => $arr_selecionado
-          ),
-          array(
-            '%d',
-            '%d'
-          )
-        );
-        $id_vcl = $wpdb->insert_id;
+
+        $sql = "SELECT cd_vcl_end_cmp, ativo FROM VCL_END_CMP WHERE cd_cmp = '{$id_cmp}' and cd_end = '{$arr_selecionado}'";
+        $vlc_end_cmp = $wpdb->get_row($sql);
+        $id_vcl = $vlc_end_cmp->cd_vcl_end_cmp;
+        $ativo = $vlc_end_cmp->ativo;
+
+        // echo "<script language='javascript' type='text/javascript'>
+        // alert('{$id_cmp}, {$arr_selecionado}, {$id_vcl}, ativo={$ativo}');</script>";
+
+        if ($id_vcl > 0){
+          if ($ativo <= 0){
+            $linhas_afetadas = $wpdb->update(
+              'VCL_END_CMP',
+                array(
+                  'ativo'      => '1'     
+                ),
+                array( 'cd_vcl_end_cmp' =>  $id_vcl),
+                array(
+                  '%d'
+                ),
+                array( '%d' )
+            );
+            $id_vcl = ($linhas_afetadas > 0);
+          } else {
+            $id_vcl = true;
+          }
+        } else {
+          $vinculo = $wpdb->insert(
+            'VCL_END_CMP',
+            array(
+              'cd_cmp' => $id_cmp,
+              'cd_end' => $arr_selecionado
+            ),
+            array(
+              '%d',
+              '%d'
+            )
+          );
+          $id_vcl = $wpdb->insert_id;
+        }
 
         if ($id_vcl == false){
           $sucesso = false;
