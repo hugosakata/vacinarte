@@ -62,8 +62,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
 
         echo "<script language='javascript' type='text/javascript'>
-        alert('{$id_vcl}');</script>";
-        
+        alert('{$id_cmp}, {$arr_selecionado}, {$id_vcl}');</script>";
+
         if ($id_vcl > 0){
           $linhas_afetadas = $wpdb->update(
             'VCL_CTT_CMP',
