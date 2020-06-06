@@ -296,7 +296,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             `VCL_CONTATO` as VCL_CONTATO 
                             WHERE 
                             CONTATO.cd_ctt=VCL_CONTATO.cd_ctt and 
-                            VCL_CONTATO.cd_cli={$id_cli} order by `nm_ctt`
+                            VCL_CONTATO.cd_cli={$id_cli} and ativo=1 order by `nm_ctt`
                             "
                           );
                           

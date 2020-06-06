@@ -82,7 +82,7 @@ if (isset($acao) && $acao == "delete"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
    
-    <title>Endereços do Cliente</title>
+    <title><?php echo $titulo; ?></title>
     <!-- Bootstrap -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">

@@ -12,6 +12,30 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
   $acao = $_GET['acao'];
 }
 
+if ($id_cli > 0) {
+  $titulo = "Contatos do Cliente";
+  $novo = $home.'/cadastrar-contato/?id='.$id_cli;
+  $sql = "
+        SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
+        `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
+        FROM `CONTATO`, `VCL_CONTATO`
+        WHERE 
+        `VCL_CONTATO`.`cd_ctt`=`CONTATO`.`cd_ctt` and
+        `VCL_CONTATO`.`cd_cli`={$id_cli} and status=1 order by `nm_ctt`
+        ";
+} else if ($id_cmp > 0) {
+  $titulo = "Contatos da Campanha"; 
+  $novo = $home.'/cadastrar-contato-campanha/?id_cmp='.$id_cmp; 
+  $sql = "
+        SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
+        `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
+        FROM `CONTATO`, `VCL_CTT_CMP`
+        WHERE 
+        `VCL_CTT_CMP`.`cd_ctt`=`CONTATO`.`cd_ctt` and
+        `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and status=1 order by `nm_ctt`
+        ";
+}
+
 if (isset($acao) && $acao == "delete"){
   $result = $wpdb->update(
     'CONTATO',
@@ -42,7 +66,7 @@ if (isset($acao) && $acao == "delete"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title>Contatos do Cliente</title>
+    <title><?php echo $titulo; ?></title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cesup Styles -->
@@ -176,11 +200,11 @@ if (isset($acao) && $acao == "delete"){
       
       <div class="row">
           <div class="col-xs-10">
-            <h3 class="page-header texto_cabeca">Contatos do cliente</h3>
+            <h3 class="page-header texto_cabeca"><?php echo $titulo; ?></h3>
           </div>
           <div class="col-xs-2" style="align:center">
-            <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>';" 
-            value="Novo" />
+              <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
+              onclick="location.href='<?php echo $novo; ?>';" value="Novo" />
           </div>
       </div><!-- fecha div row -->
 
@@ -207,40 +231,12 @@ if (isset($acao) && $acao == "delete"){
                           <tbody>
                           <?php
 
-                            $sql = "";
-                            if ($id_cli > 0){
-                              $sql = "
-                              SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
-                              `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-                              FROM `CONTATO`, `VCL_CONTATO`
-                              WHERE 
-                              `VCL_CONTATO`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-                              `VCL_CONTATO`.`cd_cli`={$id_cli} and status=1 order by `nm_ctt`
-                              ";
-                            } else if ($id_cmp > 0){
-                              $sql = "
-                              SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
-                              `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-                              FROM `CONTATO`, `VCL_CTT_CMP`
-                              WHERE 
-                              `VCL_CTT_CMP`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-                              `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and status=1 order by `nm_ctt`
-                              ";
-                            }
-                            
                             if ($sql != ""){
                               $contatos = $wpdb->get_results($sql);
                               
                               if (count($contatos)<=0){
-                                $alert = "<script language='javascript' type='text/javascript'>
-                                window.location.href='{$home}/cadastrar-contato/?";
-                                if ($id_cli > 0) 
-                                  $alert.="id=".$id_cli;
-                                else if ($id_cmp > 0) 
-                                  $alert.="id_cmp=".$id_cmp;
-                                $alert.="';</script>";
-
-                                echo $alert;
+                                echo "<script language='javascript' type='text/javascript'>
+                                window.location.href='{$novo}';</script>";
                               }
 
                               foreach ( $contatos as $contato ) 
