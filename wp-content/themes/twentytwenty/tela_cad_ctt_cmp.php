@@ -67,13 +67,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($id_vcl > 0){
           $linhas_afetadas = $wpdb->update(
             'VCL_CTT_CMP',
-            array(
-              'ativo'  => 1
-            ),
-            array( 'cd_vcl_ctt_cmp' =>  $id_vcl),
-            array(
-              '%d'
-            )
+              array(
+                'ativo'      => '1'     
+              ),
+              array( 'cd_vcl_ctt_cmp' =>  $id_vcl),
+              array(
+                '%d'
+              ),
+              array( '%d' )
           );
           $id_vcl = ($linhas_afetadas > 0);
         } else {
