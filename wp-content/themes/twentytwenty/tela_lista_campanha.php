@@ -202,8 +202,8 @@ $home = get_home_url();
                                 SRV.NM_TP_SRV,
                                 CMP.DT_INI,
                                 CMP.DT_FIM,
-                                (select count(cd_vcl_end_cmp) from VCL_END_CMP vlc where vlc.CD_CMP=CMP.CD_CMP) as total_end
-                                
+                                (select count(cd_vcl_end_cmp) from VCL_END_CMP vlc where vlc.CD_CMP=CMP.CD_CMP) as total_end,
+                                (select count(cd_vcl_vcna_cmp) from VCL_VCNA_CMP vlc where vlc.CD_CMP=CMP.CD_CMP) as total_vcna
                               FROM
                                 CAMPANHA CMP,
                                 TP_SRV SRV, 
@@ -238,7 +238,7 @@ $home = get_home_url();
                                 <a title='Editar' href='<?php echo $home; ?>/campanha/?id=<?php echo $campanha->CD_CMP; ?>&acao=edit' ><i class="material-icons btn_icon btn_edit" style="color:green">edit</i></a>
                                 <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id_cmp=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons btn_icon btn_endereco" <?php if ($campanha->total_end<=0) echo 'style="color:red"'; else echo 'style="color:green"'; ?>>home</i></a>
                                 <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id_cmp=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons btn_icon btn_contato" <?php if ($campanha->total_ctt<=0) echo 'style="color:red"'; else echo 'style="color:green"'; ?>>phone</i></a>
-                                <a title='Vacinas' href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkSlateBlue; cursor: pointer;">opacity</i></a>
+                                <a title='Vacinas' href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkSlateBlue; cursor: pointer;" <?php if ($campanha->total_vcna<=0) echo 'style="color:red"'; else echo 'style="color:green"'; ?>>opacity</i></a>
                                 <a title='Agendar' href='<?php echo $home; ?>/cadastrar-agendamento/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkGreen; cursor: pointer;">access_alarm</i></a>
                               </td>
                             </tr>
