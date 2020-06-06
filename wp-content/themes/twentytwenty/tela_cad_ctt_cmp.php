@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         alert('{$id_cmp}, {$arr_selecionado}, {$id_vcl}, ativo={$ativo}');</script>";
 
         if ($id_vcl > 0){
-          if ($ativo > 0){
+          if ($ativo <= 0){
             $linhas_afetadas = $wpdb->update(
               'VCL_CTT_CMP',
                 array(
