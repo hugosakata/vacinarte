@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
    
-    <title>Endereços da Campanha</title>
+    <title>Endereços do Cliente desta Campanha</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Styles -->
@@ -240,7 +240,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-xs-9">
-          <h3 class="page-header texto_cabeca">Endereços do Cliente da Campanha</h3>
+          <h3 class="page-header texto_cabeca">Endereços do Cliente desta Campanha</h3>
         </div>
         <div class="col-xs-1 col-xs-offset-1" style="align:center">
           <form action="#" method="post">
