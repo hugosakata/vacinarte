@@ -69,7 +69,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           '%s',
           '%s',
           '%s'
-        )
+        ),
+        array( '%d' )
       );
       if ($linhas_afetadas > 0){
         echo "<script language='javascript' type='text/javascript'>
