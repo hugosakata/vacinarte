@@ -36,7 +36,7 @@ if ($id_cli > 0) {
         `ENDERECO`.cd_end=`VCL_END_CMP`.cd_end and 
         `VCL_END_CMP`.cd_cmp={$id_cmp} and 
         `VCL_END_CMP`.ativo=1 and 
-        `ENDERECO`.ativo=1 order by `nm_end`, `logradouro`
+        `ENDERECO`.ativo=1 and `VCL_END_CMP`.ativo=1 order by `nm_end`, `logradouro`
         ";
 }
 

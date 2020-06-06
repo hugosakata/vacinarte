@@ -32,7 +32,7 @@ if ($id_cli > 0) {
         FROM `CONTATO`, `VCL_CTT_CMP`
         WHERE 
         `VCL_CTT_CMP`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-        `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and status=1 order by `nm_ctt`
+        `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and `CONTATO`.`status`=1 and `VCL_CTT_CMP`.`ativo`=1 order by `nm_ctt`
         ";
 }
 
