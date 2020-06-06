@@ -53,22 +53,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $wpdb->query ("START TRANSACTION");
     foreach ( $arr_selecionados as $arr_selecionado ) 
     {
-      $vinculo = $wpdb->insert(
-        'VCL_END_CMP',
-        array(
-          'cd_cmp' => $id_cmp,
-          'cd_end' => $arr_selecionado
-        ),
-        array(
-          '%d',
-          '%d'
-        )
-      );
-      $id_vcl = $wpdb->insert_id;
+      if ($arr_selecionado > 0) {
+        $vinculo = $wpdb->insert(
+          'VCL_END_CMP',
+          array(
+            'cd_cmp' => $id_cmp,
+            'cd_end' => $arr_selecionado
+          ),
+          array(
+            '%d',
+            '%d'
+          )
+        );
+        $id_vcl = $wpdb->insert_id;
 
-      if ($id_vcl == false){
-        $sucesso = false;
-        break;
+        if ($id_vcl == false){
+          $sucesso = false;
+          break;
+        }
       }
     }
 
@@ -236,7 +238,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     <div class="row">
         <div class="col-xs-9">
-          <h3 class="page-header texto_cabeca">Endereços da Campanha</h3>
+          <h3 class="page-header texto_cabeca">Endereços do Cliente da Campanha</h3>
         </div>
         <div class="col-xs-1 col-xs-offset-1" style="align:center">
           <form action="#" method="post">
@@ -253,6 +255,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           onclick="location.href='<?php echo $home; ?>/cadastrar-endereco/?id_cmp=<?php echo $id_cmp; ?>';"/>
         </div>
     </div><!-- fecha div row -->
+
+    <div class="row">
+        <div class="col-xs-10">
+        <p>Marque os endereços do cliente que deseja vincular a campanha</p>
+        </div>
+    </div>
 
     <div class="row txtbox"><!-- row formulario -->
       <div class="col-lg-12 col-xs-12">
