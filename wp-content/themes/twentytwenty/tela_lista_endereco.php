@@ -54,13 +54,21 @@ if (isset($acao) && $acao == "delete"){
       array( '%d' )
     );
   } else if ($id_cmp > 0) {
-    $result = $wpdb->delete(
+
+    $sql = "SELECT cd_vcl_end_cmp, ativo FROM VCL_END_CMP WHERE cd_cmp = '{$id_cmp}' and cd_end = '{$id_end}'";
+    $vlc_end_cmp = $wpdb->get_row($sql);
+    $id_vcl = $vlc_end_cmp->cd_vcl_end_cmp;
+
+    $linhas_afetadas = $wpdb->update(
       'VCL_END_CMP',
-      array( 
-        'cd_end' =>  $id_end, 
-        'cd_cmp' =>  $id_cmp
-      ),
-      array( '%d', '%d' )
+        array(
+          'ativo'      => '0'     
+        ),
+        array( 'cd_vcl_end_cmp' =>  $id_vcl),
+        array(
+          '%d'
+        ),
+        array( '%d' )
     );
   }
 
