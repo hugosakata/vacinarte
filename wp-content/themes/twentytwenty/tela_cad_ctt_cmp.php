@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
   $sql = "SELECT GROUP_CONCAT(DISTINCT cd_ctt
   ORDER BY cd_ctt
-  SEPARATOR ',') as cd_ctts FROM `VCL_CTT_CMP`where cd_cmp='{$id_cmp}'";
+  SEPARATOR ',') as cd_ctts FROM `VCL_CTT_CMP` where cd_cmp='{$id_cmp}' and `VCL_CTT_CMP`.ativo=1";
 
   $campanha_ctts = $wpdb->get_row($sql);
   $selecionados = $campanha_ctts->cd_ctts;

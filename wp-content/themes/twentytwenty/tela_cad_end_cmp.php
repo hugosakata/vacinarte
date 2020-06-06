@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
   $sql = "SELECT GROUP_CONCAT(DISTINCT cd_end
   ORDER BY cd_end
-  SEPARATOR ',') as cd_ends FROM `VCL_END_CMP`where cd_cmp='{$id_cmp}'";
+  SEPARATOR ',') as cd_ends FROM `VCL_END_CMP` where cd_cmp='{$id_cmp}' and `VCL_END_CMP`.ativo=1";
 
   $campanha_ends = $wpdb->get_row($sql);
   $selecionados = $campanha_ends->cd_ends;
