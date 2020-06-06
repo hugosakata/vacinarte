@@ -201,7 +201,8 @@ $home = get_home_url();
                                 CMP.CD_TP_SRV,
                                 SRV.NM_TP_SRV,
                                 CMP.DT_INI,
-                                CMP.DT_FIM
+                                CMP.DT_FIM,
+                                (select count(cd_vcl_end_cmp) from VCL_END_CMP vlc where vlc.CD_CMP=CMP.CD_CMP) as total_end
                                 
                               FROM
                                 CAMPANHA CMP,
