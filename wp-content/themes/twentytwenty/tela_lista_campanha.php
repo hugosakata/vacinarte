@@ -161,6 +161,12 @@ $home = get_home_url();
           </div>
       </div><!-- fecha div row -->
 
+      <div class="row">
+        <div class="col-xs-10">
+          <small style="color:red">*o agendamento só poderá ser feito nas campanhas com cadastro completo</small>
+        </div>
+      </div>
+
       <div class="row txtbox"><!-- row  -->
         <div class="col-lg-12 col-xs-12">
           <div class="row"><!--div row de consulta -->
