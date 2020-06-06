@@ -1,7 +1,9 @@
 <?php /* Template Name: TelaFechamentoAgenda */
+//cada vez q o header carregar renova a sessao de logado
+setcookie("logado", 1, (time() + (0.5 * 3600)));
 
 global $wpdb;
-setcookie("logado", 1, (time() + (0.5 * 3600)));
+$home = get_home_url(); 
 ?>
 
 <?php
