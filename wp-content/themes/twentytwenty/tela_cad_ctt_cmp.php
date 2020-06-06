@@ -308,7 +308,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                           $contatos = $wpdb->get_results( 
                             "
                             SELECT 
-                            (select count(cd_vcl_ctt_cmp) from `VCL_CTT_CMP` where `VCL_CTT_CMP`.cd_ctt=CONTATO.cd_ctt and `VCL_CTT_CMP`.cd_cmp={$id_cmp}) as total,
+                            (select count(cd_vcl_ctt_cmp) from `VCL_CTT_CMP` where `VCL_CTT_CMP`.cd_ctt=CONTATO.cd_ctt and `VCL_CTT_CMP`.cd_cmp={$id_cmp} and `VCL_CTT_CMP`.ativo=1) as total,
                             CONTATO.`cd_ctt`, `nm_ctt`, `tel_pri`, `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
                             FROM `CONTATO` as CONTATO, 
                             `VCL_CONTATO` as VCL_CONTATO 

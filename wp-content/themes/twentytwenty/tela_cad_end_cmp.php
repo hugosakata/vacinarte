@@ -294,7 +294,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                           $enderecos = $wpdb->get_results( 
                             "
                             SELECT 
-                            (select count(cd_vcl_end_cmp) from `VCL_END_CMP` where `VCL_END_CMP`.cd_end=ENDERECO.cd_end and `VCL_END_CMP`.cd_cmp={$id_cmp}) as total,
+                            (select count(cd_vcl_end_cmp) from `VCL_END_CMP` where `VCL_END_CMP`.cd_end=ENDERECO.cd_end and `VCL_END_CMP`.cd_cmp={$id_cmp} and `VCL_END_CMP`.ativo=1) as total,
                             ENDERECO.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
                             FROM `ENDERECO` as ENDERECO, 
                             `VCL_ENDERECO` as VCL_ENDERECO 
