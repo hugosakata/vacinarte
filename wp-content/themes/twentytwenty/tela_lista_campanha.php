@@ -223,7 +223,7 @@ $home = get_home_url();
                             foreach ( $campanhas as $campanha ) 
                             {
                           ?>
-                            <tr title="-Endereço:&#10;&#13;<?php echo $campanha->LOCAL ?>&#10;&#13;-Contato:&#10;&#13;<?php echo $campanha->CTTO ?>">
+                            <tr id="<?php echo $campanha->CD_CMP; ?>">
                               <td class="fontTD"><?php echo $campanha->NM_CMP ?></td>
                               <td class="fontTD"><?php echo $campanha->NM_FANT ?></td>
                               <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
@@ -295,6 +295,11 @@ $home = get_home_url();
     </script>
 
 <script type="text/javascript">
+    $('tr').dblclick(function(){
+      var id = $(this).attr('id');
+      window.location = "<?php echo $home; ?>/cadastrar-agendamento/?id=" + id;
+      return false;
+    })
       window.onload = function() { 
         if(performance.navigation.type == 2){
           location.reload(true);
