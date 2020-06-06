@@ -189,6 +189,7 @@ $home = get_home_url();
                           
                           <?php
                             $campanhas = $wpdb->get_results( 
+                              // 
                               "
                               SELECT
                                 CMP.CD_CMP,
@@ -198,21 +199,10 @@ $home = get_home_url();
                                 CMP.CD_TP_SRV,
                                 SRV.NM_TP_SRV,
                                 CMP.DT_INI,
-                                CMP.DT_FIM,
-                                ENDE.CD_END,
-                                CONCAT(ENDE.LOGRADOURO, ', ', ENDE.NUM_END, ', ', ENDE.COMPLEMENTO, ', ', ENDE.BAIRRO, ' - ', ENDE.CIDADE) as LOCAL,
-                                VVC.CD_VCL_VCNA_CMP,
-                                VVC.CD_VCNA,
-                                CONCAT(VCNA.NM_REG, ' - ', FAB.NM_FBCNTE_VCNA) as VAC,
-                                VVC.QTD_VCNA,
-                                VVC.VLR_VCNA
+                                CMP.DT_FIM
+                                
                               FROM
-                                CAMPANHA CMP 
-				                        LEFT JOIN VCL_VCNA_CMP VVC ON CMP.CD_CMP = VVC.CD_CMP
-                                LEFT JOIN VACINA VCNA ON VVC.CD_VCNA = VCNA.CD_VCNA
-                                LEFT JOIN FBCNTE_VCNA FAB ON VCNA.CD_FBCNTE_VCNA = FAB.CD_FBCNTE_VCNA
-                                LEFT JOIN VCL_END_CMP VE ON CMP.CD_CMP = VE.CD_CMP
-                                LEFT JOIN ENDERECO ENDE ON  VE.CD_END = ENDE.CD_END,
+                                CAMPANHA CMP,
                                 TP_SRV SRV, 
                                 CLIENTES CLI
                                 
