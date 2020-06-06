@@ -177,11 +177,11 @@ $home = get_home_url();
                               <th class="fontTH">Tipo Serviço</th>
                               <th class="fontTH">Data Início</th>
                               <th class="fontTH">Data Fim</th>
-                              <th class="fontTH">Endereço</th>
+                              <!-- <th class="fontTH">Endereço</th> -->
                               <!-- <th class="fontTH">Contato</th> -->
-                              <th class="fontTH">Vacina</th>
-                              <th class="fontTH">Qtde</th>
-                              <th class="fontTH">Valor Unit</th>
+                              <!-- <th class="fontTH">Vacina</th> -->
+                              <!-- <th class="fontTH">Qtde</th> -->
+                              <!-- <th class="fontTH">Valor Unit</th> -->
                               <th class="fontTH">Ações</th>
                             </tr>
                           </thead>
@@ -236,11 +236,11 @@ $home = get_home_url();
                               <td class="fontTD"><?php echo $campanha->NM_TP_SRV ?></td>
                               <td class="fontTD"><?php echo $campanha->DT_INI ?></td>
                               <td class="fontTD"><?php echo $campanha->DT_FIM ?></td>
-                              <td class="fontTD"><?php echo $campanha->LOCAL ?></td>
+                              <!-- <td class="fontTD"><?php //echo $campanha->LOCAL ?></td> -->
                               <!-- <td class="fontTD"><?php //echo $campanha->CTTO ?></td> -->
-                              <td class="fontTD"><?php echo $campanha->VAC ?></td>
-                              <td class="fontTD"><?php echo $campanha->QTD_VCNA ?></td>
-                              <td class="fontTD"><?php echo $campanha->VLR_VCNA ?></td>
+                              <!-- <td class="fontTD"><?php //echo $campanha->VAC ?></td> -->
+                              <!-- <td class="fontTD"><?php //echo $campanha->QTD_VCNA ?></td> -->
+                              <!-- <td class="fontTD"><?php //echo $campanha->VLR_VCNA ?></td> -->
                               <td class="fontTD">
                                 <a title='Editar' href='<?php echo $home; ?>/campanha/?id=<?php echo $campanha->CD_CMP; ?>&acao=edit' ><i class="material-icons btn_icon btn_edit" style="color:green">edit</i></a>
                                 <a title='Endereços' href='<?php echo $home; ?>/listar-enderecos/?id_cmp=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons btn_icon btn_endereco" <?php if ($campanha->total_end<=0) echo 'style="color:red"'; else echo 'style="color:green"'; ?>>home</i></a>
