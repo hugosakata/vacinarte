@@ -56,18 +56,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     foreach ( $arr_selecionados as $arr_selecionado ) 
     {
       if ($arr_selecionado > 0) {
-        $vinculo = $wpdb->insert(
-          'VCL_CTT_CMP',
-          array(
-            'cd_cmp' => $id_cmp,
-            'cd_ctt' => $arr_selecionado
-          ),
-          array(
-            '%d',
-            '%d'
-          )
-        );
-        $id_vcl = $wpdb->insert_id;
+
+        $sql = "SELECT cd_vcl_ctt_cmp FROM VCL_CTT_CMP WHERE cd_cmp = '{$id_cmp}' and cd_ctt = '{$arr_selecionado}'";
+        $vlc_ctt_cmp = $wpdb->get_row($sql);
+        $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
+        if ($id_vcl > 0){
+          $linhas_afetadas = $wpdb->update(
+            'VCL_CTT_CMP',
+            array(
+              'ativo'  => 1
+            ),
+            array( 'cd_vcl_ctt_cmp' =>  $id_vcl),
+            array(
+              '%d'
+            )
+          );
+          $id_vcl = ($linhas_afetadas > 0);
+        } else {
+          $vinculo = $wpdb->insert(
+            'VCL_CTT_CMP',
+            array(
+              'cd_cmp' => $id_cmp,
+              'cd_ctt' => $arr_selecionado
+            ),
+            array(
+              '%d',
+              '%d'
+            )
+          );
+          $id_vcl = $wpdb->insert_id;
+        }
 
         if ($id_vcl == false){
           $sucesso = false;
