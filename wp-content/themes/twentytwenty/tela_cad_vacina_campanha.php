@@ -16,15 +16,14 @@ load();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $cd_cmp = $_GET['id'];
+  $acao = $_GET["acao"];
 
   $sql = "
     SELECT * FROM `VACINA`, `VCL_VCNA_CMP`
     WHERE VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
     VCL_VCNA_CMP.cd_cmp= '{$cd_cmp}'";
   $vacina = $wpdb->get_row($sql);
-
-  if (null !== $vacina)
-    $acao = "edit";
+  
 }
 
 function load(){
