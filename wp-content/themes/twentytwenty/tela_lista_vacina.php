@@ -19,7 +19,7 @@ $sql = "
       FROM `VACINA`, `VCL_VCNA_CMP`, `FBCNTE_VCNA`
       WHERE 
       `VCL_VCNA_CMP`.`cd_vcna`=`VACINA`.`cd_vcna` and
-      `VCL_VCNA_CMP`.`cd_cmp`={$id_cmp} and `VCL_VCNA_CMP`.`ativo`=1 and `VACINA`.`ativo`=1
+      `VCL_VCNA_CMP`.`cd_cmp`={$id_cmp} and `VCL_VCNA_CMP`.`ativo`=1 and `VACINA`.`ativo`=1 and
       `FBCNTE_VCNA`.`cd_fbcnte_vcna`=`VACINA`.`cd_fbcnte_vcna` order by `nm_reg`
       ";
 
