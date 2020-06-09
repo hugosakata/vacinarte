@@ -233,9 +233,9 @@ if (isset($acao) && $acao == "delete"){
                           ?>
                             <tr id="<?php echo $vacina->cd_vcna; ?>">
                               <td><?php echo $vacina->nm_reg ?></td>
-                              <td><?php echo $vacina->tel_pri ?></td>
-                              <td><?php echo $vacina->email ?></td>
-                              <td><?php echo $vacina->obs_ctt ?></td>
+                              <td><?php echo $vacina->qtd_vcna ?></td>
+                              <td><?php echo $vacina->vlr_vcna ?></td>
+                              <td><?php echo $vacina->qtd_vcna_aplic ?></td>
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
                                 <a href="<?php echo $home . '/cadastrar-vacina-campanha/?id=' . $id_cmp . '&id_vcna=' . $vacina->cd_vcna . '&acao=edit'; ?>"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
