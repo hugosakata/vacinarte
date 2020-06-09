@@ -31,6 +31,7 @@ function load(){
   global $cd_vcna, $qtd_vcna, $vlr_vcna, $vcna, $cd_cmp, $acao;
 
   $acao = str_replace("'", "", trim($_POST["acao"]));
+  $cd_cmp = str_replace("'", "", trim($_POST["cd_cmp"]));
   $cd_vcna = str_replace("'", "", trim($_POST["cd_vcna"]));
   $qtd_vcna = str_replace("'", "", trim($_POST["qtd_vcna"]));
   $vlr_vcna = str_replace("'", "", trim($_POST["vlr_vcna"]));
@@ -248,6 +249,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="row txtbox"><!-- row formulario -->
         <form class="form" action="#" method="post">
           <div class="hide">
+              <input type="text" id="cd_cmp" name="cd_cmp" class="form-control"
+                  value="<?php echo $cd_cmp; ?>"/>
               <input type="text" id="acao" name="acao" class="form-control"
                   value="<?php echo $acao; ?>"/>
           </div>
