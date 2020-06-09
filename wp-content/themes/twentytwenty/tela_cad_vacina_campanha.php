@@ -9,28 +9,32 @@ $home = get_home_url();
 <?php
 
 $id_vcna_cmp = 0;
-$cd_cmp = 0;
+$cd_cmp = $id_vcl_vcna = 0;
 $cd_vcna = $qtd_vcna = $vlr_vcna = $vcna = $acao = "";
 
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $cd_cmp = $_GET['id'];
+  $id_vcl_vcna = $_GET['id_vcl_vcna'];
   $acao = $_GET["acao"];
 
-  $sql = "
-    SELECT * FROM `VACINA`, `VCL_VCNA_CMP`
-    WHERE VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
-    VCL_VCNA_CMP.cd_cmp= '{$cd_cmp}'";
-  $vacina = $wpdb->get_row($sql);
-  
+  if($id_vcl_vcna > 0){
+    $sql = "
+      SELECT * FROM `VCL_VCNA_CMP`, `VACINA`
+      WHERE VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna and
+      VCL_VCNA_CMP.cd_vcl_vcna_cmp = '{$id_vcl_vcna}'";
+    $vacina = $wpdb->get_row($sql);
+  }
+
 }
 
 function load(){
-  global $cd_vcna, $qtd_vcna, $vlr_vcna, $vcna, $cd_cmp, $acao;
+  global $cd_vcna, $qtd_vcna, $vlr_vcna, $vcna, $cd_cmp, $acao, $id_vcl_vcna;
 
   $acao = str_replace("'", "", trim($_POST["acao"]));
   $cd_cmp = str_replace("'", "", trim($_POST["cd_cmp"]));
+  $id_vcl_vcna = str_replace("'", "", trim($_POST["id_vcl_vcna"]));
   $cd_vcna = str_replace("'", "", trim($_POST["cd_vcna"]));
   $qtd_vcna = str_replace("'", "", trim($_POST["qtd_vcna"]));
   $vlr_vcna = str_replace("'", "", trim($_POST["vlr_vcna"]));
@@ -63,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           'qtd_vcna'  => $qtd_vcna,
           'vlr_vcna'  => $vlr_vcna
         ),
-        array( 'cd_cmp' =>  $cd_cmp),
+        array( 'cd_vcl_vcna_cmp' =>  $id_vcl_vcna),
         array(
           '%d',
           '%d',
@@ -250,6 +254,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="hide">
               <input type="text" id="cd_cmp" name="cd_cmp" class="form-control"
                   value="<?php echo $cd_cmp; ?>"/>
+              <input type="text" id="id_vcl_vcna" name="id_vcl_vcna" class="form-control"
+                  value="<?php echo $id_vcl_vcna; ?>"/>
               <input type="text" id="acao" name="acao" class="form-control"
                   value="<?php echo $acao; ?>"/>
           </div>
