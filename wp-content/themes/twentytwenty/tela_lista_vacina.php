@@ -6,72 +6,40 @@ global $wpdb;
 $home = get_home_url(); 
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
-  $id_cli = $_GET['id'];
   $id_cmp = $_GET['id_cmp'];
-  $id_ctt = $_GET['id_ctt'];
+  $id_vcna = $_GET['id_vcna'];
   $acao = $_GET['acao'];
 }
 
-if ($id_cli > 0) {
-  $titulo = "Contatos do Cliente";
-  $novo = $home.'/cadastrar-contato/?id='.$id_cli;
-  $sql = "
-        SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
-        `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-        FROM `CONTATO`, `VCL_CONTATO`
-        WHERE 
-        `VCL_CONTATO`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-        `VCL_CONTATO`.`cd_cli`={$id_cli} and status=1 order by `nm_ctt`
-        ";
-} else if ($id_cmp > 0) {
-  $titulo = "Contatos da Campanha"; 
-  $novo = $home.'/cadastrar-contato-campanha/?id_cmp='.$id_cmp; 
-  $sql = "
-        SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
-        `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-        FROM `CONTATO`, `VCL_CTT_CMP`
-        WHERE 
-        `VCL_CTT_CMP`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-        `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and `CONTATO`.`status`=1 and `VCL_CTT_CMP`.`ativo`=1 order by `nm_ctt`
-        ";
-}
+$titulo = "Vacinas da Campanha"; 
+$novo = $home.'/cadastrar-vacina-campanha/?id='.$id_cmp; 
+$sql = "
+      SELECT `VACINA`.`cd_vcna`, `nm_reg`, `nm_gen`, `FBCNTE_VCNA`.`nm_fbcnte_vcna`,
+      `obs_vcna`, `VCL_VCNA_CMP`.qtd_vcna, `VCL_VCNA_CMP`.vlr_vcna, `VCL_VCNA_CMP`.qtd_vcna_aplic
+      FROM `VACINA`, `VCL_VCNA_CMP`, `FBCNTE_VCNA`
+      WHERE 
+      `VCL_VCNA_CMP`.`cd_vcna`=`VACINA`.`cd_vcna` and
+      `VCL_VCNA_CMP`.`cd_cmp`={$id_cmp} and `VACINA`.`ativo`=1 and 
+      `FBCNTE_VCNA`.`cd_fbcnte_vcna`=`VACINA`.`cd_fbcnte_vcna` order by `nm_reg`
+      ";
 
 if (isset($acao) && $acao == "delete"){
 
-  if ($id_cli > 0) {
-    $result = $wpdb->update(
-      'CONTATO',
-      array(
-        'status'      => '0'     
-      ),
-      array( 'cd_ctt' =>  $id_ctt),
-      array(
-        '%d'
-      ),
-      array( '%d' )
-    );
-  } else if ($id_cmp > 0) {
-
-    $sql = "SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '{$id_cmp}' and cd_ctt = '{$id_ctt}'";
-    $vlc_ctt_cmp = $wpdb->get_row($sql);
-    $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
-
-    $result = $wpdb->update(
-      'VCL_CTT_CMP',
-        array(
-          'ativo'      => '0'     
-        ),
-        array( 'cd_vcl_ctt_cmp' =>  $id_vcl),
-        array(
-          '%d'
-        ),
-        array( '%d' )
-    );
-  }
+  $result = $wpdb->update(
+    'VACINA',
+    array(
+      'ativo'      => '0'     
+    ),
+    array( 'cd_vcna' =>  $id_vcna),
+    array(
+      '%d'
+    ),
+    array( '%d' )
+  );
   
   if($result > 0){
     echo "<script language='javascript' type='text/javascript'>
-    alert('Contato excluído com sucesso!');</script>";
+    alert('Vacina excluída com sucesso!');</script>";
   } else {
     echo "<script language='javascript' type='text/javascript'>
     alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
@@ -133,21 +101,21 @@ if (isset($acao) && $acao == "delete"){
       text-align: center;
       font-weight: bold;
     }
-    #tab_lista_contatos_info, #tab_lista_contatos_paginate{
+    #tab_lista_vacinas_info, #tab_lista_vacinas_paginate{
       font-size: 15px;
     }
     input{
       height: 2vw;
     }
-    #tab_lista_contatos_length{
+    #tab_lista_vacinas_length{
       width: 30%;
       margin-left: 1vw;
     }
-    #tab_lista_contatos_filter{
+    #tab_lista_vacinas_filter{
       width: 30%;
       margin-right: 2vw;
     }
-    #tab_lista_contatos_filter.label#text{
+    #tab_lista_vacinas_filter.label#text{
       text-align: left;
     }
     #btn_salvar{
@@ -239,13 +207,13 @@ if (isset($acao) && $acao == "delete"){
                   <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        <table class="table table-striped" id="tab_lista_contatos">
+                        <table class="table table-striped" id="tab_lista_vacinas">
                           <thead>
                             <tr>
-                              <th>Nome do contato </th>
-                              <th>Telefone</th>
-                              <th>Email</th>
-                              <th>Observação</th>
+                              <th>Vacina</th>
+                              <th>Qtd</th>
+                              <th>Valor</th>
+                              <th>Aplicada</th>
                               <th>Ações</th>
                             </tr>
                           </thead>
@@ -253,31 +221,26 @@ if (isset($acao) && $acao == "delete"){
                           <?php
 
                             if ($sql != ""){
-                              $contatos = $wpdb->get_results($sql);
+                              $vacinas = $wpdb->get_results($sql);
                               
-                              if (count($contatos)<=0){
+                              if (count($vacinas)<=0){
                                 echo "<script language='javascript' type='text/javascript'>
                                 window.location.href='{$novo}';</script>";
                               }
 
-                              foreach ( $contatos as $contato ) 
+                              foreach ( $vacinas as $vacina ) 
                               {
                           ?>
-                            <tr id="<?php echo $contato->cd_ctt; ?>">
-                              <td><?php echo $contato->nm_ctt ?></td>
-                              <td><?php echo $contato->tel_pri ?></td>
-                              <td><?php echo $contato->email ?></td>
-                              <td><?php echo $contato->obs_ctt ?></td>
+                            <tr id="<?php echo $vacina->cd_vcna; ?>">
+                              <td><?php echo $vacina->nm_reg ?></td>
+                              <td><?php echo $vacina->tel_pri ?></td>
+                              <td><?php echo $vacina->email ?></td>
+                              <td><?php echo $vacina->obs_ctt ?></td>
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
-                                <a href="<?php echo $home; ?>/cadastrar-contato/?<?php if ($id_cli > 0) echo "id=".$id_cli; else if ($id_cmp > 0) echo "id_cmp=".$id_cmp; ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=edit"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                                <a onclick="return confirm('Tem certeza?');" href="<?php echo $home; ?>/listar-contatos/?
-                                <?php 
-                                  if ($id_cli > 0) 
-                                    echo "id=".$id_cli; 
-                                  else if ($id_cmp > 0) 
-                                    echo "id_cmp=".$id_cmp; 
-                                ?>&id_ctt=<?php echo $contato->cd_ctt; ?>&acao=delete"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
+                                <a href="<?php echo $home . '/cadastrar-vacina-campanha/?id=' . $id_cmp . '&id_vcna=' . $vacina->cd_vcna . '&acao=edit'; ?>"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
+                                <a onclick="return confirm('Tem certeza?');" 
+                                href="<?php echo $home . '/listar-vacinas/?id_cmp=' . $id_cmp . '&id_vcna=' . $vacina->cd_vcna . '&acao=delete'; ?>"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
                               </td>
                             </tr>
                             <?php
@@ -306,7 +269,7 @@ if (isset($acao) && $acao == "delete"){
     <script>
       //datatable
 	$(document).ready(function(){
-    $('#tab_lista_contatos').DataTable({
+    $('#tab_lista_vacinas').DataTable({
       "ordering": true,
 	    "paginate": true,
       "oLanguage": {
@@ -327,15 +290,15 @@ if (isset($acao) && $acao == "delete"){
 	            }
 	        }
     });
-    $('#tab_lista_contatos_filter').addClass('pull-right');
-    $('#tab_lista_contatos_paginate').addClass('pull-right');
+    $('#tab_lista_vacinas_filter').addClass('pull-right');
+    $('#tab_lista_vacinas_paginate').addClass('pull-right');
   });
 
     </script>
     <script>
     $('tr').dblclick(function(){
       var id_ctt = $(this).attr('id');
-      window.location = "<?php echo $home; ?>/cadastrar-contato/?id=<?php echo $id_cli; ?>&id_ctt=" + id_ctt + "&acao=edit";
+      window.location = "<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $id_cli; ?>&id_vcna=" + id_ctt + "&acao=edit";
       return false;
     })
     </script>
