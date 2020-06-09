@@ -247,7 +247,7 @@ $home = get_home_url();
                                 <a title='Contatos' href='<?php echo $home; ?>/listar-contatos/?id_cmp=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons btn_icon btn_contato" <?php if ($campanha->total_ctt<=0) echo 'style="color:red"'; else echo 'style="color:green"'; ?>>phone</i></a>
                                 <a title='Vacinas' href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" <?php if ($campanha->total_vcna<=0) echo 'style="color:red"'; else echo 'style="color:green"'; ?>>opacity</i></a>
 
-                                <?php if ($campanha->total_end > 0 && $campanha->total_ctt > 0 && $campanha->total_ctt > 0) {?>
+                                <?php if ($campanha->total_end > 0 && $campanha->total_ctt > 0 && $campanha->total_vcna > 0) {?>
                                   <a title='Agendar' href='<?php echo $home; ?>/cadastrar-agendamento/?id=<?php echo $campanha->CD_CMP; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkGreen; cursor: pointer;">access_alarm</i></a>
                                 <?php } else { ?>
                                   <a title='Agendar'><i class="material-icons" style="padding-left: 5px; color: red; cursor: pointer;">access_alarm</i></a>
