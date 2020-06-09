@@ -309,11 +309,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               </div>
               <div class="col-xs-1" style="margin-left: 2vw;">
                 <input id="btn_end" type="button" class="btn btn-danger btn_geral btn_endereco" onclick="location.href='<?php echo $home; ?>/listar-enderecos/?id=<?php echo $id_retorno; ?>';" 
-                value="Endereços" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+                value="Endereços" <?php if ($id_cmp <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
               </div> 
               <div class="col-xs-1">
                 <input id="btn_ctt" type="button" class="btn btn-danger btn_geral btn_contato" onclick="location.href='<?php echo $home; ?>/listar-contatos/?id=<?php echo $id_retorno; ?>';" 
-                value="Contatos" <?php if ($id_retorno <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+                value="Contatos" <?php if ($id_cmp <=0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
               </div> 
               <div class="col-xs-1">
                 <input id="btn_vac" class="btn btn-danger" type="button" onclick="location.href='<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $id_cmp; ?>';" 
