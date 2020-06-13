@@ -332,7 +332,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               $("#idThree").text("-" + $("#idThree").text().substring(1));
           }
         });
-        });
+        
     </script>
 
 </div><!-- fecha container principal -->  
