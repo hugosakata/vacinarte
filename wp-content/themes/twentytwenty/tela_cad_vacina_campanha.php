@@ -176,6 +176,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       font-size: 1vw;
       color: maroon;
     }
+   
     </style>
 
     
@@ -363,12 +364,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $(document).ready(function(){
         var campo = $('#cd_vcna').val();
         if(campo == ''){
-          $('#btn_salvar').addClass('btn_disabled');
+          $('#btn_salvar').prop('disabled', true);
         }
       });
 
       $(document).on('change','#cd_vcna',function(){
-        $('#btn_salvar').removeClass('btn_disabled');
+        $('#btn_salvar').prop('disabled', false);
       });
 
       function mostraAviso(){
