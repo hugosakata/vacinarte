@@ -215,7 +215,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                   <!-- Se fizer um forEach aqui com os dados da campanha 17, 3 rows dessa vão pipocar na tela -->
                                   <!-- aí, o problema será os ids e nomes de cada campo para mandar no submit --> 
                                   <div class="row">
-                                    <div class="form-group col-xs-4">
+                                    <div class="form-group col-xs-4 col-xs-offset-1">
                                         <label>Vacina</label>
                                         <input type="text" name="nm_gen" class="form-control" 
                                         value="<?php echo $campanha->nm_gen; ?>" disabled>
