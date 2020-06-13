@@ -359,6 +359,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
+
+      $(document).ready(function(){
+        var campo = $('#cd_vcna').val();
+        if(campo == ''){
+          $('#btn_salvar').addClass('btn_disabled');
+        }
+      });
+
+      $(document).on('change','#cd_vcna',function(){
+        $('#btn_salvar').removeClass('btn_disabled');
+      });
+
       function mostraAviso(){
         $('#avisoPonto').removeClass('hide');
       }
