@@ -150,153 +150,158 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
     <div class="row txtbox"><!-- row formulario -->
-      <div class="col-lg-12 col-xs-8" style="margi-top: 1vw;">
+        <div class="col-lg-12 col-xs-8" style="margi-top: 1vw;">
 
-<div class="accordion" id="searchAccordion">
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idOne">+ Dados da campanha - <?php echo $campanha->nm_cmp; ?></a> 
-        </div>
-        <div id="collapseOne" class="accordion-body collapse">
-          <div class="accordion-inner">
-            <form>
+            <div class="accordion" id="searchAccordion">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse"
+                        data-parent="#searchAccordion" id="idOne">+ Dados da campanha - <?php echo $campanha->nm_cmp; ?></a> 
+                    </div>
 
-        <div class="row campanha page-header">
-            
-            <div class="form-group col-xs-8 col-xs-offset-1">
-              <label>Nome</label>
-              <input type="text" name="nm_cmp" class="form-control" 
-              value="<?php echo $campanha->nm_cmp; ?>" disabled>
-            </div>
-            <div class="form-group col-xs-2">
-              <label style="font-size: 12px;">Tipo</label>
-              <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->nm_tp_srv; ?>" disabled>
-            </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <form>
+                                <div class="row campanha page-header">
+                            
+                                    <div class="form-group col-xs-8 col-xs-offset-1">
+                                        <label>Nome</label>
+                                        <input type="text" name="nm_cmp" class="form-control" 
+                                        value="<?php echo $campanha->nm_cmp; ?>" disabled>
+                                    </div>
+                                    <div class="form-group col-xs-2">
+                                        <label style="font-size: 12px;">Tipo</label>
+                                        <input type="text" name="nm_srv" class="form-control"
+                                        value="<?php echo $campanha->nm_tp_srv; ?>" disabled>
+                                    </div>
 
-            <div class="form-group col-xs-6 col-xs-offset-1">
-              <label>Empresa</label>
-              <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->nm_fant; ?>" disabled>
-            </div>
-            
-            <div class="form-group col-xs-2">
-              <label style="font-size: 12px;">Data de início</label>
-              <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->dt_ini ?>" disabled>
-            </div>
-            <div class="form-group col-xs-2">
-              <label style="font-size: 12px;">Data de término</label>
-              <input type="text" name="nm_srv" class="form-control"
-              value="<?php echo $campanha->dt_fim; ?>" disabled>
-            </div>
+                                    <div class="form-group col-xs-6 col-xs-offset-1">
+                                        <label>Empresa</label>
+                                        <input type="text" name="nm_srv" class="form-control"
+                                        value="<?php echo $campanha->nm_fant; ?>" disabled>
+                                    </div>
+                                
+                                    <div class="form-group col-xs-2">
+                                        <label style="font-size: 12px;">Data de início</label>
+                                        <input type="text" name="nm_srv" class="form-control"
+                                        value="<?php echo $campanha->dt_ini ?>" disabled>
+                                    </div>
+                                    <div class="form-group col-xs-2">
+                                        <label style="font-size: 12px;">Data de término</label>
+                                        <input type="text" name="nm_srv" class="form-control"
+                                        value="<?php echo $campanha->dt_fim; ?>" disabled>
+                                    </div>
 
-          </div>
-        </form><!-- fecha form -->
-          </div>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" id="idTwo">+ Dados do agendamento</a>
-        </div>
-        <div id="collapseTwo" class="accordion-body collapse">
-          <div class="accordion-inner">
-            <form action="#" method="post">
+                                </div>
+                            </form><!-- fecha form -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse"
+                        data-parent="#searchAccordion" id="idTwo">+ Dados do agendamento</a>
+                    </div>
 
-              <div class="row agendamento page-header">
-                <div class="row">
-                  <div class="form-group col-xs-4 col-xs-offset-1">
-                    <label>Enfermeiro(a)</label>
-                    <input type="text" name="nm_enfermeiro" class="form-control" 
-                    value="<?php echo $nm_enfermeiro; ?>">
-                  </div>
-                  <div class="form-group col-xs-4">
-                    <label>Vacina</label>
-                    <input type="text" name="nm_gen" class="form-control" 
-                    value="<?php echo $campanha->nm_gen; ?>" disabled>
-                  </div>
-                  <div class="form-group col-xs-2">
-                    <label style="font-size: 14px;">Qtde Contratada</label>
-                    <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                    value="<?php echo $campanha->qtd_vcna; ?>" disabled />
-                  </div>
+                    <div id="collapseTwo" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <form action="#" method="post">
+
+                                <div class="row agendamento page-header">
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-4 col-xs-offset-1">
+                                            <label>Enfermeiro(a)</label>
+                                            <input type="text" name="nm_enfermeiro" class="form-control" 
+                                            value="<?php echo $nm_enfermeiro; ?>">
+                                        </div>
+                                        <div class="form-group col-xs-4">
+                                            <label>Vacina</label>
+                                            <input type="text" name="nm_gen" class="form-control" 
+                                            value="<?php echo $campanha->nm_gen; ?>" disabled>
+                                        </div>
+                                        <div class="form-group col-xs-2">
+                                            <label style="font-size: 14px;">Qtde Contratada</label>
+                                            <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
+                                            value="<?php echo $campanha->qtd_vcna; ?>" disabled />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-2 col-xs-offset-1">
+                                            <label style="font-size: 14px;">Data</label>
+                                            <input type="text" id="dt_atend" name="dt_atend" class="form-control"
+                                            value="<?php echo $dt_atend; ?>"/>
+                                        </div>
+                                        <div class="form-group col-xs-2">
+                                            <label>Hora Início</label>
+                                            <input type="text" id="hr_ini" name="hr_ini" class="form-control"
+                                            value="<?php echo $hr_ini; ?>">
+                                        </div>
+                                        <div class="form-group col-xs-2">
+                                            <label>Hora Fim</label>
+                                            <input type="text" id="hr_fim" name="hr_fim" class="form-control"
+                                            value="<?php echo $hr_fim; ?>">
+                                        </div>
+                                        <div class="form-group col-xs-2">
+                                            <label>Qtd Aplicada</label>
+                                            <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
+                                            value="<?php echo $campanha->qtd_vcna_aplic; ?>" disabled />
+                                        </div>
+                                        <div class="form-group col-xs-2">
+                                            <label>Qtd Envio</label>
+                                            <input type="text" id="qtd_vcna_envio" name="qtd_vcna_envio" class="form-control"
+                                            value="<?php echo $qtd_vcna_envio; ?>">
+                                        </div>
+                                    </div>
+
+                                </div><!-- fecha row agendamento-->          
+                            
+                                <div class="row btns">
+                                    <div class="col-xs-2 col-xs-offset-3">
+                                        <input type="submit" class="button btn btn-danger " value="Agendar">
+                                    </div>
+                                    <div class="col-xs-2 col-xs-offset-1">
+                                        <input type="button" class="btn btn-danger" onclick="<?php echo "location.href='{$home}/cadastrar-vacina-campanha/?id={$id_cmp}';" ; ?>" 
+                                        value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
+                                    </div>
+                                </div>
+
+                            </form><!-- fecha form -->
+                        </div>
+                    </div>
                 </div>
 
-                <div class="row">
-                  <div class="form-group col-xs-2 col-xs-offset-1">
-                    <label style="font-size: 14px;">Data</label>
-                    <input type="text" id="dt_atend" name="dt_atend" class="form-control"
-                    value="<?php echo $dt_atend; ?>"/>
-                  </div>
-                  <div class="form-group col-xs-2">
-                    <label>Hora Início</label>
-                    <input type="text" id="hr_ini" name="hr_ini" class="form-control"
-                    value="<?php echo $hr_ini; ?>">
-                  </div>
-                  <div class="form-group col-xs-2">
-                    <label>Hora Fim</label>
-                    <input type="text" id="hr_fim" name="hr_fim" class="form-control"
-                    value="<?php echo $hr_fim; ?>">
-                  </div>
-                  <div class="form-group col-xs-2">
-                    <label>Qtd Aplicada</label>
-                    <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
-                    value="<?php echo $campanha->qtd_vcna_aplic; ?>" disabled />
-                  </div>
-                  <div class="form-group col-xs-2">
-                    <label>Qtd Envio</label>
-                    <input type="text" id="qtd_vcna_envio" name="qtd_vcna_envio" class="form-control"
-                    value="<?php echo $qtd_vcna_envio; ?>">
-                  </div>
-                </div>
-                
-              </div>          
-          
-            <div class="row btns">
-              <div class="col-xs-2 col-xs-offset-3">
-                <input type="submit" class="button btn btn-danger " value="Agendar">
-              </div>
-              <div class="col-xs-2 col-xs-offset-1">
-                <input type="button" class="btn btn-danger" onclick="<?php echo "location.href='{$home}/cadastrar-vacina-campanha/?id={$id_cmp}';" ; ?>" 
-                value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
-              </div>
             </div>
-        </form><!-- fecha form -->
-          </div>
-        </div>
-      </div>
-    </div>
-      </div><!-- fecha col 12 -->
+
+        </div><!-- fecha col 12 -->
     </div><!-- fecha row txtbox -->
 
     <script>
-    $("#idOne").click(function(){
-      if (document.getElementById('collapseOne').classList.contains("in")){
-        document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
-        $("#idOne").text("+" + $("#idOne").text().substring(1));
-      } else {
-        document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
-        $("#idOne").text("-" + $("#idOne").text().substring(1));
-      }
-    });
-    $("#idTwo").click(function(){
-      if (document.getElementById('collapseTwo').classList.contains("in")){
-        document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
-        $("#idTwo").text("+" + $("#idTwo").text().substring(1));
-      } else {
-        document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse in');
-        $("#idTwo").text("-" + $("#idTwo").text().substring(1));
-      }
-      
-    });
+        $("#idOne").click(function(){
+        if (document.getElementById('collapseOne').classList.contains("in")){
+            document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
+            $("#idOne").text("+" + $("#idOne").text().substring(1));
+        } else {
+            document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
+            $("#idOne").text("-" + $("#idOne").text().substring(1));
+        }
+        });
+        $("#idTwo").click(function(){
+        if (document.getElementById('collapseTwo').classList.contains("in")){
+            document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
+            $("#idTwo").text("+" + $("#idTwo").text().substring(1));
+        } else {
+            document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse in');
+            $("#idTwo").text("-" + $("#idTwo").text().substring(1));
+        }
+        
+        });
     </script>
 
+</div><!-- fecha container principal -->  
 
     
-</div><!-- fecha container principal -->  
 
 
     <script src="http://www.vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
