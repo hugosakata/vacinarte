@@ -306,31 +306,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script>
         $("#idOne").click(function(){
-        if (document.getElementById('collapseOne').classList.contains("in")){
-            document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
-            $("#idOne").text("+" + $("#idOne").text().substring(1));
-        } else {
-            document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
-            $("#idOne").text("-" + $("#idOne").text().substring(1));
-        }
+          if (document.getElementById('collapseOne').classList.contains("in")){
+              document.getElementById('collapseOne').setAttribute('class','accordion-body collapse');
+              $("#idOne").text("+" + $("#idOne").text().substring(1));
+          } else {
+              document.getElementById('collapseOne').setAttribute('class','accordion-body collapse in');
+              $("#idOne").text("-" + $("#idOne").text().substring(1));
+          }
         });
         $("#idTwo").click(function(){
-        if (document.getElementById('collapseTwo').classList.contains("in")){
-            document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
-            $("#idTwo").text("+" + $("#idTwo").text().substring(1));
-        } else {
-            document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse in');
-            $("#idTwo").text("-" + $("#idTwo").text().substring(1));
-        }
+          if (document.getElementById('collapseTwo').classList.contains("in")){
+              document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse');
+              $("#idTwo").text("+" + $("#idTwo").text().substring(1));
+          } else {
+              document.getElementById('collapseTwo').setAttribute('class','accordion-body collapse in');
+              $("#idTwo").text("-" + $("#idTwo").text().substring(1));
+          }
+        });
         $("#idThree").click(function(){
-        if (document.getElementById('collapseThree').classList.contains("in")){
-            document.getElementById('collapseThree').setAttribute('class','accordion-body collapse');
-            $("#idThree").text("+" + $("#idThree").text().substring(1));
-        } else {
-            document.getElementById('collapseThree').setAttribute('class','accordion-body collapse in');
-            $("#idThree").text("-" + $("#idThree").text().substring(1));
-        }
-        
+          if (document.getElementById('collapseThree').classList.contains("in")){
+              document.getElementById('collapseThree').setAttribute('class','accordion-body collapse');
+              $("#idThree").text("+" + $("#idThree").text().substring(1));
+          } else {
+              document.getElementById('collapseThree').setAttribute('class','accordion-body collapse in');
+              $("#idThree").text("-" + $("#idThree").text().substring(1));
+          }
+        });
         });
     </script>
 
