@@ -1,0 +1,68 @@
+VACINARTE
+
+-- Lista pendencias  - 02/06/2020
+
+Tela inicial
+- Query lista campanhas
+- Query lista Agendamentos
+
+
+host bd hostinger
+hostname: sql356.main-hosting.eu
+username: u414589721_jKmat
+
+
+
+Novo fluxo de casdastro PJ
+1ª Tela = Form cad pj
+		- Continua a mesma tela
+		- Btns endereço e contato hide
+		- Apenas btn Salvar alterando texto para Próximo
+
+2ª Tela = Form cad endereço
+		- implemetar uma tela intermediaria com layout de  + (novo endereço)
+		- btn contato altera para btn Adicionar + (caso queira cadastrar mais endereços)
+		- btn salvar altera texto para Próximo
+3ª Tela = Form cad contato
+		- mesmo fluxo do endereço
+		- no btn Salvar alterar o texto para Finalizar
+
+Quando clicar em Finalizar manda para a tela de lista PJ
+
+Obs.: Na tela lista PJ, na coluna de AÇOES,  adicionar btn cad cmp (já enviando o id do cliente, caso ela queira procurar
+																	o cliente na tabela e já clicar direto nele para cadastraruma cmp)
+
+Novo fluxo do cadastro camapanha
+1ª tela = Form cad camapanha
+		- continua a mesma tela
+		- Segue mesmo fluxo do PJ
+		- inclusive btn Finalizar e mandar para a tela lista cmp
+
+Nas telas de cad end cmp e cad ctt cmp, adicionar btn Voltar (para poder voltar de forma mais intuitiva para a lista cmp
+																sem precisar recorrer ao menu)
+																
+Na tela cad vacina
+	- implemetar btn 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="row btns hide">
+		<div class="form-group col-xs-6">
+		  <a title='Adicionar vacina'>
+			<i class="material-icons btn_icon btn_mais" style="color: CornflowerBlue">add</i>
+		  </a>
+		  <a title='Remover vacina'>
+			<i class="material-icons btn_icon btn_menos" style="color: Coral">remove</i>
+		  </a>
+		  <a title='OK!'>
+			<i class="material-icons btn_icon btn_ok" style="color: Green">add</i>
+		  </a>
+		</div>
+	</div>
