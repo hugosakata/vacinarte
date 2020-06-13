@@ -141,23 +141,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <div class="container"><!-- container principal-->
     
-    <div class="row">
-        <div class="col-lg-12">
-          <h3 class="page-header">Agendamento de campanha</h3>
-        </div>
-    </div><!-- fecha div row -->
+  <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header">Agendamento de campanha</h3>
+      </div>
+  </div><!-- fecha div row -->
 
-    <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+  <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
-    <div class="row txtbox"><!-- row formulario -->
+  <div class="row txtbox"><!-- row formulario -->
         <div class="col-lg-12 col-xs-8" style="margi-top: 1vw;">
 
             <div class="accordion" id="searchAccordion">
                 <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a class="accordion-toggle" data-toggle="collapse"
-                        data-parent="#searchAccordion" id="idOne">+ Dados da campanha - <?php echo $campanha->nm_cmp; ?></a> 
-                    </div>
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse"
+                          data-parent="#searchAccordion" id="idOne">+ Dados da campanha - <?php echo $campanha->nm_cmp; ?></a> 
+                      </div>
 
                     <div id="collapseOne" class="accordion-body collapse">
                         <div class="accordion-inner">
@@ -194,9 +194,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                 </div>
                             </form><!-- fecha form -->
-                        </div>
-                    </div>
-                </div>
+                        </div><!-- fecha inner -->
+                    </div><!-- fecha collapseOne -->
+                </div><!-- fecha accord group -->
 
                 <div class="accordion-group">
                     <div class="accordion-heading">
@@ -237,20 +237,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         <label>Qtd Envio</label>
                                         <input type="text" id="qtd_vcna_envio" name="qtd_vcna_envio" class="form-control"
                                         value="<?php echo $qtd_vcna_envio; ?>">
-                                    </div>
-                                  </div>
-
-                                  <div class="row btns hide">
-                                    <div class="form-group col-xs-6">
-                                      <a title='Adicionar vacina'>
-                                        <i class="material-icons btn_icon btn_mais" style="color: CornflowerBlue">add</i>
-                                      </a>
-                                      <a title='Remover vacina'>
-                                        <i class="material-icons btn_icon btn_menos" style="color: Coral">remove</i>
-                                      </a>
-                                      <a title='OK!'>
-                                        <i class="material-icons btn_icon btn_ok" style="color: Green">add</i>
-                                      </a>
                                     </div>
                                   </div>
 
@@ -339,10 +325,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $("#idThree").click(function(){
         if (document.getElementById('collapseThree').classList.contains("in")){
             document.getElementById('collapseThree').setAttribute('class','accordion-body collapse');
-            $("#idTwo").text("+" + $("#idThree").text().substring(1));
+            $("#idThree").text("+" + $("#idThree").text().substring(1));
         } else {
             document.getElementById('collapseThree').setAttribute('class','accordion-body collapse in');
-            $("#idTwo").text("-" + $("#idThree").text().substring(1));
+            $("#idThree").text("-" + $("#idThree").text().substring(1));
         }
         
         });
