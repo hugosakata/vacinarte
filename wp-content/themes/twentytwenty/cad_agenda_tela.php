@@ -264,10 +264,10 @@
     </script>
     <script>
     <?php
-        foreach($ids_vacinas as $id_vacina) {?>
-            console.log("id: <?php echo $id_vacina["id"]; ?>, valor:<?php echo $id_vacina["valor"]; ?>");
-          <?php}
-    ?>
+        foreach($ids_vacinas as $id_vacina) {
+            $print_console .= "id:" . $id_vacina["id"] . ", valor:" . $id_vacina["valor"] . "-";
+        } ?>
+    console.log("array:<?php echo $print_console;?>");
     </script>
   </body>
   </html>
