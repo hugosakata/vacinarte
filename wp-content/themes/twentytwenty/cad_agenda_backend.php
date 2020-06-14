@@ -28,14 +28,7 @@ if(isset($_GET['id'])){
   $campanha = $campanhas[0];
   foreach($campanhas as $campanha_item) {
     array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
-  }
-
-  foreach($ids_vacinas as $id_vacina) {
-    $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
-    echo "<script language='javascript' type='text/javascript'>
-      alert('" . $msg . "');</script>";
-  }
-  
+  }  
 }
 
 function date_converter($_date = null) {
@@ -57,6 +50,11 @@ function date_converter($_date = null) {
 
     foreach($ids_vacinas as $id_vacina) {
       $id_vacina["valor"] = str_replace("'", "", trim($_POST["qtd_vcna_envio-" . $id_vacina["id"]]));
+    }
+    foreach($ids_vacinas as $id_vacina) {
+      $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
+      echo "<script language='javascript' type='text/javascript'>
+        alert('" . $msg . "');</script>";
     }
  }
 
@@ -85,25 +83,25 @@ function date_converter($_date = null) {
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    $wpdb->insert(
-      'ATENDIMENTO',
-      array(
-        'cd_cmp'          => $id_cmp,
-        'dt_atend'        => $dt_atend,
-        'hr_ini'          => $hr_ini,
-        'hr_fim'          => $hr_fim,
-        'nm_enfermeiro'   => $nm_enfermeiro,
-        'qtd_vcna_envio'  => $qtd_vcna_envio
-      ),
-      array(
-        '%d',
-        '%s',
-        '%s',
-        '%s',
-        '%s',
-        '%d'
-      )
-    );
+    // $wpdb->insert(
+    //   'ATENDIMENTO',
+    //   array(
+    //     'cd_cmp'          => $id_cmp,
+    //     'dt_atend'        => $dt_atend,
+    //     'hr_ini'          => $hr_ini,
+    //     'hr_fim'          => $hr_fim,
+    //     'nm_enfermeiro'   => $nm_enfermeiro,
+    //     'qtd_vcna_envio'  => $qtd_vcna_envio
+    //   ),
+    //   array(
+    //     '%d',
+    //     '%s',
+    //     '%s',
+    //     '%s',
+    //     '%s',
+    //     '%d'
+    //   )
+    // );
     $id_atend = $wpdb->insert_id;
     $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$id_atend}'";
     $atendimento = $wpdb->get_row($sql);
