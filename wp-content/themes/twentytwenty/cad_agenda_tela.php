@@ -263,7 +263,11 @@
       });
     </script>
     <script>
-        console.log("<?php print_r($ids_vacinas);?>");
+    <?php
+        foreach($ids_vacinas as $id_vacina) {?>
+            console.log("id: <?php echo $id_vacina["id"]; ?>, valor:<?php echo $id_vacina["valor"]; ?>");
+          <?php}
+    ?>
     </script>
   </body>
   </html>
