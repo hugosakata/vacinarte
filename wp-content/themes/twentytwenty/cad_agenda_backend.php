@@ -40,7 +40,7 @@ function date_converter($_date = null) {
   }
 
  function load(){
-    global $id_cmp, $dt_atend, $data_atend, $hr_ini, $hr_fim, $qtd_vcna_envio, $nm_enfermeiro;
+    global $id_cmp, $dt_atend, $data_atend, $hr_ini, $hr_fim, $qtd_vcna_envio, $nm_enfermeiro, $ids_vacinas;
 
     $data_atend = str_replace("'", "", trim($_POST["dt_atend"]));
     $hr_ini = str_replace("'", "", trim($_POST["hr_ini"]));
@@ -59,7 +59,7 @@ function date_converter($_date = null) {
  }
 
  function form_valido() {
-    global $id_cmp, $dt_atend, $data_atend, $hr_ini, $hr_fim, $qtd_vcna_envio, $nm_enfermeiro;  
+    global $id_cmp, $dt_atend, $data_atend, $hr_ini, $hr_fim, $qtd_vcna_envio, $nm_enfermeiro, $ids_vacinas;  
 
     $dt_atend = date_converter($data_atend);
 
