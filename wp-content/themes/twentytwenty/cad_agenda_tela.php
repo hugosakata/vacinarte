@@ -263,7 +263,7 @@
       });
     </script>
     <script>
-        console.log(<?php echo print_r($ids_vacinas);?>);
+        console.log(<?php print_r($ids_vacinas);?>);
     </script>
   </body>
   </html>
