@@ -26,11 +26,9 @@ if(isset($_GET['id'])){
 
     
   $campanha = $wpdb->get_row($sql);
-  $msg = "<script language='javascript' type='text/javascript'>
-  alert('{$id_cmp}, ";
-  $msg .= count($campanha) . "');</script>";
-  echo $msg;
   foreach($campanha as $campanha_item) {
+    echo "<script language='javascript' type='text/javascript'>
+      alert('Agendamento salvo com sucesso!');</script>";
     array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
   }
 }
