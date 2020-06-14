@@ -25,7 +25,7 @@ if(isset($_GET['id'])){
           ";
 
     
-  $campanha = $wpdb->get_row($sql);
+  $campanha = $wpdb->get_results($sql);
   foreach($campanha as $campanha_item) {
     array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
   }
