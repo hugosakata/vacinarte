@@ -27,10 +27,10 @@ if(isset($_GET['id'])){
     
   $campanha = $wpdb->get_row($sql);
   foreach($campanha as $campanha_item) {
-    echo "<script language='javascript' type='text/javascript'>
-      alert('Agendamento salvo com sucesso!');</script>";
     array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
   }
+  echo "<script language='javascript' type='text/javascript'>
+      alert('" . count($ids_vacinas) . "');</script>";
 }
 
 function date_converter($_date = null) {
