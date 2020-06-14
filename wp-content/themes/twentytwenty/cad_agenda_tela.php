@@ -116,7 +116,7 @@
                                   <!-- a campanha 17, por exemplo, tem 3 vacinas cadastradas-->
                                   <!-- Se fizer um forEach aqui com os dados da campanha 17, 3 rows dessa vão pipocar na tela -->
                                   <!-- aí, o problema será os ids cd_vcl_vcna_cmp e nomes de cada campo para mandar no submit --> 
-                                  <?php foreach($campanha as $campanha_item) {?>
+                                  <?php foreach($campanhas as $campanha_item) {?>
                                     <div class="row">
                                         <div class="form-group col-xs-4 col-xs-offset-1">
                                             <label>Vacina</label>
