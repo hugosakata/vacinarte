@@ -262,12 +262,5 @@
         $("#hr_fim").mask("99:99");
       });
     </script>
-    <script>
-    <?php
-        foreach($ids_vacinas as $id_vacina) {
-            $print_console .= "id:" . $id_vacina["id"] . ", valor:" . $id_vacina["valor"] . "-";
-        } ?>
-    console.log("array:<?php echo $print_console;?>");
-    </script>
   </body>
   </html>
