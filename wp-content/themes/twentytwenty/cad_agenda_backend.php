@@ -23,7 +23,13 @@ if(isset($_GET['id'])){
           VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
           CAMPANHA.cd_cmp = '{$id_cmp}'
           ";
+
+    
   $campanha = $wpdb->get_row($sql);
+  $msg = "<script language='javascript' type='text/javascript'>
+  alert('{$id_cmp}, ";
+  $msg .= count($campanha) . "');</script>";
+  echo $msg;
   foreach($campanha as $campanha_item) {
     array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
   }
