@@ -9,12 +9,13 @@ $home = get_home_url();
 <?php
 
 $id_cmp = $dt_atend = $data_atend = $hr_ini = $hr_fim = $qtd_vcna_envio = $nm_enfermeiro = $qtd_vcna = "";
+$ids_vacinas = array();
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
   $sql = "
           SELECT 
-          CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, `dt_ini`, `dt_fim`, `VACINA`.nm_gen, `VCL_VCNA_CMP`.`qtd_vcna`, `VCL_VCNA_CMP`.`qtd_vcna_aplic`
+          CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, `dt_ini`, `dt_fim`, `VCL_VCNA_CMP`.`cd_vcl_vcna_cmp`, `VACINA`.nm_gen, `VCL_VCNA_CMP`.`qtd_vcna`, `VCL_VCNA_CMP`.`qtd_vcna_aplic`
           FROM `CAMPANHA`, `TP_SRV`, `CLIENTES`, `VCL_VCNA_CMP`, `VACINA`
           WHERE `CAMPANHA`.`cd_tp_srv`=`TP_SRV`.`cd_tp_srv` AND
           `CAMPANHA`.`cd_cli`=`CLIENTES`.`cd_cli` and
@@ -23,6 +24,9 @@ if(isset($_GET['id'])){
           CAMPANHA.cd_cmp = '{$id_cmp}'
           ";
   $campanha = $wpdb->get_row($sql);
+  foreach($campanha as $campanha_item) {
+    array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
+  }
 }
 
 function date_converter($_date = null) {
@@ -40,7 +44,11 @@ function date_converter($_date = null) {
     $hr_ini = str_replace("'", "", trim($_POST["hr_ini"]));
     $hr_fim = str_replace("'", "", trim($_POST["hr_fim"]));
     $nm_enfermeiro = str_replace("'", "", trim($_POST["nm_enfermeiro"]));
-    $qtd_vcna_envio = str_replace("'", "", trim($_POST["qtd_vcna_envio"]));
+    //$qtd_vcna_envio = str_replace("'", "", trim($_POST["qtd_vcna_envio"]));
+
+    foreach($ids_vacinas as $id_vacina) {
+      $id_vacina["valor"] = str_replace("'", "", trim($_POST["qtd_vcna_envio-" . $id_vacina["id"]]));
+    }
  }
 
  function form_valido() {
@@ -53,9 +61,12 @@ function date_converter($_date = null) {
         !empty($dt_atend) &&
         !empty($hr_ini) &&
         !empty($hr_fim) &&
-        !empty($qtd_vcna_envio) &&
         !empty($nm_enfermeiro)){
           $valido = true;
+    }
+
+    foreach($ids_vacinas as $id_vacina) {
+      if (empty($id_vacina["valor"])) $valido = false;
     }
 
     return $valido;

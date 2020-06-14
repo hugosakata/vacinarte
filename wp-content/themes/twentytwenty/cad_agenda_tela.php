@@ -115,32 +115,34 @@
                                   <!-- a consulta feita para alimentar essa tela já traz as vacinas de uma campanha -->
                                   <!-- a campanha 17, por exemplo, tem 3 vacinas cadastradas-->
                                   <!-- Se fizer um forEach aqui com os dados da campanha 17, 3 rows dessa vão pipocar na tela -->
-                                  <!-- aí, o problema será os ids e nomes de cada campo para mandar no submit --> 
-                                  <div class="row">
-                                    <div class="form-group col-xs-4 col-xs-offset-1">
-                                        <label>Vacina</label>
-                                        <input type="text" name="nm_gen" class="form-control" 
-                                        value="<?php echo $campanha->nm_gen; ?>" disabled>
-                                    </div>
-                                    
-                                    <div class="form-group col-xs-2">
-                                        <label style="font-size: 14px;">Qtde Contratada</label>
-                                        <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                                        value="<?php echo $campanha->qtd_vcna; ?>" disabled />
-                                    </div>
+                                  <!-- aí, o problema será os ids cd_vcl_vcna_cmp e nomes de cada campo para mandar no submit --> 
+                                  <?php foreach($campanha as $campanha_item) {?>
+                                    <div class="row">
+                                        <div class="form-group col-xs-4 col-xs-offset-1">
+                                            <label>Vacina</label>
+                                            <input type="text" name="nm_gen" class="form-control" 
+                                            value="<?php echo $campanha->nm_gen; ?>" disabled>
+                                        </div>
+                                        
+                                        <div class="form-group col-xs-2">
+                                            <label style="font-size: 14px;">Qtde Contratada</label>
+                                            <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
+                                            value="<?php echo $campanha->qtd_vcna; ?>" disabled />
+                                        </div>
 
-                                    <div class="form-group col-xs-2">
-                                        <label>Qtd Aplicada</label>
-                                        <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
-                                        value="<?php echo $campanha->qtd_vcna_aplic; ?>" disabled />
-                                    </div>
+                                        <div class="form-group col-xs-2">
+                                            <label>Qtd Aplicada</label>
+                                            <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
+                                            value="<?php echo $campanha->qtd_vcna_aplic; ?>" disabled />
+                                        </div>
 
-                                    <div class="form-group col-xs-2">
-                                        <label>Qtd Envio</label>
-                                        <input type="text" id="qtd_vcna_envio" name="qtd_vcna_envio" class="form-control"
-                                        value="<?php echo $qtd_vcna_envio; ?>">
+                                        <div class="form-group col-xs-2">
+                                            <label>Qtd Envio</label>
+                                            <input type="text" id="qtd_vcna_envio-<?php echo $campanha_item->cd_vcl_vcna_cmp ?>" name="qtd_vcna_envio-<?php echo $campanha_item->cd_vcl_vcna_cmp ?>" class="form-control"
+                                            value="<?php echo $qtd_vcna_envio; ?>">
+                                        </div>
                                     </div>
-                                  </div>
+                                  <?php } ?>
 
                                 </div>
                             </form><!-- fecha form -->
@@ -259,6 +261,9 @@
       $(document).ready(function(){	
         $("#hr_fim").mask("99:99");
       });
+    </script>
+    <script>
+        console.log(<?php echo $ids_vacinas;?>);
     </script>
   </body>
   </html>
