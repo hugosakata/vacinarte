@@ -121,19 +121,19 @@
                                         <div class="form-group col-xs-4 col-xs-offset-1">
                                             <label>Vacina</label>
                                             <input type="text" name="nm_gen" class="form-control" 
-                                            value="<?php echo $campanha->nm_gen; ?>" disabled>
+                                            value="<?php echo $campanha_item->nm_gen; ?>" disabled>
                                         </div>
                                         
                                         <div class="form-group col-xs-2">
                                             <label style="font-size: 14px;">Qtde Contratada</label>
                                             <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                                            value="<?php echo $campanha->qtd_vcna; ?>" disabled />
+                                            value="<?php echo $campanha_item->qtd_vcna; ?>" disabled />
                                         </div>
 
                                         <div class="form-group col-xs-2">
                                             <label>Qtd Aplicada</label>
                                             <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
-                                            value="<?php echo $campanha->qtd_vcna_aplic; ?>" disabled />
+                                            value="<?php echo $campanha_item->qtd_vcna_aplic; ?>" disabled />
                                         </div>
 
                                         <div class="form-group col-xs-2">
