@@ -29,8 +29,13 @@ if(isset($_GET['id'])){
   foreach($campanhas as $campanha_item) {
     array_push($ids_vacinas, array("id" => $campanha_item->cd_vcl_vcna_cmp, "valor" => ""));
   }
-  echo "<script language='javascript' type='text/javascript'>
-      alert('" . count($ids_vacinas) . "');</script>";
+
+  foreach($ids_vacinas as $id_vacina) {
+    $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
+    echo "<script language='javascript' type='text/javascript'>
+      alert('" . $msg . "');</script>";
+  }
+  
 }
 
 function date_converter($_date = null) {
