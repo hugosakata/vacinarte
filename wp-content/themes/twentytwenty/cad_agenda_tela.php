@@ -138,7 +138,7 @@
 
                                         <div class="form-group col-xs-2">
                                             <label>Qtd Envio</label>
-                                            <input type="text" id="qtd_vcna_envio-<?php echo $campanha_item->cd_vcl_vcna_cmp; ?>" name="qtd_vcna_envio-<?php echo $campanha_item->cd_vcl_vcna_cmp; ?>" class="form-control"
+                                            <input type="text" id="<?php echo $campanha_item->cd_vcl_vcna_cmp; ?>" name="<?php echo $campanha_item->cd_vcl_vcna_cmp; ?>" class="form-control"
                                             value="<?php echo $qtd_vcna_envio; ?>">
                                         </div>
                                     </div>
