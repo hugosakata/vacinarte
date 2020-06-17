@@ -48,11 +48,11 @@ function date_converter($_date = null) {
     $nm_enfermeiro = str_replace("'", "", trim($_POST["nm_enfermeiro"]));
     //$qtd_vcna_envio = str_replace("'", "", trim($_POST["qtd_vcna_envio"]));
 
-    foreach($ids_vacinas as $id_vacina) {
+    foreach($ids_vacinas as $key => $id_vacina) {
       echo "<script language='javascript' type='text/javascript'>
         alert('pegando " . $id_vacina["id"] . "');</script>";
       $valor = str_replace("'", "", trim($_POST[$id_vacina["id"]]));
-      $id_vacina["valor"] = $valor;
+      $ids_vacinas[$key]["valor"] = $valor;
       echo "<script language='javascript' type='text/javascript'>
         alert('recebi " . $id_vacina["valor"] . "');</script>";
     }
