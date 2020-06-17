@@ -100,6 +100,8 @@
                     </div><!-- fecha collapseOne -->
                 </div><!-- fecha accord group -->
 
+
+                <form action="#" method="post">
                 <div class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse"
@@ -108,7 +110,7 @@
 
                     <div id="collapseThree" class="accordion-body collapse">
                         <div class="accordion-inner">
-                            <form>
+                            <!-- <form> -->
                                 <div class="row vacina page-header">
 
                                   <!-- como fazer um forEach nessa row -->
@@ -145,7 +147,7 @@
                                   <?php } ?>
 
                                 </div>
-                            </form><!-- fecha form -->
+                            <!-- </form> fecha form -->
                         </div>
                     </div>
                 </div>
@@ -158,7 +160,7 @@
 
                     <div id="collapseTwo" class="accordion-body collapse">
                         <div class="accordion-inner">
-                            <form action="#" method="post">
+                            
 
                                 <div class="row agendamento page-header">
 
@@ -198,10 +200,11 @@
                                     </div>
                                 </div>
 
-                            </form><!-- fecha form -->
+                            <!-- </form>fecha form -->
                         </div>
                     </div>
                 </div>
+                </form><!-- fecha form -->
 
             </div>
 
