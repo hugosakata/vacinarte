@@ -54,7 +54,7 @@ function date_converter($_date = null) {
       $valor = str_replace("'", "", trim($_POST[$id_vacina["id"]]));
       $id_vacina["valor"] = $valor;
       echo "<script language='javascript' type='text/javascript'>
-        alert('recebi " . $valor . "');</script>";
+        alert('recebi " . $id_vacina["valor"] . "');</script>";
     }
     foreach($ids_vacinas as $id_vacina) {
       $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
