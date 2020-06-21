@@ -13,8 +13,6 @@ $enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = $sql = "";
 $fechamento = 1;
 $ids_vacinas = array();
 
-load();
-
 if(isset($_GET['id'])){
   $cd_atend = $_GET['id'];
 
@@ -104,7 +102,7 @@ foreach($ids_vacinas as $id_vacina) {
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
+  load();
   if (form_valido()){
     $wpdb->query ("START TRANSACTION");
     $linhas_afetadas = $wpdb->update(
