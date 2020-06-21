@@ -46,17 +46,35 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     $agendas = $wpdb->get_results($sql);
     $agenda = $agendas[0];
     foreach($agendas as $agenda_item) {
-      array_push($ids_vacinas, array("id" => $agenda_item->cd_vcl_vcna_cmp, "qtd_retorno" => "", "qtd_cortesia" => ""));
+      array_push($ids_vacinas, array("id" => $agenda_item->cd_vcl_vcna_cmp, "qtd_vcna_retorno" => "", "qtd_cortesia" => ""));
     }
 }
 
 
 function load(){
-  global $agenda, $atend, $cd_atend, $qtd_vcna, $qtd_retorno, $qtd_cortesia, $envio, $aplic, $fechamento;
+  global $agenda, $atend, $cd_atend, $qtd_vcna, $qtd_retorno, $qtd_cortesia, $envio, $aplic, $fechamento, $ids_vacinas;
 
   $cd_atend = str_replace("'", "", trim($_POST["cd_atend"]));
-  $qtd_retorno = str_replace("'", "", trim($_POST["qtd_retorno"]));
-  $qtd_cortesia = str_replace("'", "", trim($_POST["qtd_cortesia"]));
+  // $qtd_retorno = str_replace("'", "", trim($_POST["qtd_retorno"]));
+  // $qtd_cortesia = str_replace("'", "", trim($_POST["qtd_cortesia"]));
+
+  foreach($ids_vacinas as $key => $id_vacina) {
+    $valor = str_replace("'", "", trim($_POST[$id_vacina["id"] . "_qtd_vcna_retorno"]));
+    $ids_vacinas[$key]["qtd_retorno"] = $valor;
+
+    $valor = str_replace("'", "", trim($_POST[$id_vacina["id"] . "_qtd_cortesia"]));
+    $ids_vacinas[$key]["qtd_cortesia"] = $valor;
+
+    echo "<script language='javascript' type='text/javascript'>
+    alert('recebi id:" . $id_vacina["id"] . 
+    ", qtd_retorno:" . $id_vacina["qtd_retorno"] . 
+    ", qtd_cortesia:" . $id_vacina["qtd_cortesia"] .  "');</script>";
+  }
+  // foreach($ids_vacinas as $id_vacina) {
+  //   $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
+  //   echo "<script language='javascript' type='text/javascript'>
+  //     alert('" . $msg . "');</script>";
+  // }
   
 }
 
@@ -70,6 +88,11 @@ function form_valido() {
         $valido = true;
   }
   
+  foreach($ids_vacinas as $id_vacina) {
+    if (empty($id_vacina["qtd_retorno"])) $valido = false;
+    if (empty($id_vacina["qtd_cortesia"])) $valido = false;
+  }
+
   return $valido;
 }
 
@@ -77,21 +100,21 @@ function form_valido() {
     
     if (form_valido()){
       //$wpdb->query ("START TRANSACTION");
-      $linhas_afetadas = $wpdb->update(
-        'ATENDIMENTO',
-        array(
-          'qtd_vcna_retorno'	=> $qtd_retorno,
-          'qtd_cortesia'      => $qtd_cortesia,
-          'bl_fechamento'     => $fechamento
-        ),
-        array(
-          'cd_atend' => $cd_atend
-        ),
-        array(
-          '%d',
-          '%d'
-        )
-      );
+      // $linhas_afetadas = $wpdb->update(
+      //   'ATENDIMENTO',
+      //   array(
+      //     'qtd_vcna_retorno'	=> $qtd_retorno,
+      //     'qtd_cortesia'      => $qtd_cortesia,
+      //     'bl_fechamento'     => $fechamento
+      //   ),
+      //   array(
+      //     'cd_atend' => $cd_atend
+      //   ),
+      //   array(
+      //     '%d',
+      //     '%d'
+      //   )
+      // );
 
       if ($linhas_afetadas > 0){
         
@@ -112,18 +135,18 @@ function form_valido() {
         
         $tot_aplic = $aplic + $uso_dia;
 
-        $resultado = $wpdb->update(
-          'VCL_VCNA_CMP',
-          array(
-            'qtd_vcna_aplic'	=> $tot_aplic
-          ),
-          array(
-            'cd_cmp' => $cmp
-          ),
-          array(
-            '%d'
-          )
-        );
+        // $resultado = $wpdb->update(
+        //   'VCL_VCNA_CMP',
+        //   array(
+        //     'qtd_vcna_aplic'	=> $tot_aplic
+        //   ),
+        //   array(
+        //     'cd_cmp' => $cmp
+        //   ),
+        //   array(
+        //     '%d'
+        //   )
+        // );
         if($resultado > 0){
           $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cmp}'");
           foreach( $qtdes as $qt ) {
