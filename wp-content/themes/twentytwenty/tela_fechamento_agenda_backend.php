@@ -87,7 +87,7 @@ function form_valido() {
   }
   
   foreach($ids_vacinas as $id_vacina) {
-    if (empty($id_vacina["qtd_retorno"])) $valido = false;
+    if (empty($id_vacina["qtd_vcna_retorno"])) $valido = false;
     if (empty($id_vacina["qtd_cortesia"])) $valido = false;
   }
 
@@ -98,47 +98,85 @@ load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
-    if (form_valido()){
-      //$wpdb->query ("START TRANSACTION");
-      // $linhas_afetadas = $wpdb->update(
-      //   'ATENDIMENTO',
-      //   array(
-      //     'qtd_vcna_retorno'	=> $qtd_retorno,
-      //     'qtd_cortesia'      => $qtd_cortesia,
-      //     'bl_fechamento'     => $fechamento
-      //   ),
-      //   array(
-      //     'cd_atend' => $cd_atend
-      //   ),
-      //   array(
-      //     '%d',
-      //     '%d'
-      //   )
-      // );
+  if (form_valido()){
+    $wpdb->query ("START TRANSACTION");
+    $linhas_afetadas = $wpdb->update(
+        'ATENDIMENTO',
+        array(
+        'bl_fechamento'     => $fechamento
+        ),
+        array(
+        'cd_atend' => $cd_atend
+        ),
+        array(
+        '%d'
+        )
+    );
 
-      if ($linhas_afetadas > 0){
-        
-        $atendimento = $wpdb->get_results("SELECT cd_cmp, qtd_vcna_envio FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'");
-        foreach( $atendimento as $at ) {
-           $cmp = $at->cd_cmp;
-           $envio = $at->qtd_vcna_envio;
-         };
-        $uso_dia = $envio - $qtd_retorno;
+    if ($linhas_afetadas > 0){
+
+      foreach($ids_vacinas as $id_vacina) {
+        $msg = "id:" . $id_vacina["id"] . ", qtd_vcna_retorno:" .  $id_vacina["qtd_vcna_retorno"] . ", qtd_cortesia:" .  $id_vacina["qtd_cortesia"];
+
+        $resultado = $wpdb->update(
+            'VCL_VCNA_ATEND',
+            array(
+            'qtd_vcna_retorno'	=> $id_vacina["qtd_vcna_retorno"],
+            'qtd_cortesia'	    => $id_vacina["qtd_cortesia"]
+            ),
+            array(
+            'cd_vcl_vcna_atend' => $id_vacina["id"]
+            ),
+            array(
+            '%d',
+            '%d'
+            ),
+            array( '%d' )
+        );
+        if ($resultado <= 0){
+          break; 
+        }
+      }
+    }
+
+    if($linhas_afetadas > 0 && $resultado > 0){
+      $wpdb->query("COMMIT");
+
+      echo "<script language='javascript' type='text/javascript'>
+      alert('Agenda fechada com sucesso!');</script>";
+    } else {
+      $wpdb->query("ROLLBACK");
+
+      echo "<script language='javascript' type='text/javascript'>
+      alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+    }
+  } else {
+    $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+  }
+}
+
+        // $atendimento = $wpdb->get_results("SELECT cd_cmp, qtd_vcna_envio FROM ATENDIMENTO WHERE cd_atend = '{$cd_atend}'");
+        // foreach( $atendimento as $at ) {
+        //    $cmp = $at->cd_cmp;
+        //    $envio = $at->qtd_vcna_envio;
+        //  };
+        // $uso_dia = $envio - $qtd_retorno;
         // echo "<script language='javascript' type='text/javascript'>
         //   alert('CD_CMP = '+{$cmp}+' / ENVIO = '+{$envio}+' / USADAS = '+{$uso_dia});</script>";
 
-        $aplicacoes = $wpdb->get_results("SELECT qtd_vcna, qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
-        foreach( $aplicacoes as $ap ){
-          $aplic = $ap->qtd_vcna_aplic;
-          $qt_total = $ap->qtd_vcna;
-        };
+        // $aplicacoes = $wpdb->get_results("SELECT qtd_vcna, qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE CD_CMP = '{$cmp}'");
+        // foreach( $aplicacoes as $ap ){
+        //   $aplic = $ap->qtd_vcna_aplic;
+        //   $qt_total = $ap->qtd_vcna;
+        // };
         
-        $tot_aplic = $aplic + $uso_dia;
+        // $tot_aplic = $aplic + $uso_dia;
 
         // $resultado = $wpdb->update(
-        //   'VCL_VCNA_CMP',
+        //   'VCL_VCNA_ATEND',
         //   array(
-        //     'qtd_vcna_aplic'	=> $tot_aplic
+        //     'qtd_vcna_retorno'	=> $qtd_vcna_retorno,
+        //     'qtd_cortesia'	=> $qtd_cortesia,
         //   ),
         //   array(
         //     'cd_cmp' => $cmp
@@ -147,32 +185,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //     '%d'
         //   )
         // );
-        if($resultado > 0){
-          $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cmp}'");
-          foreach( $qtdes as $qt ) {
-             $aplic_atual = $qt->qtd_vcna_aplic;
-           };
-           //$restante = $qt_total - $aplic_atual;
-          //$wpdb->query("COMMIT");
-          echo "<script language='javascript' type='text/javascript'>
-          alert('Fechamento salvo com sucesso! Foram aplicadas {$aplic_atual} de {$qt_total}');</script>";
-        }else{
-          echo "<script language='javascript' type='text/javascript'>
-          alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
-        }
-      } else {
-        echo "<script language='javascript' type='text/javascript'>
-        alert('Ops! Algo deu errado, tente novamente mais tarde!!');</script>";
-      }
+        // if($resultado > 0){
+        //   $qtdes = $wpdb->get_results("SELECT qtd_vcna_aplic FROM VCL_VCNA_CMP WHERE cd_cmp = '{$cmp}'");
+        //   foreach( $qtdes as $qt ) {
+        //      $aplic_atual = $qt->qtd_vcna_aplic;
+        //    };
+        //    //$restante = $qt_total - $aplic_atual;
+        //   //$wpdb->query("COMMIT");
+        //   echo "<script language='javascript' type='text/javascript'>
+        //   alert('Fechamento salvo com sucesso! Foram aplicadas {$aplic_atual} de {$qt_total}');</script>";
+        // }else{
+        //   echo "<script language='javascript' type='text/javascript'>
+        //   alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+        // }
+  //     } else {
+  //       echo "<script language='javascript' type='text/javascript'>
+  //       alert('Ops! Algo deu errado, tente novamente mais tarde!!');</script>";
+  //     }
       
-      //limpa formulario
-      //$cd_atend = $campanha = $dt_agenda = $enfermeira = "";
-      //$qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
+  //     //limpa formulario
+  //     //$cd_atend = $campanha = $dt_agenda = $enfermeira = "";
+  //     //$qtd_vcna = $qtd_retorno = $qtd_cortesia = "";
 
-    } else {
-        $msg_err = "Ops! Faltou preencher algum campo obrigatório";
-    }
-  }
+  //   } else {
+  //       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
+  //   }
+  // }
 
 
 ?>
