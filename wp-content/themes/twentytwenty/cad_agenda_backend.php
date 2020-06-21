@@ -137,6 +137,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       echo "<script language='javascript' type='text/javascript'>
       alert('Agendamento salvo com sucesso!');</script>";
     } else {
+
+      $msg_err .= $wpdb->show_errors();
+      $msg_err .=$wpdb->print_error();
+
       $wpdb->query("ROLLBACK");
 
       $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
