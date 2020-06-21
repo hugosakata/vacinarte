@@ -23,28 +23,31 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
       CMP.NM_CMP,
       ATEND.DT_ATEND,
       ATEND.NM_ENFERMEIRO,
-      VVC.CD_VCL_VCNA_CMP,
-      VVC.CD_VCNA,
+      
       VCNA.NM_REG,
-      VVC.QTD_VCNA,
-      ATEND.QTD_VCNA_ENVIO,
-      ATEND.qtd_cortesia
+      
+      VVA.CD_VCL_VCNA_ATEND,
+      VVA.QTD_VCNA_RETORNO,
+      VVA.QTD_VCNA_ENVIO,
+      VVA.qtd_cortesia
     FROM
       ATENDIMENTO ATEND,
-      CAMPANHA CMP,
+      VCL_VCNA_ATEND VVA,
       VCL_VCNA_CMP VVC,
+      CAMPANHA CMP,
       VACINA VCNA
     WHERE
       ATEND.CD_ATEND = {$cd_atend} AND
+      ATEND.CD_ATEND = VVA.CD_ATEND AND
       CMP.CD_CMP     = ATEND.CD_CMP AND
-      VVC.CD_CMP     = ATEND.CD_CMP AND
-      VCNA.CD_VCNA   = VVC.CD_VCNA
+      VVA.cd_vcl_vcna_cmp    = VVC.cd_vcl_vcna_cmp AND
+      VCNA.cd_vcna = VVC.cd_vcna
     ";
                             
     $agendas = $wpdb->get_results($sql);
     $agenda = $agendas[0];
     foreach($agendas as $agenda_item) {
-      array_push($ids_vacinas, array("id" => $agenda_item->cd_vcl_vcna_cmp, "qtd_vcna_retorno" => "", "qtd_cortesia" => ""));
+      array_push($ids_vacinas, array("id" => $agenda_item->CD_VCL_VCNA_ATEND, "qtd_vcna_retorno" => "", "qtd_cortesia" => ""));
     }
 }
 

@@ -185,14 +185,14 @@
               </div>
               <div class="form-group col-xs-1">
                 <label>Retorno</label>
-                <input type="text" id="<?php echo $agenda_item->cd_vcl_vcna_cmp . '_qtd_vcna_retorno'; ?>" 
-                  name="<?php echo $agenda_item->cd_vcl_vcna_cmp . '_qtd_vcna_retorno'; ?>" class="form-control"
+                <input type="text" id="<?php echo $agenda_item->CD_VCL_VCNA_ATEND . '_qtd_vcna_retorno'; ?>" 
+                  name="<?php echo $agenda_item->CD_VCL_VCNA_ATEND . '_qtd_vcna_retorno'; ?>" class="form-control"
                   value="<?php echo $agenda_item->qtd_vcna_retorno; ?>">
               </div>
               <div class="form-group col-xs-1">
                 <label>Cortesia</label>
-                <input type="text" id="<?php echo $agenda_item->cd_vcl_vcna_cmp . '_qtd_cortesia'; ?>" 
-                  name="<?php echo $agenda_item->cd_vcl_vcna_cmp . '_qtd_cortesia'; ?>" class="form-control"
+                <input type="text" id="<?php echo $agenda_item->CD_VCL_VCNA_ATEND . '_qtd_cortesia'; ?>" 
+                  name="<?php echo $agenda_item->CD_VCL_VCNA_ATEND . '_qtd_cortesia'; ?>" class="form-control"
                   value="<?php echo $agenda_item->qtd_cortesia; ?>">
               </div>
             </div>
