@@ -13,6 +13,8 @@ $enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = $sql = "";
 $fechamento = 1;
 $ids_vacinas = array();
 
+load();
+
 if(isset($_GET['id'])){
   $cd_atend = $_GET['id'];
 
@@ -93,8 +95,6 @@ function form_valido() {
 
   return $valido;
 }
-
-load();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
