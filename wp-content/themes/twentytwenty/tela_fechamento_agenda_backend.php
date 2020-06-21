@@ -88,12 +88,16 @@ function form_valido() {
         $valido = true;
   }
 
-  echo "<script language='javascript' type='text/javascript'>
-      alert('{$cd_atend}');</script>";
-
   foreach($ids_vacinas as $id_vacina) {
     if (empty($id_vacina["qtd_vcna_retorno"])) $valido = false;
     if (empty($id_vacina["qtd_cortesia"])) $valido = false;
+  }
+
+foreach($ids_vacinas as $id_vacina) {
+    echo "<script language='javascript' type='text/javascript'>
+    alert('recebi id:" . $id_vacina["id"] . 
+    ", qtd_retorno:" . $id_vacina["qtd_vcna_retorno"] . 
+    ", qtd_cortesia:" . $id_vacina["qtd_cortesia"] .  "');</script>";
   }
 
   return $valido;
