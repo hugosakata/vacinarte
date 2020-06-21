@@ -49,18 +49,18 @@ function date_converter($_date = null) {
     //$qtd_vcna_envio = str_replace("'", "", trim($_POST["qtd_vcna_envio"]));
 
     foreach($ids_vacinas as $key => $id_vacina) {
-      echo "<script language='javascript' type='text/javascript'>
-        alert('pegando " . $id_vacina["id"] . "');</script>";
+      // echo "<script language='javascript' type='text/javascript'>
+      //   alert('pegando " . $id_vacina["id"] . "');</script>";
       $valor = str_replace("'", "", trim($_POST[$id_vacina["id"]]));
       $ids_vacinas[$key]["valor"] = $valor;
-      echo "<script language='javascript' type='text/javascript'>
-        alert('recebi " . $id_vacina["valor"] . "');</script>";
+      // echo "<script language='javascript' type='text/javascript'>
+      // alert('recebi " . $id_vacina["valor"] . "');</script>";
     }
-    foreach($ids_vacinas as $id_vacina) {
-      $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
-      echo "<script language='javascript' type='text/javascript'>
-        alert('" . $msg . "');</script>";
-    }
+    // foreach($ids_vacinas as $id_vacina) {
+    //   $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
+    //   echo "<script language='javascript' type='text/javascript'>
+    //     alert('" . $msg . "');</script>";
+    // }
  }
 
  function form_valido() {
@@ -88,31 +88,60 @@ function date_converter($_date = null) {
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if (form_valido()){
-    // $wpdb->insert(
-    //   'ATENDIMENTO',
-    //   array(
-    //     'cd_cmp'          => $id_cmp,
-    //     'dt_atend'        => $dt_atend,
-    //     'hr_ini'          => $hr_ini,
-    //     'hr_fim'          => $hr_fim,
-    //     'nm_enfermeiro'   => $nm_enfermeiro,
-    //     'qtd_vcna_envio'  => $qtd_vcna_envio
-    //   ),
-    //   array(
-    //     '%d',
-    //     '%s',
-    //     '%s',
-    //     '%s',
-    //     '%s',
-    //     '%d'
-    //   )
-    // );
+    $wpdb->query ("START TRANSACTION");
+    $wpdb->insert(
+      'ATENDIMENTO',
+      array(
+        'cd_cmp'          => $id_cmp,
+        'dt_atend'        => $dt_atend,
+        'hr_ini'          => $hr_ini,
+        'hr_fim'          => $hr_fim,
+        'nm_enfermeiro'   => $nm_enfermeiro
+      ),
+      array(
+        '%d',
+        '%s',
+        '%s',
+        '%s',
+        '%s'        
+      )
+    );
     $id_atend = $wpdb->insert_id;
-    $sql = "SELECT * FROM ATENDIMENTO WHERE cd_atend = '{$id_atend}'";
-    $atendimento = $wpdb->get_row($sql);
 
-    echo "<script language='javascript' type='text/javascript'>
+    $sucesso = true;
+    foreach($ids_vacinas as $id_vacina) {
+      $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
+      $wpdb->insert(
+        'VCL_VCNA_ATEND',
+        array(
+          'cd_atend'        => $id_atend,
+          'cd_vcna'         => $id_vacina["id"],
+          'qtd_vcna_envio'  => $id_vacina["valor"]
+        ),
+        array(
+          '%d',
+          '%d',
+          '%s'
+        )
+      );
+      $id_vcl = $wpdb->insert_id;
+      if ($id_vcl <= 0){
+        $sucesso = false;
+        break;
+      }
+    }
+
+    if ($id_atend > 0 && $sucesso){
+      $wpdb->query("COMMIT");
+
+      echo "<script language='javascript' type='text/javascript'>
       alert('Agendamento salvo com sucesso!');</script>";
+    } else {
+      $wpdb->query("ROLLBACK");
+
+      $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
+    }
+    
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";
   }
