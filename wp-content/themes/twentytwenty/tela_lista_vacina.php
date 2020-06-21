@@ -15,7 +15,7 @@ $titulo = "Vacinas da Campanha";
 $novo = $home.'/cadastrar-vacina-campanha/?id='.$id_cmp; 
 $sql = "
       SELECT `VCL_VCNA_CMP`.cd_vcl_vcna_cmp, `VACINA`.`cd_vcna`, `nm_reg`, `nm_gen`, `FBCNTE_VCNA`.`nm_fbcnte_vcna`,
-      `obs_vcna`, `VCL_VCNA_CMP`.qtd_vcna, `VCL_VCNA_CMP`.vlr_vcna, `VCL_VCNA_CMP`.qtd_vcna_aplic
+      `obs_vcna`, `VCL_VCNA_CMP`.qtd_vcna_contratada, `VCL_VCNA_CMP`.vlr_vcna, `VCL_VCNA_CMP`.qtd_vcna_restante
       FROM `VACINA`, `VCL_VCNA_CMP`, `FBCNTE_VCNA`
       WHERE 
       `VCL_VCNA_CMP`.`cd_vcna`=`VACINA`.`cd_vcna` and
@@ -233,9 +233,9 @@ if (isset($acao) && $acao == "delete"){
                           ?>
                             <tr id="<?php echo $vacina->cd_vcl_vcna_cmp; ?>">
                               <td><?php echo $vacina->nm_reg ?></td>
-                              <td><?php echo $vacina->qtd_vcna ?></td>
+                              <td><?php echo $vacina->qtd_vcna_contratada ?></td>
                               <td><?php echo $vacina->vlr_vcna ?></td>
-                              <td><?php echo $vacina->qtd_vcna_aplic ?></td>
+                              <td><?php echo $vacina->qtd_vcna_restante ?></td>
                               <td>
                                 <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
                                 <a href="<?php echo $home . '/cadastrar-vacina-campanha/?id=' . $id_cmp . '&id_vcl_vcna=' . $vacina->cd_vcl_vcna_cmp . '&acao=edit'; ?>"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
