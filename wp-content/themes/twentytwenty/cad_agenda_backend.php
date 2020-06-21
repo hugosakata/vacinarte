@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'VCL_VCNA_ATEND',
         array(
           'cd_atend'        => $id_atend,
-          'cd_vcna'         => $id_vacina["id"],
+          'cd_vcl_vcna_cmp' => $id_vacina["id"],
           'qtd_vcna_envio'  => $id_vacina["valor"]
         ),
         array(
@@ -138,8 +138,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       alert('Agendamento salvo com sucesso!');</script>";
     } else {
 
-      $msg_err .= $wpdb->show_errors();
-      $msg_err .=$wpdb->print_error();
+      // $msg_err .= $wpdb->show_errors();
+      // $msg_err .=$wpdb->print_error();
 
       $wpdb->query("ROLLBACK");
 
