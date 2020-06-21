@@ -89,7 +89,7 @@ function form_valido() {
   }
 
   echo "<script language='javascript' type='text/javascript'>
-      alert('{$valido}}');</script>";
+      alert('{$cd_atend}');</script>";
 
   foreach($ids_vacinas as $id_vacina) {
     if (empty($id_vacina["qtd_vcna_retorno"])) $valido = false;
