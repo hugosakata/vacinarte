@@ -140,35 +140,6 @@
         <h4><?php echo $msg_err; ?></h4>
       </span></center>
 
-    <?php
-        $sql = 
-          "
-          SELECT
-            ATEND.CD_ATEND,
-            ATEND.CD_CMP,
-            CMP.NM_CMP,
-            ATEND.DT_ATEND,
-            ATEND.NM_ENFERMEIRO,
-            VVC.CD_VCL_VCNA_CMP,
-            VVC.CD_VCNA,
-            VCNA.NM_REG,
-            VVC.QTD_VCNA,
-            ATEND.QTD_VCNA_ENVIO
-          FROM
-            ATENDIMENTO ATEND,
-            CAMPANHA CMP,
-            VCL_VCNA_CMP VVC,
-            VACINA VCNA
-          WHERE
-            ATEND.CD_ATEND = {$cd_atend} AND
-            CMP.CD_CMP     = ATEND.CD_CMP AND
-            VVC.CD_CMP     = ATEND.CD_CMP AND
-            VCNA.CD_VCNA   = VVC.CD_VCNA
-          ";
-                            
-          $agenda = $wpdb->get_row($sql);
-    ?>
-
     <div class="row formCadCmp">
       <!-- row formulario -->
       <div class="col-lg-12 col-sm-12">
@@ -194,32 +165,39 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="form-group col-xs-3 col-xs-offset-1">
-              <label>Vacina</label>
-              <input type="text" id="nm_vacina" name="nm_vacina" class="form-control"
-                value="<?php echo $agenda->NM_REG; ?>" disabled="true">
+
+          <!-- Inicio vacina -->
+          <?php foreach($agendas as $agenda_item) {?>
+            <div class="row">
+              <div class="form-group col-xs-3 col-xs-offset-1">
+                <label>Vacina</label>
+                <input type="text" id="nm_vacina" name="nm_vacina" class="form-control"
+                  value="<?php echo $agenda_item->NM_REG; ?>" disabled="true">
+              </div>
+
             </div>
 
-          </div>
+            <div class="row">
+              <div class="form-group col-xs-1 col-xs-offset-1">
+                <label>Envio</label>
+                <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
+                  value="<?php echo $agenda_item->QTD_VCNA_ENVIO; ?>" disabled="true">
+              </div>
+              <div class="form-group col-xs-1">
+                <label>Retorno</label>
+                <input type="text" id="qtd_retorno" name="qtd_retorno" class="form-control"
+                  value="<?php echo $agenda_item->qtd_vcna_retorno; ?>">
+              </div>
+              <div class="form-group col-xs-1">
+                <label>Cortesia</label>
+                <input type="text" id="qtd_cortesia" name="qtd_cortesia" class="form-control"
+                  value="<?php echo $agenda_item->qtd_cortesia; ?>">
+              </div>
+            </div>
+          <?php } ?>
 
-          <div class="row">
-            <div class="form-group col-xs-1 col-xs-offset-1">
-              <label>Envio</label>
-              <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                value="<?php echo $agenda->QTD_VCNA_ENVIO; ?>" disabled="true">
-            </div>
-            <div class="form-group col-xs-1">
-              <label>Retorno</label>
-              <input type="text" id="qtd_retorno" name="qtd_retorno" class="form-control"
-                value="<?php echo $sql->qtd_vcna_retorno; ?>">
-            </div>
-            <div class="form-group col-xs-1">
-              <label>Cortesia</label>
-              <input type="text" id="qtd_cortesia" name="qtd_cortesia" class="form-control"
-                value="<?php echo $sql->qtd_cortesia; ?>">
-            </div>
-          </div>
+          <!-- Fim vacina -->
+
 
           <div class="row btns" style="margin-top: 1vw;">
             <div class="col-xs-2 col-xs-offset-1">

@@ -11,11 +11,43 @@ $home = get_home_url();
 $aplic = $envio = $agenda = $atend = $cd_atend = $campanha = $dt_agenda = "";
 $enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = $sql = "";
 $fechamento = 1;
+$ids_vacinas = array();
 
 load();
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
   $cd_atend = $_GET['id'];
+
+  $sql = "
+      SELECT
+      ATEND.CD_ATEND,
+      ATEND.CD_CMP,
+      CMP.NM_CMP,
+      ATEND.DT_ATEND,
+      ATEND.NM_ENFERMEIRO,
+      VVC.CD_VCL_VCNA_CMP,
+      VVC.CD_VCNA,
+      VCNA.NM_REG,
+      VVC.QTD_VCNA,
+      ATEND.QTD_VCNA_ENVIO,
+      atend.qtd_cortesia
+    FROM
+      ATENDIMENTO ATEND,
+      CAMPANHA CMP,
+      VCL_VCNA_CMP VVC,
+      VACINA VCNA
+    WHERE
+      ATEND.CD_ATEND = {$cd_atend} AND
+      CMP.CD_CMP     = ATEND.CD_CMP AND
+      VVC.CD_CMP     = ATEND.CD_CMP AND
+      VCNA.CD_VCNA   = VVC.CD_VCNA
+    ";
+                            
+    $agendas = $wpdb->get_results($sql);
+    $agenda = $agendas[0];
+    foreach($agendas as $agenda_item) {
+      array_push($ids_vacinas, array("id" => $agenda_item->cd_vcl_vcna_cmp, "qtd_retorno" => "", "qtd_cortesia" => ""));
+    }
 }
 
 
