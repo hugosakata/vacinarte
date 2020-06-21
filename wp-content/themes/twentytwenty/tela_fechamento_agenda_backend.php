@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
       VCNA.NM_REG,
       VVC.QTD_VCNA,
       ATEND.QTD_VCNA_ENVIO,
-      atend.qtd_cortesia
+      ATEND.qtd_cortesia
     FROM
       ATENDIMENTO ATEND,
       CAMPANHA CMP,
