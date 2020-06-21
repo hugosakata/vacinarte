@@ -128,14 +128,14 @@
                                         
                                         <div class="form-group col-xs-2">
                                             <label style="font-size: 14px;">Qtde Contratada</label>
-                                            <input type="text" id="qtd_vcna" name="qtd_vcna" class="form-control"
-                                            value="<?php echo $campanha_item->qtd_vcna; ?>" disabled />
+                                            <input type="text" id="qtd_vcna_contratada" name="qtd_vcna_contratada" class="form-control"
+                                            value="<?php echo $campanha_item->qtd_vcna_contratada; ?>" disabled />
                                         </div>
 
                                         <div class="form-group col-xs-2">
-                                            <label>Qtd Aplicada</label>
-                                            <input type="text" id="qtd_vcna_aplic" name="qtd_vcna_aplic" class="form-control"
-                                            value="<?php echo $campanha_item->qtd_vcna_aplic; ?>" disabled />
+                                            <label>Qtd Restante</label>
+                                            <input type="text" id="qtd_vcna_restante" name="qtd_vcna_restante" class="form-control"
+                                            value="<?php echo $campanha_item->qtd_vcna_restante; ?>" disabled />
                                         </div>
 
                                         <div class="form-group col-xs-2">

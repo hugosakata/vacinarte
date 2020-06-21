@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         array(
           'cd_cmp'    => $cd_cmp,
           'cd_vcna'   => $cd_vcna,
-          'qtd_vcna'  => $qtd_vcna,
+          'qtd_vcna_contratada'  => $qtd_vcna,
           'vlr_vcna'  => $vlr_vcna
         ),
         array( 'cd_vcl_vcna_cmp' =>  $id_vcl_vcna),
@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         array(
           'cd_cmp'    => $cd_cmp,
           'cd_vcna'   => $cd_vcna,
-          'qtd_vcna'  => $qtd_vcna,
+          'qtd_vcna_contratada'  => $qtd_vcna,
           'vlr_vcna'  => $vlr_vcna
         ),
         array(
