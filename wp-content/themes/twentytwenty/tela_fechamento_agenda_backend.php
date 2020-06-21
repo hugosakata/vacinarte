@@ -62,26 +62,19 @@ function load(){
   foreach($ids_vacinas as $key => $id_vacina) {
     $id = $id_vacina["id"] . "_qtd_vcna_retorno";
     $valor = str_replace("'", "", trim($_POST[$id]));
-
-    echo "<script language='javascript' type='text/javascript'>
-       alert('" . $valor . "');</script>";
-
-    $ids_vacinas[$key]["qtd_retorno"] = $valor;
+    $ids_vacinas[$key]["qtd_vcna_retorno"] = $valor;
 
     $id = $id_vacina["id"] . "_qtd_cortesia";
     $valor = str_replace("'", "", trim($_POST[$id]));
     $ids_vacinas[$key]["qtd_cortesia"] = $valor;
 
+  }
+  foreach($ids_vacinas as $id_vacina) {
     echo "<script language='javascript' type='text/javascript'>
     alert('recebi id:" . $id_vacina["id"] . 
-    ", qtd_retorno:" . $id_vacina["qtd_retorno"] . 
+    ", qtd_retorno:" . $id_vacina["qtd_vcna_retorno"] . 
     ", qtd_cortesia:" . $id_vacina["qtd_cortesia"] .  "');</script>";
   }
-  // foreach($ids_vacinas as $id_vacina) {
-  //   $msg = "id:" . $id_vacina["id"] . ", valor:" .  $id_vacina["valor"];
-  //   echo "<script language='javascript' type='text/javascript'>
-  //     alert('" . $msg . "');</script>";
-  // }
   
 }
 
