@@ -60,10 +60,12 @@ function load(){
   // $qtd_cortesia = str_replace("'", "", trim($_POST["qtd_cortesia"]));
 
   foreach($ids_vacinas as $key => $id_vacina) {
-    $valor = str_replace("'", "", trim($_POST[$id_vacina["id"] . "_qtd_vcna_retorno"]));
+    $id = $id_vacina["id"] . "_qtd_vcna_retorno";
+    $valor = str_replace("'", "", trim($_POST[$id]));
     $ids_vacinas[$key]["qtd_retorno"] = $valor;
 
-    $valor = str_replace("'", "", trim($_POST[$id_vacina["id"] . "_qtd_cortesia"]));
+    $id = $id_vacina["id"] . "_qtd_cortesia";
+    $valor = str_replace("'", "", trim($_POST[$id]));
     $ids_vacinas[$key]["qtd_cortesia"] = $valor;
 
     echo "<script language='javascript' type='text/javascript'>
