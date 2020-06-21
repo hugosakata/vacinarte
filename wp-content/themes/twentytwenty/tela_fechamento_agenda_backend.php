@@ -62,6 +62,10 @@ function load(){
   foreach($ids_vacinas as $key => $id_vacina) {
     $id = $id_vacina["id"] . "_qtd_vcna_retorno";
     $valor = str_replace("'", "", trim($_POST[$id]));
+
+    echo "<script language='javascript' type='text/javascript'>
+       alert('" . $valor . "');</script>";
+
     $ids_vacinas[$key]["qtd_retorno"] = $valor;
 
     $id = $id_vacina["id"] . "_qtd_cortesia";
