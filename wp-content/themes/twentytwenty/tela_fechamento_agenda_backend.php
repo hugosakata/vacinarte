@@ -69,17 +69,17 @@ function load(){
     $ids_vacinas[$key]["qtd_cortesia"] = $valor;
 
   }
-  foreach($ids_vacinas as $id_vacina) {
-    echo "<script language='javascript' type='text/javascript'>
-    alert('recebi id:" . $id_vacina["id"] . 
-    ", qtd_retorno:" . $id_vacina["qtd_vcna_retorno"] . 
-    ", qtd_cortesia:" . $id_vacina["qtd_cortesia"] .  "');</script>";
-  }
+  // foreach($ids_vacinas as $id_vacina) {
+  //   echo "<script language='javascript' type='text/javascript'>
+  //   alert('recebi id:" . $id_vacina["id"] . 
+  //   ", qtd_retorno:" . $id_vacina["qtd_vcna_retorno"] . 
+  //   ", qtd_cortesia:" . $id_vacina["qtd_cortesia"] .  "');</script>";
+  // }
   
 }
 
 function form_valido() {
-  global $cd_atend, $qtd_retorno, $qtd_cortesia;
+  global $cd_atend, $qtd_retorno, $qtd_cortesia, $ids_vacinas;
 
   $valido = false;
   if (!empty($cd_atend)){
