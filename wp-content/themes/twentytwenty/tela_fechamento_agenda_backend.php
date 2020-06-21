@@ -11,9 +11,9 @@ $home = get_home_url();
 $aplic = $envio = $agenda = $atend = $cd_atend = $campanha = $dt_agenda = "";
 $enfermeira = $vacina = $qtd_vcna = $qtd_retorno = $qtd_cortesia = $sql = "";
 $fechamento = 1;
+$ids_vacinas = array();
 
-if($_SERVER["REQUEST_METHOD"] == "GET"){
-  $ids_vacinas = array();
+if(isset($_GET['id'])){
   $cd_atend = $_GET['id'];
 
   $sql = "
