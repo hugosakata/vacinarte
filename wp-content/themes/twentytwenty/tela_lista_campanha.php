@@ -199,6 +199,7 @@ $home = get_home_url();
                             $campanhas = $wpdb->get_results( 
                               // 
                               "
+                              SET time_zone = '-3:00';
                               SELECT
                                 CMP.CD_CMP,
                                 CMP.NM_CMP,
@@ -222,7 +223,7 @@ $home = get_home_url();
 
                                 CMP.DT_FIM >= now()
                               ORDER BY
-                                CMP.DT_INI ASC
+                                CMP.DT_INI ASC;
 
                               "
                             );
