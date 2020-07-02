@@ -1,7 +1,7 @@
 <?php /* Template Name: TelaCadCampanha */
 //cada vez q o header carregar renova a sessao de logado
 setcookie("logado", 1, (time() + (0.5 * 3600)));
-
+//https://www.hostinger.com.br/tutoriais/como-alterar-fuso-horario-usando-htaccess
 global $wpdb;
 $home = get_home_url();
 ?>
@@ -384,3 +384,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </script>
   </body>
   </html>
+  
