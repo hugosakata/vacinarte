@@ -13,6 +13,8 @@ $nm_cmp = $cd_cli = $tp_srv = $local_srv = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
+  $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+  $cmp = $wpdb->get_row($sql);
 }
 
 function date_converter($_date = null) {
@@ -235,14 +237,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-4 col-xs-offset-3">
                 <label style="font-size: 14px;">Campanha</label>
                 <input type="text" id="nm_cmp" name="nm_cmp" class="form-control" 
-                value="<?php echo $nm_cmp; ?>" required />
+                value="<?php echo $cmp->nm_cmp; ?>" required />
               </div>
             </div>
             <div class="row">
               <div class="form-group col-xs-4 col-xs-offset-3">
                 <label style="font-size: 14px;">Empresa (com cadastro sem pendências)</label>
                 <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
-                value="<?php echo $cd_cli; ?>" required >
+                value="<?php echo $cmp->cd_cli; ?>" required >
                 <option value=""></option>
                 <?php
                   $clientes = $wpdb->get_results( 
@@ -271,7 +273,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-2 col-xs-offset-3">
                 <label style="font-size: 14px;">Tipo de serviço</label>
                 <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
-                value="<?php echo $tp_srv; ?>" required >
+                value="<?php echo $cmp->cd_tp_srv; ?>" required >
                   <option value=""></option>
                   <option value="1">Gesto</option>
                   <option value="2">Completo</option>
@@ -281,7 +283,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-2">
                 <label style="font-size: 14px;">Local do serviço</label>
                 <select class="selectpicker form-control" id="local_srv" name="local_srv"
-                value="<?php echo $local_srv; ?>" required >
+                value="<?php echo $cmp->cd_local_srv; ?>" required >
                   <option value=""></option>
                   <option value="1">In Loco</option>
                   <option value="2">Balcão</option>
@@ -293,13 +295,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-2 col-xs-offset-3">
                 <label style="font-size: 14px;">Data de início</label>
                 <input type="text" id="dt_ini" name="dt_ini" class="form-control"
-                value="<?php echo $dt_ini; ?>"/>
+                value="<?php echo $cmp->dt_ini; ?>"/>
               </div>
 
               <div class="form-group col-xs-2">
                 <label style="font-size: 14px;">Data de término</label>
                 <input type="text" id="dt_fim" name="dt_fim" class="form-control"
-                value="<?php echo $dt_fim; ?>"/>
+                value="<?php echo $cmp->dt_fim; ?>"/>
               </div>
             </div>
 
