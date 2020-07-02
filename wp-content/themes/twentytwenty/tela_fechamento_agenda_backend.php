@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
       ATEND.CD_ATEND,
       ATEND.CD_CMP,
       CMP.NM_CMP,
-      date_format(`ATEND.DT_ATEND`, '%d/%m/%Y') AS DT_ATEND, 
+      date_format(`DT_ATEND`, '%d/%m/%Y') AS DT_ATEND, 
       ATEND.NM_ENFERMEIRO,
       
       VCNA.NM_REG,
@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'ATENDIMENTO',
         array(
         'bl_fechamento'     => $fechamento,
-        'dt_fechamento'            => date("Y-m-d H:i:s")
+        'dt_fechamento'     => date("Y-m-d H:i:s")
         ),
         array(
         'cd_atend' => $cd_atend
