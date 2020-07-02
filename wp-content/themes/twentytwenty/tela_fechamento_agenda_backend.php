@@ -108,14 +108,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $linhas_afetadas = $wpdb->update(
         'ATENDIMENTO',
         array(
-        'bl_fechamento'     => $fechamento
+        'bl_fechamento'     => $fechamento,
+        'dt_fim'            => date("Y-m-d H:i:s")
         ),
         array(
         'cd_atend' => $cd_atend
         ),
         array(
-        '%d'
-        )
+        '%d',
+        '%s'
+        ),
+        array('%d')
     );
 
     if ($linhas_afetadas > 0){
