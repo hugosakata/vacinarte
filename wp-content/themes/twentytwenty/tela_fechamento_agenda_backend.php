@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         'ATENDIMENTO',
         array(
         'bl_fechamento'     => $fechamento,
-        'dt_fim'            => date("Y-m-d H:i:s")
+        'dt_fechamento'            => date("Y-m-d H:i:s")
         ),
         array(
         'cd_atend' => $cd_atend
