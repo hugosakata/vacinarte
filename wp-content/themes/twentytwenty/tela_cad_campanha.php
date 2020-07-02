@@ -16,10 +16,18 @@ if(isset($_GET['id'])){
   $acao = $_GET['acao'];//acao=edit
   $sql = "
     SELECT 
-    `cd_cmp`, `nm_cmp`, `cd_cli`, `cd_vcl_end`, `cd_tp_srv`, `cd_local_srv`,
+    CMP.`cd_cmp`, CMP.`nm_cmp`, 
+    CMP.`cd_cli`, 
+    CLI.nm_rz_soc,
+    `cd_vcl_end`, 
+    IF(`cd_tp_srv` = 1, 'Gesto', 'Completo') as nm_tp_srv, 
+    IF(`cd_local_srv` = 1, 'In Loco', 'Balcão') as nm_local_srv, 
     date_format(`dt_ini`, '%d/%m/%Y') AS dt_ini, 
     date_format(`dt_fim`, '%d/%m/%Y') AS dt_fim
-    FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+    FROM CAMPANHA CMP, CLIENTES CLI 
+    WHERE 
+    CMP.cd_cli=CLI.cd_cli AND 
+    CMP.cd_cmp = '{$id_cmp}'";
   $cmp = $wpdb->get_row($sql);
 }
 
@@ -285,7 +293,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-4 col-xs-offset-3">
                 <label style="font-size: 14px;">Empresa (com cadastro sem pendências)</label>
                 <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
-                value="<?php echo $cmp->cd_cli; ?>" required >
+                value="<?php echo $cmp->nm_rz_soc; ?>" required >
                 <option value=""></option>
                 <?php
                   $clientes = $wpdb->get_results( 
@@ -314,7 +322,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-2 col-xs-offset-3">
                 <label style="font-size: 14px;">Tipo de serviço</label>
                 <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
-                value="<?php echo $cmp->cd_tp_srv; ?>" required >
+                value="<?php echo $cmp->nm_tp_srv; ?>" required >
                   <option value=""></option>
                   <option value="1">Gesto</option>
                   <option value="2">Completo</option>
@@ -324,7 +332,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-2">
                 <label style="font-size: 14px;">Local do serviço</label>
                 <select class="selectpicker form-control" id="local_srv" name="local_srv"
-                value="<?php echo $cmp->cd_local_srv; ?>" required >
+                value="<?php echo $cmp->nm_local_srv; ?>" required >
                   <option value=""></option>
                   <option value="1">In Loco</option>
                   <option value="2">Balcão</option>
