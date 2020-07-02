@@ -149,6 +149,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       echo "<script language='javascript' type='text/javascript'>
       alert('Agenda fechada com sucesso!');</script>";
+
+      echo "<script language='javascript' type='text/javascript'>
+            window.location.href='{$home}/listar-agendamento/';</script>";
     } else {
       $wpdb->query("ROLLBACK");
 
