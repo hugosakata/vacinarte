@@ -191,6 +191,8 @@ $home = get_home_url();
                           <tbody>
                           
                           <?php
+                          $wpdb->query ("START TRANSACTION");
+                          $wpdb->query ("SET time_zone = '-3:00'");
                             $agendas = $wpdb->get_results( 
                               "
                               SELECT 
@@ -228,6 +230,7 @@ $home = get_home_url();
 
                               "
                             );
+                            $wpdb->query("COMMIT");
                             
                             foreach ( $agendas as $agenda ) 
                             {
