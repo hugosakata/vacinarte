@@ -228,6 +228,9 @@ $home = get_home_url();
                                   AND `ATENDIMENTO`.`dt_atend` >= date(now())
                               ORDER BY `cd_atend` DESC
 
+
+
+                              
                               "
                             );
                             $wpdb->query("COMMIT");
