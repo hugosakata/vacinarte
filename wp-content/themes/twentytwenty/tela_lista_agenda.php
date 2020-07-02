@@ -226,11 +226,7 @@ $home = get_home_url();
                                 AND `VCL_ENDERECO`.`cd_end` =  `ENDERECO`.`cd_end`
                                 AND `ATENDIMENTO`.`bl_fechamento` = 0
                                   AND `ATENDIMENTO`.`dt_atend` >= date(now())
-                              ORDER BY `cd_atend` DESC
-
-
-
-                              
+                              ORDER BY `cd_atend` DESC                              
                               "
                             );
                             $wpdb->query("COMMIT");

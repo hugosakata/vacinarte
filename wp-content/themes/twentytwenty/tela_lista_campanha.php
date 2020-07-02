@@ -196,10 +196,11 @@ $home = get_home_url();
                           <tbody>
                           
                           <?php
+                          $wpdb->query ("START TRANSACTION");
+                          $wpdb->query ("SET time_zone = '-3:00'");
                             $campanhas = $wpdb->get_results( 
                               // 
                               "
-                              SET time_zone = '-3:00';
                               SELECT
                                 CMP.CD_CMP,
                                 CMP.NM_CMP,
@@ -227,6 +228,7 @@ $home = get_home_url();
 
                               "
                             );
+                            $wpdb->query("COMMIT");
                             
                             foreach ( $campanhas as $campanha ) 
                             {
