@@ -213,7 +213,7 @@ if (isset($acao) && $acao == "delete"){
                               <th>Vacina</th>
                               <th>Qtd</th>
                               <th>Valor</th>
-                              <th>Aplicada</th>
+                              <th>Restante</th>
                               <th>Ações</th>
                             </tr>
                           </thead>
