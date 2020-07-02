@@ -14,7 +14,12 @@ $nm_cmp = $cd_cli = $tp_srv = $local_srv = "";
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
   $acao = $_GET['acao'];//acao=edit
-  $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+  $sql = "
+    SELECT 
+    `cd_cmp`, `nm_cmp`, `cd_cli`, `cd_vcl_end`, `cd_tp_srv`, `cd_local_srv`,
+    date_format(`dt_ini`, '%d/%m/%Y') AS dt_ini, 
+    date_format(`dt_fim`, '%d/%m/%Y') AS dt_fim
+    FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
   $cmp = $wpdb->get_row($sql);
 }
 
