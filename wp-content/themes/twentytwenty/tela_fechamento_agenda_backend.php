@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
       ATEND.CD_ATEND,
       ATEND.CD_CMP,
       CMP.NM_CMP,
-      ATEND.DT_ATEND,
+      date_format(`ATEND.DT_ATEND`, '%d/%m/%Y') AS DT_ATEND, 
       ATEND.NM_ENFERMEIRO,
       
       VCNA.NM_REG,
