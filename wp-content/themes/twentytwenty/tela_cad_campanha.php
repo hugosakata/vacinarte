@@ -13,6 +13,7 @@ $nm_cmp = $cd_cli = $tp_srv = $local_srv = "";
 
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
+  $acao = $_GET['acao'];//acao=edit
   $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
   $cmp = $wpdb->get_row($sql);
 }
@@ -62,31 +63,66 @@ load();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
    
   if (form_valido()){
-    $wpdb->insert(
-      'CAMPANHA',
-      array(
-        'nm_cmp'        => $nm_cmp,
-        'cd_cli'        => $cd_cli,
-        'cd_tp_srv'     => $tp_srv,
-        'cd_local_srv'  => $local_srv,
-        'dt_ini'        => $dt_ini,
-        'dt_fim'        => $dt_fim
-      ),
-      array(
-        '%s',
-        '%d',
-        '%d',
-        '%d',
-        '%s',
-        '%s'
-      )
-    );
-    $id_cmp = $wpdb->insert_id;
-    $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
-    $cmp = $wpdb->get_row($sql);
-
-    echo "<script language='javascript' type='text/javascript'>
-    alert('Campanha salva com sucesso!');</script>";
+    if ($acao == "edit"){
+      $linhas_afetadas = $wpdb->update(
+        'CAMPANHA',
+        array(
+          'nm_cmp'        => $nm_cmp,
+          'cd_cli'        => $cd_cli,
+          'cd_tp_srv'     => $tp_srv,
+          'cd_local_srv'  => $local_srv,
+          'dt_ini'        => $dt_ini,
+          'dt_fim'        => $dt_fim
+        ),
+        array ('cd_cmp'  => $id_cmp ),
+        array(
+          '%s',
+          '%d',
+          '%d',
+          '%d',
+          '%s',
+          '%s'
+        ),
+        array('%d')
+      );
+      if ($linhas_afetadas > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Campanha salva com sucesso!');</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+      }
+    } else {
+      $wpdb->insert(
+        'CAMPANHA',
+        array(
+          'nm_cmp'        => $nm_cmp,
+          'cd_cli'        => $cd_cli,
+          'cd_tp_srv'     => $tp_srv,
+          'cd_local_srv'  => $local_srv,
+          'dt_ini'        => $dt_ini,
+          'dt_fim'        => $dt_fim
+        ),
+        array(
+          '%s',
+          '%d',
+          '%d',
+          '%d',
+          '%s',
+          '%s'
+        )
+      );
+      $id_cmp = $wpdb->insert_id;
+      $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+      $cmp = $wpdb->get_row($sql);
+      if ($id_cmp > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Campanha salva com sucesso!');</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+      }
+    }
     
     //limpa formulario
     $acao = $cd_cli = $tp_srv = $local_srv = "";
