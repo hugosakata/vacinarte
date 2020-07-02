@@ -14,11 +14,17 @@ $total_clientes_pf = $wpdb->get_var($sql);
 $sql = "SELECT count(*) as total FROM CLIENTES where cd_tp_cli=2";
 $total_clientes_pj = $wpdb->get_var($sql);
 
-$sql = "SET time_zone = '-3:00'; SELECT COUNT(CD_CMP) QTD_CMP FROM CAMPANHA WHERE DT_FIM >= date(NOW());";
+$wpdb->query ("START TRANSACTION");
+$wpdb->query ("SET time_zone = '-3:00'");
+$sql = "SELECT COUNT(CD_CMP) QTD_CMP FROM CAMPANHA WHERE DT_FIM >= date(NOW());";
 $total_campanha_ativa = $wpdb->get_var($sql);
+$wpdb->query("COMMIT");
 
+$wpdb->query ("START TRANSACTION");
+$wpdb->query ("SET time_zone = '-3:00'");
 $sql = "SET time_zone = '-3:00'; SELECT COUNT(CD_ATEND) QT_AGENDA FROM ATENDIMENTO WHERE DT_ATEND >= date(NOW());";
 $total_agenda = $wpdb->get_var($sql);
+$wpdb->query("COMMIT");
 
 ?>
 
