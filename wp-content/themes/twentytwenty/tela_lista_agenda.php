@@ -207,7 +207,7 @@ $home = get_home_url();
                                   `ENDERECO`.`cep`,
                                   `ENDERECO`.`cidade`,
                                   `ENDERECO`.`estado`,
-                                  date_format(`dt_atend`, '%d/%m/%Y') AS DT_ATEND,
+                                  date_format(`dt_atend`, '%d/%m/%Y') AS dt_atend,
                                   `hr_ini`,
                                   `hr_fim`,
                                   `nm_enfermeiro`

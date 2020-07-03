@@ -262,7 +262,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         <input type="submit" class="button btn btn-danger " value="Agendar">
                                     </div>
                                     <div class="col-xs-2 col-xs-offset-1">
-                                        <input type="button" class="btn btn-danger" onclick="<?php echo "location.href='{$home}/cadastrar-vacina-campanha/?id={$id_cmp}';" ; ?>" 
+                                        <input type="button" class="btn btn-danger hide" onclick="<?php echo "location.href='{$home}/cadastrar-vacina-campanha/?id={$id_cmp}';" ; ?>" 
                                         value="Vacinas" <?php if ($id_cmp <= 0) { echo "disabled='true' style='background-color:slateGray'"; } ?>/>
                                     </div>
                                 </div>
