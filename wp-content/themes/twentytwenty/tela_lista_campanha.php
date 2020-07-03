@@ -222,7 +222,7 @@ $home = get_home_url();
                               CMP.CD_TP_SRV = SRV.CD_TP_SRV and
                               CMP.CD_CLI = CLI.CD_CLI and
 
-                                CMP.DT_FIM >= now()
+                                CMP.DT_FIM >= date(now())
                               ORDER BY
                                 CMP.DT_INI ASC;
 
