@@ -310,7 +310,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   foreach ( $clientes as $cliente ) 
                   {
                 ?>
-                  <option value='<?php echo $cliente->cd_cli ?>'><?php echo $cliente->nm_fant ?></option>
+                  <option value='<?php echo $cliente->cd_cli ?>' <?php if($cmp->cd_cli ==  $cliente->cd_cli) echo "selected" ; ?>><?php echo $cliente->nm_fant ?></option>
               <?php
                 }
                 ?>
@@ -324,8 +324,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <select class="selectpicker form-control" id="tp_srv" name="tp_srv"
                 value="<?php echo $cmp->nm_tp_srv; ?>" required >
                   <option value=""></option>
-                  <option value="1">Gesto</option>
-                  <option value="2">Completo</option>
+                  <option value="1" <?php if($cmp->nm_tp_srv ==  'Gesto') echo "selected" ; ?>>Gesto</option>
+                  <option value="2" <?php if($cmp->nm_tp_srv ==  'Completo') echo "selected" ; ?>>Completo</option>
                 </select>
               </div>
 
@@ -334,8 +334,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <select class="selectpicker form-control" id="local_srv" name="local_srv"
                 value="<?php echo $cmp->nm_local_srv; ?>" required >
                   <option value=""></option>
-                  <option value="1">In Loco</option>
-                  <option value="2">Balcão</option>
+                  <option value="1" <?php if($cmp->nm_local_srv ==  'In Loco') echo "selected" ; ?>>In Loco</option>
+                  <option value="2" <?php if($cmp->nm_local_srv ==  'Balcão') echo "selected" ; ?>>Balcão</option>
                 </select>
               </div>
             </div>
