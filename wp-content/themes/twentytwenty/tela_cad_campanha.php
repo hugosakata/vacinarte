@@ -18,7 +18,7 @@ if(isset($_GET['id'])){
     SELECT 
     CMP.`cd_cmp`, CMP.`nm_cmp`, 
     CMP.`cd_cli`, 
-    CLI.nm_rz_soc,
+    CLI.nm_fant,
     `cd_vcl_end`, 
     IF(`cd_tp_srv` = 1, 'Gesto', 'Completo') as nm_tp_srv, 
     IF(`cd_local_srv` = 1, 'In Loco', 'Balcão') as nm_local_srv, 
@@ -293,7 +293,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-4 col-xs-offset-3">
                 <label style="font-size: 14px;">Empresa (com cadastro sem pendências)</label>
                 <select class="selectpicker form-control" id="cd_cli" name="cd_cli"
-                value="<?php echo $cmp->nm_rz_soc; ?>" required >
+                value="<?php echo $cmp->nm_fant; ?>" required >
                 <option value=""></option>
                 <?php
                   $clientes = $wpdb->get_results( 
