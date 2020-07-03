@@ -19,7 +19,7 @@ $wpdb->query ("SET time_zone = '-3:00'");
 $sql = "SELECT COUNT(CD_CMP) QTD_CMP FROM CAMPANHA WHERE DT_FIM >= date(NOW());";
 $total_campanha_ativa = $wpdb->get_var($sql);
 
-$sql = "SELECT COUNT(CD_ATEND) QT_AGENDA FROM ATENDIMENTO WHERE DT_ATEND >= date(NOW());";
+$sql = "SELECT COUNT(CD_ATEND) QT_AGENDA FROM ATENDIMENTO WHERE DT_ATEND >= date(NOW()) AND BL_FECHAMENTO = 0;";
 $total_agenda = $wpdb->get_var($sql);
 $wpdb->query("COMMIT");
 
