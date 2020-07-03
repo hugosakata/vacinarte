@@ -286,7 +286,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="form-group col-xs-4 col-xs-offset-3">
                 <label style="font-size: 14px;">Campanha</label>
                 <input type="text" id="nm_cmp" name="nm_cmp" class="form-control" 
-                value="<?php echo $cmp->nm_cmp . $cmp->nm_fant; ?>" required />
+                value="<?php echo $cmp->nm_cmp; ?>" required />
               </div>
             </div>
             <div class="row">
