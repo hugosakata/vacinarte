@@ -9,24 +9,18 @@ $home = get_home_url();
 
 
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $uploaddir = '/var/www/uploads/';
-  $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+   if(isset($_FILES['fileUpload']))
+   {
+      date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
 
-  echo '<pre>';
-  if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-      echo "Arquivo válido e enviado com sucesso.\n";
-  } else {
-      echo "Possível ataque de upload de arquivo!\n";
-  }
+      $ext = strtolower(substr($_FILES['fileUpload']['name'],-4)); //Pegando extensão do arquivo
+      $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+      $dir = 'uploads/'; //Diretório para uploads
 
-  echo 'Aqui está mais informações de debug:';
-  print_r($_FILES);
-
-  print "</pre>";
-}
-
+      move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
+   }
 ?>
+
 
  
 <!DOCTYPE html>
@@ -147,14 +141,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
-<!-- O tipo de encoding de dados, enctype, DEVE ser especificado abaixo -->
-<form enctype="multipart/form-data" action="__URL__" method="POST">
-    <!-- MAX_FILE_SIZE deve preceder o campo input -->
-    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-    <!-- O Nome do elemento input determina o nome da array $_FILES -->
-    Enviar esse arquivo: <input name="userfile" type="file" />
-    <input type="submit" value="Enviar arquivo" />
-</form>
+    <form action="#" method="POST" enctype="multipart/form-data">
+      <input type="file" name="fileUpload">
+      <input type="submit" value="Enviar">
+   </form>
+
 
 </div>  
 
