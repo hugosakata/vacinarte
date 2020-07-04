@@ -17,9 +17,12 @@ $home = get_home_url();
       $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
       $dir = 'uploads/'; //Diretório para uploads
 
-      move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
+      $target_dir = $_SERVER['DOCUMENT_ROOT'];
+      $target_file = $target_dir . '/' . $new_name;
 
-      echo $dir.$new_name;
+      move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file); //Fazer upload do arquivo
+
+      echo $target_file;
    }
 ?>
 
