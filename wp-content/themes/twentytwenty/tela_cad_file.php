@@ -9,6 +9,8 @@ $home = get_home_url();
 
 
 <?php
+//acessar assim:
+//http://desenv.vacinarte-admin.com.br/2020.07.04-19.43.36.jpg
    if(isset($_FILES['fileUpload']))
    {
       date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
