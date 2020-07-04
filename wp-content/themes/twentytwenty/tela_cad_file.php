@@ -18,6 +18,8 @@ $home = get_home_url();
       $dir = 'uploads/'; //Diretório para uploads
 
       move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
+
+      echo $dir.$new_name;
    }
 ?>
 
@@ -155,3 +157,4 @@ $home = get_home_url();
 
   </body>
   </html>
+
