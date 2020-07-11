@@ -1,6 +1,7 @@
 <?php
 
-$lista_campanhas = "
+/****************CAMPANHA*******************/
+$listar_campanhas = "
 SELECT 
 CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, date_format(`dt_ini`, '%%d/%m/%Y') AS dt_ini, 
 date_format(`dt_fim`, '%%d/%m/%Y') AS dt_fim, `VCL_VCNA_CMP`.`cd_vcl_vcna_cmp`, `VACINA`.nm_gen, 
@@ -12,7 +13,7 @@ VCL_VCNA_CMP.cd_cmp=CAMPANHA.cd_cmp AND
 VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
 CAMPANHA.cd_cmp = '%d'";
 
-$lista_campanhas_por_nm_fant = "
+$listar_campanhas_por_nm_fant = "
 SELECT cli.cd_cli, nm_rz_soc, nm_fant 
 FROM CLIENTES cli
 WHERE cd_tp_cli=2 and 
@@ -21,7 +22,9 @@ WHERE cd_tp_cli=2 and
 order by nm_fant
 ";
 
-$seleciona_campanha = "
+$selecionar_campanha = "SELECT * FROM CAMPANHA WHERE cd_cmp = '%d'";
+
+$selecionar_campanha_com_tratamento = "
 SELECT 
 CMP.`cd_cmp`, CMP.`nm_cmp`, 
 CMP.`cd_cli`, 
@@ -35,5 +38,9 @@ FROM CAMPANHA CMP, CLIENTES CLI
 WHERE 
 CMP.cd_cli=CLI.cd_cli AND 
 CMP.cd_cmp = '%d'";
+
+/**************CONTATO*****************/
+
+$selecionar_contato = "SELECT * FROM CONTATO WHERE cd_ctt = '%d'";
 
 ?>
