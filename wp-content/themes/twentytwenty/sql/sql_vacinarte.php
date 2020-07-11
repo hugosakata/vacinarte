@@ -1,6 +1,7 @@
 <?php
 
 /****************CAMPANHA*******************/
+
 $listar_campanhas = "
     SELECT 
     CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, date_format(`dt_ini`, '%%d/%m/%Y') AS dt_ini, 
@@ -103,5 +104,26 @@ $selecionar_enderecos_cliente = "
     WHERE 
     ENDERECO.cd_end=VCL_ENDERECO.cd_end and 
     VCL_ENDERECO.cd_cli=%d and ativo=1 order by `nm_end`, `logradouro`";
+
+/**************VACINA*************/
+
+$selecionar_vacinas_campanha = "
+    SELECT * FROM `VCL_VCNA_CMP`, `VACINA`
+    WHERE VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna and
+    VCL_VCNA_CMP.cd_vcl_vcna_cmp = '%d'";
+
+$selecionar_vinculo_vacina = "
+    SELECT * FROM VCL_VCNA_CMP WHERE cd_vcna = '%d'";
+
+$listar_vacinas = "
+    SELECT
+      a.cd_vcna,
+      a.nm_reg,
+      a.cd_fbcnte_vcna,
+      b.nm_fbcnte_vcna
+    FROM
+      VACINA a
+      LEFT JOIN
+      FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna";
 
 ?>
