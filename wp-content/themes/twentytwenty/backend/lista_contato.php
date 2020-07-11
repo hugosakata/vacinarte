@@ -10,25 +10,11 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 if ($id_cli > 0) {
   $titulo = "Contatos do Cliente";
   $novo = $home.'/cadastrar-contato/?id='.$id_cli;
-  $sql = "
-        SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
-        `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-        FROM `CONTATO`, `VCL_CONTATO`
-        WHERE 
-        `VCL_CONTATO`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-        `VCL_CONTATO`.`cd_cli`={$id_cli} and status=1 order by `nm_ctt`
-        ";
+  $sql = $wpdb->prepare($listar_contatos_cliente , $id_cli );
 } else if ($id_cmp > 0) {
   $titulo = "Contatos da Campanha"; 
   $novo = $home.'/cadastrar-contato-campanha/?id_cmp='.$id_cmp; 
-  $sql = "
-        SELECT `CONTATO`.`cd_ctt`, `nm_ctt`, `tel_pri`, 
-        `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
-        FROM `CONTATO`, `VCL_CTT_CMP`
-        WHERE 
-        `VCL_CTT_CMP`.`cd_ctt`=`CONTATO`.`cd_ctt` and
-        `VCL_CTT_CMP`.`cd_cmp`={$id_cmp} and `CONTATO`.`status`=1 and `VCL_CTT_CMP`.`ativo`=1 order by `nm_ctt`
-        ";
+  $sql = $wpdb->prepare($listar_contatos_campanha , $id_cmp );
 }
 
 if (isset($acao) && $acao == "delete"){
@@ -47,7 +33,8 @@ if (isset($acao) && $acao == "delete"){
     );
   } else if ($id_cmp > 0) {
 
-    $sql = "SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '{$id_cmp}' and cd_ctt = '{$id_ctt}'";
+    $sql = $wpdb->prepare($selecionar_contatos_campanha_status , $id_cmp, $id_ctt );
+
     $vlc_ctt_cmp = $wpdb->get_row($sql);
     $id_vcl = $vlc_ctt_cmp->cd_vcl_ctt_cmp;
 
