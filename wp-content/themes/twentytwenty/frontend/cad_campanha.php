@@ -145,7 +145,7 @@
                 value="<?php echo $cmp->nm_fant; ?>" required >
                 <option value=""></option>
                 <?php
-                  $clientes = $wpdb->get_results( $wpdb->prepare( $lista_campanhas_por_nm_fant ) );
+                  $clientes = $wpdb->get_results( $wpdb->prepare( $listar_campanhas_por_nm_fant ) );
                   
                   foreach ( $clientes as $cliente ) 
                   {
