@@ -119,6 +119,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       echo "<script language='javascript' type='text/javascript'>
       alert('Agendamento salvo com sucesso!');</script>";
+
+      echo "<script language='javascript' type='text/javascript'>
+        window.location.href='{$home}/listar-agendamento/';</script>";
     } else {
 
       // $msg_err .= $wpdb->show_errors();

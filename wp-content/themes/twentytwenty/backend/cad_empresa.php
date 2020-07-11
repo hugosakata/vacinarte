@@ -94,6 +94,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       echo "<script language='javascript' type='text/javascript'>
       alert('Cliente salvo com sucesso!');</script>";
+
+      echo "<script language='javascript' type='text/javascript'>
+      window.location.href='{$home}/listar-pj/';</script>";
     }
   } else {
       $msg_err = "Ops! Faltou preencher algum campo obrigatório";

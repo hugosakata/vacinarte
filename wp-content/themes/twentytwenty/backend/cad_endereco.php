@@ -119,8 +119,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $endereco = $nm_end = $logra = $num_logra = "";
       $compl_logra = $bairro = $cep = $cidade = $msg_err = "";
 
-      echo "<script language='javascript' type='text/javascript'>
+      if ($id_cli > 0){
+        echo "<script language='javascript' type='text/javascript'>
         window.location.href='{$home}/listar-enderecos/?id={$id_cli}';</script>";
+      } else if ($id_cmp>0) {
+        echo "<script language='javascript' type='text/javascript'>
+        window.location.href='{$home}/listar-enderecos/?id_cmp={$id_cmp}';</script>";
+      }
 
     } else {
       // $msg_err .= $wpdb->show_errors();

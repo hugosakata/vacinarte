@@ -73,6 +73,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       if ($linhas_afetadas > 0){
         echo "<script language='javascript' type='text/javascript'>
         alert('Vacina salva com sucesso!');</script>";
+
+        echo "<script language='javascript' type='text/javascript'>
+        window.location.href='{$home}/listar-vacinas/?id_cmp={$id_cmp}';</script>";
+
       } else {
         echo "<script language='javascript' type='text/javascript'>
         alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
@@ -103,6 +107,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       if ($id_vcna_cmp > 0){
         echo "<script language='javascript' type='text/javascript'>
         alert('Vacina salva com sucesso!');</script>";
+
+        echo "<script language='javascript' type='text/javascript'>
+        window.location.href='{$home}/listar-vacinas/?id_cmp={$id_cmp}';</script>";
       } else {
         $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
       }

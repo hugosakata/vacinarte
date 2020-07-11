@@ -110,6 +110,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       if ($id_cmp > 0){
         echo "<script language='javascript' type='text/javascript'>
         alert('Campanha salva com sucesso!');</script>";
+
+        echo "<script language='javascript' type='text/javascript'>
+        window.location.href='{$home}/listar-campanhas/';</script>";
       } else {
         echo "<script language='javascript' type='text/javascript'>
         alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
