@@ -62,8 +62,6 @@ $listar_contatos_campanha = "
 
 $selecionar_contatos_campanha_status = "
     SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '%d' and cd_ctt = '%d'";
-$sql = "
-    SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '{$id_cmp}' and cd_ctt = '{$arr_selecionado}'";
 
 $selecionar_contatos_campanha_group = "
     SELECT GROUP_CONCAT(DISTINCT cd_ctt
@@ -80,11 +78,30 @@ $selecionar_contatos_cliente = "
     WHERE 
     CONTATO.cd_ctt=VCL_CONTATO.cd_ctt and 
     VCL_CONTATO.cd_cli=%d and status=1 order by `nm_ctt`";
+    
 
 /*************CLIENTE************/
 
 $selecionar_cliente = "
     SELECT * FROM CLIENTES WHERE cd_cli = '%d'";
 
+/**************ENDERECO************/
+$selecionar_endereco_campanha_group = "
+    SELECT GROUP_CONCAT(DISTINCT cd_end
+    ORDER BY cd_end
+    SEPARATOR ',') as cd_ends FROM `VCL_END_CMP` where cd_cmp='%d' and `VCL_END_CMP`.ativo=1";
+
+$selecionar_enderecos_campanha_status = "
+    SELECT cd_vcl_end_cmp, ativo FROM VCL_END_CMP WHERE cd_cmp = '%d' and cd_end = '%d'";
+
+$selecionar_enderecos_cliente = "
+    SELECT 
+    (select count(cd_vcl_end_cmp) from `VCL_END_CMP` where `VCL_END_CMP`.cd_end=ENDERECO.cd_end and `VCL_END_CMP`.cd_cmp={$id_cmp} and `VCL_END_CMP`.ativo=1) as total,
+    ENDERECO.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
+    FROM `ENDERECO` as ENDERECO, 
+    `VCL_ENDERECO` as VCL_ENDERECO 
+    WHERE 
+    ENDERECO.cd_end=VCL_ENDERECO.cd_end and 
+    VCL_ENDERECO.cd_cli=%d and ativo=1 order by `nm_end`, `logradouro`";
 
 ?>
