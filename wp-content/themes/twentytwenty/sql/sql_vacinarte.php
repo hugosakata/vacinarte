@@ -128,4 +128,34 @@ $listar_vacinas = "
       LEFT JOIN
       FBCNTE_VCNA b on a.cd_fbcnte_vcna = b.cd_fbcnte_vcna";
 
+/***********AGENDAMENTO*************/
+
+$selecionar_agendamento = "
+    SELECT
+    ATEND.CD_ATEND,
+    ATEND.CD_CMP,
+    CMP.NM_CMP,
+    date_format(`DT_ATEND`, '%%d/%m/%Y') AS DT_ATEND, 
+    ATEND.NM_ENFERMEIRO,
+
+    VCNA.NM_REG,
+
+    VVA.CD_VCL_VCNA_ATEND,
+    VVA.QTD_VCNA_RETORNO,
+    VVA.QTD_VCNA_ENVIO,
+    VVA.qtd_cortesia
+    FROM
+    ATENDIMENTO ATEND,
+    VCL_VCNA_ATEND VVA,
+    VCL_VCNA_CMP VVC,
+    CAMPANHA CMP,
+    VACINA VCNA
+    WHERE
+    ATEND.CD_ATEND = %d AND
+    ATEND.CD_ATEND = VVA.CD_ATEND AND
+    CMP.CD_CMP     = ATEND.CD_CMP AND
+    VVA.cd_vcl_vcna_cmp    = VVC.cd_vcl_vcna_cmp AND
+    VCNA.cd_vcna = VVC.cd_vcna";  
+
+    
 ?>
