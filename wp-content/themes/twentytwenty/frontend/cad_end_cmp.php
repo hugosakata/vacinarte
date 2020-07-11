@@ -196,7 +196,7 @@
                         <tbody>
 
                         <?php
-                          $sql = $wpdb->prepare($selecionar_enderecos_cliente , $id_cli );
+                          $sql = $wpdb->prepare($selecionar_enderecos_cliente , $id_cmp, $id_cli );
                           $enderecos = $wpdb->get_results( $sql );
                           //   "
                           //   SELECT 
