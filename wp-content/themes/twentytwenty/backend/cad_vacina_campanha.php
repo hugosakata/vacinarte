@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         alert('Vacina salva com sucesso!');</script>";
 
         echo "<script language='javascript' type='text/javascript'>
-        window.location.href='{$home}/listar-vacinas/?id_cmp={$id_cmp}';</script>";
+        window.location.href='{$home}/listar-campanhas/';</script>";
       } else {
         $msg_err = "Ops! Algo deu errado, confirme os dados preenchidos e tente novamente";
       }
