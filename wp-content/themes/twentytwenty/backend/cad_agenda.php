@@ -15,6 +15,7 @@ if(isset($_GET['id'])){
   VCL_VCNA_CMP.cd_vcna=VACINA.cd_vcna AND
   CAMPANHA.cd_cmp = '%d'" , $id_cmp );
 
+  echo ">>>".$sql;
   $campanhas = $wpdb->get_results($sql);
   $campanha = $campanhas[0];
   foreach($campanhas as $campanha_item) {
