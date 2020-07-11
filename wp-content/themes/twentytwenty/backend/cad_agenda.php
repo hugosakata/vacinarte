@@ -1,11 +1,3 @@
-<?php /* Template Name: TelaCadAgenda */
-//cada vez q o header carregar renova a sessao de logado
-setcookie("logado", 1, (time() + (0.5 * 3600)));
-
-global $wpdb;
-$home = get_home_url();
-?>
-
 <?php
 
 $id_cmp = $dt_atend = $data_atend = $hr_ini = $hr_fim = $qtd_vcna_envio = $nm_enfermeiro = $qtd_vcna = "";
@@ -151,5 +143,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   }
 }
 ?>
- 
-<?php require "cad_agenda_tela.php"; ?>
