@@ -4,7 +4,8 @@
 
 $listar_campanhas = "
     SELECT 
-    CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, date_format(`dt_ini`, '%%d/%m/%Y') AS dt_ini, 
+    CAMPANHA.`cd_cmp`, `nm_cmp`, `nm_fant`, `cd_vcl_end`, `nm_tp_srv`, 
+    date_format(`dt_ini`, '%%d/%m/%Y') AS dt_ini, 
     date_format(`dt_fim`, '%%d/%m/%Y') AS dt_fim, `VCL_VCNA_CMP`.`cd_vcl_vcna_cmp`, `VACINA`.nm_gen, 
     `VCL_VCNA_CMP`.`qtd_vcna_contratada`, `VCL_VCNA_CMP`.`qtd_vcna_restante`
     FROM `CAMPANHA`, `TP_SRV`, `CLIENTES`, `VCL_VCNA_CMP`, `VACINA`
@@ -97,7 +98,8 @@ $selecionar_enderecos_campanha_status = "
 
 $selecionar_enderecos_cliente = "
     SELECT 
-    (select count(cd_vcl_end_cmp) from `VCL_END_CMP` where `VCL_END_CMP`.cd_end=ENDERECO.cd_end and `VCL_END_CMP`.cd_cmp={$id_cmp} and `VCL_END_CMP`.ativo=1) as total,
+    (select count(cd_vcl_end_cmp) from `VCL_END_CMP` where `VCL_END_CMP`.cd_end=ENDERECO.cd_end and 
+    `VCL_END_CMP`.cd_cmp=%d and `VCL_END_CMP`.ativo=1) as total,
     ENDERECO.cd_end, `nm_end`, `logradouro`, `num_end`, `bairro`, `cep`, `cidade`, `estado`, `ativo` 
     FROM `ENDERECO` as ENDERECO, 
     `VCL_ENDERECO` as VCL_ENDERECO 
