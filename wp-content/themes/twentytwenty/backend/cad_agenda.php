@@ -5,9 +5,9 @@ $ids_vacinas = array();
 //$wpdb->prepare( 'query' , value_parameter[, value_parameter ... ] );
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
-  $sql = $wpdb->prepare($lista_campanhas , $id_cmp );
+  $sql = $wpdb->prepare($lista_campanhassss , "%d",  $id_cmp );
 
-  echo ">>>".$lista_campanhas;
+  echo ">>>".$lista_campanhassss;
   echo ">>>>>>>".$sql;
   $campanhas = $wpdb->get_results($sql);
   $campanha = $campanhas[0];
