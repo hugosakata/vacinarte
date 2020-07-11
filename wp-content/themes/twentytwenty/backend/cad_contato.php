@@ -140,10 +140,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if ($id_cli > 0){
           echo "<script language='javascript' type='text/javascript'>
-          window.location.href='{$home}/listar-contatos/?id={$id_cli}';</script>";
+          window.location.href='{$home}/listar-pj/';</script>";
         } else if ($id_cmp>0) {
           echo "<script language='javascript' type='text/javascript'>
-          window.location.href='{$home}/listar-contatos/?id_cmp={$id_cmp}';</script>";
+          window.location.href='{$home}/listar-campanhas/';</script>";
         }
 
       } else {
