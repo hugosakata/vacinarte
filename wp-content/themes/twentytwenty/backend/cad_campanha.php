@@ -6,7 +6,7 @@ $nm_cmp = $cd_cli = $tp_srv = $local_srv = "";
 if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];
   $acao = $_GET['acao'];//acao=edit
-  $sql = $wpdb->prepare($seleciona_campanha , $id_cmp );
+  $sql = $wpdb->prepare($selecionar_campanha_com_tratamento , $id_cmp );
   $cmp = $wpdb->get_row($sql);
 }
 
@@ -105,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         )
       );
       $id_cmp = $wpdb->insert_id;
-      $sql = "SELECT * FROM CAMPANHA WHERE cd_cmp = '{$id_cmp}'";
+      $sql = $wpdb->prepare($selecionar_campanha , $id_cmp );
       $cmp = $wpdb->get_row($sql);
       if ($id_cmp > 0){
         echo "<script language='javascript' type='text/javascript'>
