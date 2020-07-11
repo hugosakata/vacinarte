@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
   $id_ctt = $_GET['id_ctt'];
   $acao = $_GET['acao'];
 
-  $sql = $wpdb->prepare($seleciona_contato , $id_ctt );
+  $sql = $wpdb->prepare($selecionar_contato , $id_ctt );
   $contato = $wpdb->get_row($sql);
 }
 

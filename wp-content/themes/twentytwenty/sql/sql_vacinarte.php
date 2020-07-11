@@ -62,5 +62,23 @@ $listar_contatos_campanha = "
 
 $selecionar_contatos_campanha_status = "
     SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '%d' and cd_ctt = '%d'";
+$sql = "
+    SELECT cd_vcl_ctt_cmp, ativo FROM VCL_CTT_CMP WHERE cd_cmp = '{$id_cmp}' and cd_ctt = '{$arr_selecionado}'";
+
+$selecionar_contatos_campanha_group = "
+    SELECT GROUP_CONCAT(DISTINCT cd_ctt
+    ORDER BY cd_ctt
+    SEPARATOR ',') as cd_ctts FROM `VCL_CTT_CMP` where cd_cmp='%d' and `VCL_CTT_CMP`.ativo=1";
+
+$selecionar_contatos_cliente = "
+    SELECT 
+    (select count(cd_vcl_ctt_cmp) from `VCL_CTT_CMP` where `VCL_CTT_CMP`.cd_ctt=CONTATO.cd_ctt and 
+    `VCL_CTT_CMP`.cd_cmp=%d and `VCL_CTT_CMP`.ativo=1) as total,
+    CONTATO.`cd_ctt`, `nm_ctt`, `tel_pri`, `tel_sec`, `email`, `linkedin`, `site_blog`, `obs_ctt` 
+    FROM `CONTATO` as CONTATO, 
+    `VCL_CONTATO` as VCL_CONTATO 
+    WHERE 
+    CONTATO.cd_ctt=VCL_CONTATO.cd_ctt and 
+    VCL_CONTATO.cd_cli=%d and status=1 order by `nm_ctt`";
 
 ?>
