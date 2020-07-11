@@ -54,6 +54,14 @@ if (isset($acao) && $acao == "delete"){
   if($result > 0){
     echo "<script language='javascript' type='text/javascript'>
     alert('Contato excluído com sucesso!');</script>";
+
+    if ($id_cli > 0){
+      echo "<script language='javascript' type='text/javascript'>
+      window.location.href='{$home}/listar-contatos/id={$id_cli}';</script>";
+    } else if ($id_cmp>0) {
+      echo "<script language='javascript' type='text/javascript'>
+      window.location.href='{$home}/listar-contatos/id_cmp={$id_cmp}';</script>";
+    }
   } else {
     echo "<script language='javascript' type='text/javascript'>
     alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
