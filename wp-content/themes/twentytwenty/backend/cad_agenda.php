@@ -7,7 +7,6 @@ if(isset($_GET['id'])){
   $id_cmp = $_GET['id'];//id da campanha
   $sql = $wpdb->prepare($lista_campanhas , $id_cmp );
 
-  echo ">>>>>>>".$sql;
   $campanhas = $wpdb->get_results($sql);
   $campanha = $campanhas[0];
   foreach($campanhas as $campanha_item) {
