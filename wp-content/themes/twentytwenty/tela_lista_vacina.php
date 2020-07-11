@@ -40,6 +40,9 @@ if (isset($acao) && $acao == "delete"){
   if($result > 0){
     echo "<script language='javascript' type='text/javascript'>
     alert('Vacina excluída com sucesso!');</script>";
+
+    echo "<script language='javascript' type='text/javascript'>
+    window.location.href='{$home}/listar-vacinas/?id_cmp={$id_cmp}';</script>";
   } else {
     echo "<script language='javascript' type='text/javascript'>
     alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
