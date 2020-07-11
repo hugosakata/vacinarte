@@ -6,7 +6,7 @@ global $wpdb;
 $home = get_home_url();
 ?>
 
-<?php require "sql/sql.php"; ?> 
+<?php require "sql/sql_vacinarte.php"; ?> 
 <?php require "backend/cad_agenda.php"; ?> 
 <?php require "frontend/cad_agenda.php"; ?>
 <?php $wpdb->show_errors(); ?>
