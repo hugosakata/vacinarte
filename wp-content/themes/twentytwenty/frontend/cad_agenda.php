@@ -34,7 +34,7 @@
   </head>
   <body class="corpo">
 
-  <?php include '../tela_header.php';?>
+  <?php include(dirname(__FILE__).'/../tela_header.php');?>
 
     <?php if ($_COOKIE["logado"] <= 0){
         echo "<script language='javascript' type='text/javascript'>
