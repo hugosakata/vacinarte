@@ -107,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       alert('Endereço salvo com sucesso!');</script>";
 
       echo "<script language='javascript' type='text/javascript'>
-      window.location.href='{$home}/listar-enderecos/?id_cmp={$id_cmp}';</script>";
+      window.location.href='{$home}/listar-campanhas/';</script>";
 
     }else{
      $wpdb->query("ROLLBACK");

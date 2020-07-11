@@ -108,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       alert('Contato salvo com sucesso!');</script>";
 
       echo "<script language='javascript' type='text/javascript'>
-        window.location.href='{$home}/listar-contatos/?id_cmp={$id_cmp}';</script>";
+      window.location.href='{$home}/listar-campanhas/';</script>";
 
     }else{
      $wpdb->query("ROLLBACK");
