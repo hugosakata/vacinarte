@@ -81,4 +81,10 @@ $selecionar_contatos_cliente = "
     CONTATO.cd_ctt=VCL_CONTATO.cd_ctt and 
     VCL_CONTATO.cd_cli=%d and status=1 order by `nm_ctt`";
 
+/*************CLIENTE************/
+
+$selecionar_cliente = "
+    SELECT * FROM CLIENTES WHERE cd_cli = '%d'";
+
+
 ?>
