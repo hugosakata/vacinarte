@@ -1,57 +1,3 @@
-<?php /* Template Name: TelaListaVacina */
-//cada vez q o header carregar renova a sessao de logado
-setcookie("logado", 1, (time() + (0.5 * 3600)));
-
-global $wpdb;
-$home = get_home_url(); 
-
-if($_SERVER["REQUEST_METHOD"] == "GET"){
-  $id_cmp = $_GET['id_cmp'];
-  $id_vcl_vcna = $_GET['id_vcl_vcna'];
-  $acao = $_GET['acao'];
-}
-
-$titulo = "Vacinas da Campanha"; 
-$novo = $home.'/cadastrar-vacina-campanha/?id='.$id_cmp; 
-// $sql = "
-//       SELECT `VCL_VCNA_CMP`.cd_vcl_vcna_cmp, `VACINA`.`cd_vcna`, `nm_reg`, `nm_gen`, `FBCNTE_VCNA`.`nm_fbcnte_vcna`,
-//       `obs_vcna`, `VCL_VCNA_CMP`.qtd_vcna_contratada, `VCL_VCNA_CMP`.vlr_vcna, `VCL_VCNA_CMP`.qtd_vcna_restante
-//       FROM `VACINA`, `VCL_VCNA_CMP`, `FBCNTE_VCNA`
-//       WHERE 
-//       `VCL_VCNA_CMP`.`cd_vcna`=`VACINA`.`cd_vcna` and
-//       `VCL_VCNA_CMP`.`cd_cmp`={$id_cmp} and `VCL_VCNA_CMP`.`ativo`=1 and `VACINA`.`ativo`=1 and
-//       `FBCNTE_VCNA`.`cd_fbcnte_vcna`=`VACINA`.`cd_fbcnte_vcna` order by `nm_reg`
-//       ";
-$sql = $wpdb->prepare($listar_vacinas_campanha , $id_cmp );
-
-if (isset($acao) && $acao == "delete"){
-
-  $result = $wpdb->update(
-    'VCL_VCNA_CMP',
-    array(
-      'ativo'      => '0'     
-    ),
-    array( 'cd_vcl_vcna_cmp' =>  $id_vcl_vcna),
-    array(
-      '%d'
-    ),
-    array( '%d' )
-  );
-  
-  if($result > 0){
-    echo "<script language='javascript' type='text/javascript'>
-    alert('Vacina excluída com sucesso!');</script>";
-
-    echo "<script language='javascript' type='text/javascript'>
-    window.location.href='{$home}/listar-vacinas/?id_cmp={$id_cmp}';</script>";
-  } else {
-    echo "<script language='javascript' type='text/javascript'>
-    alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
-  }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -59,7 +5,7 @@ if (isset($acao) && $acao == "delete"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title><?php echo $titulo; ?></title>
+    <title>Campanhas Ativas</title>
     <!-- Bootstrap -->
     <link href="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cesup Styles -->
@@ -71,7 +17,7 @@ if (isset($acao) && $acao == "delete"){
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
-
+  
   </head>
   <style>
     .corpo{
@@ -81,7 +27,7 @@ if (isset($acao) && $acao == "delete"){
       font-size: 25px;
       margin-top: 2vw !important;
       color: dimgray;
-    }
+      }
     .barra4vw{
       height: 4vw !important;
     }
@@ -105,22 +51,23 @@ if (isset($acao) && $acao == "delete"){
       text-align: center;
       font-weight: bold;
     }
-    #tab_lista_vacinas_info, #tab_lista_vacinas_paginate{
+    #tab_cli_pj_info, #tab_lista_agenda_paginate{
       font-size: 15px;
     }
-    input{
-      height: 2vw;
+    .dataTables_empty{
+      text-align: center;
+      font-weight: bold;
     }
-    #tab_lista_vacinas_length{
-      width: 30%;
-      margin-left: 1vw;
-    }
-    #tab_lista_vacinas_filter{
+    #tab_lista_agenda_filter{
       width: 30%;
       margin-right: 2vw;
     }
-    #tab_lista_vacinas_filter.label#text{
-      text-align: left;
+    #tab_lista_agenda_length{
+      width: 30%;
+      margin-left: 1vw;
+    }
+    input{
+      height: 2vw;
     }
     #btn_salvar{
       width: 8vw;
@@ -129,6 +76,16 @@ if (isset($acao) && $acao == "delete"){
       height: 3.5vw;
       margin-top: 1vw;
     }
+    .btn_cad{
+      margin-top: 2.6vw;
+      height: 4.5vw;
+    }
+    .fontTH{
+      font-size: 14px;
+    }
+    .fontTD{
+      font-size: 12px;
+    }
   </style>
   <body class="corpo">
   
@@ -136,10 +93,10 @@ if (isset($acao) && $acao == "delete"){
         echo "<script language='javascript' type='text/javascript'>
         window.location.href='{$home}/';</script>";
     }?>
-  
-  <div class="container-fluid barra4vw">
+
+    <div class="container-fluid barra4vw">
     <!-- <span><a class="" data-toggle="modal" data-target="#modalBtnCad">Cadastrar</a></span> -->
-    <div >
+      <div >
         <nav class="navbar navbar-default cabeca barra4vw">
           <div class="container-fluid barra4vw" style="background-color: Gainsboro;">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -186,69 +143,67 @@ if (isset($acao) && $acao == "delete"){
           </div><!-- /.container-fluid -->
         </nav>
       </div>
-
     </div>
-  
-    <div class="container"><!-- container principal-->
+
+    <div class="container" style="width: 100%;"><!-- container principal-->
       
       <div class="row">
           <div class="col-xs-10">
-            <h3 class="page-header texto_cabeca"><?php echo $titulo; ?></h3>
+            <h3 class="page-header texto_cabeca">Agenda</h3>
           </div>
           <div class="col-xs-2" style="align:center">
-              <input id="btn_salvar" class="btn btn-danger pull-right" type="button" 
-              onclick="location.href='<?php echo $novo; ?>';" value="Novo" />
+            <input id="btn_salvar" class="btn btn-danger pull-right" type="button" onclick="location.href='<?php echo $home; ?>/listar-campanhas/';" 
+            value="Novo"/>
           </div>
       </div><!-- fecha div row -->
 
-      <div class="row txtbox"><!-- row formulario -->
+      <div class="row txtbox"><!-- row  -->
         <div class="col-lg-12 col-xs-12">
-          <div class="row"><!--div row painel de consulta -->
+          <div class="row"><!--div row de consulta -->
             <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade in active">
               <div class="col-lg-12 col-xs-12">
                 <div class="row paineldeconsulta">
-                  <div class="col-lg-12 col-xs-12"><!-- posiciona painel -->
+                  <div class="col-lg-12 col-xs-12"><!-- posiciona  -->
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        <table class="table table-striped" id="tab_lista_vacinas">
+                        <table class="table table-striped" id="tab_lista_agenda">
                           <thead>
                             <tr>
-                              <th>Vacina</th>
-                              <th>Qtd</th>
-                              <th>Valor</th>
-                              <th>Restante</th>
-                              <th>Ações</th>
+                              <th class="fontTH">Nome Campanha</th>
+                              <th class="fontTH">Nome Cliente</th>
+                              <th class="fontTH">Endereço</th>
+                              <th class="fontTH">Enfermeiro(a)</th>
+                              <th class="fontTH">Data</th>
+                              <th class="fontTH">Hora Início</th>
+                              <th class="fontTH">Hora Fim</th>
+                              <th class="fontTH">Fechar</th>
                             </tr>
                           </thead>
                           <tbody>
+                          
                           <?php
-
-                            if ($sql != ""){
-                              $vacinas = $wpdb->get_results($sql);
-                              
-                              if (count($vacinas)<=0){
-                                echo "<script language='javascript' type='text/javascript'>
-                                window.location.href='{$novo}';</script>";
-                              }
-
-                              foreach ( $vacinas as $vacina ) 
-                              {
+                          $wpdb->query ("START TRANSACTION");
+                          $wpdb->query ("SET time_zone = '-3:00'");
+                            $agendas = $wpdb->get_results( $sql );
+                            $wpdb->query("COMMIT");
+                            
+                            foreach ( $agendas as $agenda ) 
+                            {
                           ?>
-                            <tr id="<?php echo $vacina->cd_vcl_vcna_cmp; ?>">
-                              <td><?php echo $vacina->nm_reg ?></td>
-                              <td><?php echo $vacina->qtd_vcna_contratada ?></td>
-                              <td><?php echo $vacina->vlr_vcna ?></td>
-                              <td><?php echo $vacina->qtd_vcna_restante ?></td>
-                              <td>
-                                <!-- <a><i class="material-icons" style="padding-left: 5px; color: CornflowerBlue; cursor: pointer;">description</i></a> -->
-                                <a href="<?php echo $home . '/cadastrar-vacina-campanha/?id=' . $id_cmp . '&id_vcl_vcna=' . $vacina->cd_vcl_vcna_cmp . '&acao=edit'; ?>"><i class="material-icons" style="padding-left: 5px; color: SlateGray; cursor: pointer;">edit</i></a>
-                                <a onclick="return confirm('Tem certeza?');" 
-                                href="<?php echo $home . '/listar-vacinas/?id_cmp=' . $id_cmp . '&id_vcl_vcna=' . $vacina->cd_vcl_vcna_cmp . '&acao=delete'; ?>"><i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">delete</i></a>
+                            <tr>
+                              <td class="fontTD"><?php echo $agenda->nm_cmp ?></td>
+                              <td class="fontTD"><?php echo $agenda->nm_fant ?></td>
+                              <td class="fontTD"><?php echo $agenda->nm_end . ": " . $agenda->logradouro . ", " . $agenda->num_end . " - " . $agenda->bairro; ?></td>
+                              <td class="fontTD"><?php echo $agenda->nm_enfermeiro ?></td>
+                              <td class="fontTD"><?php echo $agenda->dt_atend ?></td>
+                              <td class="fontTD"><?php echo $agenda->hr_ini ?></td>
+                              <td class="fontTD"><?php echo $agenda->hr_fim ?></td>
+                              <td class="fontTD">
+                                <a title='Agendar' href='<?php echo $home; ?>/fechar-agendamento/?id=<?php echo $agenda->cd_atend; ?>' ><i class="material-icons" style="padding-left: 5px; color: DarkGreen; cursor: pointer;">invert_colors_off</i></a>
                               </td>
                             </tr>
                             <?php
-                                }
                               }
                             ?>
           
@@ -259,12 +214,13 @@ if (isset($acao) && $acao == "delete"){
                   </div><!-- fecha col lg 12 -->
                 </div><!-- fecha row paineldemequipe -->
             </div><!-- fecha col lg 12 -->
-            </div><!-- fecha div painel pdequipe -->
+            </div><!-- fecha div painel  -->
           </div>
           </div>
         </div><!-- fecha col 12 -->
       </div><!-- fecha row txtbox -->
     </div><!-- fecha container principal -->  
+
 
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/jquery.min.js"></script>
     <script src="http://vacinarte-admin.com.br/wp-content/themes/twentytwenty/js/bootstrap.min.js"></script>
@@ -273,9 +229,10 @@ if (isset($acao) && $acao == "delete"){
     <script>
       //datatable
 	$(document).ready(function(){
-    $('#tab_lista_vacinas').DataTable({
+    $('#tab_lista_agenda').DataTable({
       "ordering": true,
 	    "paginate": true,
+      "dateFormat": "dd/mm/yyyy",
       "oLanguage": {
 	            "sProcessing": "Processando...",
 	            "sLengthMenu": "Exibir _MENU_ registros",
@@ -294,17 +251,10 @@ if (isset($acao) && $acao == "delete"){
 	            }
 	        }
     });
-    $('#tab_lista_vacinas_filter').addClass('pull-right');
-    $('#tab_lista_vacinas_paginate').addClass('pull-right');
+    $('#tab_lista_agenda_filter').addClass('pull-right');
+    $('#tab_lista_agenda_paginate').addClass('pull-right');
   });
 
-    </script>
-    <script>
-    $('tr').dblclick(function(){
-      var cd_vcl_vcna_cmp = $(this).attr('id');
-      window.location = "<?php echo $home; ?>/cadastrar-vacina-campanha/?id=<?php echo $id_cmp;?>&id_vcl_vcna=" + cd_vcl_vcna_cmp + "&acao=edit";
-      return false;
-    })
     </script>
 
 <script type="text/javascript">
