@@ -111,6 +111,11 @@ img.emoji {
             </div>
             <!-- <p>Already have an account? <a href="login.php">Login here</a>.</p> -->
         </form>
+
+        <a href="<?php echo $home; ?>/recuperarsenha/?acao=send_email">
+        <i class="material-icons" style="padding-left: 5px; color: tomato; cursor: pointer;">Enviar email</i>
+        </a>
+
     </div></center>
     
     </main><!-- #main -->
