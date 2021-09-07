@@ -46,7 +46,7 @@
             <div id="div_email" style="margin-top: 200px;">
                 <div class="col-xs-offset-4 col-xs-4" >
                     <input type="text" id="to_mail" name="to_mail" class="form-control" placeholder="Digite seu email"
-                    value="<?php echo $to_mail ?>"/>
+                    value="<?php echo $to_mail ?>" required/>
                 </div>
             </div>
 
@@ -63,7 +63,9 @@
                     </div>
                 </div>
             <?php }?>
-            <input id="btn" type="submit" class="button btn btn-danger btn_geral" value="Enviar"/>
+            <div>
+                <input id="btn" type="submit" class="button btn btn-danger btn_geral" value="Enviar"/>
+            </div>
         </form>
 		      
         
