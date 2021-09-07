@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Recuperar Senha</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{
@@ -93,7 +93,7 @@ img.emoji {
         <span class="help-block"><?php echo $msg_err; ?></span>
 
         <h2>Olá!</h2>
-        <p>Digite usuário e senha para começar</p>
+        <p>recuperar senha</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Usuário</label>
