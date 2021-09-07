@@ -48,17 +48,13 @@
             <?php if ($acao =="send_email") { ?>
                 <div id="div_novapass" style="margin-top: 200px;">
                     <div class="col-xs-offset-4 col-xs-4" >
-                        <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Digite o código recebido"
+                        <input type="text" id="code" name="code" class="form-control" placeholder="Digite o código recebido"
                         value=""/>
                     </div>
                     <div class="col-xs-offset-4 col-xs-4" style="margin-top: 20px;">
-                        <input type="password" id="novapass" name="novapass" class="form-control " placeholder="Digite nova senha"
+                        <input type="password" id="new_password" name="new_password" class="form-control " placeholder="Digite nova senha"
                         value=""/>
                     </div>
-                    <a href="<?php echo $home; ?>/recuperarsenha/?acao=send_email">
-                        <i class="material-icons" style="color: tomato; font-size: 43px; margin-top: 50px; cursor: pointer;">send</i>
-                    </a>
-
                 </div>
             <?php }?>
             <input id="btn" type="submit" class="button btn btn-danger btn_geral" value="Enviar"/>
