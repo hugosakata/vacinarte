@@ -108,7 +108,7 @@ img.emoji {
             
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Entrar">
-                <a href="http://vacinarte-admin.com.br/">Esqueci minha senha</a>
+                <a href="<?php echo $home; ?>/recuperarsenha/">Esqueci minha senha</a>
             </div>
             <!-- <p>Already have an account? <a href="login.php">Login here</a>.</p> -->
         </form>
