@@ -25,11 +25,7 @@
     font-size: 25px;
     color: tomato;
 }
-.warn {
-    margin: 0 0 10px;
-    color: tomato;
-    font-size: 15px;
-}
+
 </style>
 <body class="corpo">
     
@@ -52,7 +48,7 @@
 
             <!-- etapa 2 -->
             <?php if ($acao =="send_email") { ?>
-                <div id="div_novapass" style="margin-top: 200px;">
+                <div id="div_novapass" style="margin-top: 220px;">
                     <div class="col-xs-offset-4 col-xs-4" >
                         <input type="text" id="code" name="code" class="form-control" placeholder="Digite o código recebido"
                         value=""/>
@@ -64,7 +60,9 @@
                 </div>
             <?php }?>
             <div>
-                <input id="btn" type="submit" class="button btn btn-danger btn_geral" value="Enviar"/>
+                <div class="col-xs-offset-4 col-xs-1" style="margin-top: 20px;">
+                    <input id="btn" type="submit" class="button btn btn-danger btn_geral" value="Enviar"/>
+                </div>
             </div>
         </form>
 		      
