@@ -2,10 +2,6 @@
 //cada vez q o header carregar renova a sessao de logado
 setcookie("logado", 1, (time() + (0.5 * 3600)));
 $home = get_home_url(); 
-
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(0)
 ?>
 
 <!DOCTYPE html>
