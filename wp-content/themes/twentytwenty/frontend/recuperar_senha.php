@@ -34,6 +34,8 @@
 	
         <center><p class="tit">Recuperar senha</p></center>
         
+        <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
+
         <form action="<?php echo $home; ?>/recuperarsenha/?<?php if ($acao=="send_email") echo "acao=new_pass"; else "acao=send_email";?>" method="post" style="margin-top: -2vw;">
 
             <!-- etapa 1 -->
