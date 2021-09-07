@@ -2,13 +2,13 @@
 
 if (isset($acao) && $acao == "send_email"){
 
-    // The message
-    $message = "Line 1\r\nLine 2\r\nLine 3";
+    $to      = 'hugo_3wl@yahoo.com.br';
+    $subject = 'teste recuperar senha';
+    $message = 'hello';
+    $headers = 'From: hugo_3wl@yahoo.com.br' . "\r\n" .
+        'Reply-To: hugo_3wl@yahoo.com.br' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
 
-    // In case any of our lines are larger than 70 characters, we should use wordwrap()
-    $message = wordwrap($message, 70, "\r\n");
-
-    // Send
-    mail('hugo_3wl@yahoo.com.br', 'teste recuperacao de senha', $message);
+    mail($to, $subject, $message, $headers);
 }
 ?>
