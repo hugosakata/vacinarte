@@ -2,9 +2,29 @@
 
 load();
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $acao = $_GET['acao'];
-    $to_mail = $_GET['to_mail'];
+function load(){
+    global $acao, $to_mail, $new_password, $code;
+
+    $acao = str_replace("'", "", trim($_GET["acao"]));
+    $to_mail = str_replace("'", "", trim($_POST["to_mail"]));
+    $new_password = str_replace("'", "", trim($_POST["new_password"]));
+    $code = str_replace("'", "", trim($_POST["code"]));
+}
+
+ function form_valido() {
+    global $to_mail, $code, $new_password;
+
+    $valido = false;
+    if (!empty($to_mail) &&
+        !empty($code) &&
+        !empty($new_password)){
+          $valido = true;
+    }
+
+    return $valido;
+ }
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if (isset($acao) && $acao == "send_email") {
 
@@ -38,59 +58,36 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             }
         } else
             $msg_err = "Email inválido!";
-    }
-}
+    } else if (isset($acao) && $acao == "new_pass") {
 
-function load(){
-    global $to_mail, $new_password, $code;
+        if (form_valido()){
 
-    $to_mail = str_replace("'", "", trim($_POST["to_mail"]));
-    $new_password = str_replace("'", "", trim($_POST["new_password"]));
-    $code = str_replace("'", "", trim($_POST["code"]));
-}
+            $sql = $wpdb->prepare($valida_codigo, $to_mail, $code);
+            $user = $wpdb->get_row($sql);
+            if ($user->total == 1) {
+                $linhas_afetadas = $wpdb->update(
+                    'LOG_USU',
+                    array(
+                        'pw_usu'   => $new_password
+                    ),
+                    array ('email'  => $to_mail ),
+                    array(
+                        '%s'
+                    ),
+                    array('%s')
+                );
 
- function form_valido() {
-    global $to_mail, $code, $new_password;
-
-    $valido = false;
-    if (!empty($to_mail) &&
-        !empty($code) &&
-        !empty($new_password)){
-          $valido = true;
-    }
-
-    return $valido;
- }
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  if (form_valido()){
-
-    $sql = $wpdb->prepare($valida_codigo, $to_mail, $code);
-    $user = $wpdb->get_row($sql);
-    if ($user->total == 1) {
-        $linhas_afetadas = $wpdb->update(
-            'LOG_USU',
-            array(
-                'pw_usu'   => $new_password
-            ),
-            array ('email'  => $to_mail ),
-            array(
-                '%s'
-            ),
-            array('%s')
-        );
-
-        if ($linhas_afetadas > 0) {
-            echo "<script language='javascript' type='text/javascript'>
-                alert('Senha salva com sucesso!');</script>";
-        } else {
-            echo "<script language='javascript' type='text/javascript'>
-            alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+                if ($linhas_afetadas > 0) {
+                    echo "<script language='javascript' type='text/javascript'>
+                        alert('Senha salva com sucesso!');</script>";
+                } else {
+                    echo "<script language='javascript' type='text/javascript'>
+                    alert('Ops! Algo deu errado, tente novamente mais tarde!');</script>";
+                }
+            } else {
+                $msg_err = "Código inválido!";
+            }
         }
-    } else {
-        $msg_err = "Código inválido!";
     }
-    
-  }
 }
 ?>

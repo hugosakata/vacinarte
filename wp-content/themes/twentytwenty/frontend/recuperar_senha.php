@@ -34,33 +34,35 @@
 	
         <center><p class="tit">Recuperar senha</p></center>
         
-        <!-- etapa 1 -->
-        <div id="div_email" style="margin-top: 200px;">
-        	<div class="col-xs-offset-4 col-xs-4" >
-        		<input type="text" id="email" name="email" class="form-control" placeholder="Digite seu email"
-                value=""/>
-        	</div>
-        	<a href="<?php echo $home; ?>/recuperarsenha/?acao=send_email">
-        		<i class="material-icons" style="color: tomato; font-size: 43px; margin-top: -5px; cursor: pointer;">mail</i>
-        	</a>
-        	<center><p class="warn">Um código de verificação foi enviado para o email digitado.</p></center>
-        </div>
+        <form action="<?php echo $home; ?>/recuperarsenha/?<?php if ($acao=="send_email") echo "acao=new_pass"; else "acao=send_email";?>" method="post" style="margin-top: -2vw;">
 
-        <!-- etapa 2 -->
-        <div id="div_novapass" style="margin-top: 200px;">
-        	<div class="col-xs-offset-4 col-xs-4" >
-        		<input type="text" id="codigo" name="codigo" class="form-control" placeholder="Digite o código recebido"
-                value=""/>
-        	</div>
-        	<div class="col-xs-offset-4 col-xs-4" style="margin-top: 20px;">
-        		<input type="password" id="novapass" name="novapass" class="form-control " placeholder="Digite nova senha"
-                value=""/>
-        	</div>
-        	<a href="<?php echo $home; ?>/recuperarsenha/?acao=send_email">
-        		<i class="material-icons" style="color: tomato; font-size: 43px; margin-top: 50px; cursor: pointer;">send</i>
-        	</a>
+            <!-- etapa 1 -->
+            <div id="div_email" style="margin-top: 200px;">
+                <div class="col-xs-offset-4 col-xs-4" >
+                    <input type="text" id="to_mail" name="to_mail" class="form-control" placeholder="Digite seu email"
+                    value=""/>
+                </div>
+            </div>
 
-        </div>
+            <!-- etapa 2 -->
+            <?php if ($acao =="send_email") { ?>
+                <div id="div_novapass" style="margin-top: 200px;">
+                    <div class="col-xs-offset-4 col-xs-4" >
+                        <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Digite o código recebido"
+                        value=""/>
+                    </div>
+                    <div class="col-xs-offset-4 col-xs-4" style="margin-top: 20px;">
+                        <input type="password" id="novapass" name="novapass" class="form-control " placeholder="Digite nova senha"
+                        value=""/>
+                    </div>
+                    <a href="<?php echo $home; ?>/recuperarsenha/?acao=send_email">
+                        <i class="material-icons" style="color: tomato; font-size: 43px; margin-top: 50px; cursor: pointer;">send</i>
+                    </a>
+
+                </div>
+            <?php }?>
+            <input id="btn" type="submit" class="button btn btn-danger btn_geral" value="Enviar"/>
+        </form>
 		      
         
 
@@ -68,12 +70,5 @@
 
 	<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-    	$(document).ready(function(){	
-        	$("#div_novapass").addClass('hide');
-      	});
-
-    </script>
 </body>
 </html>
