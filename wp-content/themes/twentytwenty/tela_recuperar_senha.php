@@ -1,4 +1,4 @@
-<?php /* Template Name: EsqueciSenha */
+<?php /* Template Name: RecuperarSenha */
 global $wpdb;
 
 $home = get_home_url();
