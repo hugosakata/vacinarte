@@ -5,9 +5,9 @@
     ini_set( 'display_errors', 1 );
     error_reporting( E_ALL );
     $from = "suporte@vacinarte-admin.com.br";
-    $to = "hugo_3wl@yahoo.com.br";
-    $subject = "Checking PHP mail";
-    $message = "PHP mail works just fine";
+    $to = "reidaltro@gmail.com";
+    $subject = "Teste recuperação de senha";
+    $message = "Seu código de segurança é: 589032";
     $headers = "From:" . $from;
     mail($to,$subject,$message, $headers);
     echo "The email message was sent.";
