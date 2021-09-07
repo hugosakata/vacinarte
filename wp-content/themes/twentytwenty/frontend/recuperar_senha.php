@@ -42,7 +42,7 @@
             <div id="div_email" style="margin-top: 200px;">
                 <div class="col-xs-offset-4 col-xs-4" >
                     <input type="text" id="to_mail" name="to_mail" class="form-control" placeholder="Digite seu email"
-                    value=""/>
+                    value="<?php echo $to_mail ?>"/>
                 </div>
             </div>
 
