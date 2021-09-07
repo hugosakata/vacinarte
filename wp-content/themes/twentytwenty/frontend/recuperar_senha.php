@@ -36,7 +36,7 @@
         
         <center><span class="help-block"><h4><?php echo $msg_err; ?></h4></span></center>
 
-        <form action="<?php echo $home; ?>/recuperarsenha/?<?php if (isset($acao) && $acao == "send_email") echo "acao=new_pass"; else "acao=send_email";?>" method="post" style="margin-top: -2vw;">
+        <form action="<?php echo $home; ?>/recuperarsenha/?<?php if (isset($acao) && $acao == "send_email") echo "acao=new_pass"; else echo "acao=send_email";?>" method="post" style="margin-top: -2vw;">
 
             <!-- etapa 1 -->
             <div id="div_email" style="margin-top: 200px;">
