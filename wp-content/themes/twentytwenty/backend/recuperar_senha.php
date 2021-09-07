@@ -10,5 +10,8 @@ if (isset($acao) && $acao == "send_email"){
         'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers);
+
+    echo "<script language='javascript' type='text/javascript'>
+        alert('email enviado');</script>";
 }
 ?>
