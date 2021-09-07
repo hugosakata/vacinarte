@@ -271,4 +271,8 @@
             AND `ATENDIMENTO`.`dt_atend` >= date(now())
         ORDER BY `cd_atend` DESC";
 
+    /***********RECUPERA SENHA*************/
+
+    $valida_codigo = "select count(id_log_usu) as total from LOG_USU where email='%s' and code=%d";
+
 ?>
