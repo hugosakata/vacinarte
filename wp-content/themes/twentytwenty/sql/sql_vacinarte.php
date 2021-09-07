@@ -273,6 +273,6 @@
 
     /***********RECUPERA SENHA*************/
 
-    $valida_codigo = "select count(id_log_usu) as total from LOG_USU where email='%s' and code=%d";
+    $valida_codigo = "select count(id_log_usu) as total from LOG_USU where email='%s' and code_password =%d";
 
 ?>
