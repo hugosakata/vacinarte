@@ -1,6 +1,6 @@
 <?php
 
-if (isset($acao) && $acao == "send_email"){
+//if (isset($acao) && $acao == "send_email"){
 
     ini_set( 'display_errors', 1 );
     error_reporting( E_ALL );
@@ -11,5 +11,5 @@ if (isset($acao) && $acao == "send_email"){
     $headers = "From:" . $from;
     mail($to,$subject,$message, $headers);
     echo "The email message was sent.";
-}
+//}
 ?>
