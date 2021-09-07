@@ -2,16 +2,14 @@
 
 if (isset($acao) && $acao == "send_email"){
 
-    $to      = 'hugo_3wl@yahoo.com.br';
-    $subject = 'teste recuperar senha';
-    $message = 'hello';
-    $headers = 'From: hugo_3wl@yahoo.com.br' . "\r\n" .
-        'Reply-To: hugo_3wl@yahoo.com.br' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-
-    mail($to, $subject, $message, $headers);
-
-    echo "<script language='javascript' type='text/javascript'>
-        alert('email enviado');</script>";
+    ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+    $from = "suporte@vacinarte-admin.com.br";
+    $to = "hugo_3wl@yahoo.com.br";
+    $subject = "Checking PHP mail";
+    $message = "PHP mail works just fine";
+    $headers = "From:" . $from;
+    mail($to,$subject,$message, $headers);
+    echo "The email message was sent.";
 }
 ?>
