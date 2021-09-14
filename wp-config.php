@@ -4,7 +4,7 @@ const PRODUCAO = 0;
 const DESENV = 1; 
 
 //SETAR AQUI QUAL O AMBIENTE
-$ambiente = PRODUCAO;
+$ambiente = DESENV;
 
 define('WP_CACHE', true);
 /**
